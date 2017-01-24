@@ -103,4 +103,4 @@ More or less, this is how Responsive osCommerce looks out of the box.
 
 Installation
 ============
-Install as if this is a new osCommerce installation!
+Install as if this is a new osCommerce installation.
