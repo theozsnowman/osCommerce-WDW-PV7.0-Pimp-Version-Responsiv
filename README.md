@@ -9,19 +9,19 @@ Already changed
 ===============
 - all Class files now full PHP7+ suitable
 - all MySQL querys now full MySQL 5.7 suitable
-- /install/oscommerce.sql change value of products_name varchar(64) to products_name varchar(128)
-- /install/templates/pages/install_4.php >>> some changes for to delete the install folder after finished
-- /install/templates/pages/install_4.php >>> change the chmod to 0444 for /admin/includes/configure.php and /includes/configure.php
-- /ext/bootstrap/css/bootstrap.css >>> better position for the asterisk in the input field
-- /ext/bootstrap/css/bootstrap.min.css >>> better position for the asterisk in the input field
-- /ext/bootstrap/css/bootstrap.css.map >>> better position for the asterisk in the input field
-- /ext/bootstrap/css/bootstrap.min.css.map >>> better position for the asterisk in the input field
-- /custom.css >>> add margin-top: 25px to the footer class
-- /includes/classes/message_stack.php >>> change function add to acivate the awesome fonts icons
-- /includes/functions/html_output.php >>> add function tep_draw_icon to acivate the awesome fonts icons
-- /admin/includes/header.php >>> Online Catalog link now open in new page 
-- /admin/includes/header.php >>> Support Site link now open in new page
-- /admin/includes/stylesheet.css >>> change the width of left column and the content
+- /catalog/install/oscommerce.sql change value of products_name varchar(64) to products_name varchar(128)
+- /catalog/install/templates/pages/install_4.php >>> some changes for to delete the install folder after finished
+- /catalog/install/templates/pages/install_4.php >>> change the chmod to 0444 for /admin/includes/configure.php and /includes/configure.php
+- /catalog/ext/bootstrap/css/bootstrap.css >>> better position for the asterisk in the input field
+- /catalog/ext/bootstrap/css/bootstrap.min.css >>> better position for the asterisk in the input field
+- /catalog/catalog/ext/bootstrap/css/bootstrap.css.map >>> better position for the asterisk in the input field
+- /catalog/ext/bootstrap/css/bootstrap.min.css.map >>> better position for the asterisk in the input field
+- /catalog/custom.css >>> add margin-top: 25px to the footer class
+- /catalog/includes/classes/message_stack.php >>> change function add to acivate the awesome fonts icons
+- /catalog/includes/functions/html_output.php >>> add function tep_draw_icon to acivate the awesome fonts icons
+- /catalog/admin/includes/header.php >>> Online Catalog link now open in new page 
+- /catalog/admin/includes/header.php >>> Support Site link now open in new page
+- /catalog/admin/includes/stylesheet.css >>> change the width of left column and the content
 
 Extensions included
 ===================
@@ -94,7 +94,7 @@ or this link:
 
 Minimum PHP Version
 ===================
-PHP7.0+. If you are on an older PHP version, you may find errors.  Update your PHP version.
+PHP7+ If you are on an older PHP version, you may find errors.  Update your PHP version.
 
 Demo Site
 =========
