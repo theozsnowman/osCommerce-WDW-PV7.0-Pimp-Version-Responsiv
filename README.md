@@ -94,7 +94,7 @@ or this link:
 
 Minimum PHP Version
 ===================
-PHP7.0+. If you are on an older PHP version, you may find errors.  Update your PHP version.
+PHP7+ If you are on an older PHP version, you may find errors.  Update your PHP version.
 
 Demo Site
 =========
