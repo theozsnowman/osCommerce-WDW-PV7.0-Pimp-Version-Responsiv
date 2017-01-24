@@ -15,7 +15,6 @@ Already changed
 - /catalog/ext/bootstrap/css/bootstrap.css >>> better position for the asterisk in the input field
 - /catalog/ext/bootstrap/css/bootstrap.min.css >>> better position for the asterisk in the input field
 - /catalog/catalog/ext/bootstrap/css/bootstrap.css.map >>> better position for the asterisk in the input field
-=======
 - /catalog/ext/bootstrap/css/bootstrap.css.map >>> better position for the asterisk in the input field
 - /catalog/ext/bootstrap/css/bootstrap.min.css.map >>> better position for the asterisk in the input field
 - /catalog/custom.css >>> add margin-top: 25px to the footer class
