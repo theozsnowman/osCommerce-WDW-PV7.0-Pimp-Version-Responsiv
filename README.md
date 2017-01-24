@@ -9,7 +9,7 @@ Already changed
 ===============
 - all Class files now full PHP7+ suitable
 - all MySQL querys now full MySQL 5.7 suitable
-- /install/oscommerce.sql change very value of products_name varchar(64) to products_name varchar(128)
+- /install/oscommerce.sql change value of products_name varchar(64) to products_name varchar(128)
 - /install/templates/pages/install_4.php >>> some changes for to delete the install folder after finished
 - /install/templates/pages/install_4.php >>> change the chmod to 0444 for /admin/includes/configure.php and /includes/configure.php
 - /ext/bootstrap/css/bootstrap.css >>> better position for the asterisk in the input field
