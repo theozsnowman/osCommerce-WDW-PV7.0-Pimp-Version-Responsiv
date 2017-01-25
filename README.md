@@ -2,8 +2,6 @@ osCommerce WDW-PV7.0 Pimp Version Responsiv
 ===========================================
 Based on osCommerce 2.3.4-Responsiv with Bootstrap
 ==================================================
-Not yet suitable for use in productive environment!
-===================================================
 
 Already changed
 ===============
