@@ -238,3 +238,10 @@
   require(DIR_FS_CATALOG . 'includes/classes/hooks.php');
   $OSCOM_Hooks = new hooks('admin');
   
+// modified 20160701 by webmaster@webdesign-wedel.de
+// WDW Functions
+// BOM
+	require('wdw/includes/configure.php');
+	require(DIR_FS_INCLUDES_WDW.'application_top.php');
+// EOM
+  

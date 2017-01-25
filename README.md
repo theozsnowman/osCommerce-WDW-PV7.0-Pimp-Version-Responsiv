@@ -23,6 +23,8 @@ Already changed
 
 Extensions included
 ===================
+- cKEditor >>> Product description editable with ckEditor
+- KCFinder >>> Image file uploder for cKEditor
 - Mailchimp Newsletter 2.02
 - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)
 
@@ -34,14 +36,11 @@ Planned core changes
 
 Planned Extensions
 ===================
-- cKEditor
-- KCFinder
 - New email Class RMail
 - Europe/German law suitable
 - All Europe languages
 - Product info (frontend) possibility of output as PDF-file
 - Show product picture with magnifying and more
-- Product description editable with ckEditor
 - Newsletter (admin) editable with ckEditor
 - Send email (admin) editable with ckEditor
 - Banner manager (admin) editable with ckEditor
