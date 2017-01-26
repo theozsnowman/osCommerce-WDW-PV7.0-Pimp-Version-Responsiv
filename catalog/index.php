@@ -229,7 +229,6 @@ if (tep_not_null($image['catdesc'])) {
 <div class="row">
   <?php echo $oscTemplate->getContent('index'); ?>
 </div>
-
 <?php
   }
 
