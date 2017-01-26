@@ -29,6 +29,7 @@ Extensions included
 - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)
 - Category New Products Carousel v1.4
 - Category Popular Products Carousel v1.3
+- Modular Category Page_v1.1 (Template modified to dropdown)
 
 Planned core changes
 ====================
