@@ -27,6 +27,8 @@ Extensions included
 - KCFinder >>> Image file uploder for cKEditor
 - Mailchimp Newsletter 2.02
 - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)
+- Category New Products Carousel v1.4
+- Category Popular Products Carousel v1.3
 
 Planned core changes
 ====================
