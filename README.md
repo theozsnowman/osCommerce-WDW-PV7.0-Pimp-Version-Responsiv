@@ -38,12 +38,6 @@ Extensions included
 - Category New Products Carousel v1.4
 - Category Popular Products Carousel v1.3
 
-Planned core changes
-====================
-- new path for product images
-- new path for categorie images
-- new path for manufactor images
-
 Planned Extensions
 ===================
 - New email Class RMail
