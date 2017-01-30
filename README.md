@@ -27,6 +27,7 @@ McMannehan modified stuff
 - Modular Category Page (Template modified to dropdown)
 - Modular Sub Category Page (Template modified to dropdown)
 - Modular Index Page (Template modified to dropdown)
+- Show value in % on a Special product on every content
 
 Extensions included
 ===================
