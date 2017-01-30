@@ -1,6 +1,7 @@
 osCommerce WDW-PV7.0 Pimp Version Responsiv
 ===========================================
-Based on osCommerce 2.3.4-Responsiv with Bootstrap -> https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01
+Based on osCommerce 2.3.4-Responsiv with Bootstrap
+https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01
 
 Already changed
 ===============
