@@ -22,7 +22,7 @@ Already changed
 - /catalog/admin/includes/header.php >>> Support Site link now open in new page
 - /catalog/admin/includes/stylesheet.css >>> change the width of left column and the content
 
-WDW modified stuff
+McMannehan modified stuff
 ===================
 - Modular Category Page (Template modified to dropdown)
 - Modular Sub Category Page (Template modified to dropdown)
