@@ -15,7 +15,7 @@ Already changed
 - /catalog/catalog/ext/bootstrap/css/bootstrap.css.map >>> better position for the asterisk in the input field
 - /catalog/ext/bootstrap/css/bootstrap.css.map >>> better position for the asterisk in the input field
 - /catalog/ext/bootstrap/css/bootstrap.min.css.map >>> better position for the asterisk in the input field
-- /catalog/custom.css >>> add margin-top: 25px to the footer class
+- /catalog/custom.css >>> add margin-bottom: 20px; to the #bodyContent id<br />
 - /catalog/includes/classes/message_stack.php >>> change function add to acivate the awesome fonts icons
 - /catalog/includes/functions/html_output.php >>> add function tep_draw_icon to acivate the awesome fonts icons
 - /catalog/admin/includes/header.php >>> Online Catalog link now open in new page 
