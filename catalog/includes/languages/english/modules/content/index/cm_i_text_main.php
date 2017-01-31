@@ -25,7 +25,7 @@
 
   Master Update 31. Jan. 2017<br />
   All new system settings and much more in the new /catalog/install/oscommerce.sql<br />
-  New path for product images, categorien and manufactures, same like osCommerce 3.0<br /><br />
+  New path for product images, categories and manufactures, same like osCommerce 3.0<br /><br />
   
 	Already changed<br />
 	- Some new icons for the admin area<br />
