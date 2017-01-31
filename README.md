@@ -3,8 +3,8 @@ osCommerce WDW-PV7.0 Pimp Version Responsiv
 Based on osCommerce 2.3.4-Responsiv with Bootstrap
 https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01
 
-- Don\'t forget all "filenames" and "folder\'s" are hardcoded.
-- btw: I like it, don\'t waste time for include more files.
+- Don\'t forget all "filenames" and "folder\'s" are hardcoded
+- btw: I like it, don\'t waste time for include more files
 
 - Master Update 31. Jan. 2017
 - All new system settings and much more in the new /catalog/install/oscommerce.sql
