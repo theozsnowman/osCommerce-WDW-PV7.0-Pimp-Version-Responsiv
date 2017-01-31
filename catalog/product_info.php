@@ -38,7 +38,7 @@
 
 <?php
   } else {
-    $product_info_query = tep_db_query("select p.products_id, pd.products_name, pd.products_description, p.products_model, p.products_quantity, p.products_image, pd.products_url, p.products_price, p.products_tax_class_id, p.products_date_added, p.products_date_available, p.manufacturers_id, p.products_gtin from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where p.products_status = '1' and p.products_id = '" . (int)$_GET['products_id'] . "' and pd.products_id = p.products_id and pd.language_id = '" . (int)$languages_id . "'");
+    $product_info_query = tep_db_query("select p.products_id, pd.products_name, pd.products_description, p.products_model, p.products_quantity, p.products_image, p.image_display, p.image_folder, pd.products_url, p.products_price, p.products_tax_class_id, p.products_date_added, p.products_date_available, p.manufacturers_id, p.products_gtin from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where p.products_status = '1' and p.products_id = '" . (int)$_GET['products_id'] . "' and pd.products_id = p.products_id and pd.language_id = '" . (int)$languages_id . "'");
     $product_info = tep_db_fetch_array($product_info_query);
 
     tep_db_query("update " . TABLE_PRODUCTS_DESCRIPTION . " set products_viewed = products_viewed+1 where products_id = '" . (int)$_GET['products_id'] . "' and language_id = '" . (int)$languages_id . "'");
@@ -97,9 +97,10 @@
   <div class="contentText">
 
 <?php
-    if (tep_not_null($product_info['products_image'])) {
-
-      echo tep_image('images/' . $product_info['products_image'], NULL, NULL, NULL, 'itemprop="image" style="display:none;"');
+    if ($product_info['image_display'] == 1) { // use "No Picture Available" image
+      echo tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5" style="float: right;"');
+    } elseif (($product_info['image_display'] != 2) && (tep_not_null($product_info['products_image']))) { // show product images
+      echo tep_image(DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image'], NULL, NULL, NULL, 'itemprop="image" style="display:none;"');
 
       $photoset_layout = (int)MODULE_HEADER_TAGS_PRODUCT_COLORBOX_LAYOUT;
 
@@ -122,7 +123,7 @@
             $pi_html[] = '<div id="piGalDiv_' . $pi_counter . '">' . $pi['htmlcontent'] . '</div>';
           }
 
-          echo tep_image('images/' . $pi['image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"');
+          echo tep_image(DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $pi['image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"');
         }
 ?>
 
@@ -136,7 +137,7 @@
 ?>
 
     <div class="piGal pull-right">
-      <?php echo tep_image('images/' . $product_info['products_image'], addslashes($product_info['products_name'])); ?>
+      <?php echo tep_image(DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image'], addslashes($product_info['products_name'])); ?>
     </div>
 
 <?php

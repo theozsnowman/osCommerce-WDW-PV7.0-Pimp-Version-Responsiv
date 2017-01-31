@@ -77,9 +77,15 @@
 <?php
     $products_name = NULL;
     for ($i=0, $n=sizeof($products); $i<$n; $i++) {
+    	$image = '';
+      if ($products[$i]['image_display'] == 1) {
+        $image = tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+      } elseif (($products[$i]['image_display'] != 2) && tep_not_null($products[$i]['image'])) {
+        $image = tep_image(DIR_WS_IMAGES_THUMBS . $products[$i]['image_folder'] . $products[$i]['image'], $products[$i]['name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+      }
       $products_name .= '<tr>';
 
-      $products_name .= '  <td valign="top" align="center"><a href="' . tep_href_link('product_info.php', 'products_id=' . $products[$i]['id']) . '">' . tep_image('images/' . $products[$i]['image'], $products[$i]['name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a></td>' .
+      $products_name .= '  <td valign="top" align="center"><a href="' . tep_href_link('product_info.php', 'products_id=' . $products[$i]['id']) . '">' . $image . '</a></td>' .
                         '  <td valign="top"><a href="' . tep_href_link('product_info.php', 'products_id=' . $products[$i]['id']) . '"><strong>' . $products[$i]['name'] . '</strong></a>';
 
       if (STOCK_CHECK == 'true') {

@@ -26,7 +26,7 @@
 <div class="contentContainer">
 
 <?php
-  $reviews_query_raw = "select r.reviews_id, SUBSTRING_INDEX(rd.reviews_text, ' ', 20) as reviews_text, r.reviews_rating, r.date_added, p.products_id, pd.products_name, p.products_image, r.customers_name from " . TABLE_REVIEWS . " r, " . TABLE_REVIEWS_DESCRIPTION . " rd, " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where p.products_status = '1' and p.products_id = r.products_id and r.reviews_id = rd.reviews_id and p.products_id = pd.products_id and pd.language_id = '" . (int)$languages_id . "' and rd.languages_id = '" . (int)$languages_id . "' and reviews_status = 1 order by r.reviews_rating DESC";
+  $reviews_query_raw = "select r.reviews_id, SUBSTRING_INDEX(rd.reviews_text, ' ', 20) as reviews_text, r.reviews_rating, r.date_added, p.products_id, pd.products_name, p.products_image, p.image_folder, p.image_display, r.customers_name from " . TABLE_REVIEWS . " r, " . TABLE_REVIEWS_DESCRIPTION . " rd, " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where p.products_status = '1' and p.products_id = r.products_id and r.reviews_id = rd.reviews_id and p.products_id = pd.products_id and pd.language_id = '" . (int)$languages_id . "' and rd.languages_id = '" . (int)$languages_id . "' and reviews_status = 1 order by r.reviews_rating DESC";
   $reviews_split = new splitPageResults($reviews_query_raw, MAX_DISPLAY_NEW_REVIEWS);
 
   if ($reviews_split->number_of_rows > 0) {
@@ -49,8 +49,16 @@
 <?php
     $reviews_query = tep_db_query($reviews_split->sql_query);
     while ($reviews = tep_db_fetch_array($reviews_query)) {
+    	
+    	$image = '';
+    	if ($reviews['image_display'] == 1) {
+    		$image = tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+    	} elseif (($reviews['image_display'] != 2) && tep_not_null($reviews['products_image'])) {
+    		$image = tep_image(DIR_WS_IMAGES_THUMBS . $reviews['image_folder'] . tep_output_string_protected($reviews['products_image']), tep_output_string_protected($reviews['products_name']), SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+    	}
+    	
       echo '<blockquote class="col-sm-6">';
-      echo '  <p><span class="pull-left">' . tep_image('images/' . tep_output_string_protected($reviews['products_image']), tep_output_string_protected($reviews['products_name']), SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</span>' . tep_output_string_protected($reviews['reviews_text']) . ' ... </p><div class="clearfix"></div>';
+      echo '  <p><span class="pull-left">' . $image . '</span>' . tep_output_string_protected($reviews['reviews_text']) . ' ... </p><div class="clearfix"></div>';
       $reviews_name = tep_output_string_protected($reviews['customers_name']);
       echo '  <footer>' . sprintf(REVIEWS_TEXT_RATED, tep_draw_stars($reviews['reviews_rating']), $reviews_name, $reviews_name) . ' <a href="' . tep_href_link('product_reviews.php', 'products_id=' . (int)$reviews['products_id']) . '"><span class="pull-right label label-info">' . REVIEWS_TEXT_READ_MORE . '</span></a></footer>';
       echo '</blockquote>';

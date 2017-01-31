@@ -149,3 +149,13 @@ FORM { display: inline; }
 .tdbLink a { }
 
 .tdbLink button { }
+
+#piGal {
+  float: right;
+  width: 250px;
+}
+
+#piGal img {
+  max-width: 250px;
+  height: auto;
+}

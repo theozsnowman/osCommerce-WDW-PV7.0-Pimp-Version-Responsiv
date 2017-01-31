@@ -37,14 +37,49 @@
 
           tep_db_perform(TABLE_MANUFACTURERS, $sql_data_array, 'update', "manufacturers_id = '" . (int)$manufacturers_id . "'");
         }
-
+        
+        /* 
+        // original code
         $manufacturers_image = new upload('manufacturers_image');
         $manufacturers_image->set_destination(DIR_FS_CATALOG_IMAGES);
 
         if ($manufacturers_image->parse() && $manufacturers_image->save()) {
           tep_db_query("update " . TABLE_MANUFACTURERS . " set manufacturers_image = '" . tep_db_input($manufacturers_image->filename) . "' where manufacturers_id = '" . (int)$manufacturers_id . "'");
         }
-
+				*/
+				$manufacturers_image = new upload('manufacturers_image');
+        $webimgtypes = array ('jpg', 'jpeg', 'gif', 'png');
+        $manufacturers_image->set_extensions($webimgtypes);
+        $manufacturers_image->set_destination(DIR_FS_CATALOG_IMAGES_TEMP);
+        $manufacturers_image->set_output_messages('session');
+        $manufacturers_image->set_no_file_warning(true);
+        if ($manufacturers_image->parse() && $manufacturers_image->save()) {
+          $source = DIR_FS_CATALOG_IMAGES_TEMP . $manufacturers_image->filename;
+          if ($ext = tep_get_web_image_type($source)) {
+            if ($ext != false) {
+              $new_file_name = 'mfg' . $manufacturers_id . '.' . $ext;
+              $dest = DIR_FS_CATALOG_IMAGES_ORIG . $new_file_name;
+              $success = (tep_create_thumbnail($source, $dest, MAX_ORIGINAL_IMAGE_WIDTH, MAX_ORIGINAL_IMAGE_HEIGHT) >= 0); // save unpadded original image
+              if ($success) {
+                $messageStack->add_session(TEXT_ORIGINAL_SUCCESS, 'success');
+              } else {
+                $messageStack->add_session(TEXT_ORIGINAL_FAILURE, 'error');
+              }
+              $dest = DIR_FS_CATALOG_IMAGES_MFG . $new_file_name;
+              $success = (tep_create_thumbnail($source, $dest, SUBCATEGORY_IMAGE_WIDTH, SUBCATEGORY_IMAGE_HEIGHT, true) >= 0); // create padded thumbnail image
+              if ($success) {
+                tep_db_query("update " . TABLE_MANUFACTURERS . " set manufacturers_image = '" . tep_db_input($new_file_name) . "' where manufacturers_id = '" . (int)$manufacturers_id . "'");
+                $messageStack->add_session(TEXT_THUMBNAIL_SUCCESS, 'success');
+              } else {
+                $messageStack->add_session(TEXT_THUMBNAIL_FAILURE, 'error');
+              }
+            } else {
+              $messageStack->add_session(ERROR_FILE_NOT_SAVED, 'error');
+            }
+          }
+          @unlink($source); // remove temporary file
+        }
+        
         $languages = tep_get_languages();
         for ($i=0, $n=sizeof($languages); $i<$n; $i++) {
           $manufacturers_url_array = $HTTP_POST_VARS['manufacturers_url'];
@@ -84,10 +119,23 @@
         if (isset($HTTP_POST_VARS['delete_image']) && ($HTTP_POST_VARS['delete_image'] == 'on')) {
           $manufacturer_query = tep_db_query("select manufacturers_image from " . TABLE_MANUFACTURERS . " where manufacturers_id = '" . (int)$manufacturers_id . "'");
           $manufacturer = tep_db_fetch_array($manufacturer_query);
-
+					
+					/*
+					// original code	
           $image_location = DIR_FS_DOCUMENT_ROOT . DIR_WS_CATALOG_IMAGES . $manufacturer['manufacturers_image'];
-
           if (file_exists($image_location)) @unlink($image_location);
+          */
+          if (tep_not_null($manufacturer['manufacturers_image'])) {
+            $image_location = DIR_FS_CATALOG_IMAGES_MFG . $manufacturer['manufacturers_image'];
+            if (file_exists($image_location))
+              if (!unlink($image_location))
+                $messageStack->add_session(sprintf(ERROR_FILE_NOT_REMOVED, $image_location), 'error');
+            $image_location = DIR_FS_CATALOG_IMAGES_ORIG . $manufacturer['manufacturers_image'];
+            
+            if (file_exists($image_location))
+              if (!unlink($image_location))
+                $messageStack->add_session(sprintf(ERROR_FILE_NOT_REMOVED, $image_location), 'error');
+          }
         }
 
         tep_db_query("delete from " . TABLE_MANUFACTURERS . " where manufacturers_id = '" . (int)$manufacturers_id . "'");
@@ -191,7 +239,9 @@
 
       $languages = tep_get_languages();
       for ($i=0, $n=sizeof($languages); $i<$n; $i++) {
-        $manufacturer_inputs_string .= '<br />' . tep_image(tep_catalog_href_link('includes/languages/' . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], '', 'SSL'), $languages[$i]['name']) . '&nbsp;' . tep_draw_input_field('manufacturers_url[' . $languages[$i]['id'] . ']');
+        // original code
+        //$manufacturer_inputs_string .= '<br />' . tep_image(tep_catalog_href_link('includes/languages/' . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], '', 'SSL'), $languages[$i]['name']) . '&nbsp;' . tep_draw_input_field('manufacturers_url[' . $languages[$i]['id'] . ']');
+        $manufacturer_inputs_string .= '<br />' . tep_catalog_image('includes/languages/' . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], $languages[$i]['name']) . '&nbsp;' . tep_draw_input_field('manufacturers_url[' . $languages[$i]['id'] . ']', tep_get_manufacturer_url($mInfo->manufacturers_id, $languages[$i]['id']));
         $manufacturer_description_string .= '<br />' . tep_image(tep_catalog_href_link('includes/languages/' . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], '', 'SSL'), $languages[$i]['name'], '', '', 'style="vertical-align: top;"') . '&nbsp;' . tep_draw_textarea_field('manufacturers_description[' . $languages[$i]['id'] . ']', 'soft', '80', '10');
         $manufacturer_seo_description_string .= '<br />' . tep_image(tep_catalog_href_link('includes/languages/' . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], '', 'SSL'), $languages[$i]['name'], '', '', 'style="vertical-align: top;"') . '&nbsp;' . tep_draw_textarea_field('manufacturers_seo_description[' . $languages[$i]['id'] . ']', 'soft', '80', '10');
         $manufacturer_seo_keywords_string .= '<br />' . tep_image(tep_catalog_href_link('includes/languages/' . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], '', 'SSL'), $languages[$i]['name']) . '&nbsp;' . tep_draw_input_field('manufacturers_seo_keywords[' . $languages[$i]['id'] . ']', NULL, 'style="width: 300px;" placeholder="' . PLACEHOLDER_COMMA_SEPARATION . '"');
@@ -216,7 +266,9 @@
       $manufacturer_inputs_string = $manufacturer_description_string = $manufacturer_seo_description_string = $manufacturer_seo_keywords_string = $manufacturer_seo_title_string = '';
       $languages = tep_get_languages();
       for ($i=0, $n=sizeof($languages); $i<$n; $i++) {
-        $manufacturer_inputs_string .= '<br />' . tep_image(tep_catalog_href_link('includes/languages/' . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], '', 'SSL'), $languages[$i]['name']) . '&nbsp;' . tep_draw_input_field('manufacturers_url[' . $languages[$i]['id'] . ']', tep_get_manufacturer_url($mInfo->manufacturers_id, $languages[$i]['id']));
+        // original code
+        //$manufacturer_inputs_string .= '<br />' . tep_image(tep_catalog_href_link('includes/languages/' . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], '', 'SSL'), $languages[$i]['name']) . '&nbsp;' . tep_draw_input_field('manufacturers_url[' . $languages[$i]['id'] . ']', tep_get_manufacturer_url($mInfo->manufacturers_id, $languages[$i]['id']));
+        $manufacturer_inputs_string .= '<br />' . tep_catalog_image('includes/languages/' . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], $languages[$i]['name']) . '&nbsp;' . tep_draw_input_field('manufacturers_url[' . $languages[$i]['id'] . ']');
         $manufacturer_seo_title_string .= '<br />' . tep_image(tep_catalog_href_link('includes/languages/' . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], '', 'SSL'), $languages[$i]['name']) . '&nbsp;' . tep_draw_input_field('manufacturers_seo_title[' . $languages[$i]['id'] . ']', tep_get_manufacturer_seo_title($mInfo->manufacturers_id, $languages[$i]['id']));
         $manufacturer_description_string .= '<br />' . tep_image(tep_catalog_href_link('includes/languages/' . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], '', 'SSL'), $languages[$i]['name'], '', '', 'style="vertical-align: top;"') . '&nbsp;' . tep_draw_textarea_field('manufacturers_description[' . $languages[$i]['id'] . ']', 'soft', '80', '10', tep_get_manufacturer_description($mInfo->manufacturers_id, $languages[$i]['id']));
         $manufacturer_seo_description_string .= '<br />' . tep_image(tep_catalog_href_link('includes/languages/' . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], '', 'SSL'), $languages[$i]['name'], '', '', 'style="vertical-align: top;"') . '&nbsp;' . tep_draw_textarea_field('manufacturers_seo_description[' . $languages[$i]['id'] . ']', 'soft', '80', '10', tep_get_manufacturer_seo_description($mInfo->manufacturers_id, $languages[$i]['id']));
@@ -252,7 +304,10 @@
         $contents[] = array('align' => 'center', 'text' => tep_draw_button(IMAGE_EDIT, 'document', tep_href_link('manufacturers.php', 'page=' . $HTTP_GET_VARS['page'] . '&mID=' . $mInfo->manufacturers_id . '&action=edit')) . tep_draw_button(IMAGE_DELETE, 'trash', tep_href_link('manufacturers.php', 'page=' . $HTTP_GET_VARS['page'] . '&mID=' . $mInfo->manufacturers_id . '&action=delete')));
         $contents[] = array('text' => '<br />' . TEXT_DATE_ADDED . ' ' . tep_date_short($mInfo->date_added));
         if (tep_not_null($mInfo->last_modified)) $contents[] = array('text' => TEXT_LAST_MODIFIED . ' ' . tep_date_short($mInfo->last_modified));
-        $contents[] = array('text' => '<br />' . tep_info_image($mInfo->manufacturers_image, $mInfo->manufacturers_name));
+        
+        // original code 
+        //$contents[] = array('text' => '<br />' . tep_info_image($mInfo->manufacturers_image, $mInfo->manufacturers_name));
+        $contents[] = array('text' => '<br />' . tep_info_image(substr(DIR_WS_CATALOG_IMAGES_MFG, strlen(DIR_WS_CATALOG_IMAGES)) . $mInfo->manufacturers_image, $mInfo->manufacturers_name));
         $contents[] = array('text' => '<br />' . TEXT_PRODUCTS . ' ' . $mInfo->products_count);
       }
       break;

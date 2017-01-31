@@ -53,6 +53,11 @@
   <div class="row">
     <?php echo $oscTemplate->getContent('index_nested'); ?>
   </div>
+  
+  <div class="row">
+  	<?php echo $oscTemplate->getContent('category'); ?>
+	</div>
+  
 </div>
 
 <?php
@@ -92,7 +97,9 @@
           $select_column_list .= 'p.products_quantity, ';
           break;
         case 'PRODUCT_LIST_IMAGE':
-          $select_column_list .= 'p.products_image, ';
+          // original code
+          //$select_column_list .= 'p.products_image, ';
+          $select_column_list .= 'p.products_image, p.image_folder, p.image_display, ';
           break;
         case 'PRODUCT_LIST_WEIGHT':
           $select_column_list .= 'p.products_weight, ';
@@ -173,6 +180,10 @@
   <h1><?php echo $catname; ?></h1>
 </div>
 
+<div class="row">
+	<?php echo $oscTemplate->getContent('category'); ?>
+</div>
+	
 <?php
 if (tep_not_null($image['catdesc'])) {
   echo '<div class="well well-sm">' . $image['catdesc'] . '</div>';
@@ -229,6 +240,11 @@ if (tep_not_null($image['catdesc'])) {
 <div class="row">
   <?php echo $oscTemplate->getContent('index'); ?>
 </div>
+
+<div class="row">
+  <?php echo $oscTemplate->getContent('category'); ?>
+</div>
+
 <?php
   }
 

@@ -108,12 +108,20 @@
   while ($listing = tep_db_fetch_array($listing_query)) {
     $prod_list_contents .= '<div class="item list-group-item col-sm-4" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product">';
 	  $prod_list_contents .= '  <div class="productHolder equal-height">';
-    
+
     if (PRODUCT_LIST_IMAGE > 0) {
+    	
+    	$image = '';
+      if ($listing['image_display'] == 1) {
+       	$image = tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+      } elseif (($listing['image_display'] != 2) && tep_not_null($listing['products_image'])) {
+      	$image = tep_image(DIR_WS_IMAGES_THUMBS . $listing['image_folder'] . $listing['products_image'], $listing['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"', NULL, 'img-responsive thumbnail group list-group-image');
+      }
+      
       if (isset($_GET['manufacturers_id'])  && tep_not_null($_GET['manufacturers_id'])) {
-        $prod_list_contents .= '    <a href="' . tep_href_link('product_info.php', 'manufacturers_id=' . $_GET['manufacturers_id'] . '&products_id=' . $listing['products_id']) . '">' . tep_image('images/' . $listing['products_image'], $listing['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"', NULL, 'img-responsive thumbnail group list-group-image') . '</a>';
+        $prod_list_contents .= '    <a href="' . tep_href_link('product_info.php', 'manufacturers_id=' . $_GET['manufacturers_id'] . '&products_id=' . $listing['products_id']) . '">' . $image . '</a>';
       } else {
-        $prod_list_contents .= '    <a href="' . tep_href_link('product_info.php', (isset($sort) ? 'sort=' . $sort . '&' : '') . ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $listing['products_id']) . '">' . tep_image('images/' . $listing['products_image'], $listing['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"', NULL, 'img-responsive thumbnail group list-group-image') . '</a>';
+        $prod_list_contents .= '    <a href="' . tep_href_link('product_info.php', (isset($sort) ? 'sort=' . $sort . '&' : '') . ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $listing['products_id']) . '">' . $image . '</a>';
       }
     }
     

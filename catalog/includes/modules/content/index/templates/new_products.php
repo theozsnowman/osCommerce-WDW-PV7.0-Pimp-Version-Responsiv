@@ -18,10 +18,18 @@
     <meta itemprop="numberOfItems" content="<?php echo (int)$num_new_products; ?>" />
     <?php 
     while ($new_products = tep_db_fetch_array($new_products_query)) {
-      ?>
+    	
+    	$image = '';
+    	if ($new_products['image_display'] == 1) {
+    		$image = tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+    	} elseif (($new_products['image_display'] != 2) && tep_not_null($new_products['products_image'])) {
+    		$image = tep_image(DIR_WS_IMAGES_THUMBS . $new_products['image_folder'] . $new_products['products_image'], $new_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"');
+    	}
+		?>
+		
     <div class="col-sm-<?php echo $product_width; ?>" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product">
       <div class="thumbnail equal-height">
-        <a href="<?php echo tep_href_link('product_info.php', 'products_id=' . (int)$new_products['products_id']); ?>"><?php echo tep_image('images/' . $new_products['products_image'], $new_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"'); ?></a>
+        <a href="<?php echo tep_href_link('product_info.php', 'products_id=' . (int)$new_products['products_id']); ?>"><?php echo $image; ?></a>
         <div class="caption">
           <p class="text-center"><a itemprop="url" href="<?php echo tep_href_link('product_info.php', 'products_id=' . (int)$new_products['products_id']); ?>"><span itemprop="name"><?php echo $new_products['products_name']; ?></span></a></p>
           <hr>

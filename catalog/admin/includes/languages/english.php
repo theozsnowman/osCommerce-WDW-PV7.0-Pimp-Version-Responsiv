@@ -306,3 +306,25 @@ define('MODULE_CONTENT_BOOTSTRAP_ROW_DESCRIPTION', '<p>Content Width can be 12 o
 
 // seo helper
 define('PLACEHOLDER_COMMA_SEPARATION', 'Must, Be, Comma, Separated');
+
+define('BOX_CATALOG_CATEGORIES_PRODUCTS_MULTI', 'Multi Products Manager');
+
+define('TEXT_NO_PICTURE', 'No Picture Available');
+
+define('BOX_CATALOG_IMAGE_MANAGE', 'Manage Images');
+define('ERROR_DIRECTORY_NOT_REMOVED', 'Error: I cannot remove this directory. You will need to manually delete: %s');
+define('ERROR_FILE_NOT_REMOVED', 'Error: I cannot remove this file. You will need to manually delete: %s');
+define('ERROR_FILE_ILLEGAL_CHAR', 'Illegal character in file name! <strong>%s</strong> are not allowed in internet file names!');
+$file_upload_errors = array();
+$file_upload_errors[UPLOAD_ERR_OK] = "No errors, file successfully uploaded.";
+$file_upload_errors[UPLOAD_ERR_INI_SIZE] = "Larger than upload_max_filesize setting.";
+$file_upload_errors[UPLOAD_ERR_FORM_SIZE] = "Larger than form MAX_FILE_SIZE setting.";
+$file_upload_errors[UPLOAD_ERR_PARTIAL] = "Only partially uploaded.";
+$file_upload_errors[UPLOAD_ERR_NO_FILE] = "No file was uploaded.";
+$file_upload_errors[UPLOAD_ERR_NO_TMP_DIR] = "No temporary directory. upload_tmp_dir needs to be set.";
+$file_upload_errors[UPLOAD_ERR_CANT_WRITE] = "Can't write to disk.";
+$file_upload_errors[UPLOAD_ERR_EXTENSION] = "File upload stopped by PHP extension.";
+define('TEXT_THUMBNAIL_SUCCESS', 'The thumbnail image was successfully created.');
+define('TEXT_THUMBNAIL_FAILURE', 'Error: The thumbnail image could not be created! ');
+define('TEXT_ORIGINAL_SUCCESS', 'The original image was successfully transferred to the original images folder.');
+define('TEXT_ORIGINAL_FAILURE', 'Error: The original image could not be transferred to the original images folder. ');

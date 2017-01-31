@@ -269,7 +269,9 @@
 
   function tep_info_image($image, $alt, $width = '', $height = '') {
     if (tep_not_null($image) && (file_exists(DIR_FS_CATALOG_IMAGES . $image)) ) {
-      $image = tep_image(HTTP_CATALOG_SERVER . DIR_WS_CATALOG_IMAGES . $image, $alt, $width, $height);
+      // original code
+      //$image = tep_image(HTTP_CATALOG_SERVER . DIR_WS_CATALOG_IMAGES . $image, $alt, $width, $height);
+      $image = tep_catalog_image(HTTP_CATALOG_SERVER . DIR_WS_CATALOG_IMAGES . $image, $alt, $width, $height);      
     } else {
       $image = TEXT_IMAGE_NONEXISTENT;
     }
@@ -932,15 +934,29 @@
   }
 
   function tep_remove_category($category_id) {
+  	global $messageStack;
     $category_image_query = tep_db_query("select categories_image from " . TABLE_CATEGORIES . " where categories_id = '" . (int)$category_id . "'");
     $category_image = tep_db_fetch_array($category_image_query);
 
     $duplicate_image_query = tep_db_query("select count(*) as total from " . TABLE_CATEGORIES . " where categories_image = '" . tep_db_input($category_image['categories_image']) . "'");
     $duplicate_image = tep_db_fetch_array($duplicate_image_query);
-
+    
+    /*
+    // original code 
     if ($duplicate_image['total'] < 2) {
       if (file_exists(DIR_FS_CATALOG_IMAGES . $category_image['categories_image'])) {
         @unlink(DIR_FS_CATALOG_IMAGES . $category_image['categories_image']);
+      }
+    }
+    */
+    if (($duplicate_image['total'] < 2) && tep_not_null($category_image['categories_image'])) {
+      if (file_exists(DIR_FS_CATALOG_IMAGES_CAT . $category_image['categories_image'])) {
+        if (!unlink(DIR_FS_CATALOG_IMAGES_CAT . $category_image['categories_image']))
+          $messageStack->add_session(sprintf(ERROR_FILE_NOT_REMOVED, DIR_FS_CATALOG_IMAGES_CAT . $category_image['categories_image']), 'error');
+      }
+      if (file_exists(DIR_FS_CATALOG_IMAGES_ORIG . $category_image['categories_image'])) {
+        if (!unlink(DIR_FS_CATALOG_IMAGES_ORIG . $category_image['categories_image']))
+          $messageStack->add_session(sprintf(ERROR_FILE_NOT_REMOVED, DIR_FS_CATALOG_IMAGES_ORIG . $category_image['categories_image']), 'error');
       }
     }
 
@@ -955,6 +971,10 @@
   }
 
   function tep_remove_product($product_id) {
+  	global $messageStack;
+/*
+// original code
+
     $product_image_query = tep_db_query("select products_image from " . TABLE_PRODUCTS . " where products_id = '" . (int)$product_id . "'");
     $product_image = tep_db_fetch_array($product_image_query);
 
@@ -982,7 +1002,42 @@
 
       tep_db_query("delete from " . TABLE_PRODUCTS_IMAGES . " where products_id = '" . (int)$product_id . "'");
     }
+*/
+		$product_image_query = tep_db_query("select products_image, image_folder from " . TABLE_PRODUCTS . " where products_id = '" . (int)$product_id . "'");
+    $product_image = tep_db_fetch_array($product_image_query);
 
+    if ($handle = opendir(DIR_FS_CATALOG_IMAGES_THUMBS . $product_image['image_folder'])) {
+      while ($file = readdir($handle)) { // delete all thumbnails
+        if (is_file(DIR_FS_CATALOG_IMAGES_THUMBS . $product_image['image_folder'] . $file)) 
+          if(!unlink(DIR_FS_CATALOG_IMAGES_THUMBS . $product_image['image_folder'] . $file)) 
+            $messageStack->add_session(sprintf(ERROR_FILE_NOT_REMOVED, DIR_FS_CATALOG_IMAGES_THUMBS . $product_image['image_folder'] . $file), 'error');;
+      }
+      closedir($handle);
+    }
+    if (!rmdir(DIR_FS_CATALOG_IMAGES_THUMBS . $product_image['image_folder']))
+      $messageStack->add_session(sprintf(ERROR_DIRECTORY_NOT_REMOVED, DIR_FS_CATALOG_IMAGES_THUMBS . $product_image['image_folder']), 'error');
+    if ($handle = opendir(DIR_FS_CATALOG_IMAGES_PROD . $product_image['image_folder'])) {
+      while ($file = readdir($handle)) { // delete all large images
+        if (is_file(DIR_FS_CATALOG_IMAGES_PROD . $product_image['image_folder'] . $file)) 
+          if (!unlink(DIR_FS_CATALOG_IMAGES_PROD . $product_image['image_folder'] . $file))
+            $messageStack->add_session(sprintf(ERROR_FILE_NOT_REMOVED, DIR_FS_CATALOG_IMAGES_PROD . $product_image['image_folder'] . $file), 'error');;
+      }
+      closedir($handle);
+    }
+    if (!rmdir(DIR_FS_CATALOG_IMAGES_PROD . $product_image['image_folder']))
+      $messageStack->add_session(sprintf(ERROR_DIRECTORY_NOT_REMOVED, DIR_FS_CATALOG_IMAGES_PROD . $product_image['image_folder']), 'error');
+    if ($handle = opendir(DIR_FS_CATALOG_IMAGES_ORIG . $product_image['image_folder'])) {
+      while ($file = readdir($handle)) { // delete all original images
+        if (is_file(DIR_FS_CATALOG_IMAGES_ORIG . $product_image['image_folder'] . $file)) 
+          if (!unlink(DIR_FS_CATALOG_IMAGES_ORIG . $product_image['image_folder'] . $file))
+            $messageStack->add_session(sprintf(ERROR_FILE_NOT_REMOVED, DIR_FS_CATALOG_IMAGES_ORIG . $product_image['image_folder'] . $file), 'error');;
+      }
+      closedir($handle);
+    }
+    if (!rmdir(DIR_FS_CATALOG_IMAGES_ORIG . $product_image['image_folder']))
+      $messageStack->add_session(sprintf(ERROR_DIRECTORY_NOT_REMOVED, DIR_FS_CATALOG_IMAGES_ORIG . $product_image['image_folder']), 'error');
+      
+    tep_db_query("delete from " . TABLE_PRODUCTS_IMAGES . " where products_id = '" . (int)$product_id . "'");
     tep_db_query("delete from " . TABLE_SPECIALS . " where products_id = '" . (int)$product_id . "'");
     tep_db_query("delete from " . TABLE_PRODUCTS . " where products_id = '" . (int)$product_id . "'");
     tep_db_query("delete from " . TABLE_PRODUCTS_TO_CATEGORIES . " where products_id = '" . (int)$product_id . "'");
@@ -1606,5 +1661,354 @@
 
     return $select_string;
   }
- 
+
+// Multiple Products Manager
+  function tep_array_merge($array1, $array2, $array3 = '') {
+    if ($array3 == '') $array3 = array();
+    if (function_exists('array_merge')) {
+      $array_merged = array_merge($array1, $array2, $array3);
+    } else {
+      while (list($key, $val) = each($array1)) $array_merged[$key] = $val;
+      while (list($key, $val) = each($array2)) $array_merged[$key] = $val;
+      if (sizeof($array3) > 0) while (list($key, $val) = each($array3)) $array_merged[$key] = $val;
+    }
+
+    return (array) $array_merged;
+  }
+
+  function tep_get_parent_cat($categ_id = '') {
+    global $current_category_id;
+	    
+	$parent_category_query = tep_db_query("select parent_id from " . TABLE_CATEGORIES . " where categories_id = '" . (int)$categ_id . "'");
+	$parent_category = tep_db_fetch_array($parent_category_query);
+   
+   	$categ = $parent_category['parent_id'];
+	  
+    return $categ;
+  }
+    
+// returns the type of image file
+  function tep_get_web_image_type($image_file) {
+    if ($img = getimagesize($image_file)) {
+      switch ($img[2]) {
+        case IMAGETYPE_JPEG:
+          return 'jpg';
+          break;
+        case IMAGETYPE_GIF:
+          return 'gif';
+          break;
+        case IMAGETYPE_PNG:
+          return 'png';
+          break;
+      }
+    }
+    return false;
+  }
   
+// image thumbnail creator - image resizer
+  function tep_create_thumbnail($source, $dest, $max_width, $max_height, $pad = false) {
+    // values to try for image permissions in order: 0644, 0664, 0666, 0744, 0764, 0766, 0774, 0776, 0777
+    $file_permissions = 0644; // change this value to the lowest that will allow loaded images to show on your web site
+    if (!is_numeric($max_width) || !is_numeric($max_height) || ($max_width < 1) || ($max_height < 1)) return -3; // invalid parameters
+    list($orig_width, $orig_height, $type) = getimagesize($source);
+    if ($orig_width == '') return -1; // invalid image, could not load
+    $img_type = 'invalid';
+    switch ($type) {
+      case IMAGETYPE_JPEG:
+        if (imagetypes() & IMG_JPG) {
+          $img_type = 'jpg';
+        }
+        break;
+      case IMAGETYPE_GIF:
+        if (imagetypes() & IMG_GIF) {
+          $img_type = 'gif';
+        }
+        break;
+      case IMAGETYPE_PNG:
+        if (imagetypes() & IMG_PNG) {
+          $img_type = 'png';
+        }
+        break;
+    }
+    if ($img_type == 'invalid') return -2; // invalid image, not a valid web type or not usable
+    $path = substr($dest, 0, strrpos($dest, DIRECTORY_SEPARATOR)); // get path portion of destination name
+    if (($path != '') && (!is_dir($path) || !tep_is_writable($path))) if (!tep_create_writable_directory($path)) return -7; // failed to create writable destination for file
+    if ( (($orig_width == $max_width) && ($orig_height == $max_height)) || (!$pad && ($orig_width <= $max_width) && ($orig_height <= $max_height)) ) // image does not need to be resized
+      if ($source == $dest) { // skip if resize and copy not needed
+        return 0;
+      } else { // just copy the file
+        $success = copy($source, $dest);
+        if ($success) {
+          @chmod($dest, $file_permissions);
+          return 1;
+        } else {
+          return -4; // thumbnail write failed
+        }
+      }
+    if (($orig_width <= $max_width) && ($orig_height <= $max_height)) { // same size but needs padding
+      $height = $orig_height;
+      $width = $orig_width;
+    } else {
+      $height = $max_height;
+      $width = $max_width;
+      $new_ratio = $height / $width;
+      $image_ratio = $orig_height / $orig_width;
+      if ($new_ratio >= $image_ratio)	{
+        $height = intval($orig_height * $width / $orig_width);
+      } else {
+        $width = intval($orig_width * $height / $orig_height);
+      }
+    }
+    switch ($img_type) {
+      case 'jpg':
+        $im = imagecreatefromjpeg($source);
+        break;
+      case 'gif':
+        $im = imagecreatefromgif($source);
+        break;
+      case 'png':
+        $im = imagecreatefrompng($source);
+        break;
+    }
+    if ($im === false) return -5; // unable to create image from file
+    if ($pad) {
+      // make the new image the exact specified new size
+      if (imageistruecolor($im)) {
+        $im_p = imagecreatetruecolor($max_width, $max_height);
+      } else { // palette based images resample better into palette based images
+        $im_p = imagecreate($max_width, $max_height);
+      }
+      // determine the coordinates that will center the resized original in the new image
+      $padwidth = intval(($max_width - $width) / 2);
+      $padheight = intval(($max_height - $height) / 2);
+    } else { // make a new image that fits within the specified maximum size
+      if (imageistruecolor($im)) {
+        $im_p = imagecreatetruecolor($width, $height);
+      } else { // palette based images resample better into palette based images
+        $im_p = imagecreate($width, $height);
+      }
+      $padwith = 0;
+      $padheight = 0;
+    }
+    if ($im_p === false) {
+      imagedestroy($im);
+      return -6; // failed to create new image
+    }
+    $filled = false;
+    if ( ($img_type == 'gif') || ($img_type == 'png') ) {
+      $trnprt_indx = imagecolortransparent($im);
+      if ($trnprt_indx >= 0) { // If we have a specific transparent color
+        // Get the original image's transparent color's RGB values
+        $trnprt_color = imagecolorsforindex($im, $trnprt_indx);
+        // Allocate the same color in the new image resource
+        $trnprt_indx = imagecolorallocate($im_p, $trnprt_color['red'], $trnprt_color['green'], $trnprt_color['blue']);
+        // Completely fill the background of the new image with allocated color.
+        imagefill($im_p, 0, 0, $trnprt_indx);
+        // Set the background color for new image to transparent
+        imagecolortransparent($im_p, $trnprt_indx);
+        $filled = true;
+      } elseif ($img_type == 'png') { // Always make a transparent background color for PNGs that don't have one allocated already
+        // Turn off transparency blending (temporarily)
+        imagealphablending($im_p, false);
+        // Create a new transparent color for image
+        $color = imagecolorallocatealpha($im_p, 0, 0, 0, 127);
+        // Completely fill the background of the new image with allocated color.
+        imagefill($im_p, 0, 0, $color);
+        // Restore transparency blending
+        imagesavealpha($im_p, true);
+        $filled = true;
+      }
+    }
+    if ($pad && !$filled) {
+      // fill image with white padding if needed
+      $color = imagecolorallocate($im_p, 255, 255, 255);
+      imagefill($im_p, 0, 0, $color);
+    }
+    imagecopyresampled($im_p, $im, $padwidth, $padheight, 0, 0, $width, $height, $orig_width, $orig_height);
+    switch ($img_type) {
+      case 'jpg':
+        $success = imagejpeg($im_p, $dest);
+        break;
+      case 'gif':
+        $success = imagegif($im_p, $dest);
+        break;
+      case 'png':
+        $success = imagepng($im_p, $dest);
+        break;
+    }
+    imagedestroy($im_p);
+    imagedestroy($im);
+    if ($success) {
+      chmod($dest, $file_permissions);
+      return 1;
+    } else {
+      return -4; // thumbnail write failed
+    }
+  }
+
+// creates a writeable folder (including parent folders if needed) or makes an existing directory writeable	
+	function tep_create_writable_directory($dirname) {
+		if ($dirname == '') return false; // cannot create an empty name
+		if (is_dir($dirname) && tep_is_writable($dirname)) return true; // writable directory already exists
+		if (file_exists($dirname) && !is_dir($dirname)) return false; // non-directory file of that name already exists
+		$parent = substr($dirname, 0, strrpos($dirname, DIRECTORY_SEPARATOR));
+		if (($parent != '') && !file_exists($parent)) if (!tep_create_writable_directory($parent)) return false; // failed to create parent directory if it doesn't exist
+		if (!is_dir($dirname)) if (!mkdir($dirname)) return false; // failed to create directory
+		@chmod($dirname, 0755); // use minimum directory permissions possible
+		if (!tep_is_writable($dirname)) @chmod($dirname, 0775); // set next level if still not writable
+		if (!tep_is_writable($dirname)) @chmod($dirname, 0777); // set next level if still not writable
+		if (!tep_is_writable($dirname)) return false; // failed to make directory writable
+		return true;
+	}
+	
+////
+// Parse search string into indivual objects
+  function tep_parse_search_string($search_str = '', &$objects) {
+    $search_str = trim(strtolower($search_str));
+
+// Break up $search_str on whitespace; quoted string will be reconstructed later
+    $pieces = preg_split('/[[:space:]]+/', $search_str);
+    $objects = array();
+    $tmpstring = '';
+    $flag = '';
+
+    for ($k=0; $k<count($pieces); $k++) {
+      while (substr($pieces[$k], 0, 1) == '(') {
+        $objects[] = '(';
+        if (strlen($pieces[$k]) > 1) {
+          $pieces[$k] = substr($pieces[$k], 1);
+        } else {
+          $pieces[$k] = '';
+        }
+      }
+
+      $post_objects = array();
+
+      while (substr($pieces[$k], -1) == ')')  {
+        $post_objects[] = ')';
+        if (strlen($pieces[$k]) > 1) {
+          $pieces[$k] = substr($pieces[$k], 0, -1);
+        } else {
+          $pieces[$k] = '';
+        }
+      }
+
+// Check individual words
+
+      if ( (substr($pieces[$k], -1) != '"') && (substr($pieces[$k], 0, 1) != '"') ) {
+        $objects[] = trim($pieces[$k]);
+
+        for ($j=0; $j<count($post_objects); $j++) {
+          $objects[] = $post_objects[$j];
+        }
+      } else {
+/* This means that the $piece is either the beginning or the end of a string.
+   So, we'll slurp up the $pieces and stick them together until we get to the
+   end of the string or run out of pieces.
+*/
+
+// Add this word to the $tmpstring, starting the $tmpstring
+        $tmpstring = trim(preg_replace('/"/', ' ', $pieces[$k]));
+
+// Check for one possible exception to the rule. That there is a single quoted word.
+        if (substr($pieces[$k], -1 ) == '"') {
+// Turn the flag off for future iterations
+          $flag = 'off';
+
+          $objects[] = trim(preg_replace('/"/', ' ', $pieces[$k]));
+
+          for ($j=0; $j<count($post_objects); $j++) {
+            $objects[] = $post_objects[$j];
+          }
+
+          unset($tmpstring);
+
+// Stop looking for the end of the string and move onto the next word.
+          continue;
+        }
+
+// Otherwise, turn on the flag to indicate no quotes have been found attached to this word in the string.
+        $flag = 'on';
+
+// Move on to the next word
+        $k++;
+
+// Keep reading until the end of the string as long as the $flag is on
+
+        while ( ($flag == 'on') && ($k < count($pieces)) ) {
+          while (substr($pieces[$k], -1) == ')') {
+            $post_objects[] = ')';
+            if (strlen($pieces[$k]) > 1) {
+              $pieces[$k] = substr($pieces[$k], 0, -1);
+            } else {
+              $pieces[$k] = '';
+            }
+          }
+
+// If the word doesn't end in double quotes, append it to the $tmpstring.
+          if (substr($pieces[$k], -1) != '"') {
+// Tack this word onto the current string entity
+            $tmpstring .= ' ' . $pieces[$k];
+
+// Move on to the next word
+            $k++;
+            continue;
+          } else {
+/* If the $piece ends in double quotes, strip the double quotes, tack the
+   $piece onto the tail of the string, push the $tmpstring onto the $haves,
+   kill the $tmpstring, turn the $flag "off", and return.
+*/
+            $tmpstring .= ' ' . trim(preg_replace('/"/', ' ', $pieces[$k]));
+
+// Push the $tmpstring onto the array of stuff to search for
+            $objects[] = trim($tmpstring);
+
+            for ($j=0; $j<count($post_objects); $j++) {
+              $objects[] = $post_objects[$j];
+            }
+
+            unset($tmpstring);
+
+// Turn off the flag to exit the loop
+            $flag = 'off';
+          }
+        }
+      }
+    }
+
+// add default logical operators if needed
+    $temp = array();
+    for($i=0; $i<(count($objects)-1); $i++) {
+      $temp[] = $objects[$i];
+      if ( ($objects[$i] != 'and') &&
+           ($objects[$i] != 'or') &&
+           ($objects[$i] != '(') &&
+           ($objects[$i+1] != 'and') &&
+           ($objects[$i+1] != 'or') &&
+           ($objects[$i+1] != ')') ) {
+        $temp[] = ADVANCED_SEARCH_DEFAULT_OPERATOR;
+      }
+    }
+    $temp[] = $objects[$i];
+    $objects = $temp;
+
+    $keyword_count = 0;
+    $operator_count = 0;
+    $balance = 0;
+    for($i=0; $i<count($objects); $i++) {
+      if ($objects[$i] == '(') $balance --;
+      if ($objects[$i] == ')') $balance ++;
+      if ( ($objects[$i] == 'and') || ($objects[$i] == 'or') ) {
+        $operator_count ++;
+      } elseif ( ($objects[$i]) && ($objects[$i] != '(') && ($objects[$i] != ')') ) {
+        $keyword_count ++;
+      }
+    }
+
+    if ( ($operator_count < $keyword_count) && ($balance == 0) ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+	 

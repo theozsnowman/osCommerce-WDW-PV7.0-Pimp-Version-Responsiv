@@ -39,6 +39,21 @@
   define('DIR_FS_DOWNLOAD', DIR_FS_CATALOG . 'download/');
   define('DIR_FS_DOWNLOAD_PUBLIC', DIR_FS_CATALOG . 'pub/');
 
+	define('DIR_WS_CATALOG_IMAGES_ORIG', DIR_WS_CATALOG_IMAGES . 'originals/');
+  define('DIR_WS_CATALOG_IMAGES_CAT', DIR_WS_CATALOG_IMAGES . 'categories/');
+  define('DIR_WS_CATALOG_IMAGES_MFG', DIR_WS_CATALOG_IMAGES . 'manufacturers/');
+  define('DIR_WS_CATALOG_IMAGES_PROD', DIR_WS_CATALOG_IMAGES . 'products/');
+  define('DIR_WS_CATALOG_IMAGES_THUMBS', DIR_WS_CATALOG_IMAGES . 'product_thumbnails/');
+  define('DIR_WS_CATALOG_IMAGES_TEMP', DIR_WS_CATALOG_IMAGES . 'temporary/');
+  
+  define('DIR_FS_CATALOG_IMAGES_ORIG', DIR_FS_CATALOG_IMAGES . 'originals/');
+  define('DIR_FS_CATALOG_IMAGES_CAT', DIR_FS_CATALOG_IMAGES . 'categories/');
+  define('DIR_FS_CATALOG_IMAGES_MFG', DIR_FS_CATALOG_IMAGES . 'manufacturers/');
+  define('DIR_FS_CATALOG_IMAGES_PROD', DIR_FS_CATALOG_IMAGES . 'products/');
+  define('DIR_FS_CATALOG_IMAGES_THUMBS', DIR_FS_CATALOG_IMAGES . 'product_thumbnails/');
+  define('DIR_FS_CATALOG_IMAGES_TEMP', DIR_FS_CATALOG_IMAGES . 'temporary/');
+  define('DIR_CATALOG_RELATIVE_ADMIN', '..');
+
 // define our database connection
   define('DB_SERVER', '');
   define('DB_SERVER_USERNAME', 'mysql');

@@ -19,7 +19,7 @@
   $product_check_query = tep_db_query("select count(*) as total from products p, products_description pd where p.products_status = '1' and p.products_id = '" . (int)$_GET['products_id'] . "' and pd.products_id = p.products_id and pd.language_id = '" . (int)$languages_id . "'");
   $product_check = tep_db_fetch_array($product_check_query);
 
-  $product_info_query = tep_db_query("select p.products_id, p.products_model, p.products_image, p.products_price, p.products_tax_class_id, pd.products_name from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where p.products_id = '" . (int)$_GET['products_id'] . "' and p.products_status = '1' and p.products_id = pd.products_id and pd.language_id = '" . (int)$languages_id . "'");
+  $product_info_query = tep_db_query("select p.products_id, p.products_model, p.products_image, p.image_folder, p.image_display, p.products_price, p.products_tax_class_id, pd.products_name from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where p.products_id = '" . (int)$_GET['products_id'] . "' and p.products_status = '1' and p.products_id = pd.products_id and pd.language_id = '" . (int)$languages_id . "'");
   if (!tep_db_num_rows($product_info_query)) {
     tep_redirect(tep_href_link('reviews.php'));
   } else {
@@ -70,10 +70,16 @@ echo '<div class="col-sm-8 text-center alert alert-success" itemprop="AggregateR
 
 <?php
   if (tep_not_null($product_info['products_image'])) {
+  	
+  	$image = '';
+    if ($product_info['image_display'] == 1) {
+    	$image = tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+    } elseif (($product_info['image_display'] != 2) && tep_not_null($product_info['products_image'])) {
+    	$image = tep_image(DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $product_info['products_image'], addslashes($product_info['products_name']), SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5"');
+    }
 ?>
-
   <div class="col-sm-4 text-center">
-    <?php echo '<a href="' . tep_href_link('product_info.php', 'products_id=' . $product_info['products_id']) . '">' . tep_image('images/' . $product_info['products_image'], addslashes($product_info['products_name']), SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5"') . '</a>'; ?>
+    <?php echo '<a href="' . tep_href_link('product_info.php', 'products_id=' . $product_info['products_id']) . '">' . $image . '</a>'; ?>
 
     <p><?php echo tep_draw_button(IMAGE_BUTTON_IN_CART, 'fa fa-shopping-cart', tep_href_link($PHP_SELF, tep_get_all_get_params(array('action')) . 'action=buy_now')); ?></p>
   </div>

@@ -99,11 +99,59 @@
       $image .= ' width="' . tep_output_string($width) . '" height="' . tep_output_string($height) . '"';
     }
 
+		$percent_size = false;
+    if (strlen($width) > 0)
+      if (strpos($width, '%') !== false) $percent_size = true;
+    if (strlen($height) > 0)
+      if (strpos($height, '%') !== false) $percent_size = true;
+    if ((strtolower(substr($src, 0, 7)) == 'http://') || (strtolower(substr($src, 0, 8)) == 'https://')) {
+    // if using URL rather than file system reference getimagesize requires space characters in file names to be encoded
+      $src = str_replace(' ', '%20', $src);
+    }
+
+    if ((CONFIG_CALCULATE_IMAGE_SIZE == 'true') && !$percent_size) {
+      if ($image_size = @getimagesize($src)) {
+        if (empty($width) && tep_not_null($height)) {
+          $ratio = $height / $image_size[1];
+          $width = intval($image_size[0] * $ratio);
+        } elseif (tep_not_null($width) && empty($height)) {
+          $ratio = $width / $image_size[0];
+          $height = intval($image_size[1] * $ratio);
+        } elseif (empty($width) && empty($height)) {
+          $width = $image_size[0];
+          $height = $image_size[1];
+        } elseif (($image_size[0] <= $width) && ($image_size[1] <= $height)) {
+          $width = $image_size[0];
+          $height = $image_size[1];
+        } else {
+          $new_ratio = $height / $width;
+          $image_ratio = $image_size[1] / $image_size[0];
+          if ($new_ratio >= $image_ratio)	{
+            $height = intval($image_size[1] * $width / $image_size[0]);
+          }	else {
+            $width = intval($image_size[0] * $height / $image_size[1]);
+          }
+        }
+      } elseif (IMAGE_REQUIRED == 'false') {
+        return false;
+      }
+    }
+
     if (tep_not_null($parameters)) $image .= ' ' . $parameters;
 
     $image .= ' />';
 
     return $image;
+  }
+
+////
+// $src should be one of the DIR_WS_CATALOG_IMAGES . image file name
+  function tep_catalog_image($src, $alt = '', $width = '', $height = '', $parameters = '') {
+    if (ini_get('allow_url_fopen')) {
+      return tep_image($src, $alt, $width, $height, $parameters);
+    } else {
+      return tep_image(DIR_CATALOG_RELATIVE_ADMIN . str_repeat('/..', substr_count(DIR_WS_CATALOG, '/') - 1) . $src, $alt, $width, $height, $parameters);
+    }
   }
 
 ////

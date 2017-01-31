@@ -24,6 +24,16 @@
         'link' => tep_href_link('products_attributes.php')
       ),
       array(
+        'code' => 'products_multi.php',
+        'title' => BOX_CATALOG_CATEGORIES_PRODUCTS_MULTI,
+        'link' => tep_href_link('products_multi.php')
+      ),
+      array(
+        'code' => 'image-manager.php',
+        'title' => BOX_CATALOG_IMAGE_MANAGE,
+        'link' => tep_href_link('image-manager.php')
+      ),
+      array(
         'code' => 'manufacturers.php',
         'title' => BOX_CATALOG_MANUFACTURERS,
         'link' => tep_href_link('manufacturers.php')

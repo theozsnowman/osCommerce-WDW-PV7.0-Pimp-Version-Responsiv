@@ -115,3 +115,25 @@ const TEXT_PRODUCTS_SEO_KEYWORDS = 'Product Meta Keywords for SEO:<br><small>Add
 const TEXT_PRODUCTS_SEO_TITLE = 'Products Title for SEO:<br><small>Replaces the product name in the &lt;title&gt; Meta Element<br>and optionally in the Breadcrumb Trail.<br>Leave blank to default to product name.</small>';
 const TEXT_CATEGORIES_SEO_TITLE = 'Category Title for SEO:<br><small>Replaces the category name in the &lt;title&gt; Meta Element.<br>Leave blank to default to category name.</small>';
 const TEXT_EDIT_CATEGORIES_SEO_TITLE = 'Edit the Category Title for SEO:<br><small>Replaces the category name in the &lt;title&gt; Meta Element<br>and optionally in the Breadcrumb Trail.<br>Leave blank to default to category name.</small>';
+
+// added for image protection
+define('TEXT_IMAGE_DISPLAY', 'Image Display:');
+define('TEXT_NO_IMAGE', 'Do Not Display An Image (use if this is not a physical product, uploaded images will not be saved)');
+define('TEXT_IMAGE_NOT_AVAILABLE', 'Display "No Picture Available" Image (uploaded images will not be saved)');
+define('TEXT_USE_PRODUCT_IMAGE', 'Display The Product Image Uploaded Below');
+define('BUTTON_MANAGE_IMAGES', 'Manage Product Images');
+define('ERROR_CATALOG_PRODUCT_IMAGE_DIRECTORY_NOT_WRITEABLE', 'Error: Catalog product images directory is not writeable: ' . DIR_FS_CATALOG_IMAGES_PROD);
+define('ERROR_CATALOG_PRODUCT_IMAGE_DIRECTORY_DOES_NOT_EXIST', 'Error: Catalog product images directory does not exist: ' . DIR_FS_CATALOG_IMAGES_PROD);
+define('ERROR_CATALOG_THUMB_IMAGE_DIRECTORY_NOT_WRITEABLE', 'Error: Catalog product thumbnail images directory is not writeable: ' . DIR_FS_CATALOG_IMAGES_THUMBS);
+define('ERROR_CATALOG_THUMB_IMAGE_DIRECTORY_DOES_NOT_EXIST', 'Error: Catalog product thumbnail images directory does not exist: ' . DIR_FS_CATALOG_IMAGES_THUMBS);
+define('ERROR_CATALOG_CATEGORY_IMAGE_DIRECTORY_NOT_WRITEABLE', 'Error: Catalog category images directory is not writeable: ' . DIR_FS_CATALOG_IMAGES_CAT);
+define('ERROR_CATALOG_CATEGORY_IMAGE_DIRECTORY_DOES_NOT_EXIST', 'Error: Catalog category images directory does not exist: ' . DIR_FS_CATALOG_IMAGES_CAT);
+define('ERROR_CATALOG_ORIGINAL_IMAGE_DIRECTORY_NOT_WRITEABLE', 'Error: Catalog original images directory is not writeable: ' . DIR_FS_CATALOG_IMAGES_ORIG);
+define('ERROR_CATALOG_ORIGINAL_IMAGE_DIRECTORY_DOES_NOT_EXIST', 'Error: Catalog original images directory does not exist: ' . DIR_FS_CATALOG_IMAGES_ORIG);
+define('TEXT_IMAGE_IGNORED', 'Error: Because this product is not set to use uploaded images the image file that was uploaded will not be saved.');
+define('TEXT_MORE_IMG', 'View More Images');
+define('TEXT_LARGE_IMAGE_FAILURE', 'Error: The large product image could not be created.');
+define('TEXT_CLICK_VIEW', 'Click to view all product original images');
+
+define('ERROR_COULDNT_DUP', 'Failed to create duplicate image: ');
+define('ERROR_NEWDIR_FAILED', 'Failed to create new image folder: ');

@@ -9,58 +9,7 @@
 
   Released under the GNU General Public License
  */
-
-/*
-<div class="col-sm-<?php echo $content_width; ?> category-listing">
-  <div itemscope itemtype="http://schema.org/ItemList">
-    <meta itemprop="itemListOrder" content="http://schema.org/ItemListUnordered" />
-    <meta itemprop="name" content="<?php echo $category['categories_name']; ?>" />
-    
-    <?php
-    while ($categories = tep_db_fetch_array($categories_query)) {
-      $cPath_new = tep_get_path($categories['categories_id']);
-      echo '<div class="col-sm-' . $category_width . '">';
-      echo '  <div class="text-center">';
-      echo '    <a href="' . tep_href_link('index.php', $cPath_new) . '">' . tep_image('images/' . $categories['categories_image'], $categories['categories_name'], SUBCATEGORY_IMAGE_WIDTH, SUBCATEGORY_IMAGE_HEIGHT) . '</a>';
-      echo '    <div class="caption text-center">';
-      echo '      <h5><a href="' . tep_href_link('index.php', $cPath_new) . '"><span itemprop="itemListElement">' . $categories['categories_name'] . '</span></a></h5>';
-      echo '    </div>';
-      echo '  </div>';
-      echo '</div>';
-    }
-    ?>    
-  </div>    
-</div>
-*/
-
-?>
-<?php /*
-  <div id="category_images" class="col-sm-<?php echo MODULE_CONTENT_CATEGORY_CATEGORIES_IMAGES_CONTENT_WIDTH; ?>">
-    <div class="row" itemscope itemtype="http://schema.org/ItemList">
-      <meta itemprop="itemListOrder" content="http://schema.org/ItemListUnordered" />
-      <meta itemprop="name" content="<?php echo $category['categories_name']; ?>" />
-    
-<?php
-  while ($categories = tep_db_fetch_array($categories_query)) {
-    $cPath_new = tep_get_path($categories['categories_id']);
-?>
-
-      <div class="col-sm-<?php echo MODULE_CONTENT_CATEGORY_CATEGORIES_IMAGES_CONTENT_WIDTH_EACH; ?>">
-        <div class="text-center">
-          <a href="<?php echo tep_href_link('index.php', $cPath_new); ?>"><?php echo tep_image('images/' . $categories['categories_image'], $categories['categories_name'], SUBCATEGORY_IMAGE_WIDTH, SUBCATEGORY_IMAGE_HEIGHT); ?></a>
-          <div class="caption text-center">
-            <h5><a href="<?php echo tep_href_link('index.php', $cPath_new); ?>"><span itemprop="itemListElement"><?php echo $categories['categories_name']; ?></span></a></h5>
-          </div>
-        </div>
-      </div>
-
-<?php
-  }
-?>
-
-    </div>
-  </div>
-*/ ?> 
+?> 
 <div id="category_images" class="col-sm-<?php echo MODULE_CONTENT_CATEGORY_CATEGORIES_IMAGES_CONTENT_WIDTH; ?>">
   <div class="panel panel-info">
     <div class="panel-heading" data-toggle="collapse" href="#sub-cat" style="cursor: pointer;">
@@ -83,10 +32,18 @@
 
     				<?php
     				while ($categories = tep_db_fetch_array($categories_query)) {
+    					
+    					$image = '';
+    					if (tep_not_null($categories['categories_image'])) {
+    						$image = tep_image(DIR_WS_IMAGES_CAT . $categories['categories_image'], $categories['categories_name'], SUBCATEGORY_IMAGE_WIDTH, SUBCATEGORY_IMAGE_HEIGHT);
+    					} else {
+    						$image = tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+    					}
+    					
       				$cPath_new = tep_get_path($categories['categories_id']);
       				echo '<div class="col-sm-' . MODULE_CONTENT_CATEGORY_CATEGORIES_IMAGES_CONTENT_WIDTH_EACH . '">';
       				echo '  <div class="text-center">';
-      				echo '    <a href="' . tep_href_link('index.php', $cPath_new) . '">' . tep_image('images/' . $categories['categories_image'], $categories['categories_name'], SUBCATEGORY_IMAGE_WIDTH, SUBCATEGORY_IMAGE_HEIGHT) . '</a>';
+      				echo '    <a href="' . tep_href_link('index.php', $cPath_new) . '">' . $image . '</a>';
       				echo '    <div class="caption text-center">';
       				echo '      <h5><a href="' . tep_href_link('index.php', $cPath_new) . '"><span itemprop="itemListElement">' . $categories['categories_name'] . '</span></a></h5>';
       				echo '    </div>';
@@ -111,4 +68,3 @@ $(document).ready(function(){
   });
 });
 </script>
-

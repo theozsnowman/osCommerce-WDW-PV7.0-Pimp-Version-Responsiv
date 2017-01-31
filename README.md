@@ -3,8 +3,16 @@ osCommerce WDW-PV7.0 Pimp Version Responsiv
 Based on osCommerce 2.3.4-Responsiv with Bootstrap
 https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01
 
+- Don\'t forget all "filenames" and "folder\'s" are hardcoded.
+- btw: I like it, don\'t waste time for include more files.
+
+- Master Update 31. Jan. 2017
+- All new system settings and much more in the new /catalog/install/oscommerce.sql
+- New path for product images, categorien and manufactures, same like osCommerce 3.0
+  
 Already changed
 ===============
+- Some new icons for the admin area
 - all Class files now full PHP7+ suitable
 - all MySQL querys now full MySQL 5.7 suitable
 - /catalog/install/oscommerce.sql change value of products_name varchar(64) to products_name varchar(128)
@@ -22,12 +30,13 @@ Already changed
 - /catalog/admin/includes/header.php >>> Support Site link now open in new page
 - /catalog/admin/includes/stylesheet.css >>> change the width of left column and the content
 
-McMannehan modified stuff
+WDW modified stuff
 ===================
 - Modular Category Page (Template modified to dropdown)
 - Modular Sub Category Page (Template modified to dropdown)
 - Modular Index Page (Template modified to dropdown)
-- Show value in % on a Special product on every content
+- Show value in % on a Special product on every content<br />
+- New images path, same like osCommerce 3.0 /images/categories/, /images/manufacturers/, /images/originals/, /images/product_thumbnails/, /images/products/, /images/temporary/. Code changes for functionality with this Version. Based on Protected Images for osC 2.3.4 [still under development]
 
 Extensions included
 ===================

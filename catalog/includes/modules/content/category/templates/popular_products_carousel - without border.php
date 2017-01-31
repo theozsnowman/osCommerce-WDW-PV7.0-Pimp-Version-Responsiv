@@ -24,10 +24,17 @@
       $hot_products = tep_db_fetch_array($hot_products_query);
     }
 
+    $image = '';
+    if ($popular_products['image_display'] == 1) {
+    	$image = tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+    } elseif (($popular_products['image_display'] != 2) && tep_not_null($popular_products['products_image'])) {
+    	$image = tep_image(DIR_WS_IMAGES_THUMBS . $popular_products['image_folder'] . $popular_products['products_image'], $popular_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"');
+    }
+
     $wrapper_slides .= '  <div class="item box-height" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product">';
     $wrapper_slides .= '    <div class="thumbnail item-height">';
     $wrapper_slides .= '      <div class="img-height">';
-    $wrapper_slides .= '        <a href="' . tep_href_link('product_info.php', 'products_id=' . $popular_products['products_id']) . '">' . tep_image('images/' . $popular_products['products_image'], $popular_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"') . '</a>';
+    $wrapper_slides .= '        <a href="' . tep_href_link('product_info.php', 'products_id=' . $popular_products['products_id']) . '">' . $image. '</a>';
     $wrapper_slides .= '      </div>';
     $wrapper_slides .= '      <div class="caption">';
     $wrapper_slides .= '        <p class="text-center caption-height"><a itemprop="url" href="' . tep_href_link('product_info.php', 'products_id=' . $popular_products['products_id']) . '"><span itemprop="name">' . $popular_products['products_name'] . '</span></a>';

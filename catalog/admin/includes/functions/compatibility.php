@@ -170,4 +170,12 @@
       return $position;
     }
   }
+  
+  // native from PHP version 4.3.2
+  // safest to use true color if it can't be determined
+  if (!function_exists('imageistruecolor')) {
+    function imageistruecolor($i) {
+      return true;
+    }
+  }
 ?>

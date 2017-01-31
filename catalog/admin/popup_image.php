@@ -26,7 +26,9 @@
         if ($banner['banners_html_text']) {
           $image_source = $banner['banners_html_text'];
         } elseif ($banner['banners_image']) {
-          $image_source = tep_image(HTTP_CATALOG_SERVER . DIR_WS_CATALOG_IMAGES . $banner['banners_image'], $page_title);
+          //original code
+          //$image_source = tep_image(HTTP_CATALOG_SERVER . DIR_WS_CATALOG_IMAGES . $banner['banners_image'], $page_title);
+          $image_source = tep_catalog_image(DIR_WS_CATALOG_IMAGES . $banner['banners_image'], $page_title);
         }
         break;
     }

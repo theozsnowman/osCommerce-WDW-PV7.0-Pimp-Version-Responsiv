@@ -159,7 +159,8 @@ $('#expdate').datepicker({
     $specials_query = tep_db_query($specials_query_raw);
     while ($specials = tep_db_fetch_array($specials_query)) {
       if ((!isset($HTTP_GET_VARS['sID']) || (isset($HTTP_GET_VARS['sID']) && ($HTTP_GET_VARS['sID'] == $specials['specials_id']))) && !isset($sInfo)) {
-        $products_query = tep_db_query("select products_image from " . TABLE_PRODUCTS . " where products_id = '" . (int)$specials['products_id'] . "'");
+        $products_query = tep_db_query("select products_image, mage_folder, image_display from " . TABLE_PRODUCTS . " where products_id = '" . (int)$specials['products_id'] . "'");
+        
         $products = tep_db_fetch_array($products_query);
         $sInfo_array = array_merge($specials, $products);
         $sInfo = new objectInfo($sInfo_array);
@@ -224,7 +225,15 @@ $('#expdate').datepicker({
         $contents[] = array('align' => 'center', 'text' => tep_draw_button(IMAGE_EDIT, 'document', tep_href_link('specials.php', 'page=' . $HTTP_GET_VARS['page'] . '&sID=' . $sInfo->specials_id . '&action=edit')) . tep_draw_button(IMAGE_DELETE, 'trash', tep_href_link('specials.php', 'page=' . $HTTP_GET_VARS['page'] . '&sID=' . $sInfo->specials_id . '&action=delete')));
         $contents[] = array('text' => '<br />' . TEXT_INFO_DATE_ADDED . ' ' . tep_date_short($sInfo->specials_date_added));
         $contents[] = array('text' => '' . TEXT_INFO_LAST_MODIFIED . ' ' . tep_date_short($sInfo->specials_last_modified));
-        $contents[] = array('align' => 'center', 'text' => '<br />' . tep_info_image($sInfo->products_image, $sInfo->products_name, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT));
+        
+        // original code
+        //$contents[] = array('align' => 'center', 'text' => '<br />' . tep_info_image($sInfo->products_image, $sInfo->products_name, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT));
+        if ($sInfo->image_display == 1) {
+          $contents[] = array('align' => 'center', 'text' => '<br />' . tep_image('includes/languages/' . $language . '/images/no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT));
+        } else {
+          $contents[] = array('align' => 'center', 'text' => '<br />' . tep_info_image(substr(DIR_WS_CATALOG_IMAGES_THUMBS, strlen(DIR_WS_CATALOG_IMAGES)) . $sInfo->image_folder . $sInfo->products_image, $sInfo->products_name, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT));
+        }        
+        
         $contents[] = array('text' => '<br />' . TEXT_INFO_ORIGINAL_PRICE . ' ' . $currencies->format($sInfo->products_price));
         $contents[] = array('text' => '' . TEXT_INFO_NEW_PRICE . ' ' . $currencies->format($sInfo->specials_new_products_price));
         $contents[] = array('text' => '' . TEXT_INFO_PERCENTAGE . ' ' . number_format(100 - (($sInfo->specials_new_products_price / $sInfo->products_price) * 100)) . '%');

@@ -260,8 +260,16 @@ function popupImageWindow(url) {
             <td colspan="2"><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
           </tr>
           <tr>
+            <?php 
+            /*
+            // original code
+            	<td class="main"><?php echo TEXT_BANNERS_IMAGE_TARGET; ?></td>
+            	<td class="main"><?php echo DIR_FS_CATALOG_IMAGES . tep_draw_input_field('banners_image_target'); ?></td>
+            */
+            ?>
             <td class="main"><?php echo TEXT_BANNERS_IMAGE_TARGET; ?></td>
-            <td class="main"><?php echo DIR_FS_CATALOG_IMAGES . tep_draw_input_field('banners_image_target'); ?></td>
+            <td class="main"><?php echo DIR_FS_CATALOG_IMAGES . tep_draw_input_field('banners_image_target', 'banners/'); ?></td>
+            
           </tr>
           <tr>
             <td colspan="2"><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>

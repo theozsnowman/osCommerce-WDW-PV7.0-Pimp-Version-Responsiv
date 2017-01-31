@@ -18,6 +18,7 @@
       $this->set_destination($destination);
       $this->set_permissions($permissions);
       $this->set_extensions($extensions);
+      $this->set_no_file_warning(false);
 
       $this->set_output_messages('direct');
 
@@ -31,7 +32,8 @@
         }
       }
     }
-
+    /*
+    // Original Code
     function parse() {
       global $HTTP_POST_FILES, $messageStack;
 
@@ -77,7 +79,75 @@
         return false;
       }
     }
+    */
+		function parse() {
+      global $HTTP_POST_FILES, $messageStack, $file_upload_errors;
 
+      $file = array();
+
+      if (isset($_FILES[$this->file])) {
+        $file = array('name' => $_FILES[$this->file]['name'],
+                      'type' => $_FILES[$this->file]['type'],
+                      'size' => $_FILES[$this->file]['size'],
+                      'error' => $_FILES[$this->file]['error'],
+                      'tmp_name' => $_FILES[$this->file]['tmp_name']);
+      } elseif (isset($HTTP_POST_FILES[$this->file])) {
+        $file = array('name' => $HTTP_POST_FILES[$this->file]['name'],
+                      'type' => $HTTP_POST_FILES[$this->file]['type'],
+                      'size' => $HTTP_POST_FILES[$this->file]['size'],
+                      'error' => $HTTP_POST_FILES[$this->file]['error'],
+                      'tmp_name' => $HTTP_POST_FILES[$this->file]['tmp_name']);
+      }
+
+      if ( tep_not_null($file['tmp_name']) && ($file['tmp_name'] != 'none') && is_uploaded_file($file['tmp_name']) ) {
+        if (sizeof($this->extensions) > 0) {
+          if (!in_array(strtolower(substr($file['name'], strrpos($file['name'], '.')+1)), $this->extensions)) {
+            if ($this->message_location == 'direct') {
+              $messageStack->add(ERROR_FILETYPE_NOT_ALLOWED, 'error');
+            } else {
+              $messageStack->add_session(ERROR_FILETYPE_NOT_ALLOWED, 'error');
+            }
+
+            return false;
+          }
+        }
+        $illegal_chars = array ('%','\\','"','#','/','*','?',':','<','>','|','$');
+        $found = false;
+        foreach ($illegal_chars as $i) {
+          if (is_numeric((strpos($file['name'], $i)))) $found = true; }
+        if ($found) {
+          $message = sprintf(ERROR_FILE_ILLEGAL_CHAR, implode('', $illegal_chars));
+          if ($this->message_location == 'direct') {
+            $messageStack->add($message, 'error');
+          } else {
+            $messageStack->add_session($message, 'error');
+          }
+           return false;
+        }
+
+        $this->set_file($file);
+        $this->set_filename($file['name']);
+        $this->set_tmp_filename($file['tmp_name']);
+
+        return $this->check_destination();
+      } else {
+        if ($this->warn_if_no_file_uploaded || ($file['error'] != UPLOAD_ERR_NO_FILE)) {
+          $error = WARNING_NO_FILE_UPLOADED . ' ' . $file_upload_errors[$file['error']];
+          if ($this->message_location == 'direct') {
+            $messageStack->add($error, 'warning');
+          } else {
+            $messageStack->add_session($error, 'warning');
+          }
+        }
+
+        return false;
+      }
+    }
+
+    function set_no_file_warning($value) {
+      $this->warn_if_no_file_uploaded = $value;
+    }
+    
     function save() {
       global $messageStack;
 
