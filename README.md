@@ -42,7 +42,7 @@ Already changed
 ===============
 - Some new icons for the admin area
 - all Class files now full PHP7+ suitable
-- all MySql querys now full MySQL 5.7 suitable
+- all MySql querys now full MySql 5.7 suitable
 - /catalog/install/oscommerce.sql change value of products_name varchar(64) to products_name varchar(128)
 - /catalog/install/templates/pages/install_4.php >>> some changes for to delete the install folder after finished
 - /catalog/install/templates/pages/install_4.php >>> change the chmod to 0444 for /admin/includes/configure.php and /includes/configure.php
