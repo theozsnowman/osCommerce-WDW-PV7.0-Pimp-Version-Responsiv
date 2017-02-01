@@ -142,6 +142,19 @@
                      '  define(\'DIR_FS_CATALOG\', \'' . $dir_fs_document_root . '\');' . "\n" .
                      '  define(\'DIR_FS_DOWNLOAD\', DIR_FS_CATALOG . \'download/\');' . "\n" .
                      '  define(\'DIR_FS_DOWNLOAD_PUBLIC\', DIR_FS_CATALOG . \'pub/\');' . "\n\n" .
+                     '  define(\'DIR_WS_CATALOG_IMAGES_ORIG\', DIR_WS_CATALOG_IMAGES . \'originals/\');' . "\n" .
+                     '  define(\'DIR_WS_CATALOG_IMAGES_CAT\', DIR_WS_CATALOG_IMAGES . \'categories/\');' . "\n" .
+                     '  define(\'DIR_WS_CATALOG_IMAGES_MFG\', DIR_WS_CATALOG_IMAGES . \'manufacturers/\');' . "\n" .
+                     '  define(\'DIR_WS_CATALOG_IMAGES_PROD\', DIR_WS_CATALOG_IMAGES . \'products/\');' . "\n" .
+                     '  define(\'DIR_WS_CATALOG_IMAGES_THUMBS\', DIR_WS_CATALOG_IMAGES . \'product_thumbnails/\');' . "\n" .
+                     '  define(\'DIR_WS_CATALOG_IMAGES_TEMP\', DIR_WS_CATALOG_IMAGES . \'temporary/\');' . "\n\n" .
+                     '  define(\'DIR_FS_CATALOG_IMAGES_ORIG\', DIR_FS_CATALOG_IMAGES . \'originals/\');' . "\n" .
+                     '  define(\'DIR_FS_CATALOG_IMAGES_CAT\', DIR_FS_CATALOG_IMAGES . \'categories/\');' . "\n" .
+                     '  define(\'DIR_FS_CATALOG_IMAGES_MFG\', DIR_FS_CATALOG_IMAGES . \'manufacturers/\');' . "\n" .
+                     '  define(\'DIR_FS_CATALOG_IMAGES_PROD\', DIR_FS_CATALOG_IMAGES . \'products/\');' . "\n" .
+                     '  define(\'DIR_FS_CATALOG_IMAGES_THUMBS\', DIR_FS_CATALOG_IMAGES . \'product_thumbnails/\');' . "\n" .
+                     '  define(\'DIR_FS_CATALOG_IMAGES_TEMP\', DIR_FS_CATALOG_IMAGES . \'temporary/\');' . "\n" .
+                     '  define(\'DIR_CATALOG_RELATIVE_ADMIN\', DIR_FS_CATALOG_IMAGES . \'..\');' . "\n\n" .
                      '  define(\'DB_SERVER\', \'' . trim($_POST['DB_SERVER']) . '\');' . "\n" .
                      '  define(\'DB_SERVER_USERNAME\', \'' . trim($_POST['DB_SERVER_USERNAME']) . '\');' . "\n" .
                      '  define(\'DB_SERVER_PASSWORD\', \'' . trim($_POST['DB_SERVER_PASSWORD']) . '\');' . "\n" .
