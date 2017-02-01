@@ -6,7 +6,7 @@ https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01
 - Don't forget all "filenames" and "folder's" are hardcoded.
 - btw: I like it, don't waste time for include more files.
 
-Master Update 31. Jan. 2017
+Master Update 1. Feb. 2017
 ===========================
 - All new system settings and much more in the new /catalog/install/oscommerce.sql
 - New path for product images, categories and manufactures, same like osCommerce 3.0
