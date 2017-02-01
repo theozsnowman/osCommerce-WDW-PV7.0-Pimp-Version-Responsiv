@@ -11,7 +11,7 @@ Master Update 1. Feb. 2017
 - All new system settings and much more in the new /catalog/install/oscommerce.sql
 - New path for product images, categories and manufactures, same like osCommerce 3.0
 
-PHP7 & MySql 5.7 Updates
+PHP7 & MySql 5.7 Update
 ========================
 Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files.
 MySql querys for MySql 5.7 sql_mode 
