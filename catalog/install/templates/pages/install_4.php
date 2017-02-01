@@ -232,7 +232,7 @@
     
     $delete_install_folder = wdw_delete_install_folder($dir_fs_document_root.'/install/');
 		if ( !empty($delete_install_folder) ) { 
-			echo '<div class="alert alert-danger">For security reason your install folder was deleted!</div>';  
+			echo '<div class="alert alert-danger">For security reason your install folder has been deleted!</div>';  
 		} else {
 			echo '<div class="alert alert-danger">For security reason it\'s important to delete the <strong>install</strong> folder!</div>';
 		}
