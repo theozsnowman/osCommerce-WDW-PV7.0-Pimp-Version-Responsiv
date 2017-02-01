@@ -187,6 +187,13 @@
                      '  define(\'DIR_FS_BACKUP\', DIR_FS_ADMIN . \'backups/\');' . "\n" .
                      '  define(\'DIR_FS_DOWNLOAD\', DIR_FS_CATALOG . \'download/\');' . "\n" .
                      '  define(\'DIR_FS_DOWNLOAD_PUBLIC\', DIR_FS_CATALOG . \'pub/\');' . "\n\n" .
+                     '  define(\'DIR_WS_CATALOG\', \'/\');' . "\n" .
+                     '  define(\'DIR_WS_CATALOG_IMAGES\', DIR_WS_CATALOG . \'images/\');' . "\n" .
+                     '  define(\'DIR_WS_IMAGES_ORIG\', DIR_WS_CATALOG_IMAGES . \'originals/\');' . "\n" .
+                     '  define(\'DIR_WS_IMAGES_CAT\', DIR_WS_CATALOG_IMAGES . \'categories/\');' . "\n" .
+                     '  define(\'DIR_WS_IMAGES_MFG\', DIR_WS_CATALOG_IMAGES . \'manufacturers/\');' . "\n" .
+                     '  define(\'DIR_WS_IMAGES_PROD\', DIR_WS_CATALOG_IMAGES . \'products/\');' . "\n" .
+                     '  define(\'DIR_WS_IMAGES_THUMBS\', DIR_WS_CATALOG_IMAGES . \'product_thumbnails/\');' . "\n\n" .
                      '  define(\'DB_SERVER\', \'' . trim($_POST['DB_SERVER']) . '\');' . "\n" .
                      '  define(\'DB_SERVER_USERNAME\', \'' . trim($_POST['DB_SERVER_USERNAME']) . '\');' . "\n" .
                      '  define(\'DB_SERVER_PASSWORD\', \'' . trim($_POST['DB_SERVER_PASSWORD']) . '\');' . "\n" .
