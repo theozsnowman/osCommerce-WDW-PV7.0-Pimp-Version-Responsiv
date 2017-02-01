@@ -20,7 +20,7 @@
     <td colspan="2"><?php echo '<a href="' . tep_href_link('index.php') . '">' . tep_image('images/oscommerce.png', 'osCommerce Online Merchant v' . tep_get_version()) . '</a>'; ?></td>
   </tr>
   <tr class="headerBar">
-    <td class="headerBarContent">&nbsp;&nbsp;<?php echo '<a href="' . tep_href_link('index.php') . '" class="headerLink">' . HEADER_TITLE_ADMINISTRATION . '</a> &nbsp;|&nbsp; <a target="_blank" href="' . tep_catalog_href_link() . '" class="headerLink">' . HEADER_TITLE_ONLINE_CATALOG . '</a> &nbsp;|&nbsp; <a target="_blank" href="http://www.oscommerce.com" class="headerLink">' . HEADER_TITLE_SUPPORT_SITE . '</a>'; ?></td>
+    <td class="headerBarContent">&nbsp;&nbsp;<?php echo '<a href="' . tep_href_link('index.php') . '" class="headerLink">' . HEADER_TITLE_ADMINISTRATION . '</a> &nbsp;|&nbsp; <a target="_blank" href="' . tep_catalog_href_link() . '" class="headerLink">' . HEADER_TITLE_ONLINE_CATALOG . '</a>'; ?></td>
     <td class="headerBarContent" align="right"><?php echo (tep_session_is_registered('admin') ? 'Logged in as: ' . $admin['username']  . ' (<a href="' . tep_href_link('login.php', 'action=logoff') . '" class="headerLink">Logoff</a>)' : ''); ?>&nbsp;&nbsp;</td>
   </tr>
 </table>
