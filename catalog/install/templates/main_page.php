@@ -40,11 +40,7 @@
     </div>
 
     <div id="headerShortcuts" class="col-sm-6 text-right">
-      <ul class="list-unstyled list-inline">
-        <li><a href="http://www.oscommerce.com" target="_blank">osCommerce Website</a></li>
-        <li><a href="http://www.oscommerce.com/support" target="_blank">Support</a></li>
-        <li><a href="http://www.oscommerce.info" target="_blank">Documentation</a></li>
-      </ul>
+
     </div>
   </div>
   
