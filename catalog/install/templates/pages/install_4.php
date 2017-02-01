@@ -166,7 +166,7 @@
     fputs($fp, $file_contents);
     fclose($fp);
 
-    @chmod($dir_fs_document_root . 'includes/configure.php', 0666);
+    @chmod($dir_fs_document_root . 'includes/configure.php', 0444);
 
     $file_contents = '<?php' . "\n" .
                      '  define(\'HTTP_SERVER\', \'' . $http_server . '\');' . "\n" .
@@ -225,13 +225,13 @@
     fputs($fp, $file_contents);
     fclose($fp);
 
-    @chmod($dir_fs_document_root . 'admin/includes/configure.php', 0666);
+    @chmod($dir_fs_document_root . 'admin/includes/configure.php', 0444);
 
     if ($admin_folder != 'admin') {
       @rename($dir_fs_document_root . 'admin', $dir_fs_document_root . $admin_folder);
     }
     
-    //$delete_install_folder = wdw_delete_install_folder($dir_fs_document_root.'/install/');
+    $delete_install_folder = wdw_delete_install_folder($dir_fs_document_root.'/install/');
 		if ( !empty($delete_install_folder) ) { 
 			echo '<div class="alert alert-danger">For security reason your install folder has been deleted!</div>';  
 		} else {
