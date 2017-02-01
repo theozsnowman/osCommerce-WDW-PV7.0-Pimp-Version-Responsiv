@@ -159,7 +159,7 @@ $('#expdate').datepicker({
     $specials_query = tep_db_query($specials_query_raw);
     while ($specials = tep_db_fetch_array($specials_query)) {
       if ((!isset($HTTP_GET_VARS['sID']) || (isset($HTTP_GET_VARS['sID']) && ($HTTP_GET_VARS['sID'] == $specials['specials_id']))) && !isset($sInfo)) {
-        $products_query = tep_db_query("select products_image, mage_folder, image_display from " . TABLE_PRODUCTS . " where products_id = '" . (int)$specials['products_id'] . "'");
+        $products_query = tep_db_query("select products_image, image_folder, image_display from " . TABLE_PRODUCTS . " where products_id = '" . (int)$specials['products_id'] . "'");
         
         $products = tep_db_fetch_array($products_query);
         $sInfo_array = array_merge($specials, $products);
