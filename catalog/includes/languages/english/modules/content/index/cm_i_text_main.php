@@ -23,7 +23,36 @@
   Master Update 1. Feb. 2017<br />
   All new system settings and much more in the new /catalog/install/oscommerce.sql<br />
   New path for product images, categories and manufactures, same like osCommerce 3.0<br /><br />
-  
+	
+	PHP7 & MySql 5.7 Update<br />
+	Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files. MySql querys for MySql 5.7 sql_mode<br /><br /> 
+	
+	Admin Side<br />
+	<ul class="contains-task-list">
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> MySql Query</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> classes</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> functions</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> other</li>
+	</ul>
+
+	Shop Side<br />
+
+	<ul class="contains-task-list">
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> MySql Query</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> classes</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> functions</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/action_recorder</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/boxes</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/content</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/header_tags</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/navbar_modules</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/order_total</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/payment</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/shipping</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/social_bookmarks</li>
+		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> other</li>
+	</ul>  
 	Already changed<br />
 	- Some new icons for the admin area<br />
   - all Class files now full PHP7+ suitable<br />
