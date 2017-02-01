@@ -47,7 +47,6 @@ CREATE TABLE `address_book` (
   KEY `idx_address_book_customers_id` (`customers_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
 DROP TABLE IF EXISTS `address_format`;
 CREATE TABLE `address_format` (
   `address_format_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -208,7 +207,6 @@ CREATE TABLE `customers` (
   PRIMARY KEY (`customers_id`),
   KEY `idx_customers_email_address` (`customers_email_address`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 
 DROP TABLE IF EXISTS `customers_basket`;
 CREATE TABLE `customers_basket` (
