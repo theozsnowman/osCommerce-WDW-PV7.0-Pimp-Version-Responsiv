@@ -10,7 +10,33 @@ Master Update 1. Feb. 2017
 ===========================
 - All new system settings and much more in the new /catalog/install/oscommerce.sql
 - New path for product images, categories and manufactures, same like osCommerce 3.0
-  
+
+PHP7 & Mysql 5.7 Updates
+========================
+Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files
+
+Admin Side
+- [x] Mysql Query
+- [x] classes
+- [x] functions
+- [x] modules
+- [x] other
+
+Shop Side
+- [x] Mysql Query
+- [x] classes
+- [x] functions
+- [x] modules/action_recorder
+- [x] modules/boxes
+- [x] modules/content
+- [x] modules/header_tags
+- [x] modules/navbar_modules
+- [x] modules/order_total
+- [x] modules/payment
+- [x] modules/shipping
+- [x] modules/social_bookmarks
+- [x] other
+
 Already changed
 ===============
 - Some new icons for the admin area
