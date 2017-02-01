@@ -932,7 +932,9 @@ while ($info = tep_db_fetch_array($query)) { // list all matching products
     echo tep_draw_button(BUTTON_REBUILD_THUMBS, 'image', tep_href_link('image-manager.php', 'action=rebuild_mfg_thumbs'));
     echo tep_draw_button(BUTTON_SELECT_DROPDOWN, 'script', tep_href_link('image-manager.php', 'action=select_product&method=list'));
     echo tep_draw_button(BUTTON_SELECT_SEARCH, 'search', tep_href_link('image-manager.php', 'action=select_product&method=search'));
-    echo tep_draw_button(BUTTON_CHECK_CAT, 'check', tep_href_link('image-manager.php', 'action=cat')) . tep_draw_button(BUTTON_ORPHAN_CHECK, 'circle-check', tep_href_link('image-manager.php', 'action=orphans'));
+    // original code
+    //echo tep_draw_button(BUTTON_CHECK_CAT, 'check', tep_href_link('image-manager.php', 'action=cat')) . tep_draw_button(BUTTON_ORPHAN_CHECK, 'circle-check', tep_href_link('image-manager.php', 'action=orphans'));
+    echo tep_draw_button(BUTTON_CHECK_CAT, 'check', tep_href_link('image-manager.php', 'action=cat'));
     echo tep_draw_button(BUTTON_RETURN_MFG, 'arrowreturn-1-e', tep_href_link('manufactures.php')) . "\n";
     echo ' <table border="1" cellspacing="0" cellpadding="2">' . "\n";
     echo '   <tr><th>' . TABLE_HEADING_MFG . '</th><th>' . TABLE_HEADING_IMAGE . '</th><th>' . TABLE_HEADING_ERRORS . '<th>' . TABLE_HEADING_ACTION . "</th></tr>\n";
