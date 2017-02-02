@@ -24,11 +24,23 @@
       $hot_products = tep_db_fetch_array($hot_products_query);
     }
 
-    $image = '';
+    $image = ''; 
+    $image_overlay_sale = '';
+    if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
+  		if (tep_not_null($popular_products['specials_new_products_price'])) {
+  			$image_overlay_sale = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_HEIGHT . 'px;');
+    	}
+    }
+/*    
+    $image_overlay_new = '';
+    if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
+    	$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_HEIGHT . 'px;');
+    }
+*/    
     if ($popular_products['image_display'] == 1) {
-    	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+    	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sale;
     } elseif (($popular_products['image_display'] != 2) && tep_not_null($popular_products['products_image'])) {
-    	$image = tep_image(DIR_WS_IMAGES_THUMBS . $popular_products['image_folder'] . $popular_products['products_image'], $popular_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"');
+    	$image = tep_image(DIR_WS_IMAGES_THUMBS . $popular_products['image_folder'] . $popular_products['products_image'], $popular_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"') . $image_overlay_sale;
     }
     
     $wrapper_slides .= '  <div class="item box-height" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product">';
@@ -73,7 +85,7 @@
     	
       // Show the products old price if enabled in Admin
       if ($show_old_price) {
-        $wrapper_slides .= '        <del>' .  $currencies->display_price($popular_products['products_price'], tep_get_tax_rate($popular_products['products_tax_class_id'])) . '</del><br />';
+        $wrapper_slides .= '        <del>' .  $currencies->display_price($popular_products['products_price'], tep_get_tax_rate($popular_products['products_tax_class_id'])) . '</del>&nbsp;&nbsp;';
       }
       $wrapper_slides .= '          <span class="productSpecialPrice" itemprop="price" content="' . $currencies->display_raw($popular_products['products_price'], tep_get_tax_rate($popular_products['products_tax_class_id'])) . '">' . $currencies->display_price($popular_products['specials_new_products_price'], tep_get_tax_rate($popular_products['products_tax_class_id'])) . '<br />' . $PercentRound . '% </span>';
       // EOM

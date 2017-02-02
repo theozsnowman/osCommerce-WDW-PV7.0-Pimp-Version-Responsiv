@@ -18,17 +18,10 @@
       <meta itemprop="numberOfItems" content="<?php echo (int)$num_new_products; ?>" />
 <?php
   while ($new_products = tep_db_fetch_array($new_products_query)) {
-  	
-  	$image ='';
-  	if ($new_products['image_display'] == 1) {
-    	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5"');
-  	} elseif (($new_products['image_display'] != 2) && tep_not_null($new_products['products_image'])) {
-    	$image = tep_image(DIR_WS_IMAGES_THUMBS .  $new_products['image_folder'] . $new_products['products_image'], $new_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"');
-  	}
 ?>
       <div class="col-sm-<?php echo MODULE_CONTENT_CATEGORY_NEW_PRODUCTS_CONTENT_WIDTH_EACH; ?>" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product">
         <div class="thumbnail equal-height">
-          <a href="<?php echo tep_href_link('product_info.php', 'products_id=' . $new_products['products_id']); ?>"><?php echo $image; ?></a>
+          <a href="<?php echo tep_href_link('product_info.php', 'products_id=' . $new_products['products_id']); ?>"><?php echo tep_image(DIR_WS_IMAGES_THUMBS .  $new_products['image_folder'] . $new_products['products_image'], $new_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"'); ?></a>
           <div class="caption">
               <p class="text-center"><a itemprop="url" href="<?php echo tep_href_link('product_info.php', 'products_id=' . $new_products['products_id']); ?>"><span itemprop="name"><?php echo $new_products['products_name']; ?></span></a></p>
             <hr>

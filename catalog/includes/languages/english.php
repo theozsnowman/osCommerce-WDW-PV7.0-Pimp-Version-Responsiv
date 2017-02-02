@@ -230,3 +230,9 @@ define('PRODUCT_REMOVED', '%s has been removed from your Cart');
 define('MODULE_CONTENT_BOOTSTRAP_ROW_DESCRIPTION', '');
 
 define('TEXT_NO_PICTURE', 'No Picture Available');
+
+// Specials Image Overlay
+define( 'IMAGE_SALE', 'Sale!' );
+
+// New Image Overlay
+define( 'IMAGE_NEW', 'New!' );

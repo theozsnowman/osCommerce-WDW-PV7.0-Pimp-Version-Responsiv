@@ -18,17 +18,9 @@
       $also_pur_prods_content = NULL;
 
       while ($orders = tep_db_fetch_array($orders_query)) {
-      	
-      	$image ='';
-  			if ($orders['image_display'] == 1) {
-    			$image = tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5"');
-  			} elseif (($orders['image_display'] != 2) && tep_not_null($orders['products_image'])) {
-    			$image = tep_image(DIR_WS_IMAGES_THUMBS .  $orders['image_folder'] . $orders['products_image'], $orders['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
-  			}
-      	
         $also_pur_prods_content .= '<div class="col-sm-6 col-md-4">';
         $also_pur_prods_content .= '  <div class="thumbnail">';
-        $also_pur_prods_content .= '    <a href="' . tep_href_link('product_info.php', 'products_id=' . $orders['products_id']) . '">' . $image . '</a>';
+        $also_pur_prods_content .= '    <a href="' . tep_href_link('product_info.php', 'products_id=' . $orders['products_id']) . '">' . tep_image(DIR_WS_IMAGES_THUMBS .  $orders['image_folder'] . $orders['products_image'], $orders['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a>';
         $also_pur_prods_content .= '    <div class="caption">';
         $also_pur_prods_content .= '      <h5 class="text-center"><a href="' . tep_href_link('product_info.php', 'products_id=' . $orders['products_id']) . '"><span itemprop="itemListElement">' . $orders['products_name'] . '</span></a></h5>';
         $also_pur_prods_content .= '    </div>';

@@ -110,12 +110,48 @@
 	  $prod_list_contents .= '  <div class="productHolder equal-height">';
 
     if (PRODUCT_LIST_IMAGE > 0) {
-    	
-    	$image = '';
+    	$image = ''; 
+    	// included by webmaster@webdesign-wedel.de (2017)
+    	// BOM
+    	$image_overlay_sales = '';
+    	$image_overlay_new = '';
+      
       if ($listing['image_display'] == 1) {
-       	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+      	if ( (tep_session_is_registered('wdw_overlay_images_new')) ) {
+      		if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
+      			$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_HEIGHT . 'px;');
+      		} 
+  			}
+      	if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
+       		if (tep_not_null($listing['specials_new_products_price'])) {
+       			if ( (tep_session_is_registered('wdw_overlay_images_new')) ) {
+      				if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
+       					$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_HEIGHT . 'px;');
+      				} 
+  					}
+        		$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_HEIGHT . 'px;');
+      		}
+      	}
+      
+       	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sales . $image_overlay_new;
       } elseif (($listing['image_display'] != 2) && tep_not_null($listing['products_image'])) {
-      	$image = tep_image(DIR_WS_IMAGES_THUMBS . $listing['image_folder'] . $listing['products_image'], $listing['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"', NULL, 'img-responsive thumbnail group list-group-image');
+      	if ( (tep_session_is_registered('wdw_overlay_images_new')) ) {
+      		if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
+      			$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_WIDTH . 'px;');
+      		} 
+  			}
+      	
+      	if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
+      		if (tep_not_null($listing['specials_new_products_price'])) {
+       			if ( (tep_session_is_registered('wdw_overlay_images_new')) ) {
+      				if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
+       					$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_HEIGHT . 'px;');
+      				} 
+  					}
+        		$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_WIDTH . 'px;');
+      		}
+      	}
+      	$image = tep_image(DIR_WS_IMAGES_THUMBS . $listing['image_folder'] . $listing['products_image'], $listing['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"', NULL, 'img-responsive thumbnail group list-group-image') . $image_overlay_sales . $image_overlay_new;
       }
       
       if (isset($_GET['manufacturers_id'])  && tep_not_null($_GET['manufacturers_id'])) {
@@ -123,6 +159,7 @@
       } else {
         $prod_list_contents .= '    <a href="' . tep_href_link('product_info.php', (isset($sort) ? 'sort=' . $sort . '&' : '') . ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $listing['products_id']) . '">' . $image . '</a>';
       }
+      // EOM
     }
     
     $prod_list_contents .= '    <div class="caption">';
@@ -168,7 +205,6 @@
      
       if (PRODUCT_LIST_PRICE > 0) {
         if (tep_not_null($listing['specials_new_products_price'])) {
-        	
         	// included by webmaster@webdesign-wedel.de (2017)
     			// BOM
     			//Formular --->>>> Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100
@@ -179,7 +215,7 @@
           $prod_list_contents .= '      <div class="col-xs-6" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="priceCurrency" content="' . tep_output_string($currency) . '" /><div class="btn-group" role="group"><button type="button" class="btn btn-default"><del>' .  $currencies->display_price($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '</del></span>&nbsp;&nbsp;<span class="productSpecialPrice" itemprop="price" content="' . $currencies->display_raw($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '">' . $currencies->display_price($listing['specials_new_products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '<br />' . $PercentRound . '%</span></button></div></div>';
         	// EOM
         } else {
-          $prod_list_contents .= '      <div class="col-xs-6" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="priceCurrency" content="' . tep_output_string($currency) . '" /><div class="btn-group" role="group"><button type="button" class="btn btn-default"><span itemprop="price" content="' . $currencies->display_raw($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '">' . $currencies->display_price($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '</span></button></div></div>';
+        	$prod_list_contents .= '      <div class="col-xs-6" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="priceCurrency" content="' . tep_output_string($currency) . '" /><div class="btn-group" role="group"><button type="button" class="btn btn-default"><span itemprop="price" content="' . $currencies->display_raw($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '">' . $currencies->display_price($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '</span></button></div></div>';
         }
       }
     
@@ -194,6 +230,8 @@
     $prod_list_contents .= '</div>';
 
   }
+  
+  tep_session_unregister('wdw_overlay_images_new');
 
   echo '<div id="products" class="row list-group" itemtype="http://schema.org/ItemList">';
   echo '  <meta itemprop="numberOfItems" content="' . (int)$listing_split->number_of_rows . '" />';

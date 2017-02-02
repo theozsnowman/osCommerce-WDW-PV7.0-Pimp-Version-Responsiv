@@ -110,8 +110,8 @@
         break;
     }
   }
-
-
+  
+  tep_session_register('wdw_overlay_images_new');
   include('includes/modules/product_listing.php');
 
   require('includes/template_bottom.php');

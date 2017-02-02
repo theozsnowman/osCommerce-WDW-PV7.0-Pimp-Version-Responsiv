@@ -23,17 +23,9 @@
     $new_prods_content = NULL;
 
     while ($new_products = tep_db_fetch_array($new_products_query)) {
-    	
-    	$image ='';
-  		if ($new_products['image_display'] == 1) {
-    		$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5"');
-  		} elseif (($new_products['image_display'] != 2) && tep_not_null($new_products['products_image'])) {
-    		$image = tep_image(DIR_WS_IMAGES_THUMBS .  $new_products['image_folder'] . $new_products['products_image'], $new_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"');
-  		}
-
       $new_prods_content .= '<div class="col-sm-6 col-md-4" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product">';
       $new_prods_content .= '  <div class="thumbnail equal-height">';
-      $new_prods_content .= '    <a href="' . tep_href_link('product_info.php', 'products_id=' . $new_products['products_id']) . '">' . $image . '</a>';
+      $new_prods_content .= '    <a href="' . tep_href_link('product_info.php', 'products_id=' . $new_products['products_id']) . '">' . tep_image(DIR_WS_IMAGES_THUMBS .  $new_products['image_folder'] . $new_products['products_image'], $new_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"') . '</a>';
       $new_prods_content .= '    <div class="caption">';
       $new_prods_content .= '      <p class="text-center"><a itemprop="url" href="' . tep_href_link('product_info.php', 'products_id=' . $new_products['products_id']) . '"><span itemprop="name">' . $new_products['products_name'] . '</span></a></p>';
       $new_prods_content .= '      <hr>';
