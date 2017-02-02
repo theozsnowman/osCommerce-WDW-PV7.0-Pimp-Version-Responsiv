@@ -38,7 +38,7 @@
 ////
 // Auto expire banners
   function tep_expire_banners() {
-    $banners_query = tep_db_query("select b.banners_id, b.expires_date, b.expires_impressions, sum(bh.banners_shown) as banners_shown from " . TABLE_BANNERS . " b, " . TABLE_BANNERS_HISTORY . " bh where b.status = '1' and b.banners_id = bh.banners_id group by b.banners_id");
+    $banners_query = tep_db_query("select b.banners_id, b.expires_date, b.expires_impressions, sum(bh.banners_shown) as banners_shown from " . TABLE_BANNERS . " b, " . TABLE_BANNERS_HISTORY . " bh where b.status = '1' and b.banners_id = bh.banners_id group by b.banners_id, b.expires_date, b.expires_impressions");
     if (tep_db_num_rows($banners_query)) {
       while ($banners = tep_db_fetch_array($banners_query)) {
         if (tep_not_null($banners['expires_date'])) {
