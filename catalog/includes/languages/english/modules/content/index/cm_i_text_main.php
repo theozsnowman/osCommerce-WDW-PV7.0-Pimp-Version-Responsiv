@@ -78,8 +78,8 @@ Webdesign Wedel (WDW) modified stuff<br />
   - Modular Sub Category Page (Template modified to dropdown)<br />
   - Modular Index Page (Template modified to dropdown)<br />
   - Show value in % on a Special product on every content<br />
-  - Now Overlay Images Sales (Turn on/off in the Admin)<br />
-  - Now Overlay Images New (Turn on/offin the Admin)<br />
+  - Overlay Images Sales (Turn on/off in the Admin)<br />
+  - Overlay Images New (Turn on/offin the Admin)<br />
   - New images path, same like osCommerce 3.0,<br />
   	/images/categories/, /images/manufacturers/, /images/originals/,<br />
   	/images/product_thumbnails/, /images/products/, /images/temporary/.<br />
