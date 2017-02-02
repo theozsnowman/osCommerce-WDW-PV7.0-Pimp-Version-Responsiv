@@ -1,5 +1,3 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-
 DROP TABLE IF EXISTS `action_recorder`;
 CREATE TABLE `action_recorder` (
   `id` int(11) NOT NULL,
