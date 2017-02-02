@@ -64,15 +64,16 @@ WDW modified stuff
 - Modular Sub Category Page (Template modified to dropdown)
 - Modular Index Page (Template modified to dropdown)
 - Show value in % on a Special product on every content<br />
-- New images path, same like osCommerce 3.0 /images/categories/, /images/manufacturers/, /images/originals/, /images/product_thumbnails/, /images/products/, /images/temporary/. Code changes for functionality with this Version. Based on Protected Images for osC 2.3.4 [still under development]
+- New images path, same like osCommerce 3.0 /images/categories/, /images/manufacturers/, /images/originals/, /images/product_thumbnails/, /images/products/, /images/temporary/. Code changes for functionality with this Version. Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)
 
 Extensions included
 ===================
 - cKEditor >>> Product description editable with ckEditor
 - KCFinder >>> Image file uploder for cKEditor
 - Mailchimp Newsletter 2.02
+- Protected Images for osC 2.3.4 (adapted by WDW for this version)
 - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)
-- Multiple Products Manager fo 2.3.3 v2.7 [still under WDW development]
+- Multiple Products Manager fo 2.3.3 v2.7
 - Category New Products Carousel v1.4
 - Category Popular Products Carousel v1.3
 
