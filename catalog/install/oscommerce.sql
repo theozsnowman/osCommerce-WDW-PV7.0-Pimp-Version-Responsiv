@@ -1,160 +1,640 @@
-DROP TABLE IF EXISTS `action_recorder`;
-CREATE TABLE `action_recorder` (
-  `id` int(11) NOT NULL,
-  `module` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `user_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `identifier` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `success` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS action_recorder;
+CREATE TABLE action_recorder (
+  id int NOT NULL auto_increment,
+  module varchar(255) NOT NULL,
+  user_id int,
+  user_name varchar(255),
+  identifier varchar(255) NOT NULL,
+  success char(1),
+  date_added datetime NOT NULL,
+  PRIMARY KEY (id),
+  KEY idx_action_recorder_module (module),
+  KEY idx_action_recorder_user_id (user_id),
+  KEY idx_action_recorder_identifier (identifier),
+  KEY idx_action_recorder_date_added (date_added)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `address_book`;
-CREATE TABLE `address_book` (
-  `address_book_id` int(11) NOT NULL,
-  `customers_id` int(11) NOT NULL,
-  `entry_gender` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `entry_company` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `entry_firstname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `entry_lastname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `entry_street_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `entry_suburb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `entry_postcode` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `entry_city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `entry_state` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `entry_country_id` int(11) NOT NULL DEFAULT '0',
-  `entry_zone_id` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS address_book;
+CREATE TABLE address_book (
+   address_book_id int NOT NULL auto_increment,
+   customers_id int NOT NULL,
+   entry_gender char(1),
+   entry_company varchar(255),
+   entry_firstname varchar(255) NOT NULL,
+   entry_lastname varchar(255) NOT NULL,
+   entry_street_address varchar(255) NOT NULL,
+   entry_suburb varchar(255),
+   entry_postcode varchar(255) NOT NULL,
+   entry_city varchar(255) NOT NULL,
+   entry_state varchar(255),
+   entry_country_id int DEFAULT '0' NOT NULL,
+   entry_zone_id int DEFAULT '0' NOT NULL,
+   PRIMARY KEY (address_book_id),
+   KEY idx_address_book_customers_id (customers_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `address_format`;
-CREATE TABLE `address_format` (
-  `address_format_id` int(11) NOT NULL,
-  `address_format` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `address_summary` varchar(48) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS address_format;
+CREATE TABLE address_format (
+  address_format_id int NOT NULL auto_increment,
+  address_format varchar(128) NOT NULL,
+  address_summary varchar(48) NOT NULL,
+  PRIMARY KEY (address_format_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-INSERT INTO `address_format` (`address_format_id`, `address_format`, `address_summary`) VALUES
-(1, '$firstname $lastname$cr$streets$cr$city, $postcode$cr$statecomma$country', '$city / $country'),
-(2, '$firstname $lastname$cr$streets$cr$city, $state    $postcode$cr$country', '$city, $state / $country'),
-(3, '$firstname $lastname$cr$streets$cr$city$cr$postcode - $statecomma$country', '$state / $country'),
-(4, '$firstname $lastname$cr$streets$cr$city ($postcode)$cr$country', '$postcode / $country'),
-(5, '$firstname $lastname$cr$streets$cr$postcode $city$cr$country', '$city / $country');
+DROP TABLE IF EXISTS administrators;
+CREATE TABLE administrators (
+  id int NOT NULL auto_increment,
+  user_name varchar(255) binary NOT NULL,
+  user_password varchar(60) NOT NULL,
+  PRIMARY KEY (id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `administrators`;
-CREATE TABLE `administrators` (
-  `id` int(11) NOT NULL,
-  `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `user_password` varchar(60) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS banners;
+CREATE TABLE banners (
+  banners_id int NOT NULL auto_increment,
+  banners_title varchar(64) NOT NULL,
+  banners_url varchar(255) NOT NULL,
+  banners_image varchar(64) NOT NULL,
+  banners_group varchar(10) NOT NULL,
+  banners_html_text text,
+  expires_impressions int(7) DEFAULT '0',
+  expires_date datetime DEFAULT NULL,
+  date_scheduled datetime DEFAULT NULL,
+  date_added datetime NOT NULL,
+  date_status_change datetime DEFAULT NULL,
+  status int(1) DEFAULT '1' NOT NULL,
+  PRIMARY KEY (banners_id),
+  KEY idx_banners_group (banners_group)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `banners`;
-CREATE TABLE `banners` (
-  `banners_id` int(11) NOT NULL,
-  `banners_title` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `banners_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `banners_image` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `banners_group` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `banners_html_text` text COLLATE utf8_unicode_ci,
-  `expires_impressions` int(7) DEFAULT '0',
-  `expires_date` datetime DEFAULT NULL,
-  `date_scheduled` datetime DEFAULT NULL,
-  `date_added` datetime NOT NULL,
-  `date_status_change` datetime DEFAULT NULL,
-  `status` int(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS banners_history;
+CREATE TABLE banners_history (
+  banners_history_id int NOT NULL auto_increment,
+  banners_id int NOT NULL,
+  banners_shown int(5) NOT NULL DEFAULT '0',
+  banners_clicked int(5) NOT NULL DEFAULT '0',
+  banners_history_date datetime NOT NULL,
+  PRIMARY KEY (banners_history_id),
+  KEY idx_banners_history_banners_id (banners_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `banners_history`;
-CREATE TABLE `banners_history` (
-  `banners_history_id` int(11) NOT NULL,
-  `banners_id` int(11) NOT NULL,
-  `banners_shown` int(5) NOT NULL DEFAULT '0',
-  `banners_clicked` int(5) NOT NULL DEFAULT '0',
-  `banners_history_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS categories;
+CREATE TABLE categories (
+   categories_id int NOT NULL auto_increment,
+   categories_image varchar(64),
+   parent_id int DEFAULT '0' NOT NULL,
+   sort_order int(3),
+   date_added datetime,
+   last_modified datetime,
+   PRIMARY KEY (categories_id),
+   KEY idx_categories_parent_id (parent_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE `categories` (
-  `categories_id` int(11) NOT NULL,
-  `categories_image` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `parent_id` int(11) NOT NULL DEFAULT '0',
-  `sort_order` int(3) DEFAULT NULL,
-  `date_added` datetime DEFAULT NULL,
-  `last_modified` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS categories_description;
+CREATE TABLE categories_description (
+   categories_id int DEFAULT '0' NOT NULL,
+   language_id int DEFAULT '1' NOT NULL,
+   categories_name varchar(32) NOT NULL,
+   categories_description TEXT NULL,
+   categories_seo_description TEXT NULL,
+   categories_seo_keywords VARCHAR(128) NULL,
+   categories_seo_title VARCHAR(128) NULL,
+   PRIMARY KEY (categories_id, language_id),
+   KEY idx_categories_name (categories_name)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-INSERT INTO `categories` (`categories_id`, `categories_image`, `parent_id`, `sort_order`, `date_added`, `last_modified`) VALUES
-(1, 'category_hardware.gif', 0, 1, '2017-01-24 11:09:54', '2017-01-26 10:23:14'),
-(2, 'category_software.gif', 0, 2, '2017-01-24 11:09:54', '2017-01-26 15:27:37'),
-(3, 'category_dvd_movies.gif', 0, 3, '2017-01-24 11:09:54', '2017-01-26 15:27:52'),
-(4, 'subcategory_graphic_cards.gif', 1, 0, '2017-01-24 11:09:54', NULL),
-(5, 'subcategory_printers.gif', 1, 0, '2017-01-24 11:09:54', NULL),
-(6, 'subcategory_monitors.gif', 1, 0, '2017-01-24 11:09:54', NULL),
-(7, 'subcategory_speakers.gif', 1, 0, '2017-01-24 11:09:54', NULL),
-(8, 'subcategory_keyboards.gif', 1, 0, '2017-01-24 11:09:54', NULL),
-(9, 'subcategory_mice.gif', 1, 0, '2017-01-24 11:09:54', NULL),
-(10, 'subcategory_action.gif', 3, 0, '2017-01-24 11:09:54', NULL),
-(11, 'subcategory_science_fiction.gif', 3, 0, '2017-01-24 11:09:54', NULL),
-(12, 'subcategory_comedy.gif', 3, 0, '2017-01-24 11:09:54', NULL),
-(13, 'subcategory_cartoons.gif', 3, 0, '2017-01-24 11:09:54', NULL),
-(14, 'subcategory_thriller.gif', 3, 0, '2017-01-24 11:09:54', NULL),
-(15, 'subcategory_drama.gif', 3, 0, '2017-01-24 11:09:54', NULL),
-(16, 'subcategory_memory.gif', 1, 0, '2017-01-24 11:09:54', NULL),
-(17, 'subcategory_cdrom_drives.gif', 1, 0, '2017-01-24 11:09:54', NULL),
-(18, 'subcategory_simulation.gif', 2, 0, '2017-01-24 11:09:54', NULL),
-(19, 'subcategory_action_games.gif', 2, 0, '2017-01-24 11:09:54', NULL),
-(20, 'subcategory_strategy.gif', 2, 0, '2017-01-24 11:09:54', '2017-01-25 06:26:15'),
-(21, 'category_gadgets.png', 0, 4, '2017-01-24 11:09:54', '2017-01-26 15:28:55'),
-(23, 'category_gadgets.png', 21, 0, '2017-01-26 15:32:36', '2017-01-26 15:34:02');
+DROP TABLE IF EXISTS configuration;
+CREATE TABLE configuration (
+  configuration_id int NOT NULL auto_increment,
+  configuration_title varchar(255) NOT NULL,
+  configuration_key varchar(255) NOT NULL,
+  configuration_value text NOT NULL,
+  configuration_description varchar(255) NOT NULL,
+  configuration_group_id int NOT NULL,
+  sort_order int(5) NULL,
+  last_modified datetime NULL,
+  date_added datetime NOT NULL,
+  use_function varchar(255) NULL,
+  set_function varchar(255) NULL,
+  PRIMARY KEY (configuration_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `categories_description`;
-CREATE TABLE `categories_description` (
-  `categories_id` int(11) NOT NULL DEFAULT '0',
-  `language_id` int(11) NOT NULL DEFAULT '1',
-  `categories_name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `categories_description` text COLLATE utf8_unicode_ci,
-  `categories_seo_description` text COLLATE utf8_unicode_ci,
-  `categories_seo_keywords` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `categories_seo_title` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS configuration_group;
+CREATE TABLE configuration_group (
+  configuration_group_id int NOT NULL auto_increment,
+  configuration_group_title varchar(64) NOT NULL,
+  configuration_group_description varchar(255) NOT NULL,
+  sort_order int(5) NULL,
+  visible int(1) DEFAULT '1' NULL,
+  PRIMARY KEY (configuration_group_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-INSERT INTO `categories_description` (`categories_id`, `language_id`, `categories_name`, `categories_description`, `categories_seo_description`, `categories_seo_keywords`, `categories_seo_title`) VALUES
-(1, 1, 'Hardware', 'hardware test category description', '', '', ''),
-(2, 1, 'Software', 'Software test category description', '', '', ''),
-(3, 1, 'DVD Movies', 'DVD Movies test category description', '', '', ''),
-(4, 1, 'Graphics Cards', NULL, NULL, NULL, NULL),
-(5, 1, 'Printers', NULL, NULL, NULL, NULL),
-(6, 1, 'Monitors', NULL, NULL, NULL, NULL),
-(7, 1, 'Speakers', NULL, NULL, NULL, NULL),
-(8, 1, 'Keyboards', NULL, NULL, NULL, NULL),
-(9, 1, 'Mice', NULL, NULL, NULL, NULL),
-(10, 1, 'Action', NULL, NULL, NULL, NULL),
-(11, 1, 'Science Fiction', NULL, NULL, NULL, NULL),
-(12, 1, 'Comedy', NULL, NULL, NULL, NULL),
-(13, 1, 'Cartoons', NULL, NULL, NULL, NULL),
-(14, 1, 'Thriller', NULL, NULL, NULL, NULL),
-(15, 1, 'Drama', NULL, NULL, NULL, NULL),
-(16, 1, 'Memory', NULL, NULL, NULL, NULL),
-(17, 1, 'CDROM Drives', NULL, NULL, NULL, NULL),
-(18, 1, 'Simulation', NULL, NULL, NULL, NULL),
-(19, 1, 'Action', NULL, NULL, NULL, NULL),
-(20, 1, 'Strategy', 'Strategy Test Categorie description', '', '', ''),
-(21, 1, 'Gadgets', 'Gadgets test category description', '', '', ''),
-(23, 1, 'Tablets', 'Tablets test category description', '', '', '');
+DROP TABLE IF EXISTS countries;
+CREATE TABLE countries (
+  countries_id int NOT NULL auto_increment,
+  countries_name varchar(255) NOT NULL,
+  countries_iso_code_2 char(2) NOT NULL,
+  countries_iso_code_3 char(3) NOT NULL,
+  address_format_id int NOT NULL,
+  PRIMARY KEY (countries_id),
+  KEY IDX_COUNTRIES_NAME (countries_name)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `configuration`;
-CREATE TABLE `configuration` (
-  `configuration_id` int(11) NOT NULL,
-  `configuration_title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `configuration_key` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `configuration_value` text COLLATE utf8_unicode_ci NOT NULL,
-  `configuration_description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `configuration_group_id` int(11) NOT NULL,
-  `sort_order` int(5) DEFAULT NULL,
-  `last_modified` datetime DEFAULT NULL,
-  `date_added` datetime NOT NULL,
-  `use_function` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `set_function` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS currencies;
+CREATE TABLE currencies (
+  currencies_id int NOT NULL auto_increment,
+  title varchar(32) NOT NULL,
+  code char(3) NOT NULL,
+  symbol_left varchar(12),
+  symbol_right varchar(12),
+  decimal_point char(1),
+  thousands_point char(1),
+  decimal_places char(1),
+  value float(13,8),
+  last_updated datetime NULL,
+  PRIMARY KEY (currencies_id),
+  KEY idx_currencies_code (code)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS customers;
+CREATE TABLE customers (
+   customers_id int NOT NULL auto_increment,
+   customers_gender char(1),
+   customers_firstname varchar(255) NOT NULL,
+   customers_lastname varchar(255) NOT NULL,
+   customers_dob datetime DEFAULT '1970-01-01 00:00:01' NOT NULL,
+   customers_email_address varchar(255) NOT NULL,
+   customers_default_address_id int,
+   customers_telephone varchar(255) NOT NULL,
+   customers_fax varchar(255),
+   customers_password varchar(60) NOT NULL,
+   customers_newsletter char(1),
+   PRIMARY KEY (customers_id),
+   KEY idx_customers_email_address (customers_email_address)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS customers_basket;
+CREATE TABLE customers_basket (
+  customers_basket_id int NOT NULL auto_increment,
+  customers_id int NOT NULL,
+  products_id tinytext NOT NULL,
+  customers_basket_quantity int(2) NOT NULL,
+  final_price decimal(15,4),
+  customers_basket_date_added char(8),
+  PRIMARY KEY (customers_basket_id),
+  KEY idx_customers_basket_customers_id (customers_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS customers_basket_attributes;
+CREATE TABLE customers_basket_attributes (
+  customers_basket_attributes_id int NOT NULL auto_increment,
+  customers_id int NOT NULL,
+  products_id tinytext NOT NULL,
+  products_options_id int NOT NULL,
+  products_options_value_id int NOT NULL,
+  PRIMARY KEY (customers_basket_attributes_id),
+  KEY idx_customers_basket_att_customers_id (customers_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS customers_info;
+CREATE TABLE customers_info (
+  customers_info_id int NOT NULL,
+  customers_info_date_of_last_logon datetime,
+  customers_info_number_of_logons int(5),
+  customers_info_date_account_created datetime,
+  customers_info_date_account_last_modified datetime,
+  global_product_notifications int(1) DEFAULT '0',
+  password_reset_key char(40),
+  password_reset_date datetime,
+  PRIMARY KEY (customers_info_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS languages;
+CREATE TABLE languages (
+  languages_id int NOT NULL auto_increment,
+  name varchar(32)  NOT NULL,
+  code char(2) NOT NULL,
+  image varchar(64),
+  directory varchar(32),
+  sort_order int(3),
+  PRIMARY KEY (languages_id),
+  KEY IDX_LANGUAGES_NAME (name)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS manufacturers;
+CREATE TABLE manufacturers (
+  manufacturers_id int NOT NULL auto_increment,
+  manufacturers_name varchar(32) NOT NULL,
+  manufacturers_image varchar(64),
+  date_added datetime NULL,
+  last_modified datetime NULL,
+  PRIMARY KEY (manufacturers_id),
+  KEY IDX_MANUFACTURERS_NAME (manufacturers_name)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS manufacturers_info;
+CREATE TABLE manufacturers_info (
+  manufacturers_id int NOT NULL,
+  languages_id int NOT NULL,
+  manufacturers_url varchar(255) NOT NULL,
+  url_clicked int(5) NOT NULL default '0',
+  date_last_click datetime NULL,
+  manufacturers_description TEXT NULL,
+  manufacturers_seo_description TEXT NULL,
+  manufacturers_seo_keywords VARCHAR(128) NULL,
+  manufacturers_seo_title VARCHAR(128) NULL,
+  PRIMARY KEY (manufacturers_id, languages_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS newsletters;
+CREATE TABLE newsletters (
+  newsletters_id int NOT NULL auto_increment,
+  title varchar(255) NOT NULL,
+  content text NOT NULL,
+  module varchar(255) NOT NULL,
+  date_added datetime NOT NULL,
+  date_sent datetime,
+  status int(1),
+  locked int(1) DEFAULT '0',
+  PRIMARY KEY (newsletters_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS orders;
+CREATE TABLE orders (
+  orders_id int NOT NULL auto_increment,
+  customers_id int NOT NULL,
+  customers_name varchar(255) NOT NULL,
+  customers_company varchar(255),
+  customers_street_address varchar(255) NOT NULL,
+  customers_suburb varchar(255),
+  customers_city varchar(255) NOT NULL,
+  customers_postcode varchar(255) NOT NULL,
+  customers_state varchar(255),
+  customers_country varchar(255) NOT NULL,
+  customers_telephone varchar(255) NOT NULL,
+  customers_email_address varchar(255) NOT NULL,
+  customers_address_format_id int(5) NOT NULL,
+  delivery_name varchar(255) NOT NULL,
+  delivery_company varchar(255),
+  delivery_street_address varchar(255) NOT NULL,
+  delivery_suburb varchar(255),
+  delivery_city varchar(255) NOT NULL,
+  delivery_postcode varchar(255) NOT NULL,
+  delivery_state varchar(255),
+  delivery_country varchar(255) NOT NULL,
+  delivery_address_format_id int(5) NOT NULL,
+  billing_name varchar(255) NOT NULL,
+  billing_company varchar(255),
+  billing_street_address varchar(255) NOT NULL,
+  billing_suburb varchar(255),
+  billing_city varchar(255) NOT NULL,
+  billing_postcode varchar(255) NOT NULL,
+  billing_state varchar(255),
+  billing_country varchar(255) NOT NULL,
+  billing_address_format_id int(5) NOT NULL,
+  payment_method varchar(255) NOT NULL,
+  cc_type varchar(20),
+  cc_owner varchar(255),
+  cc_number varchar(32),
+  cc_expires varchar(4),
+  last_modified datetime,
+  date_purchased datetime,
+  orders_status int(5) NOT NULL,
+  orders_date_finished datetime,
+  currency char(3),
+  currency_value decimal(14,6),
+  PRIMARY KEY (orders_id),
+  KEY idx_orders_customers_id (customers_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS orders_products;
+CREATE TABLE orders_products (
+  orders_products_id int NOT NULL auto_increment,
+  orders_id int NOT NULL,
+  products_id int NOT NULL,
+  products_model varchar(64),
+  products_name varchar(128) NOT NULL,
+  products_price decimal(15,4) NOT NULL,
+  final_price decimal(15,4) NOT NULL,
+  products_tax decimal(7,4) NOT NULL,
+  products_quantity int(2) NOT NULL,
+  PRIMARY KEY (orders_products_id),
+  KEY idx_orders_products_orders_id (orders_id),
+  KEY idx_orders_products_products_id (products_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS orders_status;
+CREATE TABLE orders_status (
+   orders_status_id int DEFAULT '0' NOT NULL,
+   language_id int DEFAULT '1' NOT NULL,
+   orders_status_name varchar(32) NOT NULL,
+   public_flag int DEFAULT '1',
+   downloads_flag int DEFAULT '0',
+   PRIMARY KEY (orders_status_id, language_id),
+   KEY idx_orders_status_name (orders_status_name)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS orders_status_history;
+CREATE TABLE orders_status_history (
+   orders_status_history_id int NOT NULL auto_increment,
+   orders_id int NOT NULL,
+   orders_status_id int(5) NOT NULL,
+   date_added datetime NOT NULL,
+   customer_notified int(1) DEFAULT '0',
+   comments text,
+   PRIMARY KEY (orders_status_history_id),
+   KEY idx_orders_status_history_orders_id (orders_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS orders_products_attributes;
+CREATE TABLE orders_products_attributes (
+  orders_products_attributes_id int NOT NULL auto_increment,
+  orders_id int NOT NULL,
+  orders_products_id int NOT NULL,
+  products_options varchar(32) NOT NULL,
+  products_options_values varchar(32) NOT NULL,
+  options_values_price decimal(15,4) NOT NULL,
+  price_prefix char(1) NOT NULL,
+  PRIMARY KEY (orders_products_attributes_id),
+  KEY idx_orders_products_att_orders_id (orders_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS orders_products_download;
+CREATE TABLE orders_products_download (
+  orders_products_download_id int NOT NULL auto_increment,
+  orders_id int NOT NULL default '0',
+  orders_products_id int NOT NULL default '0',
+  orders_products_filename varchar(255) NOT NULL default '',
+  download_maxdays int(2) NOT NULL default '0',
+  download_count int(2) NOT NULL default '0',
+  PRIMARY KEY  (orders_products_download_id),
+  KEY idx_orders_products_download_orders_id (orders_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS orders_total;
+CREATE TABLE orders_total (
+  orders_total_id int unsigned NOT NULL auto_increment,
+  orders_id int NOT NULL,
+  title varchar(255) NOT NULL,
+  text varchar(255) NOT NULL,
+  value decimal(15,4) NOT NULL,
+  class varchar(32) NOT NULL,
+  sort_order int NOT NULL,
+  PRIMARY KEY (orders_total_id),
+  KEY idx_orders_total_orders_id (orders_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS products;
+CREATE TABLE products (
+  products_id int NOT NULL auto_increment,
+  products_quantity int(4) NOT NULL,
+  products_model varchar(64),
+  products_image varchar(64),
+  products_price decimal(15,4) NOT NULL,
+  products_date_added datetime NOT NULL,
+  products_last_modified datetime,
+  products_date_available datetime,
+  products_weight decimal(5,2) NOT NULL,
+  products_status tinyint(1) NOT NULL,
+  products_tax_class_id int NOT NULL,
+  manufacturers_id int NULL,
+  products_ordered int NOT NULL default '0',
+  products_gtin CHAR(14) NULL,
+  PRIMARY KEY (products_id),
+  KEY idx_products_model (products_model),
+  KEY idx_products_date_added (products_date_added)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS products_attributes;
+CREATE TABLE products_attributes (
+  products_attributes_id int NOT NULL auto_increment,
+  products_id int NOT NULL,
+  options_id int NOT NULL,
+  options_values_id int NOT NULL,
+  options_values_price decimal(15,4) NOT NULL,
+  price_prefix char(1) NOT NULL,
+  PRIMARY KEY (products_attributes_id),
+  KEY idx_products_attributes_products_id (products_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS products_attributes_download;
+CREATE TABLE products_attributes_download (
+  products_attributes_id int NOT NULL,
+  products_attributes_filename varchar(255) NOT NULL default '',
+  products_attributes_maxdays int(2) default '0',
+  products_attributes_maxcount int(2) default '0',
+  PRIMARY KEY  (products_attributes_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS products_description;
+CREATE TABLE products_description (
+  products_id int NOT NULL auto_increment,
+  language_id int NOT NULL default '1',
+  products_name varchar(128) NOT NULL default '',
+  products_description text,
+  products_url varchar(255) default NULL,
+  products_viewed int(5) default '0',
+  products_seo_description text NULL,
+  products_seo_keywords varchar(128) NULL,
+  products_seo_title varchar(128) NULL,
+  PRIMARY KEY  (products_id,language_id),
+  KEY products_name (products_name)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS products_images;
+CREATE TABLE products_images (
+  id int NOT NULL auto_increment,
+  products_id int NOT NULL,
+  image varchar(64),
+  htmlcontent text,
+  sort_order int NOT NULL,
+  PRIMARY KEY (id),
+  KEY products_images_prodid (products_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS products_notifications;
+CREATE TABLE products_notifications (
+  products_id int NOT NULL,
+  customers_id int NOT NULL,
+  date_added datetime NOT NULL,
+  PRIMARY KEY (products_id, customers_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS products_options;
+CREATE TABLE products_options (
+  products_options_id int NOT NULL default '0',
+  language_id int NOT NULL default '1',
+  products_options_name varchar(32) NOT NULL default '',
+  PRIMARY KEY  (products_options_id,language_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS products_options_values;
+CREATE TABLE products_options_values (
+  products_options_values_id int NOT NULL default '0',
+  language_id int NOT NULL default '1',
+  products_options_values_name varchar(64) NOT NULL default '',
+  PRIMARY KEY  (products_options_values_id,language_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS products_options_values_to_products_options;
+CREATE TABLE products_options_values_to_products_options (
+  products_options_values_to_products_options_id int NOT NULL auto_increment,
+  products_options_id int NOT NULL,
+  products_options_values_id int NOT NULL,
+  PRIMARY KEY (products_options_values_to_products_options_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS products_to_categories;
+CREATE TABLE products_to_categories (
+  products_id int NOT NULL,
+  categories_id int NOT NULL,
+  PRIMARY KEY (products_id,categories_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS reviews;
+CREATE TABLE reviews (
+  reviews_id int NOT NULL auto_increment,
+  products_id int NOT NULL,
+  customers_id int,
+  customers_name varchar(255) NOT NULL,
+  reviews_rating int(1),
+  date_added datetime,
+  last_modified datetime,
+  reviews_status tinyint(1) NOT NULL default '0',
+  reviews_read int(5) NOT NULL default '0',
+  PRIMARY KEY (reviews_id),
+  KEY idx_reviews_products_id (products_id),
+  KEY idx_reviews_customers_id (customers_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS reviews_description;
+CREATE TABLE reviews_description (
+  reviews_id int NOT NULL,
+  languages_id int NOT NULL,
+  reviews_text text NOT NULL,
+  PRIMARY KEY (reviews_id, languages_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS sec_directory_whitelist;
+CREATE TABLE sec_directory_whitelist (
+  id int NOT NULL auto_increment,
+  directory varchar(255) NOT NULL,
+  PRIMARY KEY (id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS sessions;
+CREATE TABLE sessions (
+  sesskey varchar(128) NOT NULL,
+  expiry int(11) unsigned NOT NULL,
+  value text NOT NULL,
+  PRIMARY KEY (sesskey)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS specials;
+CREATE TABLE specials (
+  specials_id int NOT NULL auto_increment,
+  products_id int NOT NULL,
+  specials_new_products_price decimal(15,4) NOT NULL,
+  specials_date_added datetime,
+  specials_last_modified datetime,
+  expires_date datetime,
+  date_status_change datetime,
+  status int(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (specials_id),
+  KEY idx_specials_products_id (products_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS tax_class;
+CREATE TABLE tax_class (
+  tax_class_id int NOT NULL auto_increment,
+  tax_class_title varchar(32) NOT NULL,
+  tax_class_description varchar(255) NOT NULL,
+  last_modified datetime NULL,
+  date_added datetime NOT NULL,
+  PRIMARY KEY (tax_class_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS tax_rates;
+CREATE TABLE tax_rates (
+  tax_rates_id int NOT NULL auto_increment,
+  tax_zone_id int NOT NULL,
+  tax_class_id int NOT NULL,
+  tax_priority int(5) DEFAULT 1,
+  tax_rate decimal(7,4) NOT NULL,
+  tax_description varchar(255) NOT NULL,
+  last_modified datetime NULL,
+  date_added datetime NOT NULL,
+  PRIMARY KEY (tax_rates_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS geo_zones;
+CREATE TABLE geo_zones (
+  geo_zone_id int NOT NULL auto_increment,
+  geo_zone_name varchar(32) NOT NULL,
+  geo_zone_description varchar(255) NOT NULL,
+  last_modified datetime NULL,
+  date_added datetime NOT NULL,
+  PRIMARY KEY (geo_zone_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS whos_online;
+CREATE TABLE whos_online (
+  customer_id int,
+  full_name varchar(255) NOT NULL,
+  session_id varchar(128) NOT NULL,
+  ip_address varchar(15) NOT NULL,
+  time_entry varchar(14) NOT NULL,
+  time_last_click varchar(14) NOT NULL,
+  last_page_url text NOT NULL,
+  KEY idx_whos_online_session_id (session_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS zones;
+CREATE TABLE zones (
+  zone_id int NOT NULL auto_increment,
+  zone_country_id int NOT NULL,
+  zone_code varchar(32) NOT NULL,
+  zone_name varchar(255) NOT NULL,
+  PRIMARY KEY (zone_id),
+  KEY idx_zones_country_id (zone_country_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS zones_to_geo_zones;
+CREATE TABLE zones_to_geo_zones (
+   association_id int NOT NULL auto_increment,
+   zone_country_id int NOT NULL,
+   zone_id int NULL,
+   geo_zone_id int NULL,
+   last_modified datetime NULL,
+   date_added datetime NOT NULL,
+   PRIMARY KEY (association_id),
+   KEY idx_zones_to_geo_zones_country_id (zone_country_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS testimonials;
+CREATE TABLE testimonials (
+  testimonials_id int NOT NULL auto_increment,
+  customers_name varchar(255) NOT NULL,
+  date_added datetime,
+  last_modified datetime,
+  testimonials_status tinyint(1) NOT NULL default '1',
+  PRIMARY KEY (testimonials_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS testimonials_description;
+CREATE TABLE testimonials_description (
+  testimonials_id int NOT NULL,
+  languages_id int NOT NULL,
+  testimonials_text text NOT NULL,
+  PRIMARY KEY (testimonials_id, languages_id)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+# 1 - Default, 2 - USA, 3 - Spain, 4 - Singapore, 5 - Germany
+INSERT INTO address_format VALUES (1, '$firstname $lastname$cr$streets$cr$city, $postcode$cr$statecomma$country','$city / $country');
+INSERT INTO address_format VALUES (2, '$firstname $lastname$cr$streets$cr$city, $state    $postcode$cr$country','$city, $state / $country');
+INSERT INTO address_format VALUES (3, '$firstname $lastname$cr$streets$cr$city$cr$postcode - $statecomma$country','$state / $country');
+INSERT INTO address_format VALUES (4, '$firstname $lastname$cr$streets$cr$city ($postcode)$cr$country', '$postcode / $country');
+INSERT INTO address_format VALUES (5, '$firstname $lastname$cr$streets$cr$postcode $city$cr$country','$city / $country');
 
 INSERT INTO `configuration` (`configuration_id`, `configuration_title`, `configuration_key`, `configuration_value`, `configuration_description`, `configuration_group_id`, `sort_order`, `last_modified`, `date_added`, `use_function`, `set_function`) VALUES
 (1, 'Store Name', 'STORE_NAME', '', 'The name of my store', 1, 1, '2017-01-30 06:27:42', '2017-01-24 11:09:54', NULL, NULL),
@@ -603,15 +1083,6 @@ INSERT INTO `configuration` (`configuration_id`, `configuration_title`, `configu
 (678, 'Product Width', 'MODULE_CONTENT_NEW_PRODUCTS_DISPLAY_EACH', '3', 'What width container should each product be shown in? (12 = full width, 6 = half width).', 6, 4, NULL, '2017-02-02 13:42:48', NULL, 'tep_cfg_select_option(array(\'12\', \'11\', \'10\', \'9\', \'8\', \'7\', \'6\', \'5\', \'4\', \'3\', \'2\', \'1\'), '),
 (679, 'Sort Order', 'MODULE_CONTENT_NEW_PRODUCTS_SORT_ORDER', '300', 'Sort order of display. Lowest is displayed first.', 6, 5, NULL, '2017-02-02 13:42:48', NULL, NULL);
 
-DROP TABLE IF EXISTS `configuration_group`;
-CREATE TABLE `configuration_group` (
-  `configuration_group_id` int(11) NOT NULL,
-  `configuration_group_title` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `configuration_group_description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `sort_order` int(5) DEFAULT NULL,
-  `visible` int(1) DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `configuration_group` (`configuration_group_id`, `configuration_group_title`, `configuration_group_description`, `sort_order`, `visible`) VALUES
 (1, 'My Store', 'General information about my store', 1, 1),
 (2, 'Minimum Values', 'The minimum values for functions / data', 2, 1),
@@ -629,15 +1100,6 @@ INSERT INTO `configuration_group` (`configuration_group_id`, `configuration_grou
 (14, 'GZip Compression', 'GZip compression options', 14, 1),
 (15, 'Sessions', 'Session options', 15, 1),
 (16, 'Bootstrap Setup', 'Basic Bootstrap Options', 16, 1);
-
-DROP TABLE IF EXISTS `countries`;
-CREATE TABLE `countries` (
-  `countries_id` int(11) NOT NULL,
-  `countries_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `countries_iso_code_2` char(2) COLLATE utf8_unicode_ci NOT NULL,
-  `countries_iso_code_3` char(3) COLLATE utf8_unicode_ci NOT NULL,
-  `address_format_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `countries` (`countries_id`, `countries_name`, `countries_iso_code_2`, `countries_iso_code_3`, `address_format_id`) VALUES
 (1, 'Afghanistan', 'AF', 'AFG', 1),
@@ -880,104 +1342,15 @@ INSERT INTO `countries` (`countries_id`, `countries_name`, `countries_iso_code_2
 (238, 'Zambia', 'ZM', 'ZMB', 1),
 (239, 'Zimbabwe', 'ZW', 'ZWE', 1);
 
-DROP TABLE IF EXISTS `currencies`;
-CREATE TABLE `currencies` (
-  `currencies_id` int(11) NOT NULL,
-  `title` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `code` char(3) COLLATE utf8_unicode_ci NOT NULL,
-  `symbol_left` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `symbol_right` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `decimal_point` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `thousands_point` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `decimal_places` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `value` float(13,8) DEFAULT NULL,
-  `last_updated` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `currencies` (`currencies_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_point`, `thousands_point`, `decimal_places`, `value`, `last_updated`) VALUES
 (1, 'U.S. Dollar', 'USD', '$', '', '.', ',', '2', 1.00000000, '2017-01-24 11:09:54'),
 (2, 'Euro', 'EUR', '', 'Ã¢â€šÂ¬', '.', ',', '2', 1.00000000, '2017-01-24 11:09:54');
 
-DROP TABLE IF EXISTS `customers`;
-CREATE TABLE `customers` (
-  `customers_id` int(11) NOT NULL,
-  `customers_gender` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `customers_firstname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `customers_lastname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `customers_dob` datetime NOT NULL DEFAULT '1970-01-01 00:00:01',
-  `customers_email_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `customers_default_address_id` int(11) DEFAULT NULL,
-  `customers_telephone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `customers_fax` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `customers_password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `customers_newsletter` char(1) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `customers_basket`;
-CREATE TABLE `customers_basket` (
-  `customers_basket_id` int(11) NOT NULL,
-  `customers_id` int(11) NOT NULL,
-  `products_id` tinytext COLLATE utf8_unicode_ci NOT NULL,
-  `customers_basket_quantity` int(2) NOT NULL,
-  `final_price` decimal(15,4) DEFAULT NULL,
-  `customers_basket_date_added` char(8) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `customers_basket_attributes`;
-CREATE TABLE `customers_basket_attributes` (
-  `customers_basket_attributes_id` int(11) NOT NULL,
-  `customers_id` int(11) NOT NULL,
-  `products_id` tinytext COLLATE utf8_unicode_ci NOT NULL,
-  `products_options_id` int(11) NOT NULL,
-  `products_options_value_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `customers_info`;
-CREATE TABLE `customers_info` (
-  `customers_info_id` int(11) NOT NULL,
-  `customers_info_date_of_last_logon` datetime DEFAULT NULL,
-  `customers_info_number_of_logons` int(5) DEFAULT NULL,
-  `customers_info_date_account_created` datetime DEFAULT NULL,
-  `customers_info_date_account_last_modified` datetime DEFAULT NULL,
-  `global_product_notifications` int(1) DEFAULT '0',
-  `password_reset_key` char(40) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `password_reset_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `geo_zones`;
-CREATE TABLE `geo_zones` (
-  `geo_zone_id` int(11) NOT NULL,
-  `geo_zone_name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `geo_zone_description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `last_modified` datetime DEFAULT NULL,
-  `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `geo_zones` (`geo_zone_id`, `geo_zone_name`, `geo_zone_description`, `last_modified`, `date_added`) VALUES
 (1, 'All', 'Florida local sales tax zone', '2017-01-26 07:05:34', '2017-01-24 11:09:54');
 
-DROP TABLE IF EXISTS `languages`;
-CREATE TABLE `languages` (
-  `languages_id` int(11) NOT NULL,
-  `name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `code` char(2) COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `directory` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sort_order` int(3) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `languages` (`languages_id`, `name`, `code`, `image`, `directory`, `sort_order`) VALUES
 (1, 'English', 'en', 'icon.gif', 'english', 1);
-
-
-DROP TABLE IF EXISTS `manufacturers`;
-CREATE TABLE `manufacturers` (
-  `manufacturers_id` int(11) NOT NULL,
-  `manufacturers_name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `manufacturers_image` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `date_added` datetime DEFAULT NULL,
-  `last_modified` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `manufacturers` (`manufacturers_id`, `manufacturers_name`, `manufacturers_image`, `date_added`, `last_modified`) VALUES
 (1, 'Matrox', 'manufacturer_matrox.gif', '2017-01-24 11:09:54', NULL),
@@ -991,19 +1364,6 @@ INSERT INTO `manufacturers` (`manufacturers_id`, `manufacturers_name`, `manufact
 (9, 'Hewlett Packard', 'manufacturer_hewlett_packard.gif', '2017-01-24 11:09:54', NULL),
 (10, 'Samsung', 'manufacturer_samsung.png', '2017-01-24 11:09:54', NULL);
 
-DROP TABLE IF EXISTS `manufacturers_info`;
-CREATE TABLE `manufacturers_info` (
-  `manufacturers_id` int(11) NOT NULL,
-  `languages_id` int(11) NOT NULL,
-  `manufacturers_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `url_clicked` int(5) NOT NULL DEFAULT '0',
-  `date_last_click` datetime DEFAULT NULL,
-  `manufacturers_description` text COLLATE utf8_unicode_ci,
-  `manufacturers_seo_description` text COLLATE utf8_unicode_ci,
-  `manufacturers_seo_keywords` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `manufacturers_seo_title` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `manufacturers_info` (`manufacturers_id`, `languages_id`, `manufacturers_url`, `url_clicked`, `date_last_click`, `manufacturers_description`, `manufacturers_seo_description`, `manufacturers_seo_keywords`, `manufacturers_seo_title`) VALUES
 (1, 1, 'http://www.matrox.com', 0, NULL, NULL, NULL, NULL, NULL),
 (2, 1, 'http://www.microsoft.com', 0, NULL, NULL, NULL, NULL, NULL),
@@ -1016,110 +1376,9 @@ INSERT INTO `manufacturers_info` (`manufacturers_id`, `languages_id`, `manufactu
 (9, 1, 'http://www.hewlettpackard.com', 0, NULL, NULL, NULL, NULL, NULL),
 (10, 1, 'http://www.samsung.com', 1, '2017-02-02 06:02:49', NULL, NULL, NULL, NULL);
 
-DROP TABLE IF EXISTS `newsletters`;
-CREATE TABLE `newsletters` (
-  `newsletters_id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `content` text COLLATE utf8_unicode_ci NOT NULL,
-  `module` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `date_added` datetime NOT NULL,
-  `date_sent` datetime DEFAULT NULL,
-  `status` int(1) DEFAULT NULL,
-  `locked` int(1) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `orders`;
-CREATE TABLE `orders` (
-  `orders_id` int(11) NOT NULL,
-  `customers_id` int(11) NOT NULL,
-  `customers_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `customers_company` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `customers_street_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `customers_suburb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `customers_city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `customers_postcode` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `customers_state` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `customers_country` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `customers_telephone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `customers_email_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `customers_address_format_id` int(5) NOT NULL,
-  `delivery_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `delivery_company` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `delivery_street_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `delivery_suburb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `delivery_city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `delivery_postcode` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `delivery_state` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `delivery_country` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `delivery_address_format_id` int(5) NOT NULL,
-  `billing_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `billing_company` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `billing_street_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `billing_suburb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `billing_city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `billing_postcode` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `billing_state` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `billing_country` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `billing_address_format_id` int(5) NOT NULL,
-  `payment_method` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `cc_type` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cc_owner` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cc_number` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cc_expires` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `last_modified` datetime DEFAULT NULL,
-  `date_purchased` datetime DEFAULT NULL,
-  `orders_status` int(5) NOT NULL,
-  `orders_date_finished` datetime DEFAULT NULL,
-  `currency` char(3) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `currency_value` decimal(14,6) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `orders_products`;
-CREATE TABLE `orders_products` (
-  `orders_products_id` int(11) NOT NULL,
-  `orders_id` int(11) NOT NULL,
-  `products_id` int(11) NOT NULL,
-  `products_model` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `products_name` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `products_price` decimal(15,4) NOT NULL,
-  `final_price` decimal(15,4) NOT NULL,
-  `products_tax` decimal(7,4) NOT NULL,
-  `products_quantity` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `orders_products_attributes`;
-CREATE TABLE `orders_products_attributes` (
-  `orders_products_attributes_id` int(11) NOT NULL,
-  `orders_id` int(11) NOT NULL,
-  `orders_products_id` int(11) NOT NULL,
-  `products_options` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `products_options_values` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `options_values_price` decimal(15,4) NOT NULL,
-  `price_prefix` char(1) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `orders_products_attributes` (`orders_products_attributes_id`, `orders_id`, `orders_products_id`, `products_options`, `products_options_values`, `options_values_price`, `price_prefix`) VALUES
 (1, 2, 2, 'Memory', '4 mb', '0.0000', '+'),
 (2, 2, 2, 'Model', 'Value', '0.0000', '+');
-
-DROP TABLE IF EXISTS `orders_products_download`;
-CREATE TABLE `orders_products_download` (
-  `orders_products_download_id` int(11) NOT NULL,
-  `orders_id` int(11) NOT NULL DEFAULT '0',
-  `orders_products_id` int(11) NOT NULL DEFAULT '0',
-  `orders_products_filename` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `download_maxdays` int(2) NOT NULL DEFAULT '0',
-  `download_count` int(2) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `orders_status`;
-CREATE TABLE `orders_status` (
-  `orders_status_id` int(11) NOT NULL DEFAULT '0',
-  `language_id` int(11) NOT NULL DEFAULT '1',
-  `orders_status_name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `public_flag` int(11) DEFAULT '1',
-  `downloads_flag` int(11) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `orders_status` (`orders_status_id`, `language_id`, `orders_status_name`, `public_flag`, `downloads_flag`) VALUES
 (1, 1, 'Pending', 1, 0),
@@ -1127,61 +1386,6 @@ INSERT INTO `orders_status` (`orders_status_id`, `language_id`, `orders_status_n
 (3, 1, 'Delivered', 1, 1),
 (4, 1, 'PayPal [Transactions]', 0, 0),
 (5, 1, 'Authorize.net [Transactions]', 0, 0);
-
-DROP TABLE IF EXISTS `orders_status_history`;
-CREATE TABLE `orders_status_history` (
-  `orders_status_history_id` int(11) NOT NULL,
-  `orders_id` int(11) NOT NULL,
-  `orders_status_id` int(5) NOT NULL,
-  `date_added` datetime NOT NULL,
-  `customer_notified` int(1) DEFAULT '0',
-  `comments` text COLLATE utf8_unicode_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `orders_total`;
-CREATE TABLE `orders_total` (
-  `orders_total_id` int(10) UNSIGNED NOT NULL,
-  `orders_id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `text` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `value` decimal(15,4) NOT NULL,
-  `class` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `sort_order` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `oscom_app_paypal_log`;
-CREATE TABLE `oscom_app_paypal_log` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `customers_id` int(11) NOT NULL,
-  `module` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
-  `action` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `result` tinyint(4) NOT NULL,
-  `server` tinyint(4) NOT NULL,
-  `request` text COLLATE utf8_unicode_ci NOT NULL,
-  `response` text COLLATE utf8_unicode_ci NOT NULL,
-  `ip_address` int(10) UNSIGNED DEFAULT NULL,
-  `date_added` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `products`;
-CREATE TABLE `products` (
-  `products_id` int(11) NOT NULL,
-  `products_quantity` int(4) NOT NULL,
-  `products_model` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `products_image` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `image_folder` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `image_display` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
-  `products_price` decimal(15,4) NOT NULL,
-  `products_date_added` datetime NOT NULL,
-  `products_last_modified` datetime DEFAULT NULL,
-  `products_date_available` datetime DEFAULT NULL,
-  `products_weight` decimal(5,2) NOT NULL,
-  `products_status` tinyint(1) NOT NULL,
-  `products_tax_class_id` int(11) NOT NULL,
-  `manufacturers_id` int(11) DEFAULT NULL,
-  `products_ordered` int(11) NOT NULL DEFAULT '0',
-  `products_gtin` char(14) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `products` (`products_id`, `products_quantity`, `products_model`, `products_image`, `image_folder`, `image_display`, `products_price`, `products_date_added`, `products_last_modified`, `products_date_available`, `products_weight`, `products_status`, `products_tax_class_id`, `manufacturers_id`, `products_ordered`, `products_gtin`) VALUES
 (1, 31, 'MG200MMS', 'matrox/mg200mms.gif', NULL, 0, '299.9900', '2017-01-24 11:09:54', NULL, NULL, '23.00', 1, 1, 1, 1, ''),
@@ -1213,16 +1417,6 @@ INSERT INTO `products` (`products_id`, `products_quantity`, `products_model`, `p
 (27, 8, 'HPLJ1100XI', 'hewlett_packard/lj1100xi.gif', NULL, 0, '499.9900', '2017-01-24 11:09:54', NULL, NULL, '45.00', 1, 1, 9, 0, ''),
 (28, 99, 'GT-P1000', 'samsung/galaxy_tab.gif', NULL, 0, '749.9900', '2017-01-24 11:09:54', NULL, NULL, '1.00', 1, 1, 10, 1, '');
 
-DROP TABLE IF EXISTS `products_attributes`;
-CREATE TABLE `products_attributes` (
-  `products_attributes_id` int(11) NOT NULL,
-  `products_id` int(11) NOT NULL,
-  `options_id` int(11) NOT NULL,
-  `options_values_id` int(11) NOT NULL,
-  `options_values_price` decimal(15,4) NOT NULL,
-  `price_prefix` char(1) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `products_attributes` (`products_attributes_id`, `products_id`, `options_id`, `options_values_id`, `options_values_price`, `price_prefix`) VALUES
 (1, 1, 4, 1, '0.0000', '+'),
 (2, 1, 4, 2, '50.0000', '+'),
@@ -1238,29 +1432,8 @@ INSERT INTO `products_attributes` (`products_attributes_id`, `products_id`, `opt
 (26, 22, 5, 10, '0.0000', '+'),
 (27, 22, 5, 13, '0.0000', '+');
 
-DROP TABLE IF EXISTS `products_attributes_download`;
-CREATE TABLE `products_attributes_download` (
-  `products_attributes_id` int(11) NOT NULL,
-  `products_attributes_filename` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `products_attributes_maxdays` int(2) DEFAULT '0',
-  `products_attributes_maxcount` int(2) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `products_attributes_download` (`products_attributes_id`, `products_attributes_filename`, `products_attributes_maxdays`, `products_attributes_maxcount`) VALUES
 (26, 'unreal.zip', 7, 3);
-
-DROP TABLE IF EXISTS `products_description`;
-CREATE TABLE `products_description` (
-  `products_id` int(11) NOT NULL,
-  `language_id` int(11) NOT NULL DEFAULT '1',
-  `products_name` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `products_description` text COLLATE utf8_unicode_ci,
-  `products_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `products_viewed` int(5) DEFAULT '0',
-  `products_seo_description` text COLLATE utf8_unicode_ci,
-  `products_seo_keywords` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `products_seo_title` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `products_description` (`products_id`, `language_id`, `products_name`, `products_description`, `products_url`, `products_viewed`, `products_seo_description`, `products_seo_keywords`, `products_seo_title`) VALUES
 (1, 1, 'Matrox G200 MMS', 'Reinforcing its position as a multi-monitor trailblazer, Matrox Graphics Inc. has once again developed the most flexible and highly advanced solution in the industry. Introducing the new Matrox G200 Multi-Monitor Series; the first graphics card ever to support up to four DVI digital flat panel displays on a single 8&quot; PCI board.<br /><br />With continuing demand for digital flat panels in the financial workplace, the Matrox G200 MMS is the ultimate in flexible solutions. The Matrox G200 MMS also supports the new digital video interface (DVI) created by the Digital Display Working Group (DDWG) designed to ease the adoption of digital flat panels. Other configurations include composite video capture ability and onboard TV tuner, making the Matrox G200 MMS the complete solution for business needs.<br /><br />Based on the award-winning MGA-G200 graphics chip, the Matrox G200 Multi-Monitor Series provides superior 2D/3D graphics acceleration to meet the demanding needs of business applications such as real-time stock quotes (Versus), live video feeds (Reuters &amp; Bloombergs), multiple windows applications, word processing, spreadsheets and CAD.', 'www.matrox.com/mga/products/g200_mms/home.cfm', 38, NULL, NULL, NULL),
@@ -1292,15 +1465,6 @@ INSERT INTO `products_description` (`products_id`, `language_id`, `products_name
 (27, 1, 'Hewlett Packard LaserJet 1100Xi', 'HP has always set the pace in laser printing technology. The new generation HP LaserJet 1100 series sets another impressive pace, delivering a stunning 8 pages per minute print speed. The 600 dpi print resolution with HP\'s Resolution Enhancement technology (REt) makes every document more professional.<br /><br />Enhanced print speed and laser quality results are just the beginning. With 2MB standard memory, HP LaserJet 1100xi users will be able to print increasingly complex pages. Memory can be increased to 18MB to tackle even more complex documents with ease. The HP LaserJet 1100xi supports key operating systems including Windows 3.1, 3.11, 95, 98, NT 4.0, OS/2 and DOS. Network compatibility available via the optional HP JetDirect External Print Servers.<br /><br />HP LaserJet 1100xi also features The Document Builder for the Web Era from Trellix Corp. (featuring software to create Web documents).', 'www.pandi.hp.com/pandi-db/prodinfo.main?product=laserjet1100', 34, NULL, NULL, NULL),
 (28, 1, 'Samsung Galaxy Tab', '<p>Powered by a Cortex A8 1.0GHz application processor, the Samsung GALAXY Tab is designed to deliver high performance whenever and wherever you are. At the same time, HD video contents are supported by a wide range of multimedia formats (DivX, XviD, MPEG4, H.263, H.264 and more), which maximizes the joy of entertainment.</p><p>With 3G HSPA connectivity, 802.11n Wi-Fi, and Bluetooth 3.0, the Samsung GALAXY Tab enhances users\' mobile communication on a whole new level. Video conferencing and push email on the large 7-inch display make communication more smooth and efficient. For voice telephony, the Samsung GALAXY Tab turns out to be a perfect speakerphone on the desk, or a mobile phone on the move via Bluetooth headset.</p>', 'http://galaxytab.samsungmobile.com', 37, NULL, NULL, NULL);
 
-DROP TABLE IF EXISTS `products_images`;
-CREATE TABLE `products_images` (
-  `id` int(11) NOT NULL,
-  `products_id` int(11) NOT NULL,
-  `image` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `htmlcontent` text COLLATE utf8_unicode_ci,
-  `sort_order` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `products_images` (`id`, `products_id`, `image`, `htmlcontent`, `sort_order`) VALUES
 (1, 28, 'samsung/galaxy_tab_1.jpg', NULL, 1),
 (2, 28, 'samsung/galaxy_tab_2.jpg', NULL, 2),
@@ -1317,33 +1481,12 @@ INSERT INTO `products_images` (`id`, `products_id`, `image`, `htmlcontent`, `sor
 (17, 19, 'theres_something_about_mary.gif', '', 1),
 (18, 7, 'youve_got_mail.gif', '', 1);
 
-DROP TABLE IF EXISTS `products_notifications`;
-CREATE TABLE `products_notifications` (
-  `products_id` int(11) NOT NULL,
-  `customers_id` int(11) NOT NULL,
-  `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `products_options`;
-CREATE TABLE `products_options` (
-  `products_options_id` int(11) NOT NULL DEFAULT '0',
-  `language_id` int(11) NOT NULL DEFAULT '1',
-  `products_options_name` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `products_options` (`products_options_id`, `language_id`, `products_options_name`) VALUES
 (1, 1, 'Color'),
 (2, 1, 'Size'),
 (3, 1, 'Model'),
 (4, 1, 'Memory'),
 (5, 1, 'Version');
-
-DROP TABLE IF EXISTS `products_options_values`;
-CREATE TABLE `products_options_values` (
-  `products_options_values_id` int(11) NOT NULL DEFAULT '0',
-  `language_id` int(11) NOT NULL DEFAULT '1',
-  `products_options_values_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `products_options_values` (`products_options_values_id`, `language_id`, `products_options_values_name`) VALUES
 (1, 1, '4 mb'),
@@ -1358,13 +1501,6 @@ INSERT INTO `products_options_values` (`products_options_values_id`, `language_i
 (10, 1, 'Download: Windows - English'),
 (13, 1, 'Box: Windows - English');
 
-DROP TABLE IF EXISTS `products_options_values_to_products_options`;
-CREATE TABLE `products_options_values_to_products_options` (
-  `products_options_values_to_products_options_id` int(11) NOT NULL,
-  `products_options_id` int(11) NOT NULL,
-  `products_options_values_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `products_options_values_to_products_options` (`products_options_values_to_products_options_id`, `products_options_id`, `products_options_values_id`) VALUES
 (1, 4, 1),
 (2, 4, 2),
@@ -1377,12 +1513,6 @@ INSERT INTO `products_options_values_to_products_options` (`products_options_val
 (9, 3, 9),
 (10, 5, 10),
 (13, 5, 13);
-
-DROP TABLE IF EXISTS `products_to_categories`;
-CREATE TABLE `products_to_categories` (
-  `products_id` int(11) NOT NULL,
-  `categories_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `products_to_categories` (`products_id`, `categories_id`) VALUES
 (1, 4),
@@ -1414,37 +1544,11 @@ INSERT INTO `products_to_categories` (`products_id`, `categories_id`) VALUES
 (27, 5),
 (28, 23);
 
-DROP TABLE IF EXISTS `reviews`;
-CREATE TABLE `reviews` (
-  `reviews_id` int(11) NOT NULL,
-  `products_id` int(11) NOT NULL,
-  `customers_id` int(11) DEFAULT NULL,
-  `customers_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `reviews_rating` int(1) DEFAULT NULL,
-  `date_added` datetime DEFAULT NULL,
-  `last_modified` datetime DEFAULT NULL,
-  `reviews_status` tinyint(1) NOT NULL DEFAULT '0',
-  `reviews_read` int(5) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `reviews` (`reviews_id`, `products_id`, `customers_id`, `customers_name`, `reviews_rating`, `date_added`, `last_modified`, `reviews_status`, `reviews_read`) VALUES
 (1, 19, 0, 'John Doe', 5, '2017-01-24 11:09:54', '2017-01-26 08:29:51', 1, 0);
 
-DROP TABLE IF EXISTS `reviews_description`;
-CREATE TABLE `reviews_description` (
-  `reviews_id` int(11) NOT NULL,
-  `languages_id` int(11) NOT NULL,
-  `reviews_text` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `reviews_description` (`reviews_id`, `languages_id`, `reviews_text`) VALUES
 (1, 1, 'This has to be one of the funniest movies released for 1999!');
-
-DROP TABLE IF EXISTS `sec_directory_whitelist`;
-CREATE TABLE `sec_directory_whitelist` (
-  `id` int(11) NOT NULL,
-  `directory` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `sec_directory_whitelist` (`id`, `directory`) VALUES
 (1, 'admin/backups'),
@@ -1461,25 +1565,6 @@ INSERT INTO `sec_directory_whitelist` (`id`, `directory`) VALUES
 (12, 'includes/work'),
 (13, 'pub');
 
-DROP TABLE IF EXISTS `sessions`;
-CREATE TABLE `sessions` (
-  `sesskey` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `expiry` int(11) UNSIGNED NOT NULL,
-  `value` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `specials`;
-CREATE TABLE `specials` (
-  `specials_id` int(11) NOT NULL,
-  `products_id` int(11) NOT NULL,
-  `specials_new_products_price` decimal(15,4) NOT NULL,
-  `specials_date_added` datetime DEFAULT NULL,
-  `specials_last_modified` datetime DEFAULT NULL,
-  `expires_date` datetime DEFAULT NULL,
-  `date_status_change` datetime DEFAULT NULL,
-  `status` int(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `specials` (`specials_id`, `products_id`, `specials_new_products_price`, `specials_date_added`, `specials_last_modified`, `expires_date`, `date_status_change`, `status`) VALUES
 (1, 3, '39.9900', '2017-01-24 11:09:54', NULL, NULL, NULL, 1),
 (2, 5, '30.0000', '2017-01-24 11:09:54', NULL, NULL, NULL, 1),
@@ -1490,41 +1575,12 @@ INSERT INTO `specials` (`specials_id`, `products_id`, `specials_new_products_pri
 (7, 20, '35.0000', '2017-02-02 05:14:37', NULL, NULL, NULL, 1),
 (8, 1, '150.0000', '2017-02-02 10:59:53', NULL, NULL, NULL, 1);
 
-DROP TABLE IF EXISTS `tax_class`;
-CREATE TABLE `tax_class` (
-  `tax_class_id` int(11) NOT NULL,
-  `tax_class_title` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `tax_class_description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `last_modified` datetime DEFAULT NULL,
-  `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `tax_class` (`tax_class_id`, `tax_class_title`, `tax_class_description`, `last_modified`, `date_added`) VALUES
 (1, 'Taxable Goods', 'The following types of products are included non-food, services, etc', '2017-01-24 11:09:54', '2017-01-24 11:09:54');
 
-DROP TABLE IF EXISTS `tax_rates`;
-CREATE TABLE `tax_rates` (
-  `tax_rates_id` int(11) NOT NULL,
-  `tax_zone_id` int(11) NOT NULL,
-  `tax_class_id` int(11) NOT NULL,
-  `tax_priority` int(5) DEFAULT '1',
-  `tax_rate` decimal(7,4) NOT NULL,
-  `tax_description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `last_modified` datetime DEFAULT NULL,
-  `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `tax_rates` (`tax_rates_id`, `tax_zone_id`, `tax_class_id`, `tax_priority`, `tax_rate`, `tax_description`, `last_modified`, `date_added`) VALUES
 (1, 1, 1, 1, '7.0000', 'FL TAX 7.0%', '2017-01-24 11:09:54', '2017-01-24 11:09:54');
-
-DROP TABLE IF EXISTS `testimonials`;
-CREATE TABLE `testimonials` (
-  `testimonials_id` int(11) NOT NULL,
-  `customers_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `date_added` datetime DEFAULT NULL,
-  `last_modified` datetime DEFAULT NULL,
-  `testimonials_status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `testimonials` (`testimonials_id`, `customers_name`, `date_added`, `last_modified`, `testimonials_status`) VALUES
 (2, 'Simon', '2017-01-26 10:55:23', NULL, 1),
@@ -1532,37 +1588,11 @@ INSERT INTO `testimonials` (`testimonials_id`, `customers_name`, `date_added`, `
 (5, 'Frank', '2017-01-26 13:42:51', '2017-01-26 13:42:57', 1),
 (6, 'Georg', '2017-01-26 13:43:49', NULL, 1);
 
-DROP TABLE IF EXISTS `testimonials_description`;
-CREATE TABLE `testimonials_description` (
-  `testimonials_id` int(11) NOT NULL,
-  `languages_id` int(11) NOT NULL,
-  `testimonials_text` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `testimonials_description` (`testimonials_id`, `languages_id`, `testimonials_text`) VALUES
 (2, 1, 'The products and service here is fantastic. I will definitely purchase from this store again.'),
 (3, 1, 'Thanks for the great response for my orders, the delivery is always in time.\r\n\r\nKids just love it, thanks again.'),
 (5, 1, 'Best purchase ever. These guys know how to provide a good service.\r\n\r\nThank you so much.'),
 (6, 1, 'Will come back again!');
-
-DROP TABLE IF EXISTS `whos_online`;
-CREATE TABLE `whos_online` (
-  `customer_id` int(11) DEFAULT NULL,
-  `full_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `session_id` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `ip_address` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `time_entry` varchar(14) COLLATE utf8_unicode_ci NOT NULL,
-  `time_last_click` varchar(14) COLLATE utf8_unicode_ci NOT NULL,
-  `last_page_url` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `zones`;
-CREATE TABLE `zones` (
-  `zone_id` int(11) NOT NULL,
-  `zone_country_id` int(11) NOT NULL,
-  `zone_code` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `zone_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `zones` (`zone_id`, `zone_country_id`, `zone_code`, `zone_name`) VALUES
 (1, 223, 'AL', 'Alabama'),
@@ -1747,318 +1777,5 @@ INSERT INTO `zones` (`zone_id`, `zone_country_id`, `zone_code`, `zone_name`) VAL
 (180, 195, 'Zamora', 'Zamora'),
 (181, 195, 'Zaragoza', 'Zaragoza');
 
-DROP TABLE IF EXISTS `zones_to_geo_zones`;
-CREATE TABLE `zones_to_geo_zones` (
-  `association_id` int(11) NOT NULL,
-  `zone_country_id` int(11) NOT NULL,
-  `zone_id` int(11) DEFAULT NULL,
-  `geo_zone_id` int(11) DEFAULT NULL,
-  `last_modified` datetime DEFAULT NULL,
-  `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 INSERT INTO `zones_to_geo_zones` (`association_id`, `zone_country_id`, `zone_id`, `geo_zone_id`, `last_modified`, `date_added`) VALUES
 (1, 0, NULL, 1, '2017-01-26 07:03:43', '2017-01-24 11:09:54');
-
-ALTER TABLE `action_recorder`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idx_action_recorder_module` (`module`),
-  ADD KEY `idx_action_recorder_user_id` (`user_id`),
-  ADD KEY `idx_action_recorder_identifier` (`identifier`),
-  ADD KEY `idx_action_recorder_date_added` (`date_added`);
-
-ALTER TABLE `address_book`
-  ADD PRIMARY KEY (`address_book_id`),
-  ADD KEY `idx_address_book_customers_id` (`customers_id`);
-
-ALTER TABLE `address_format`
-  ADD PRIMARY KEY (`address_format_id`);
-
-ALTER TABLE `administrators`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `banners`
-  ADD PRIMARY KEY (`banners_id`),
-  ADD KEY `idx_banners_group` (`banners_group`);
-
-ALTER TABLE `banners_history`
-  ADD PRIMARY KEY (`banners_history_id`),
-  ADD KEY `idx_banners_history_banners_id` (`banners_id`);
-
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`categories_id`),
-  ADD KEY `idx_categories_parent_id` (`parent_id`);
-
-ALTER TABLE `categories_description`
-  ADD PRIMARY KEY (`categories_id`,`language_id`),
-  ADD KEY `idx_categories_name` (`categories_name`);
-
-ALTER TABLE `configuration`
-  ADD PRIMARY KEY (`configuration_id`);
-
-ALTER TABLE `configuration_group`
-  ADD PRIMARY KEY (`configuration_group_id`);
-
-ALTER TABLE `countries`
-  ADD PRIMARY KEY (`countries_id`),
-  ADD KEY `IDX_COUNTRIES_NAME` (`countries_name`);
-
-ALTER TABLE `currencies`
-  ADD PRIMARY KEY (`currencies_id`),
-  ADD KEY `idx_currencies_code` (`code`);
-
-ALTER TABLE `customers`
-  ADD PRIMARY KEY (`customers_id`),
-  ADD KEY `idx_customers_email_address` (`customers_email_address`);
-
-ALTER TABLE `customers_basket`
-  ADD PRIMARY KEY (`customers_basket_id`),
-  ADD KEY `idx_customers_basket_customers_id` (`customers_id`);
-
-ALTER TABLE `customers_basket_attributes`
-  ADD PRIMARY KEY (`customers_basket_attributes_id`),
-  ADD KEY `idx_customers_basket_att_customers_id` (`customers_id`);
-
-ALTER TABLE `customers_info`
-  ADD PRIMARY KEY (`customers_info_id`);
-
-ALTER TABLE `geo_zones`
-  ADD PRIMARY KEY (`geo_zone_id`);
-
-ALTER TABLE `languages`
-  ADD PRIMARY KEY (`languages_id`),
-  ADD KEY `IDX_LANGUAGES_NAME` (`name`);
-
-ALTER TABLE `manufacturers`
-  ADD PRIMARY KEY (`manufacturers_id`),
-  ADD KEY `IDX_MANUFACTURERS_NAME` (`manufacturers_name`);
-
-ALTER TABLE `manufacturers_info`
-  ADD PRIMARY KEY (`manufacturers_id`,`languages_id`);
-
-ALTER TABLE `newsletters`
-  ADD PRIMARY KEY (`newsletters_id`);
-
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`orders_id`),
-  ADD KEY `idx_orders_customers_id` (`customers_id`);
-
-ALTER TABLE `orders_products`
-  ADD PRIMARY KEY (`orders_products_id`),
-  ADD KEY `idx_orders_products_orders_id` (`orders_id`),
-  ADD KEY `idx_orders_products_products_id` (`products_id`);
-
-ALTER TABLE `orders_products_attributes`
-  ADD PRIMARY KEY (`orders_products_attributes_id`),
-  ADD KEY `idx_orders_products_att_orders_id` (`orders_id`);
-
-ALTER TABLE `orders_products_download`
-  ADD PRIMARY KEY (`orders_products_download_id`),
-  ADD KEY `idx_orders_products_download_orders_id` (`orders_id`);
-
-ALTER TABLE `orders_status`
-  ADD PRIMARY KEY (`orders_status_id`,`language_id`),
-  ADD KEY `idx_orders_status_name` (`orders_status_name`);
-
-ALTER TABLE `orders_status_history`
-  ADD PRIMARY KEY (`orders_status_history_id`),
-  ADD KEY `idx_orders_status_history_orders_id` (`orders_id`);
-
-ALTER TABLE `orders_total`
-  ADD PRIMARY KEY (`orders_total_id`),
-  ADD KEY `idx_orders_total_orders_id` (`orders_id`);
-
-ALTER TABLE `oscom_app_paypal_log`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idx_oapl_module` (`module`);
-
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`products_id`),
-  ADD KEY `idx_products_model` (`products_model`),
-  ADD KEY `idx_products_date_added` (`products_date_added`);
-
-ALTER TABLE `products_attributes`
-  ADD PRIMARY KEY (`products_attributes_id`),
-  ADD KEY `idx_products_attributes_products_id` (`products_id`);
-
-ALTER TABLE `products_attributes_download`
-  ADD PRIMARY KEY (`products_attributes_id`);
-
-ALTER TABLE `products_description`
-  ADD PRIMARY KEY (`products_id`,`language_id`),
-  ADD KEY `products_name` (`products_name`);
-
-ALTER TABLE `products_images`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `products_images_prodid` (`products_id`);
-
-ALTER TABLE `products_notifications`
-  ADD PRIMARY KEY (`products_id`,`customers_id`);
-
-ALTER TABLE `products_options`
-  ADD PRIMARY KEY (`products_options_id`,`language_id`);
-
-ALTER TABLE `products_options_values`
-  ADD PRIMARY KEY (`products_options_values_id`,`language_id`);
-
-ALTER TABLE `products_options_values_to_products_options`
-  ADD PRIMARY KEY (`products_options_values_to_products_options_id`);
-
-ALTER TABLE `products_to_categories`
-  ADD PRIMARY KEY (`products_id`,`categories_id`);
-
-ALTER TABLE `reviews`
-  ADD PRIMARY KEY (`reviews_id`),
-  ADD KEY `idx_reviews_products_id` (`products_id`),
-  ADD KEY `idx_reviews_customers_id` (`customers_id`);
-
-ALTER TABLE `reviews_description`
-  ADD PRIMARY KEY (`reviews_id`,`languages_id`);
-
-ALTER TABLE `sec_directory_whitelist`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `sessions`
-  ADD PRIMARY KEY (`sesskey`);
-
-ALTER TABLE `specials`
-  ADD PRIMARY KEY (`specials_id`),
-  ADD KEY `idx_specials_products_id` (`products_id`);
-
-ALTER TABLE `tax_class`
-  ADD PRIMARY KEY (`tax_class_id`);
-
-ALTER TABLE `tax_rates`
-  ADD PRIMARY KEY (`tax_rates_id`);
-
-ALTER TABLE `testimonials`
-  ADD PRIMARY KEY (`testimonials_id`);
-
-ALTER TABLE `testimonials_description`
-  ADD PRIMARY KEY (`testimonials_id`,`languages_id`);
-
-ALTER TABLE `whos_online`
-  ADD KEY `idx_whos_online_session_id` (`session_id`);
-
-ALTER TABLE `zones`
-  ADD PRIMARY KEY (`zone_id`),
-  ADD KEY `idx_zones_country_id` (`zone_country_id`);
-
-ALTER TABLE `zones_to_geo_zones`
-  ADD PRIMARY KEY (`association_id`),
-  ADD KEY `idx_zones_to_geo_zones_country_id` (`zone_country_id`);
-
-ALTER TABLE `action_recorder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
-ALTER TABLE `address_book`
-  MODIFY `address_book_id` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `address_format`
-  MODIFY `address_format_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
-ALTER TABLE `administrators`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
-ALTER TABLE `banners`
-  MODIFY `banners_id` int(11) NOT NULL AUTO_INCREMENT;
-O_INCREMENT für Tabelle `banners_history`
---
-ALTER TABLE `banners_history`
-  MODIFY `banners_history_id` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `categories`
-  MODIFY `categories_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
-ALTER TABLE `configuration`
-  MODIFY `configuration_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=680;
-
-ALTER TABLE `configuration_group`
-  MODIFY `configuration_group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
-ALTER TABLE `countries`
-  MODIFY `countries_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
-
-ALTER TABLE `currencies`
-  MODIFY `currencies_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
-ALTER TABLE `customers`
-  MODIFY `customers_id` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `customers_basket`
-  MODIFY `customers_basket_id` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `customers_basket_attributes`
-  MODIFY `customers_basket_attributes_id` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `geo_zones`
-  MODIFY `geo_zone_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
-ALTER TABLE `languages`
-  MODIFY `languages_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
-ALTER TABLE `manufacturers`
-  MODIFY `manufacturers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
-ALTER TABLE `newsletters`
-  MODIFY `newsletters_id` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `orders`
-  MODIFY `orders_id` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `orders_products`
-  MODIFY `orders_products_id` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `orders_products_attributes`
-  MODIFY `orders_products_attributes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
-ALTER TABLE `orders_products_download`
-  MODIFY `orders_products_download_id` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `orders_status_history`
-  MODIFY `orders_status_history_id` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `orders_total`
-  MODIFY `orders_total_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `oscom_app_paypal_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `products`
-  MODIFY `products_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
-ALTER TABLE `products_attributes`
-  MODIFY `products_attributes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
-ALTER TABLE `products_description`
-  MODIFY `products_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
-ALTER TABLE `products_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
-ALTER TABLE `products_options_values_to_products_options`
-  MODIFY `products_options_values_to_products_options_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
-ALTER TABLE `reviews`
-  MODIFY `reviews_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
-ALTER TABLE `sec_directory_whitelist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
-ALTER TABLE `specials`
-  MODIFY `specials_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
-ALTER TABLE `tax_class`
-  MODIFY `tax_class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
-ALTER TABLE `tax_rates`
-  MODIFY `tax_rates_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
-ALTER TABLE `testimonials`
-  MODIFY `testimonials_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
-ALTER TABLE `zones`
-  MODIFY `zone_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
-
-ALTER TABLE `zones_to_geo_zones`
-  MODIFY `association_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
