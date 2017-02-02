@@ -898,7 +898,7 @@ CREATE TABLE `currencies` (
 
 INSERT INTO `currencies` (`currencies_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_point`, `thousands_point`, `decimal_places`, `value`, `last_updated`) VALUES
 (1, 'U.S. Dollar', 'USD', '$', '', '.', ',', '2', 1.00000000, '2017-01-24 11:09:54'),
-(2, 'Euro', 'EUR', '', 'â‚¬', '.', ',', '2', 1.00000000, '2017-01-24 11:09:54');
+(2, 'Euro', 'EUR', '', 'Ã¢â€šÂ¬', '.', ',', '2', 1.00000000, '2017-01-24 11:09:54');
 
 DROP TABLE IF EXISTS `customers`;
 CREATE TABLE `customers` (
@@ -1646,7 +1646,7 @@ INSERT INTO `zones` (`zone_id`, `zone_country_id`, `zone_code`, `zone_name`) VAL
 (77, 38, 'SK', 'Saskatchewan'),
 (78, 38, 'YT', 'Yukon Territory'),
 (79, 81, 'NDS', 'Niedersachsen'),
-(80, 81, 'BAW', 'Baden-WÃ¼rttemberg'),
+(80, 81, 'BAW', 'Baden-WÃƒÂ¼rttemberg'),
 (81, 81, 'BAY', 'Bayern'),
 (82, 81, 'BER', 'Berlin'),
 (83, 81, 'BRG', 'Brandenburg'),
@@ -1660,12 +1660,12 @@ INSERT INTO `zones` (`zone_id`, `zone_country_id`, `zone_code`, `zone_name`) VAL
 (91, 81, 'SAS', 'Sachsen'),
 (92, 81, 'SAC', 'Sachsen-Anhalt'),
 (93, 81, 'SCN', 'Schleswig-Holstein'),
-(94, 81, 'THE', 'ThÃ¼ringen'),
+(94, 81, 'THE', 'ThÃƒÂ¼ringen'),
 (95, 14, 'WI', 'Wien'),
-(96, 14, 'NO', 'NiederÃ¶sterreich'),
-(97, 14, 'OO', 'OberÃ¶sterreich'),
+(96, 14, 'NO', 'NiederÃƒÂ¶sterreich'),
+(97, 14, 'OO', 'OberÃƒÂ¶sterreich'),
 (98, 14, 'SB', 'Salzburg'),
-(99, 14, 'KN', 'KÃ¤rnten'),
+(99, 14, 'KN', 'KÃƒÂ¤rnten'),
 (100, 14, 'ST', 'Steiermark'),
 (101, 14, 'TI', 'Tirol'),
 (102, 14, 'BL', 'Burgenland'),
@@ -1679,7 +1679,7 @@ INSERT INTO `zones` (`zone_id`, `zone_country_id`, `zone_code`, `zone_name`) VAL
 (110, 204, 'FR', 'Freiburg'),
 (111, 204, 'GE', 'Genf'),
 (112, 204, 'GL', 'Glarus'),
-(113, 204, 'JU', 'GraubÃ¼nden'),
+(113, 204, 'JU', 'GraubÃƒÂ¼nden'),
 (114, 204, 'JU', 'Jura'),
 (115, 204, 'LU', 'Luzern'),
 (116, 204, 'NE', 'Neuenburg'),
@@ -1695,8 +1695,8 @@ INSERT INTO `zones` (`zone_id`, `zone_country_id`, `zone_code`, `zone_name`) VAL
 (126, 204, 'VD', 'Waadt'),
 (127, 204, 'VS', 'Wallis'),
 (128, 204, 'ZG', 'Zug'),
-(129, 204, 'ZH', 'ZÃ¼rich'),
-(130, 195, 'A CoruÃ±a', 'A CoruÃ±a'),
+(129, 204, 'ZH', 'ZÃƒÂ¼rich'),
+(130, 195, 'A CoruÃƒÂ±a', 'A CoruÃƒÂ±a'),
 (131, 195, 'Alava', 'Alava'),
 (132, 195, 'Albacete', 'Albacete'),
 (133, 195, 'Alicante', 'Alicante'),
@@ -1964,7 +1964,7 @@ ALTER TABLE `administrators`
 
 ALTER TABLE `banners`
   MODIFY `banners_id` int(11) NOT NULL AUTO_INCREMENT;
-O_INCREMENT f�r Tabelle `banners_history`
+O_INCREMENT für Tabelle `banners_history`
 --
 ALTER TABLE `banners_history`
   MODIFY `banners_history_id` int(11) NOT NULL AUTO_INCREMENT;
