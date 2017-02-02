@@ -20,12 +20,13 @@
   Don\'t forget all "filenames" and "some folder\'s" are hardcoded.<br />
   btw: I like it, don\'t waste time for include more files or content. <br /><br />
 
-  Master Update 1. Feb. 2017<br />
+  Master Update 2. Feb. 2017<br />
   All new system settings and much more in the new /catalog/install/oscommerce.sql<br />
   New path for product images, categories and manufactures, same like osCommerce 3.0<br /><br />
 	
 	PHP7 & MySql 5.7 Update<br />
-	Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files. MySql querys for MySql 5.7 sql_mode<br /><br /> 
+	Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files.<br />
+	MySql querys for MySql 5.7 sql_mode<br /><br /> 
 	
 	Admin Side<br />
 	<ul class="contains-task-list">
@@ -80,14 +81,15 @@ Webdesign Wedel (WDW) modified stuff<br />
   - New images path, same like osCommerce 3.0,<br />
   	/images/categories/, /images/manufacturers/, /images/originals/,<br />
   	/images/product_thumbnails/, /images/products/, /images/temporary/.<br />
-  	Code changes for functionality with this Version. Based on Protected Images for osC 2.3.4 [still under WDW development]<br /><br />
+  	Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)<br /><br />
  
 Extensions included<br />
   - cKEditor >>> Product description editable with ckEditor<br />
   - KCFinder >>> Image file uploder for cKEditor<br />
   - Mailchimp Newsletter 2.02<br />
+  - Protected Images for osC 2.3.4 (adapted by WDW for this version)<br />
   - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)<br />
-  - Multiple Products Manager fo  2.3.3 v2.7 [still under WDW development]<br />
+  - Multiple Products Manager fo  2.3.3 v2.7<br />
   - Category New Products Carousel v1.4<br />
   - Category Popular Products Carousel v1.3<br /><br />
 	
