@@ -631,12 +631,60 @@ CREATE TABLE testimonials_description (
   PRIMARY KEY (testimonials_id, languages_id)
 ) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-# 1 - Default, 2 - USA, 3 - Spain, 4 - Singapore, 5 - Germany
-INSERT INTO address_format VALUES (1, '$firstname $lastname$cr$streets$cr$city, $postcode$cr$statecomma$country','$city / $country');
-INSERT INTO address_format VALUES (2, '$firstname $lastname$cr$streets$cr$city, $state    $postcode$cr$country','$city, $state / $country');
-INSERT INTO address_format VALUES (3, '$firstname $lastname$cr$streets$cr$city$cr$postcode - $statecomma$country','$state / $country');
-INSERT INTO address_format VALUES (4, '$firstname $lastname$cr$streets$cr$city ($postcode)$cr$country', '$postcode / $country');
-INSERT INTO address_format VALUES (5, '$firstname $lastname$cr$streets$cr$postcode $city$cr$country','$city / $country');
+INSERT INTO `address_format` (`address_format_id`, `address_format`, `address_summary`) VALUES
+(1, '$firstname $lastname$cr$streets$cr$city, $postcode$cr$statecomma$country', '$city / $country'),
+(2, '$firstname $lastname$cr$streets$cr$city, $state    $postcode$cr$country', '$city, $state / $country'),
+(3, '$firstname $lastname$cr$streets$cr$city$cr$postcode - $statecomma$country', '$state / $country'),
+(4, '$firstname $lastname$cr$streets$cr$city ($postcode)$cr$country', '$postcode / $country'),
+(5, '$firstname $lastname$cr$streets$cr$postcode $city$cr$country', '$city / $country');
+
+INSERT INTO `categories` (`categories_id`, `categories_image`, `parent_id`, `sort_order`, `date_added`, `last_modified`) VALUES
+(1, 'category_hardware.gif', 0, 1, '2017-01-24 11:09:54', '2017-01-26 10:23:14'),
+(2, 'category_software.gif', 0, 2, '2017-01-24 11:09:54', '2017-01-26 15:27:37'),
+(3, 'category_dvd_movies.gif', 0, 3, '2017-01-24 11:09:54', '2017-01-26 15:27:52'),
+(4, 'subcategory_graphic_cards.gif', 1, 0, '2017-01-24 11:09:54', NULL),
+(5, 'subcategory_printers.gif', 1, 0, '2017-01-24 11:09:54', NULL),
+(6, 'subcategory_monitors.gif', 1, 0, '2017-01-24 11:09:54', NULL),
+(7, 'subcategory_speakers.gif', 1, 0, '2017-01-24 11:09:54', NULL),
+(8, 'subcategory_keyboards.gif', 1, 0, '2017-01-24 11:09:54', NULL),
+(9, 'subcategory_mice.gif', 1, 0, '2017-01-24 11:09:54', NULL),
+(10, 'subcategory_action.gif', 3, 0, '2017-01-24 11:09:54', NULL),
+(11, 'subcategory_science_fiction.gif', 3, 0, '2017-01-24 11:09:54', NULL),
+(12, 'subcategory_comedy.gif', 3, 0, '2017-01-24 11:09:54', NULL),
+(13, 'subcategory_cartoons.gif', 3, 0, '2017-01-24 11:09:54', NULL),
+(14, 'subcategory_thriller.gif', 3, 0, '2017-01-24 11:09:54', NULL),
+(15, 'subcategory_drama.gif', 3, 0, '2017-01-24 11:09:54', NULL),
+(16, 'subcategory_memory.gif', 1, 0, '2017-01-24 11:09:54', NULL),
+(17, 'subcategory_cdrom_drives.gif', 1, 0, '2017-01-24 11:09:54', NULL),
+(18, 'subcategory_simulation.gif', 2, 0, '2017-01-24 11:09:54', NULL),
+(19, 'subcategory_action_games.gif', 2, 0, '2017-01-24 11:09:54', NULL),
+(20, 'subcategory_strategy.gif', 2, 0, '2017-01-24 11:09:54', '2017-01-25 06:26:15'),
+(21, 'category_gadgets.png', 0, 4, '2017-01-24 11:09:54', '2017-01-26 15:28:55'),
+(23, 'category_gadgets.png', 21, 0, '2017-01-26 15:32:36', '2017-01-26 15:34:02');
+
+INSERT INTO `categories_description` (`categories_id`, `language_id`, `categories_name`, `categories_description`, `categories_seo_description`, `categories_seo_keywords`, `categories_seo_title`) VALUES
+(1, 1, 'Hardware', 'hardware test category description', '', '', ''),
+(2, 1, 'Software', 'Software test category description', '', '', ''),
+(3, 1, 'DVD Movies', 'DVD Movies test category description', '', '', ''),
+(4, 1, 'Graphics Cards', NULL, NULL, NULL, NULL),
+(5, 1, 'Printers', NULL, NULL, NULL, NULL),
+(6, 1, 'Monitors', NULL, NULL, NULL, NULL),
+(7, 1, 'Speakers', NULL, NULL, NULL, NULL),
+(8, 1, 'Keyboards', NULL, NULL, NULL, NULL),
+(9, 1, 'Mice', NULL, NULL, NULL, NULL),
+(10, 1, 'Action', NULL, NULL, NULL, NULL),
+(11, 1, 'Science Fiction', NULL, NULL, NULL, NULL),
+(12, 1, 'Comedy', NULL, NULL, NULL, NULL),
+(13, 1, 'Cartoons', NULL, NULL, NULL, NULL),
+(14, 1, 'Thriller', NULL, NULL, NULL, NULL),
+(15, 1, 'Drama', NULL, NULL, NULL, NULL),
+(16, 1, 'Memory', NULL, NULL, NULL, NULL),
+(17, 1, 'CDROM Drives', NULL, NULL, NULL, NULL),
+(18, 1, 'Simulation', NULL, NULL, NULL, NULL),
+(19, 1, 'Action', NULL, NULL, NULL, NULL),
+(20, 1, 'Strategy', 'Strategy Test Categorie description', '', '', ''),
+(21, 1, 'Gadgets', 'Gadgets test category description', '', '', ''),
+(23, 1, 'Tablets', 'Tablets test category description', '', '', '');
 
 INSERT INTO `configuration` (`configuration_id`, `configuration_title`, `configuration_key`, `configuration_value`, `configuration_description`, `configuration_group_id`, `sort_order`, `last_modified`, `date_added`, `use_function`, `set_function`) VALUES
 (1, 'Store Name', 'STORE_NAME', '', 'The name of my store', 1, 1, '2017-01-30 06:27:42', '2017-01-24 11:09:54', NULL, NULL),
@@ -1548,6 +1596,7 @@ INSERT INTO `products_to_categories` (`products_id`, `categories_id`) VALUES
 
 INSERT INTO `reviews` (`reviews_id`, `products_id`, `customers_id`, `customers_name`, `reviews_rating`, `date_added`, `last_modified`, `reviews_status`, `reviews_read`) VALUES
 (1, 19, 0, 'John Doe', 5, '2017-01-24 11:09:54', '2017-01-26 08:29:51', 1, 0);
+ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `reviews_description` (`reviews_id`, `languages_id`, `reviews_text`) VALUES
 (1, 1, 'This has to be one of the funniest movies released for 1999!');
@@ -1579,7 +1628,6 @@ INSERT INTO `specials` (`specials_id`, `products_id`, `specials_new_products_pri
 
 INSERT INTO `tax_class` (`tax_class_id`, `tax_class_title`, `tax_class_description`, `last_modified`, `date_added`) VALUES
 (1, 'Taxable Goods', 'The following types of products are included non-food, services, etc', '2017-01-24 11:09:54', '2017-01-24 11:09:54');
-
 
 INSERT INTO `tax_rates` (`tax_rates_id`, `tax_zone_id`, `tax_class_id`, `tax_priority`, `tax_rate`, `tax_description`, `last_modified`, `date_added`) VALUES
 (1, 1, 1, 1, '7.0000', 'FL TAX 7.0%', '2017-01-24 11:09:54', '2017-01-24 11:09:54');
