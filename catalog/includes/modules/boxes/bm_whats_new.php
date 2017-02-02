@@ -38,8 +38,16 @@
         $random_product['specials_new_products_price'] = tep_get_products_special_price($random_product['products_id']);
 
         if (tep_not_null($random_product['specials_new_products_price'])) {
+        	// included by webmaster@webdesign-wedel.de (2017)
+    			// BOM
+    			//Formular --->>>> Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100
+    			$OldPrice = $currencies->display_raw($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id']));
+    			$NewPrice = $currencies->display_raw($random_product['specials_new_products_price'], tep_get_tax_rate($random_product['products_tax_class_id']));
+    			$Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100;
+    			$PercentRound = round($Percent, TAX_DECIMAL_PLACES);
           $whats_new_price = '<del>' . $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</del><br />';
-          $whats_new_price .= '<span class="productSpecialPrice">' . $currencies->display_price($random_product['specials_new_products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>';
+          // EOM
+          $whats_new_price .= '<span class="productSpecialPrice">' . $currencies->display_price($random_product['specials_new_products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '<br />' . $PercentRound . '% </span>';
         } else {
           $whats_new_price = $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id']));
         }

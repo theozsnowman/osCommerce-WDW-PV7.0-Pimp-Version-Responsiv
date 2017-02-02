@@ -93,6 +93,8 @@
         select distinct
           p.products_id,
           p.products_image,
+          p.image_folder, 
+          p.image_display,
           p.products_tax_class_id,
           pd.products_name,
           if(s.status, s.specials_new_products_price, p.products_price) as products_price

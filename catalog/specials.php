@@ -59,7 +59,7 @@
         $select_column_list .= 'p.products_quantity, ';
         break;
       case 'PRODUCT_LIST_IMAGE':
-        $select_column_list .= 'p.products_image, ';
+        $select_column_list .= 'p.products_image, p.image_folder, p.image_display, ';
         break;
       case 'PRODUCT_LIST_WEIGHT':
         $select_column_list .= 'p.products_weight, ';

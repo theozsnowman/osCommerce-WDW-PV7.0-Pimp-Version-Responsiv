@@ -26,7 +26,7 @@
     	
     	$image ='';
   		if ($new_products['image_display'] == 1) {
-    		$image = tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5"');
+    		$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5"');
   		} elseif (($new_products['image_display'] != 2) && tep_not_null($new_products['products_image'])) {
     		$image = tep_image(DIR_WS_IMAGES_THUMBS .  $new_products['image_folder'] . $new_products['products_image'], $new_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"');
   		}

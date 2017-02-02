@@ -113,7 +113,7 @@
     	
     	$image = '';
       if ($listing['image_display'] == 1) {
-       	$image = tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+       	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
       } elseif (($listing['image_display'] != 2) && tep_not_null($listing['products_image'])) {
       	$image = tep_image(DIR_WS_IMAGES_THUMBS . $listing['image_folder'] . $listing['products_image'], $listing['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"', NULL, 'img-responsive thumbnail group list-group-image');
       }

@@ -17,8 +17,8 @@
   
   based on Version: <a target="_blank" href="https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01">https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01</a><br /><br />
 
-  Don\'t forget all "filenames" and "folder\'s" are hardcoded.<br />
-  btw: I like it, don\'t waste time for include more files. <br /><br />
+  Don\'t forget all "filenames" and "some folder\'s" are hardcoded.<br />
+  btw: I like it, don\'t waste time for include more files or content. <br /><br />
 
   Master Update 1. Feb. 2017<br />
   All new system settings and much more in the new /catalog/install/oscommerce.sql<br />

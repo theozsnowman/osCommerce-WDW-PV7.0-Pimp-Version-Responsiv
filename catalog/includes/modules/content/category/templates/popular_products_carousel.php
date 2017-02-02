@@ -26,7 +26,7 @@
 
     $image = '';
     if ($popular_products['image_display'] == 1) {
-    	$image = tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+    	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
     } elseif (($popular_products['image_display'] != 2) && tep_not_null($popular_products['products_image'])) {
     	$image = tep_image(DIR_WS_IMAGES_THUMBS . $popular_products['image_folder'] . $popular_products['products_image'], $popular_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"');
     }
@@ -62,11 +62,21 @@
     $wrapper_slides .= '        <div class="price-height">';
     $wrapper_slides .= '          <p class="text-center" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="priceCurrency" content="' . tep_output_string($currency) . '" />';
     if (tep_not_null($popular_products['specials_new_products_price'])) {
+    	
+    	// included by webmaster@webdesign-wedel.de (2017)
+    	// BOM
+    	//Formular --->>>> Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100
+    	$OldPrice = $currencies->display_raw($popular_products['products_price'], tep_get_tax_rate($popular_products['products_tax_class_id']));
+    	$NewPrice = $currencies->display_raw($popular_products['specials_new_products_price'], tep_get_tax_rate($popular_products['products_tax_class_id']));
+    	$Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100;
+    	$PercentRound = round($Percent, TAX_DECIMAL_PLACES);
+    	
       // Show the products old price if enabled in Admin
       if ($show_old_price) {
         $wrapper_slides .= '        <del>' .  $currencies->display_price($popular_products['products_price'], tep_get_tax_rate($popular_products['products_tax_class_id'])) . '</del><br />';
       }
-      $wrapper_slides .= '          <span class="productSpecialPrice" itemprop="price" content="' . $currencies->display_raw($popular_products['products_price'], tep_get_tax_rate($popular_products['products_tax_class_id'])) . '">' . $currencies->display_price($popular_products['specials_new_products_price'], tep_get_tax_rate($popular_products['products_tax_class_id'])) . '</span>';
+      $wrapper_slides .= '          <span class="productSpecialPrice" itemprop="price" content="' . $currencies->display_raw($popular_products['products_price'], tep_get_tax_rate($popular_products['products_tax_class_id'])) . '">' . $currencies->display_price($popular_products['specials_new_products_price'], tep_get_tax_rate($popular_products['products_tax_class_id'])) . '<br />' . $PercentRound . '% </span>';
+      // EOM
     } else {
       $wrapper_slides .= '          <span itemprop="price" content="' . $currencies->display_raw($popular_products['products_price'], tep_get_tax_rate($popular_products['products_tax_class_id'])) . '">' . $currencies->display_price($popular_products['products_price'], tep_get_tax_rate($popular_products['products_tax_class_id'])) . '</span>';
     }

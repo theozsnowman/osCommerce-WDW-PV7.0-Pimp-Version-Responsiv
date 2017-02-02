@@ -37,7 +37,7 @@
     					if (tep_not_null($categories['categories_image'])) {
     						$image = tep_image(DIR_WS_IMAGES_CAT . $categories['categories_image'], $categories['categories_name'], SUBCATEGORY_IMAGE_WIDTH, SUBCATEGORY_IMAGE_HEIGHT);
     					} else {
-    						$image = tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
+    						$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
     					}
     					
       				$cPath_new = tep_get_path($categories['categories_id']);

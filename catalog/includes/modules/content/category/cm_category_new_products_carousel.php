@@ -122,6 +122,8 @@
           select
             p.products_id,
             p.products_image,
+            p.image_folder, 
+            p.image_display,
             p.products_price,
             p.products_tax_class_id,
             pd.products_name,
@@ -146,6 +148,8 @@
             select
               p.products_id,
               p.products_image,
+              p.image_folder, 
+              p.image_display,
               p.products_price,
               p.products_tax_class_id,
               pd.products_name,
@@ -191,6 +195,8 @@
             select
               p.products_id,
               p.products_image,
+              p.image_folder, 
+              p.image_display,
               p.products_price,
               p.products_tax_class_id,
               pd.products_name,
