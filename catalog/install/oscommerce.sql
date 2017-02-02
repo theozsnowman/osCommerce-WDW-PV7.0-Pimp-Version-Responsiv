@@ -1596,7 +1596,6 @@ INSERT INTO `products_to_categories` (`products_id`, `categories_id`) VALUES
 
 INSERT INTO `reviews` (`reviews_id`, `products_id`, `customers_id`, `customers_name`, `reviews_rating`, `date_added`, `last_modified`, `reviews_status`, `reviews_read`) VALUES
 (1, 19, 0, 'John Doe', 5, '2017-01-24 11:09:54', '2017-01-26 08:29:51', 1, 0);
- ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `reviews_description` (`reviews_id`, `languages_id`, `reviews_text`) VALUES
 (1, 1, 'This has to be one of the funniest movies released for 1999!');
