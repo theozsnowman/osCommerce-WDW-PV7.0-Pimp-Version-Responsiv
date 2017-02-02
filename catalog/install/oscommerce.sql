@@ -390,6 +390,8 @@ CREATE TABLE products (
   products_quantity int(4) NOT NULL,
   products_model varchar(64),
   products_image varchar(64),
+  image_folder varchar(64),
+  image_display varchar(64),
   products_price decimal(15,4) NOT NULL,
   products_date_added datetime NOT NULL,
   products_last_modified datetime,
