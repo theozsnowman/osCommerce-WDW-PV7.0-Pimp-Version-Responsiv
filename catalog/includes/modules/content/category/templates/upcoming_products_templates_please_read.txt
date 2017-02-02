@@ -1,0 +1,23 @@
+
+there are 2 upcoming_products template files (2 styles, see sample upcoming_products template images provided in this folder and explanation below)
+
+1. upcoming_products.php (default, in a table format and without panel borders - this is the default in latest osC BE EDGE)
+
+2. upcoming_products - with border.php (which houses the upcoming_products within a panel with borders and not table format - this was how it originally looked)
+
+---------------------------------------------------------------------------------------------------
+
+if you prefer with the panel then first rename the default "upcoming_products.php" to "upcoming_products - without border.php"
+
+then rename "upcoming_products - with border.php" to "upcoming_products.php"
+
+---------------------------------------------------------------------------------------------------
+
+if in future you prefer to change back to without the panel then rename "upcoming_products.php" to "upcoming_products - with border.php"
+
+then rename "upcoming_products - without border.php" to "upcoming_products.php"
+
+---------------------------------------------------------------------------------------------------
+
+if at any time you're not sure which template is which just open the files and near the top you will find which templates they are 
+ 

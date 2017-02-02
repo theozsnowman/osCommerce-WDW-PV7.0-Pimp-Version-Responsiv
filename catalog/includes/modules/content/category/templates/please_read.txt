@@ -1,0 +1,23 @@
+
+there are 2 template files (2 styles, see sample images provided in this folder and explanation below)
+
+1. popular_products_carousel.php (default, which houses the carousel within a panel with borders)
+
+2. popular_products_carousel - without border.php (without the panel)
+
+---------------------------------------------------------------------------------------------------
+
+if you prefer without the panel then rename the default popular_products_carousel.php to popular_products_carousel - with border.php
+
+then rename popular_products_carousel - without border.php to popular_products_carousel.php
+
+---------------------------------------------------------------------------------------------------
+
+if in future you prefer to change back to with the panel then rename popular_products_carousel.php to popular_products_carousel - without border.php
+
+then rename popular_products_carousel - with border.php to popular_products_carousel.php
+
+---------------------------------------------------------------------------------------------------
+
+if at any time you're not sure which template is which just open the files and near the top you will find which templates they are 
+ 
