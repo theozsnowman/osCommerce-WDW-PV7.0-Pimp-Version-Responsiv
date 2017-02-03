@@ -43,8 +43,6 @@
 
     tep_db_query("update " . TABLE_PRODUCTS_DESCRIPTION . " set products_viewed = products_viewed+1 where products_id = '" . (int)$_GET['products_id'] . "' and language_id = '" . (int)$languages_id . "'");
 
-		
-
     if ($new_price = tep_get_products_special_price($product_info['products_id'])) {
     	// included by webmaster@webdesign-wedel.de (2017)
     	// BOM
@@ -97,10 +95,23 @@
   <div class="contentText">
 
 <?php
+		$image = ''; 
+		$image_overlay_sales = '';
+ 		$image_overlay_new = '';
+
     if ($product_info['image_display'] == 1) { // use "No Picture Available" image
       echo tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5" style="float: right;"');
     } elseif (($product_info['image_display'] != 2) && (tep_not_null($product_info['products_image']))) { // show product images
       echo tep_image(DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image'], NULL, NULL, NULL, 'itemprop="image" style="display:none;"');
+
+/*
+		if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
+			$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_HEIGHT . 'px;');
+		} 
+*/
+		if ( tep_not_null(tep_get_products_special_price($product_info['products_id'])) ) {
+			$image_overlay_sales = '<div id="wdw_overlay_sale_product_info" class="wdw_overlay_sale_product_info">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-left:' . '-10' . 'px;') . '</div>';
+		}
 
       $photoset_layout = (int)MODULE_HEADER_TAGS_PRODUCT_COLORBOX_LAYOUT;
 
@@ -137,7 +148,7 @@
 ?>
 
     <div class="piGal pull-right">
-      <?php echo tep_image(DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image'], addslashes($product_info['products_name'])); ?>
+      <?php echo tep_image(DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image'], addslashes($product_info['products_name'])) . $image_overlay_sales; ?>
     </div>
 
 <?php
