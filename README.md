@@ -136,7 +136,7 @@ PHP7+ If you are on an older PHP version, you may find errors.  Update your PHP 
 Demo Site
 =========
 Check out the demo site at https://osc.webdesign-wedel.de
-More or less, this is how Responsive osCommerce looks out of the box.
+More or less, this is how Responsive osCommerce looks after the WDW-PV7.0!
 
 Installation
 ============
