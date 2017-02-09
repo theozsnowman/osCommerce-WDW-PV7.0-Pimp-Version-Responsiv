@@ -26,17 +26,15 @@
   </div>
 */ ?>
     
-<div id="categories_description" class="col-sm-<?php echo (int)MODULE_CONTENT_CATEGORY_CATEGORIES_DESCRIPTION_CONTENT_WIDTH; ?>">
+<div id="categories_description" class="col-sm-<?php echo (int)MODULE_CONTENT_CATEGORY_CATEGORIES_DESCRIPTION_CONTENT_WIDTH; ?> wdw_close">
   <div class="panel panel-info">
     <div class="panel-heading collapsed" data-toggle="collapse" href="#cat-info" style="cursor: pointer;" aria-expanded="false">
       <h5 class="panel-title">
         <i><?php echo MODULE_CONTENT_CATEGORY_CATEGORIES_DESCRIPTION_TITLE; ?></i>&nbsp;<span id="cat-info-icon" class="fa fa-angle-double-down" style="font-size: 14px;"></span>
 
-
-        <button type="button" class="close" data-target="#category-description" data-dismiss="alert">
+        <button type="button" class="close" data-target=".wdw_close" data-dismiss="alert">
           <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
         </button>
-
 
       </h5>
     </div>

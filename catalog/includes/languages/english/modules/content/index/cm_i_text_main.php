@@ -20,7 +20,7 @@
   Don\'t forget all "filenames" and "some folder\'s" are hardcoded.<br />
   btw: I like it, don\'t waste time for include more files or content. <br /><br />
 
-  Master Update 2. Feb. 2017<br />
+  Master Update 9. Feb. 2017<br />
   All new system settings and much more in the new /catalog/install/oscommerce.sql<br />
   New path for product images, categories and manufactures, same like osCommerce 3.0<br /><br />
 	
@@ -58,20 +58,15 @@
 	- Some new icons for the admin area<br />
   - all Class files now full PHP7+ suitable<br />
   - all MySQL querys now full MySQL 5.7 suitable<br />
-  - /catalog/install/oscommerce.sql change value of products_name varchar(64) to products_name varchar(128)<br />
-  - /catalog/install/templates/pages/install_4.php >>> some changes for to delete the install folder after finished<br />
-  - /catalog/install/templates/pages/install_4.php >>> change the chmod to 0444 for /admin/includes/configure.php and /includes/configure.php<br />
-  - /catalog/ext/bootstrap/css/bootstrap.css >>> better position for the asterisk in the input field<br />
-  - /catalog/ext/bootstrap/css/bootstrap.min.css >>> better position for the asterisk in the input field<br />
-  - /catalog/catalog/ext/bootstrap/css/bootstrap.css.map >>> better position for the asterisk in the input field<br />
-  - /catalog/ext/bootstrap/css/bootstrap.css.map >>> better position for the asterisk in the input field<br />
-  - /catalog/ext/bootstrap/css/bootstrap.min.css.map >>> better position for the asterisk in the input field<br />
-  - /catalog/custom.css >>> add margin-bottom: 20px; to the #bodyContent >>> better margin after the content<br />
-  - /catalog/includes/classes/message_stack.php >>> change function add to acivate the awesome fonts icons<br />
-  - /catalog/includes/functions/html_output.php >>> add function tep_draw_icon to acivate the awesome fonts icons<br />
-  - /catalog/admin/includes/header.php >>> Online Catalog link now open in new page<br />
-  - /catalog/admin/includes/header.php >>> Support Site link now open in new page<br />
-  - /catalog/admin/includes/stylesheet.css >>> change the width of left column and the content<br /><br />
+  - Install: Change value of products_name varchar(64) to products_name varchar(128)<br />
+  - Install: Some changes for to delete the install folder after finished<br />
+  - Install: Change the chmod to 0444 for /admin/includes/configure.php and /includes/configure.php<br />
+  - Frontend: Better position for the asterisk in the input field<br />
+  - Frontend: Add margin-bottom: 20px; to the #bodyContent >>> better margin after the content<br />
+  - Frontend: Change function to acivate the awesome fonts icons<br />
+  - Frontend: Add function to acivate the awesome fonts icons<br />
+  - Backend: Online Catalog link now open in new page<br />
+  - Backend: Change the width of left column and the content<br /><br />
 
 Webdesign Wedel (WDW) modified stuff<br />
   - Modular Category Page (Template modified to dropdown)<br />
@@ -80,16 +75,13 @@ Webdesign Wedel (WDW) modified stuff<br />
   - Show value in % on a Special product on every content<br />
   - Overlay Images Sales (Turn on/off in the Admin)<br />
   - Overlay Images New (Turn on/offin the Admin)<br />
-  - New images path, same like osCommerce 3.0,<br />
-  	/images/categories/, /images/manufacturers/, /images/originals/,<br />
-  	/images/product_thumbnails/, /images/products/, /images/temporary/.<br />
-  	Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)<br /><br />
+  - New images path. Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)<br />
+  - New presentation of the product images with elevateZoom and fancybox<br /><br />
  
 Extensions included<br />
   - cKEditor >>> Product description editable with ckEditor<br />
   - KCFinder >>> Image file uploder for cKEditor<br />
   - Mailchimp Newsletter 2.02<br />
-  - Protected Images for osC 2.3.4 (adapted by WDW for this version)<br />
   - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)<br />
   - Multiple Products Manager fo  2.3.3 v2.7<br />
   - Category New Products Carousel v1.4<br />

@@ -935,7 +935,7 @@ while ($info = tep_db_fetch_array($query)) { // list all matching products
     // original code
     //echo tep_draw_button(BUTTON_CHECK_CAT, 'check', tep_href_link('image-manager.php', 'action=cat')) . tep_draw_button(BUTTON_ORPHAN_CHECK, 'circle-check', tep_href_link('image-manager.php', 'action=orphans'));
     echo tep_draw_button(BUTTON_CHECK_CAT, 'check', tep_href_link('image-manager.php', 'action=cat'));
-    echo tep_draw_button(BUTTON_RETURN_MFG, 'arrowreturn-1-e', tep_href_link('manufactures.php')) . "\n";
+    echo tep_draw_button(BUTTON_RETURN_MFG, 'arrowreturn-1-e', tep_href_link('manufacturers.php')) . "\n";
     echo ' <table border="1" cellspacing="0" cellpadding="2">' . "\n";
     echo '   <tr><th>' . TABLE_HEADING_MFG . '</th><th>' . TABLE_HEADING_IMAGE . '</th><th>' . TABLE_HEADING_ERRORS . '<th>' . TABLE_HEADING_ACTION . "</th></tr>\n";
     $query = tep_db_query('select * from ' . TABLE_MANUFACTURERS . ' order by manufacturers_name');
@@ -1105,68 +1105,71 @@ while ($info = tep_db_fetch_array($query)) { // list all matching products
                 echo tep_draw_button(BUTTON_CHECK_MFG, 'check', tep_href_link('image-manager.php', 'action=mfg'));
                 echo tep_draw_button(BUTTON_PRODUCT_ENTRY, 'arrowreturn-1-e', tep_href_link('categories.php', 'cPath=' . $product_info['categories_id'] . '&pID=' . $products_id)) . "\n";
                 echo'<br /><br />';
-                /*
+
                 echo ' <table border="1" cellspacing="0" cellpadding="2">' . "\n";
                 echo '<tr><td colspan="4">' . TEXT_DEFAULT_IMG_NOTE . "</td></tr>\n";
                 echo '   <tr><th>' . TABLE_HEADING_IMAGE . '</th><th>' . TABLE_HEADING_FNAME . '</th><th>' . TABLE_HEADING_ERRORS . '<th>' . TABLE_HEADING_ACTION . "</th></tr>\n";
-                if (tep_not_null($product_info['image_folder'])) {
+                if (tep_not_null(DIR_FS_CATALOG_IMAGES_ORIG . $product_info['image_folder'])) {
                   $orig_images = array();
                   if ($handle = opendir(DIR_FS_CATALOG_IMAGES_ORIG . $product_info['image_folder'])) {
                     while ($file = readdir($handle)) { // build list of image files in product's original image directory
                       if (in_array(strtolower(substr($file, strrpos($file, '.')+1)), array('gif', 'png', 'jpg', 'jpeg'))) {
                         $orig_images[] = $file;
-                        echo '    <tr><td>' . tep_catalog_image(DIR_WS_CATALOG_IMAGES_ORIG . $product_info['image_folder'] . $file, $product_info['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5" valign="middle"') . "</td><td class='main'>" . $file . '</td>';
-                        echo '<td class="main">';
-                        $error = $nodb_error = $invalid = false;
-                        if (is_file(DIR_FS_CATALOG_IMAGES_THUMBS . $product_info['image_folder'] . $file)) {
-                          if (!tep_get_web_image_type(DIR_FS_CATALOG_IMAGES_THUMBS . $product_info['image_folder'] . $file)) {
-                            $error = true;
-                            echo TEXT_ERROR_INVALID_THUMB;
-                          }
-                        } else {
-                          $error = true;
-                          echo TEXT_ERROR_NO_THUMB;
-                        }
-                        if (is_file(DIR_FS_CATALOG_IMAGES_PROD . $product_info['image_folder'] . $file)) {
-                          if (!tep_get_web_image_type(DIR_FS_CATALOG_IMAGES_PROD . $product_info['image_folder'] . $file)) {
-                            $error = true;
-                            echo TEXT_ERROR_INVALID_LARGE;
-                          }
-                        } else {
-                          $error = true;
-                          echo TEXT_ERROR_NO_LARGE;
-                        }
-                        if (!tep_get_web_image_type(DIR_FS_CATALOG_IMAGES_ORIG . $product_info['image_folder'] . $file)) {
-                          $error = $invalid = true;
-                          echo TEXT_ERROR_INVALID_ORIG;
-                        }
-                        if (in_array($file, $product_images)) {
-                          foreach ($image_table as $i) {
-                            if ($i['image'] == $file) {
-                              if (tep_not_null($i['htmlcontent'])) {
-                                echo TEXT_HAS_HTML;
-                              } else {
-                                echo TEXT_NO_HTML;
-                              }
-                              break;
-                            }
-                          }
-                        } else {
-                          $error = $nodb_error = true;
-                          echo TEXT_ERROR_NOT_DB;
-                        }
-                        if (!$error) echo TEXT_NO_ERRORS;
-                        echo '</td>';
-                        echo '<td class="main">' . tep_draw_button(BUTTON_DELETE_IMAGE, 'trash', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=delete_image&image_file=' . $file)) . ' ';
-                        if (!$invalid) {
-                          if ($file == $product_info['products_image']) {
-                            echo TEXT_THIS_DEFAULT;
-                          } else {
-                            echo tep_draw_button(BUTTON_DEFAULT, 'tag', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=make_default&image_file='. $file));
-                          }
-                          if ($nodb_error) echo ' ' . tep_draw_button(BUTTON_ADD_DB, 'plus', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=db_add&image_file='. $file));
-                        }
-                        echo "</td></tr>\n";
+                        if ($file == $product_info['products_image']) {
+                        	echo '    <tr><td>' . tep_catalog_image(DIR_WS_CATALOG_IMAGES_ORIG . $product_info['image_folder'] . $file, $product_info['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5" valign="middle"') . "</td><td class='main'>" . $file . '</td>';
+                        	echo '<td class="main">';
+                        	$error = $nodb_error = $invalid = false;
+                        	if (is_file(DIR_FS_CATALOG_IMAGES_THUMBS . $product_info['image_folder'] . $file)) {
+                          	if (!tep_get_web_image_type(DIR_FS_CATALOG_IMAGES_THUMBS . $product_info['image_folder'] . $file)) {
+                            	$error = true;
+                            	echo TEXT_ERROR_INVALID_THUMB;
+                          	}
+                        	} else {
+                          	$error = true;
+                          	echo TEXT_ERROR_NO_THUMB;
+                        	}
+
+                        	if (is_file(DIR_FS_CATALOG_IMAGES_PROD . $product_info['image_folder'] . $file)) {
+                          	if (!tep_get_web_image_type(DIR_FS_CATALOG_IMAGES_PROD . $product_info['image_folder'] . $file)) {
+                            	$error = true;
+                            	echo TEXT_ERROR_INVALID_LARGE;
+                          	}
+                        	} else {
+                          	$error = true;
+                          	echo TEXT_ERROR_NO_LARGE;
+                        	}
+                        	if (!tep_get_web_image_type(DIR_FS_CATALOG_IMAGES_ORIG . $product_info['image_folder'] . $file)) {
+                          	$error = $invalid = true;
+                          	echo TEXT_ERROR_INVALID_ORIG;
+                        	}
+                        	if (in_array($file, $product_images)) {
+                          	foreach ($image_table as $i) {
+                            	if ($i['image'] == $file) {
+                              	if (tep_not_null($i['htmlcontent'])) {
+                                	echo TEXT_HAS_HTML;
+                              	} else {
+                              	 	echo TEXT_NO_HTML;
+                              	}
+                              	break;
+                            	}
+                          	}
+                        	} else {
+                          	$error = $nodb_error = true;
+                          	//echo TEXT_ERROR_NOT_DB;
+                        	}
+                        	if (!$error) echo TEXT_NO_ERRORS;
+                        	echo '</td>';
+                        	echo '<td class="main">' . tep_draw_button(BUTTON_DELETE_IMAGE, 'trash', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=delete_image&image_file=' . $file)) . ' ';
+                        	if (!$invalid) {
+                          	if ($file == $product_info['products_image']) {
+                            	echo TEXT_THIS_DEFAULT;
+                          	} else {
+                            	echo tep_draw_button(BUTTON_DEFAULT, 'tag', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=make_default&image_file='. $file));
+                          	}
+                          	//if ($nodb_error) echo ' ' . tep_draw_button(BUTTON_ADD_DB, 'plus', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=db_add&image_file='. $file));
+                        	}
+                        	echo "</td></tr>\n";
+                      	}
                       }
                     }
                     closedir($handle);
@@ -1204,13 +1207,13 @@ while ($info = tep_db_fetch_array($query)) { // list all matching products
                             }
                           } else {
                             $nodb_error = true;
-                            echo TEXT_ERROR_NOT_DB;
+                            //echo TEXT_ERROR_NOT_DB;
                           }
                           echo '</td>';
                           echo '<td class="main">' . tep_draw_button(BUTTON_DELETE_IMAGE, 'trash', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=delete_image&image_file=' . $file)) . ' ';
                           if (!$invalid) {
                             echo tep_draw_button(BUTTON_ADD_ORIG, 'copy', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=copy_large_orig&image_file='. $file));
-                            if ($nodb_error) echo ' ' . tep_draw_button(BUTTON_ADD_DB, 'plus', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=db_add&image_file='. $file));
+                            //if ($nodb_error) echo ' ' . tep_draw_button(BUTTON_ADD_DB, 'plus', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=db_add&image_file='. $file));
                           }
                           echo "</td></tr>\n";
                         }
@@ -1243,14 +1246,14 @@ while ($info = tep_db_fetch_array($query)) { // list all matching products
                             }
                           } else {
                             $nodb_error = true;
-                            echo TEXT_ERROR_NOT_DB;
+                            //echo TEXT_ERROR_NOT_DB;
                           }
                           echo '</td><td class="main">' . tep_draw_button(BUTTON_DELETE_IMAGE, 'trash', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=delete_image&image_file=' . $file)) . ' ';
                           if (!$invalid) {
                             $size = getimagesize(DIR_FS_CATALOG_IMAGES_THUMBS . $product_info['image_folder'] . $file);
                             if (($size[0] >= (LARGE_IMAGE_WIDTH * 0.75)) && ($size[1] >= (LARGE_IMAGE_HEIGHT * 0.75))) { // only allow actions other than delete if image size is at least 75% of large image size
                               echo tep_draw_button(BUTTON_ADD_ORIG, 'copy', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=copy_large_orig&src=thumb&image_file='. $file));
-                              if ($nodb_error) echo ' ' . tep_draw_button(BUTTON_ADD_DB, 'plus', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=db_add&image_file='. $file));
+                              //if ($nodb_error) echo ' ' . tep_draw_button(BUTTON_ADD_DB, 'plus', tep_href_link('image-manager.php', 'pid=' . $products_id . '&action=db_add&image_file='. $file));
                             }
                           }
                           echo "</td></tr>\n";
@@ -1279,7 +1282,7 @@ while ($info = tep_db_fetch_array($query)) { // list all matching products
                   echo '<tr><th colspan="4">' . TEXT_ERROR_NO_IMG_FOLDER . "</th></tr>\n";
                 }
                 echo '</table>';
-                */
+ 
               }
  ?>
         </td>

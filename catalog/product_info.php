@@ -98,19 +98,22 @@
 		$image = ''; 
 		$image_overlay_sales = '';
  		$image_overlay_new = '';
-
+    
     if ($product_info['image_display'] == 1) { // use "No Picture Available" image
+      echo '<div class="pull-left" style="padding: 0px 10px 0px 0px;">';
       echo tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5" style="float: right;"');
+      echo '</div>';
     } elseif (($product_info['image_display'] != 2) && (tep_not_null($product_info['products_image']))) { // show product images
-      echo tep_image(DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image'], NULL, NULL, NULL, 'itemprop="image" style="display:none;"');
-
+      //echo tep_image(DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image'], NULL, NULL, NULL, 'itemprop="image" style="display:none;"');
 /*
 		if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
 			$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_HEIGHT . 'px;');
 		} 
 */
 		if ( tep_not_null(tep_get_products_special_price($product_info['products_id'])) ) {
-			$image_overlay_sales = '<div id="wdw_overlay_sale_product_info" class="wdw_overlay_sale_product_info">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-left:' . '-10' . 'px;') . '</div>';
+			if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
+				$image_overlay_sales = '<div id="wdw_overlay_sale_product_info" class="wdw_overlay_sale_product_info">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-left:' . '-10' . 'px;') . '</div>';
+			}
 		}
 
       $photoset_layout = (int)MODULE_HEADER_TAGS_PRODUCT_COLORBOX_LAYOUT;
@@ -118,43 +121,60 @@
       $pi_query = tep_db_query("select image, htmlcontent from " . TABLE_PRODUCTS_IMAGES . " where products_id = '" . (int)$product_info['products_id'] . "' order by sort_order");
       $pi_total = tep_db_num_rows($pi_query);
 
-      if ($pi_total > 0) {
+      if ($pi_total > 1) {
 ?>
-
-    <div class="piGal pull-right" data-imgcount="<?php echo $photoset_layout; ?>">
-
-<?php
-        $pi_counter = 0;
-        $pi_html = array();
-
-        while ($pi = tep_db_fetch_array($pi_query)) {
-          $pi_counter++;
-
-          if (tep_not_null($pi['htmlcontent'])) {
-            $pi_html[] = '<div id="piGalDiv_' . $pi_counter . '">' . $pi['htmlcontent'] . '</div>';
-          }
-
-          echo tep_image(DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $pi['image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"');
+<div class="pull-left" data-imgcount="<?php echo $photoset_layout; ?>" style="padding: 0px 10px 0px 0px; width: <?php echo SMALL_IMAGE_WIDTH + 10; ?>px;">
+	<div id="gallery_01">
+		<?php
+			$pi_counter = 0;
+			$pi_html = array();
+	
+			while ($pi = tep_db_fetch_array($pi_query)) {
+				$pi_counter++;
+				
+				if ( $pi_counter == 1 ) {
+					echo tep_image(DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $pi['image'], '', SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'data-zoom-image="' . DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $pi['image'] . '" title="' . $product_info['products_name'] . '" id="zoom_01"') . $image_overlay_sales;
+				} 
+				if (tep_not_null($pi['htmlcontent'])) {
+					$pi_html[] = '<div id="GalDiv_' . $pi_counter . '">' . $pi['htmlcontent'] . '</div>';
         }
-?>
-
-    </div>
+        
+	  ?>
+				<a href="#" data-image="<?php echo DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $pi['image']; ?>" data-zoom-image="<?php echo DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $pi['image']; ?>" title="<?php echo $product_info['products_name']; ?>">
+    			<?php echo tep_image(DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $pi['image'], '', '100', '80', 'data-zoom-image="' . DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $pi['image'] . '" title="' . $product_info['products_name'] . '" style="float: left; margin-top: 5px; margin-right: 5px; margin-bottom: 5px;" id="zoom_01"'); ?>
+  			</a>
+			<?php } ?>
+	</div>
+</div>
 
 <?php
         if ( !empty($pi_html) ) {
           echo '    <div style="display: none;">' . implode('', $pi_html) . '</div>';
         }
-      } else {
+    } else {
 ?>
-
-    <div class="piGal pull-right">
-      <?php echo tep_image(DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image'], addslashes($product_info['products_name'])) . $image_overlay_sales; ?>
-    </div>
-
+    <div class="pull-left" style="padding: 0px 10px 10px 0px; width: <?php echo SMALL_IMAGE_WIDTH + 10; ?>px;">
+    	<div id="gallery_01">
+    	<a href="#" data-image="<?php echo DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $product_info['products_image']; ?>" data-zoom-image="<?php echo DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image']; ?>" title="<?php echo $product_info['products_name']; ?>">
+   			<?php echo tep_image(DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $product_info['products_image'], '', SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'data-zoom-image="' . DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image'] . '" title="' . $product_info['products_name'] . '" id="zoom_01"') . $image_overlay_sales; ?>
+   	  </a>
+   	  </div>
+    </div> 
 <?php
-      }
     }
+  }
 ?>
+<script>
+	//initiate the plugin and pass the id of the div containing gallery images
+	$("#zoom_01").elevateZoom({gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: ''}); 
+
+	//pass the images to Fancybox
+	$("#zoom_01").bind("click", function(e) {  
+  	var ez =   $('#zoom_01').data('elevateZoom');	
+		$.fancybox(ez.getGalleryList());
+  	return false;
+	});
+</script>
 
 <div itemprop="description">
   <?php echo stripslashes($product_info['products_description']); ?>

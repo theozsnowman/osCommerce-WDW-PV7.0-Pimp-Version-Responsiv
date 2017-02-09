@@ -42,21 +42,16 @@ Already changed
 ===============
 - Some new icons for the admin area
 - all Class files now full PHP7+ suitable
-- all MySql querys now full MySql 5.7 suitable
-- /catalog/install/oscommerce.sql change value of products_name varchar(64) to products_name varchar(128)
-- /catalog/install/templates/pages/install_4.php >>> some changes for to delete the install folder after finished
-- /catalog/install/templates/pages/install_4.php >>> change the chmod to 0444 for /admin/includes/configure.php and /includes/configure.php
-- /catalog/ext/bootstrap/css/bootstrap.css >>> better position for the asterisk in the input field
-- /catalog/ext/bootstrap/css/bootstrap.min.css >>> better position for the asterisk in the input field
-- /catalog/catalog/ext/bootstrap/css/bootstrap.css.map >>> better position for the asterisk in the input field
-- /catalog/ext/bootstrap/css/bootstrap.css.map >>> better position for the asterisk in the input field
-- /catalog/ext/bootstrap/css/bootstrap.min.css.map >>> better position for the asterisk in the input field
-- /catalog/custom.css >>> add margin-bottom: 20px; to the #bodyContent >>> better margin after the content
-- /catalog/includes/classes/message_stack.php >>> change function add to acivate the awesome fonts icons
-- /catalog/includes/functions/html_output.php >>> add function tep_draw_icon to acivate the awesome fonts icons
-- /catalog/admin/includes/header.php >>> Online Catalog link now open in new page 
-- /catalog/admin/includes/header.php >>> Support Site link now open in new page
-- /catalog/admin/includes/stylesheet.css >>> change the width of left column and the content
+- all MySQL querys now full MySQL 5.7 suitable
+- Install: Change value of products_name varchar(64) to products_name varchar(128)
+- Install: Some changes for to delete the install folder after finished
+- Install: Change the chmod to 0444 for /admin/includes/configure.php and /includes/configure.php
+- Frontend: Better position for the asterisk in the input field
+- Frontend: Add margin-bottom: 20px; to the #bodyContent >>> better margin after the content
+- Frontend: Change function to acivate the awesome fonts icons
+- Frontend: Add function to acivate the awesome fonts icons
+- Backend: Online Catalog link now open in new page
+- Backend: Change the width of left column and the content
 
 WDW modified stuff
 ===================
@@ -66,14 +61,14 @@ WDW modified stuff
 - Show value in % on a Special product on every content
 - Overlay Images Sales (Turn on/off in the Admin)
 - Overlay Images New (Turn on/offin the Admin)
-- New images path, same like osCommerce 3.0 /images/categories/, /images/manufacturers/, /images/originals/, /images/product_thumbnails/, /images/products/, /images/temporary/. Code changes for functionality with this Version. Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)
+- New images path. Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)
+- New presentation of the product images with elevateZoom and fancybox
 
 Extensions included
 ===================
 - cKEditor >>> Product description editable with ckEditor
 - KCFinder >>> Image file uploder for cKEditor
 - Mailchimp Newsletter 2.02
-- Protected Images for osC 2.3.4 (adapted by WDW for this version)
 - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)
 - Multiple Products Manager fo 2.3.3 v2.7
 - Category New Products Carousel v1.4

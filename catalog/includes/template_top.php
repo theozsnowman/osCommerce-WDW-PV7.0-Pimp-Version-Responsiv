@@ -43,6 +43,9 @@
 <![endif]-->
  
 <script src="ext/jquery/jquery-3.1.0.min.js"></script>
+<script src="ext/elevateZoom/jquery.elevateZoom-3.0.8.min.js"></script>
+<script src="ext/fancybox/jquery.fancybox.pack.js"></script>
+<link href="ext/fancybox/jquery.fancybox.css" rel="stylesheet">
 
 <?php echo $oscTemplate->getBlocks('header_tags'); ?>
 </head>
