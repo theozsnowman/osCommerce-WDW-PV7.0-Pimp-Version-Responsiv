@@ -14,13 +14,6 @@ create table action_recorder (
   KEY idx_action_recorder_date_added (date_added)
 );
 
-insert into action_recorder (id, module, user_id, user_name, identifier, success, date_added) values ('1', 'ar_admin_login', '1', 'webmaster', '183.88.16.164', '1', '2017-02-02 18:28:40');
-insert into action_recorder (id, module, user_id, user_name, identifier, success, date_added) values ('2', 'ar_admin_login', '1', 'webmaster', '183.88.23.2', '1', '2017-02-08 05:37:13');
-insert into action_recorder (id, module, user_id, user_name, identifier, success, date_added) values ('3', 'ar_admin_login', '1', 'webmaster', '183.88.23.2', '1', '2017-02-08 09:29:54');
-insert into action_recorder (id, module, user_id, user_name, identifier, success, date_added) values ('4', 'ar_admin_login', '1', 'webmaster', '183.88.23.2', '1', '2017-02-09 06:39:49');
-insert into action_recorder (id, module, user_id, user_name, identifier, success, date_added) values ('5', 'ar_admin_login', '1', 'webmaster', '183.88.23.2', '1', '2017-02-09 07:21:04');
-insert into action_recorder (id, module, user_id, user_name, identifier, success, date_added) values ('6', 'ar_admin_login', '1', 'webmaster', '183.88.23.2', '1', '2017-02-09 10:14:21');
-insert into action_recorder (id, module, user_id, user_name, identifier, success, date_added) values ('7', 'ar_admin_login', '1', 'webmaster', '183.88.23.2', '1', '2017-02-09 11:40:09');
 drop table if exists address_book;
 create table address_book (
   address_book_id int(11) not null auto_increment,
