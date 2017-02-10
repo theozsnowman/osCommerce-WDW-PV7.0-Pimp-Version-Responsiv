@@ -5,3 +5,13 @@
 	width: 100%;
 	float: right;
 }
+
+.wdw_overlay_sale_position_relative {
+	position: relative;
+	margin-top: -80%;
+}
+
+.wdw_overlay_sale_position_absolute {
+	position: absolute;
+	margin-top: 0;
+}

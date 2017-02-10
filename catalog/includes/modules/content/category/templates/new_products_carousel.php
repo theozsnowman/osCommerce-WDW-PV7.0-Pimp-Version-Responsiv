@@ -27,22 +27,17 @@
   			$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
     	}
     }
-    
-    $image_overlay_new = '';
-    if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
-    	$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
-    }
   	
     if ($new_products['image_display'] == 1) {
-    	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sales . $image_overlay_new;	  
+    	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sales;	  
     } elseif (($new_products['image_display'] != 2) && tep_not_null($new_products['products_image'])) {
-    	$image = tep_image(DIR_WS_IMAGES_THUMBS . $new_products['image_folder'] . $new_products['products_image'], $new_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"') . $image_overlay_sales . $image_overlay_new;
+    	$image = tep_image(DIR_WS_IMAGES_THUMBS . $new_products['image_folder'] . $new_products['products_image'], $new_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"') . $image_overlay_sales;
     }
   	
     $wrapper_slides .= '  <div class="item box-height" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product">';
     $wrapper_slides .= '    <div class="thumbnail item-height">';
-    $wrapper_slides .= '      <div class="img-height thumbnail">';
-    $wrapper_slides .= '        <a href="' . tep_href_link('product_info.php', 'products_id=' . $new_products['products_id']) . '">' . $image . '</a>';
+    $wrapper_slides .= '      <div class="img-height">';
+    $wrapper_slides .= '        <a href="' . tep_href_link('product_info.php', 'products_id=' . $new_products['products_id']) . '"><span class="thumbnail">' . $image . '</span></a>';
     $wrapper_slides .= '      </div>';
     $wrapper_slides .= '      <div class="caption">';
     $wrapper_slides .= '        <p class="text-center caption-height"><a itemprop="url" href="' . tep_href_link('product_info.php', 'products_id=' . $new_products['products_id']) . '"><span itemprop="name">' . $new_products['products_name'] . '</span></a></p>';

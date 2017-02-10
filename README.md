@@ -61,8 +61,7 @@ WDW modified stuff
 - Show value in % on a Special product on every content
 - cKEditor >>> Product description editable with ckEditor
 - KCFinder >>> Image file uploder for cKEditor
-- Overlay Images Sales (Turn on/off in the Admin)
-- Overlay Images New (Turn on/offin the Admin)
+- Overlay Images Discount (Turn on/off in the Admin)
 - New images path. Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)
 - New presentation of the product images with elevateZoom and fancybox
 

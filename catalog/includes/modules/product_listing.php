@@ -114,44 +114,22 @@
     	// included by webmaster@webdesign-wedel.de (2017)
     	// BOM
     	$image_overlay_sales = '';
-    	$image_overlay_new = '';
       
       if ($listing['image_display'] == 1) {
-      	if ( (tep_session_is_registered('wdw_overlay_images_new')) ) {
-      		if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
-      			$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -80%;"');
-      		} 
-  			}
       	if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
        		if (tep_not_null($listing['specials_new_products_price'])) {
-       			if ( (tep_session_is_registered('wdw_overlay_images_new')) ) {
-      				if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
-       					$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
-      				} 
-  					}
-        		$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -80%;"');
+       			$image_overlay_sales = '<div class="wdw_div wdw_overlay_sale_position_absolute">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px;"') . '</div>';
       		}
       	}
       
-       	$image = '<span class="thumbnail">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</span>' . $image_overlay_sales . $image_overlay_new;
-      } elseif (($listing['image_display'] != 2) && tep_not_null($listing['products_image'])) {
-      	if ( (tep_session_is_registered('wdw_overlay_images_new')) ) {
-      		if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
-      			$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -80%;"');
-      		} 
-  			}
-      	
+       	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sales;
+      } elseif (($listing['image_display'] != 2) && tep_not_null($listing['products_image'])) {     	
       	if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
       		if (tep_not_null($listing['specials_new_products_price'])) {
-       			if ( (tep_session_is_registered('wdw_overlay_images_new')) ) {
-      				if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
-       					$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
-      				} 
-  					}
-        		$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -80%;"');
+        		$image_overlay_sales = '<div class="wdw_div wdw_overlay_sale_position_absolute">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px;"') . '</div>';
       		}
       	}
-      	$image = tep_image(DIR_WS_IMAGES_THUMBS . $listing['image_folder'] . $listing['products_image'], $listing['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"', NULL, 'img-responsive thumbnail group list-group-image') . $image_overlay_sales . $image_overlay_new;
+      	$image = tep_image(DIR_WS_IMAGES_THUMBS . $listing['image_folder'] . $listing['products_image'], $listing['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"', NULL, 'img-responsive thumbnail group list-group-image') . $image_overlay_sales;
       }
       
       if (isset($_GET['manufacturers_id'])  && tep_not_null($_GET['manufacturers_id'])) {
@@ -230,8 +208,6 @@
     $prod_list_contents .= '</div>';
 
   }
-  
-  tep_session_unregister('wdw_overlay_images_new');
 
   echo '<div id="products" class="row list-group" itemtype="http://schema.org/ItemList">';
   echo '  <meta itemprop="numberOfItems" content="' . (int)$listing_split->number_of_rows . '" />';

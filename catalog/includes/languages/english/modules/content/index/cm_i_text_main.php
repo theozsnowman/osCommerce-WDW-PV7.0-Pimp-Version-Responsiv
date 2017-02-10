@@ -75,8 +75,7 @@ Webdesign Wedel (WDW) modified stuff<br />
   - Show value in % on a Special product on every content<br />
   - cKEditor >>> Product description editable with ckEditor<br />
 	- KCFinder >>> Image file uploder for cKEditor<br />
-  - Overlay Images Sales (Turn on/off in the Admin)<br />
-  - Overlay Images New (Turn on/offin the Admin)<br />
+  - Overlay Images Discount (Turn on/off in the Admin)<br />
   - New images path. Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)<br />
   - New presentation of the product images with elevateZoom and fancybox<br /><br />
  

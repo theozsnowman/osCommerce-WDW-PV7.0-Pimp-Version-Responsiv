@@ -1,11 +1,6 @@
 <?php
 		$image = ''; 
 		$image_overlay_sales = '';
- 		$image_overlay_new = '';
-
-		if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
-			$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
-		} 
 
 		if (tep_not_null($random_product['specials_new_products_price'])) {
 			if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
@@ -14,9 +9,9 @@
 		}
 		
     if ($random_product['image_display'] == 1) {
-    	$image = '<span class="thumbnail">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</span>' . $image_overlay_sales . $image_overlay_new;
+    	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sales;
     } elseif (($random_product['image_display'] != 2) && tep_not_null($random_product['products_image'])) {
-    	$image = tep_image(DIR_WS_IMAGES_THUMBS . $random_product['image_folder'] . $random_product['products_image'], $random_product['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sales . $image_overlay_new;
+    	$image = tep_image(DIR_WS_IMAGES_THUMBS . $random_product['image_folder'] . $random_product['products_image'], $random_product['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sales;
     }
 ?>
 <div class="panel panel-default">
