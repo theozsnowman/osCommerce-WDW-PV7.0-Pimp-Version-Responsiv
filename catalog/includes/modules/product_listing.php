@@ -118,7 +118,7 @@
       if ($listing['image_display'] == 1) {
       	if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
        		if (tep_not_null($listing['specials_new_products_price'])) {
-       			$image_overlay_sales = '<div class="wdw_div wdw_overlay_sale_position_absolute">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px;"') . '</div>';
+       			$image_overlay_sales = '<div class="wdw_div wdw_overlay_sale_position_absolute">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; padding-bottom: 11px;"') . '</div>';
       		}
       	}
       
@@ -126,7 +126,7 @@
       } elseif (($listing['image_display'] != 2) && tep_not_null($listing['products_image'])) {     	
       	if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
       		if (tep_not_null($listing['specials_new_products_price'])) {
-        		$image_overlay_sales = '<div class="wdw_div wdw_overlay_sale_position_absolute">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px;"') . '</div>';
+        		$image_overlay_sales = '<div class="wdw_div wdw_overlay_sale_position_absolute">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; padding-bottom: 11px;"') . '</div>';
       		}
       	}
       	$image = tep_image(DIR_WS_IMAGES_THUMBS . $listing['image_folder'] . $listing['products_image'], $listing['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"', NULL, 'img-responsive thumbnail group list-group-image') . $image_overlay_sales;
