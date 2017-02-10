@@ -123,7 +123,7 @@
 
       if ($pi_total > 1) {
 ?>
-<div class="pull-left" data-imgcount="<?php echo $photoset_layout; ?>" style="padding: 0px 10px 0px 0px; width: <?php echo SMALL_IMAGE_WIDTH + 10; ?>px;">
+<div class="pull-left" data-imgcount="<?php echo $photoset_layout; ?>" style="padding: 0px 10px 0px 0px;">
 	<div id="gallery_01">
 		<?php
 			$pi_counter = 0;
@@ -131,18 +131,23 @@
 	
 			while ($pi = tep_db_fetch_array($pi_query)) {
 				$pi_counter++;
-				
+
 				if ( $pi_counter == 1 ) {
+					echo '<span class="thumbnail">';
 					echo tep_image(DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $pi['image'], '', SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'data-zoom-image="' . DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $pi['image'] . '" title="' . $product_info['products_name'] . '" id="zoom_01"') . $image_overlay_sales;
+					echo '</span>';
 				} 
 				if (tep_not_null($pi['htmlcontent'])) {
 					$pi_html[] = '<div id="GalDiv_' . $pi_counter . '">' . $pi['htmlcontent'] . '</div>';
         }
         
 	  ?>
-				<a href="#" data-image="<?php echo DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $pi['image']; ?>" data-zoom-image="<?php echo DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $pi['image']; ?>" title="<?php echo $product_info['products_name']; ?>">
-    			<?php echo tep_image(DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $pi['image'], '', '100', '80', 'data-zoom-image="' . DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $pi['image'] . '" title="' . $product_info['products_name'] . '" style="float: left; margin-top: 5px; margin-right: 5px; margin-bottom: 5px;" id="zoom_01"'); ?>
-  			</a>
+				
+					<a href="#" data-image="<?php echo DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $pi['image']; ?>" data-zoom-image="<?php echo DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $pi['image']; ?>" title="<?php echo $product_info['products_name']; ?>">
+    				<span class="thumbnail" style="float: left; width: 70px; height: 60px; margin-top: 5px; margin-right: 5px; margin-bottom: 5px;">
+    					<?php echo tep_image(DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $pi['image'], '', '100', '80', 'data-zoom-image="' . DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $pi['image'] . '" title="' . $product_info['products_name'] . '" id="zoom_01"'); ?>
+    				</span>
+  				</a>
 			<?php } ?>
 	</div>
 </div>
@@ -153,11 +158,13 @@
         }
     } else {
 ?>
-    <div class="pull-left" style="padding: 0px 10px 10px 0px; width: <?php echo SMALL_IMAGE_WIDTH + 10; ?>px;">
-    	<div id="gallery_01">
-    	<a href="#" data-image="<?php echo DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $product_info['products_image']; ?>" data-zoom-image="<?php echo DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image']; ?>" title="<?php echo $product_info['products_name']; ?>">
-   			<?php echo tep_image(DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $product_info['products_image'], '', SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'data-zoom-image="' . DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image'] . '" title="' . $product_info['products_name'] . '" id="zoom_01"') . $image_overlay_sales; ?>
-   	  </a>
+    <div class="pull-left" style="padding: 0px 10px 10px 0px;">
+    	<div id="gallery_01">    		
+    			<a href="#" data-image="<?php echo DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $product_info['products_image']; ?>" data-zoom-image="<?php echo DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image']; ?>" title="<?php echo $product_info['products_name']; ?>">
+   					<span class="thumbnail">
+   						<?php echo tep_image(DIR_WS_IMAGES_THUMBS . $product_info['image_folder'] . $product_info['products_image'], '', SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'data-zoom-image="' . DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image'] . '" title="' . $product_info['products_name'] . '" id="zoom_01"') . $image_overlay_sales; ?>
+   					</span>
+   	  		</a>
    	  </div>
     </div> 
 <?php
@@ -166,7 +173,7 @@
 ?>
 <script>
 	//initiate the plugin and pass the id of the div containing gallery images
-	$("#zoom_01").elevateZoom({gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: ''}); 
+	$("#zoom_01").elevateZoom({gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, scrollZoom: true, easing: true, zoomType: "window", cursor: "crosshair", responsive: "true", loadingIcon: 'false'});
 
 	//pass the images to Fancybox
 	$("#zoom_01").bind("click", function(e) {  

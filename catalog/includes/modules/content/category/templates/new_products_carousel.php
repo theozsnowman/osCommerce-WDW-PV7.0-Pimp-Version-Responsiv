@@ -41,7 +41,7 @@
   	
     $wrapper_slides .= '  <div class="item box-height" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product">';
     $wrapper_slides .= '    <div class="thumbnail item-height">';
-    $wrapper_slides .= '      <div class="img-height">';
+    $wrapper_slides .= '      <div class="img-height thumbnail">';
     $wrapper_slides .= '        <a href="' . tep_href_link('product_info.php', 'products_id=' . $new_products['products_id']) . '">' . $image . '</a>';
     $wrapper_slides .= '      </div>';
     $wrapper_slides .= '      <div class="caption">';

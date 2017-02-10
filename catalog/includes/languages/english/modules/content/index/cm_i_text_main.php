@@ -20,7 +20,7 @@
   Don\'t forget all "filenames" and "some folder\'s" are hardcoded.<br />
   btw: I like it, don\'t waste time for include more files or content. <br /><br />
 
-  Master Update 9. Feb. 2017<br />
+  Master Update 10. Feb. 2017<br />
   All new system settings and much more in the new /catalog/install/oscommerce.sql<br />
   New path for product images, categories and manufactures, same like osCommerce 3.0<br /><br />
 	
@@ -73,17 +73,17 @@ Webdesign Wedel (WDW) modified stuff<br />
   - Modular Sub Category Page (Template modified to dropdown)<br />
   - Modular Index Page (Template modified to dropdown)<br />
   - Show value in % on a Special product on every content<br />
+  - cKEditor >>> Product description editable with ckEditor<br />
+	- KCFinder >>> Image file uploder for cKEditor<br />
   - Overlay Images Sales (Turn on/off in the Admin)<br />
   - Overlay Images New (Turn on/offin the Admin)<br />
   - New images path. Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)<br />
   - New presentation of the product images with elevateZoom and fancybox<br /><br />
  
 Extensions included<br />
-  - cKEditor >>> Product description editable with ckEditor<br />
-  - KCFinder >>> Image file uploder for cKEditor<br />
   - Mailchimp Newsletter 2.02<br />
   - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)<br />
-  - Multiple Products Manager fo  2.3.3 v2.7<br />
+  - Modular Category Page v1.1<br />
   - Category New Products Carousel v1.4<br />
   - Category Popular Products Carousel v1.3<br /><br />
 	

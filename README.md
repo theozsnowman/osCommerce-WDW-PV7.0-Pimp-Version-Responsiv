@@ -6,7 +6,7 @@ https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01
 - Don't forget all "filenames" and "folder's" are hardcoded.
 - btw: I like it, don't waste time for include more files.
 
-Master Update 9. Feb. 2017
+Master Update 10. Feb. 2017
 ===========================
 - All new system settings and much more in the new /catalog/install/oscommerce.sql
 - New path for product images, categories and manufactures, same like osCommerce 3.0
@@ -59,6 +59,8 @@ WDW modified stuff
 - Modular Sub Category Page (Template modified to dropdown)
 - Modular Index Page (Template modified to dropdown)
 - Show value in % on a Special product on every content
+- cKEditor >>> Product description editable with ckEditor
+- KCFinder >>> Image file uploder for cKEditor
 - Overlay Images Sales (Turn on/off in the Admin)
 - Overlay Images New (Turn on/offin the Admin)
 - New images path. Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)
@@ -66,11 +68,9 @@ WDW modified stuff
 
 Extensions included
 ===================
-- cKEditor >>> Product description editable with ckEditor
-- KCFinder >>> Image file uploder for cKEditor
 - Mailchimp Newsletter 2.02
 - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)
-- Multiple Products Manager fo 2.3.3 v2.7
+- Modular Category Page v1.1
 - Category New Products Carousel v1.4
 - Category Popular Products Carousel v1.3
 
