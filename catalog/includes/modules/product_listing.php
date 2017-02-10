@@ -133,7 +133,7 @@
       		}
       	}
       
-       	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sales . $image_overlay_new;
+       	$image = '<span class="thumbnail">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</span>' . $image_overlay_sales . $image_overlay_new;
       } elseif (($listing['image_display'] != 2) && tep_not_null($listing['products_image'])) {
       	if ( (tep_session_is_registered('wdw_overlay_images_new')) ) {
       		if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
