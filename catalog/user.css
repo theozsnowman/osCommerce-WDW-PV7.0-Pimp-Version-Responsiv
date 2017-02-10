@@ -1,7 +1,7 @@
 /* user.css ----------------------------------------------------------------- */
 
 .wdw_overlay_sale_product_info {
-	position: absolute;
+	position: relative;
 	width: 100%;
 	float: right;
 }

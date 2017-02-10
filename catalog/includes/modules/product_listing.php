@@ -119,17 +119,17 @@
       if ($listing['image_display'] == 1) {
       	if ( (tep_session_is_registered('wdw_overlay_images_new')) ) {
       		if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
-      			$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_HEIGHT . 'px;');
+      			$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -80%;"');
       		} 
   			}
       	if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
        		if (tep_not_null($listing['specials_new_products_price'])) {
        			if ( (tep_session_is_registered('wdw_overlay_images_new')) ) {
       				if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
-       					$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_HEIGHT . 'px;');
+       					$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
       				} 
   					}
-        		$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_HEIGHT . 'px;');
+        		$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -80%;"');
       		}
       	}
       
@@ -137,7 +137,7 @@
       } elseif (($listing['image_display'] != 2) && tep_not_null($listing['products_image'])) {
       	if ( (tep_session_is_registered('wdw_overlay_images_new')) ) {
       		if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
-      			$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_WIDTH . 'px;');
+      			$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -80%;"');
       		} 
   			}
       	
@@ -145,10 +145,10 @@
       		if (tep_not_null($listing['specials_new_products_price'])) {
        			if ( (tep_session_is_registered('wdw_overlay_images_new')) ) {
       				if ( DISPLAY_OVERLAY_IMAGES_NEW == 'true') {
-       					$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_HEIGHT . 'px;');
+       					$image_overlay_new = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-new.png', IMAGE_NEW, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
       				} 
   					}
-        		$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_WIDTH . 'px;');
+        		$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -80%;"');
       		}
       	}
       	$image = tep_image(DIR_WS_IMAGES_THUMBS . $listing['image_folder'] . $listing['products_image'], $listing['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"', NULL, 'img-responsive thumbnail group list-group-image') . $image_overlay_sales . $image_overlay_new;

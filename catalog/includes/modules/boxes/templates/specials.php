@@ -9,7 +9,7 @@
 */
 		if (tep_not_null($random_product['specials_new_products_price'])) {
 			if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
-				$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-top:' . -SMALL_IMAGE_HEIGHT . 'px;');
+				$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
 			}
 		}
     if ($random_product['image_display'] == 1) {

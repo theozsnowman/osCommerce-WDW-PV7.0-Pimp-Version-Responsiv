@@ -112,7 +112,7 @@
 */
 		if ( tep_not_null(tep_get_products_special_price($product_info['products_id'])) ) {
 			if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
-				$image_overlay_sales = '<div id="wdw_overlay_sale_product_info" class="wdw_overlay_sale_product_info">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style=margin-left:' . '-10' . 'px;') . '</div>';
+				$image_overlay_sales = '<div id="wdw_overlay_sale_product_info" class="wdw_overlay_sale_product_info">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: ' . -SMALL_IMAGE_HEIGHT . 'px;"') . '</div>';
 			}
 		}
 
