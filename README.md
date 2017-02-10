@@ -80,7 +80,6 @@ Planned Extensions
 - Europe/German law suitable
 - All Europe languages
 - Product info (frontend) possibility of output as PDF-file
-- Show product picture with magnifying and more
 - Newsletter (admin) editable with ckEditor
 - Send email (admin) editable with ckEditor
 - Banner manager (admin) editable with ckEditor
