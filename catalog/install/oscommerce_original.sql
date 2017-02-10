@@ -1483,7 +1483,7 @@ INSERT INTO zones VALUES (128,204,'ZG','Zug');
 INSERT INTO zones VALUES (129,204,'ZH','Zürich');
 
 # Spain
-INSERT INTO zones (zone_country_id, zone_code, zone_name) VALUES (195,'A Coruña','A Coruña');
+INSERT INTO zones (zone_country_id, zone_code, zone_name) VALUES (195,'A CoruÃ±a','A CoruÃ±a');
 INSERT INTO zones (zone_country_id, zone_code, zone_name) VALUES (195,'Alava','Alava');
 INSERT INTO zones (zone_country_id, zone_code, zone_name) VALUES (195,'Albacete','Albacete');
 INSERT INTO zones (zone_country_id, zone_code, zone_name) VALUES (195,'Alicante','Alicante');

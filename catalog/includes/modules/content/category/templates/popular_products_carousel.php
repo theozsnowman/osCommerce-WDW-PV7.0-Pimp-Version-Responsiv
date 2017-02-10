@@ -25,17 +25,11 @@
     }
 
     $image = ''; 
-    $image_overlay_sale = '';
-    if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
-  		if (tep_not_null($popular_products['specials_new_products_price'])) {
-  			$image_overlay_sale = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
-    	}
-    }
    
     if ($popular_products['image_display'] == 1) {
-    	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sale;
+    	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
     } elseif (($popular_products['image_display'] != 2) && tep_not_null($popular_products['products_image'])) {
-    	$image = tep_image(DIR_WS_IMAGES_THUMBS . $popular_products['image_folder'] . $popular_products['products_image'], $popular_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"') . $image_overlay_sale;
+    	$image = tep_image(DIR_WS_IMAGES_THUMBS . $popular_products['image_folder'] . $popular_products['products_image'], $popular_products['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"');
     }
     
     $wrapper_slides .= '  <div class="item box-height" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product">';
