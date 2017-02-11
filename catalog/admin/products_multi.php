@@ -160,11 +160,11 @@ function setCheckboxes(the_form, do_check) {
             </td>
             <td class="pageHeading" align="right"><?php echo tep_draw_separator('spacer/pixel_trans.gif', 1, HEADING_IMAGE_HEIGHT); ?></td>
             <td align="right"><table border="0" width="100%" cellspacing="0" cellpadding="0">
-              <?php /*
+
               <tr><?php echo tep_draw_form('search', 'products_multi.php', tep_get_all_get_params(), 'post'); ?>
                 <td class="smallText" align="right"><?php echo HEADING_TITLE_SEARCH . ' ' . tep_draw_input_field('search', $_REQUEST['search']); ?></td>
               </form></tr>
-              */ ?>
+
               <tr><?php echo tep_draw_form('goto', 'products_multi.php', '', 'get'); ?>
                 <td class="smallText" align="right"><?php echo HEADING_TITLE_GOTO . ' ' . tep_draw_pull_down_menu('cPath', tep_get_category_tree(), $current_category_id, 'onChange="this.form.submit();"'); ?></td>
               </form></tr>
