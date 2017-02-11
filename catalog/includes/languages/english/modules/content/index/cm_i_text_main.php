@@ -55,7 +55,8 @@ Extensions included<br />
   - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)<br />
   - Modular Category Page v1.1<br />
   - Category New Products Carousel v1.4<br />
-  - Category Popular Products Carousel v1.3<br /><br />
+  - Category Popular Products Carousel v1.3<br />
+  - Multiple Products Manager v2.7 (adapted by WDW for this version)<br /><br />
 	
 	Help to move the Project forward<br />
 	==========================<br />
