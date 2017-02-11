@@ -49,7 +49,6 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','Blockquote','-','RemoveFormat' ] },
 		{ name: 'styles', items : [ 'FontSize' ] },
 		{ name: 'colors', items : [ 'TextColor' ] },
-		{ name: 'pictures', items : [ 'Image' ] },
 		{ name: 'html', items : [ 'HorizontalRule' ] },
 		{ name: 'paragraph', items : [ 'BulletedList','-','Outdent','Indent','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ] },
 		{ name: 'links', items : [ 'Link','Unlink' ] },

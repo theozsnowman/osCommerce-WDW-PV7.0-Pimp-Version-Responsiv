@@ -11,7 +11,12 @@
 */
 
   require('includes/application_top.php');
-
+  // modified 20160701 by webmaster@webdesign-wedel.de
+  // ckEditor/ckFinder
+ 	// BOM
+ 	require(DIR_FS_CKEDITOR.'ckeditor.php');
+ 	//EOM
+ 	
   $action = (isset($HTTP_GET_VARS['action']) ? $HTTP_GET_VARS['action'] : '');
 
   $banner_extension = tep_banner_image_extension();
@@ -276,7 +281,17 @@ function popupImageWindow(url) {
           </tr>
           <tr>
             <td valign="top" class="main"><?php echo TEXT_BANNERS_HTML_TEXT; ?></td>
-            <td class="main"><?php echo tep_draw_textarea_field('banners_html_text', 'soft', '60', '5', $bInfo->banners_html_text); ?></td>
+            <td class="main">
+            	<?php
+            		// Old Code
+                //echo tep_draw_textarea_field('banners_html_text', 'soft', '60', '5', $bInfo->banners_html_text);
+                // modified 20160701 by webmaster@webdesign-wedel.de
+  							// ckEditor/ckFinder
+ 								// BOM
+ 								echo wdw_ckeditor('banners_html_text', $languages[$i]['code'], 'Banner', '680', '300', $bInfo->banners_html_text);
+            		// EOM               	
+              ?>          	
+            </td>
           </tr>
           <tr>
             <td colspan="2"><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>

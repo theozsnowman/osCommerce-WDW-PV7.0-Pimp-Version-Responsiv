@@ -11,7 +11,11 @@
 */
 
   require('includes/application_top.php');
-
+  // modified 20160701 by webmaster@webdesign-wedel.de
+  // ckEditor/ckFinder
+ 	// BOM
+ 	require(DIR_FS_CKEDITOR.'ckeditor.php');
+ 	//EOM
   $action = (isset($HTTP_GET_VARS['action']) ? $HTTP_GET_VARS['action'] : '');
 
   if ( ($action == 'send_email_to_user') && isset($HTTP_POST_VARS['customers_email_address']) && !isset($HTTP_POST_VARS['back_x']) ) {
@@ -115,7 +119,15 @@
                 <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
               </tr>
               <tr>
-                <td class="smallText"><strong><?php echo TEXT_MESSAGE; ?></strong><br /><?php echo nl2br(htmlspecialchars(stripslashes($HTTP_POST_VARS['message']))); ?></td>
+                <td class="smallText"><strong><?php echo TEXT_MESSAGE; ?></strong><br />
+                	<?php
+                		if ( EMAIL_USE_HTML == 'true') {
+                			echo nl2br(stripslashes($HTTP_POST_VARS['message']));
+                		} else {
+                			echo nl2br(htmlspecialchars(stripslashes(strip_tags($HTTP_POST_VARS['message']))));
+                		}
+                	?>
+                </td>
               </tr>
               <tr>
                 <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
@@ -179,7 +191,19 @@
               </tr>
               <tr>
                 <td valign="top" class="main"><?php echo TEXT_MESSAGE; ?></td>
-                <td><?php echo tep_draw_textarea_field('message', 'soft', '60', '15'); ?></td>
+                <td>
+                	<?php
+                		// modified 20160701 by webmaster@webdesign-wedel.de
+  									// ckEditor/ckFinder
+ 										// BOM
+            				if ( EMAIL_USE_HTML == 'true') {
+            					echo wdw_ckeditor('message', '', 'Email', '880', '400', '');
+            				} else {
+            					echo tep_draw_textarea_field('message', 'soft', '60', '20');
+            				}
+            				// EOM
+              		?>
+                </td>
               </tr>
               <tr>
                 <td colspan="2"><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>

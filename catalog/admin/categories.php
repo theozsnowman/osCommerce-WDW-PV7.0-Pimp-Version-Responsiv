@@ -860,7 +860,7 @@ updateGross();
                 		// modified 20160701 by webmaster@webdesign-wedel.de
   									// ckEditor/ckFinder
  										// BOM
- 										echo wdw_ckeditor('products_description[' . $languages[$i]['id'] . ']', $languages[$i]['code'], 'User', '880', '400', (empty($pInfo->products_id) ? '' : tep_get_products_description($pInfo->products_id, $languages[$i]['id'])));
+ 										echo wdw_ckeditor('products_description[' . $languages[$i]['id'] . ']', $languages[$i]['code'], 'Product', '880', '400', (empty($pInfo->products_id) ? '' : tep_get_products_description($pInfo->products_id, $languages[$i]['id'])));
             				// EOM               	
                 	?>
                  </td>

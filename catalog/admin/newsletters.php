@@ -11,7 +11,11 @@
 */
 
   require('includes/application_top.php');
-
+  // modified 20160701 by webmaster@webdesign-wedel.de
+  // ckEditor/ckFinder
+ 	// BOM
+ 	require(DIR_FS_CKEDITOR.'ckeditor.php');
+ 	//EOM
   $action = (isset($HTTP_GET_VARS['action']) ? $HTTP_GET_VARS['action'] : '');
 
   if (tep_not_null($action)) {
@@ -177,7 +181,19 @@
           </tr>
           <tr>
             <td class="main" valign="top"><?php echo TEXT_NEWSLETTER_CONTENT; ?></td>
-            <td class="main"><?php echo tep_draw_textarea_field('content', 'soft', '100%', '20', $nInfo->content); ?></td>
+            <td class="main">
+              <?php
+                // modified 20160701 by webmaster@webdesign-wedel.de
+  							// ckEditor/ckFinder
+ 								// BOM
+            		if ( EMAIL_USE_HTML == 'true') {
+            			echo wdw_ckeditor('content', '', 'Newsletter', '880', '400', $nInfo->content);
+            		} else {
+            			echo tep_draw_textarea_field('content', 'soft', '100%', '20', $nInfo->content);
+            		}
+            		// EOM
+              ?>
+            </td>
           </tr>
         </table></td>
       </tr>

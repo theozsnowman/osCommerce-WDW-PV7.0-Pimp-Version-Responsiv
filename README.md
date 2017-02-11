@@ -28,12 +28,15 @@ Already changed
 
 WDW modified stuff
 ===================
+- cKEditor >>> Product description editable with ckEditor
+- KCFinder >>> Image file uploder for cKEditor
+- cKEditor >>> Banner Manager editable with ckEditor
+- cKEditor >>> Newsletter editable with ckEditor
+- cKEditor >>> Send E-Mail to customer editable with ckEditor
 - Modular Category Page (Template modified to dropdown)
 - Modular Sub Category Page (Template modified to dropdown)
 - Modular Index Page (Template modified to dropdown)
 - Show value in % on a Special product on every content
-- cKEditor >>> Product description editable with ckEditor
-- KCFinder >>> Image file uploder for cKEditor
 - Overlay Images Discount (Turn on/off in the Admin)
 - New images path. Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)
 - New presentation of the product images with elevateZoom and fancybox
@@ -54,9 +57,6 @@ Planned Extensions
 - Europe/German law suitable
 - All Europe languages
 - Product info (frontend) possibility of output as PDF-file
-- Newsletter (admin) editable with ckEditor
-- Send email (admin) editable with ckEditor
-- Banner manager (admin) editable with ckEditor
 - Order email with attachment Terms of Condition, Right of Cancellation, bill and delivery note as pdf
 - One page checkout
 - One click cancellation (frontend) for the customer

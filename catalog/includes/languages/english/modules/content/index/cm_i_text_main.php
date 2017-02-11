@@ -39,12 +39,15 @@
   - Backend: Change the width of left column and the content<br /><br />
 
 Webdesign Wedel (WDW) modified stuff<br />
+	- cKEditor >>> Product description editable with ckEditor<br />
+	- KCFinder >>> Image file uploder for cKEditor<br />
+	- cKEditor >>> Banner Manager editable with ckEditor<br />
+	- cKEditor >>> Newsletter editable with ckEditor<br />
+	- cKEditor >>> Send E-Mail to customer editable with ckEditor<br />
   - Modular Category Page (Template modified to dropdown)<br />
   - Modular Sub Category Page (Template modified to dropdown)<br />
   - Modular Index Page (Template modified to dropdown)<br />
   - Show value in % on a Special product on every content<br />
-  - cKEditor >>> Product description editable with ckEditor<br />
-	- KCFinder >>> Image file uploder for cKEditor<br />
   - Overlay Images Discount (Turn on/off in the Admin)<br />
   - New images path. Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)<br />
   - New presentation of the product images with elevateZoom and fancybox<br />
