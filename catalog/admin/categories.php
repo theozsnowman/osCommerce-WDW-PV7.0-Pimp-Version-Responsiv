@@ -1099,10 +1099,10 @@ $('#products_date_available').datepicker({
         <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
       </tr>
       <tr>
-        // original code
-        //<td class="main"><?php echo tep_image(DIR_WS_CATALOG_IMAGES . $products_image_name, $pInfo->products_name, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'align="right" hspace="5" vspace="5"') . $pInfo->products_description; ?></td>
-        
-        <td class="main"><?php
+      	<td class="main">	
+      		<?php echo tep_image(DIR_WS_CATALOG_IMAGES_THUMBS . $products_image_name, $pInfo->products_name, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'align="right" hspace="5" vspace="5"') . $pInfo->products_description; ?>
+
+		<?php
     if ($pInfo->image_display == 1) { // use "No Picture Available" image
       echo tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5" style="float: right;"');
     } elseif (($pInfo->image_display != 2) && (tep_not_null($pInfo->products_image))) { // show product images
@@ -1124,24 +1124,22 @@ $('#products_date_available').datepicker({
         }
 ?>
 
-    <div id="piGal">
-
-<?php
+    <div id="piGal"> 
+    	<?php
         $pi_counter = 0;
         $pi_html = array();
-
+				/*
         while ($pi = tep_db_fetch_array($pi_query)) {
           $pi_counter++;
 
           if (tep_not_null($pi['htmlcontent'])) {
             $pi_html[] = '<div id="piGalDiv_' . $pi_counter . '">' . $pi['htmlcontent'] . '</div>';
           }
-
           echo tep_catalog_image(DIR_WS_CATALOG_IMAGES_PROD . $pInfo->image_folder . $pi['image'], '', '', '', 'id="piGalImg_' . $pi_counter . '"');
         }
-?>
-
-    </div>
+        */
+			?>
+		</div>
 
 <?php
         if ( !empty($pi_html) ) {
@@ -1158,6 +1156,8 @@ $('#products_date_available').datepicker({
       }
     }
 ?>
+				</td>
+      </tr>
 
 <script type="text/javascript">
 $(function() {
@@ -1191,9 +1191,6 @@ $(function() {
 });
 </script>
 
-<?php echo $pInfo->products_description; ?></td>
-      
-      </tr>
 <?php
       if ($pInfo->products_url) {
 ?>
