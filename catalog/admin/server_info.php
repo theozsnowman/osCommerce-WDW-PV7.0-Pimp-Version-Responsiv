@@ -20,8 +20,8 @@
     break;
 
     case 'submit':
-      $target_host = 'usage.oscommerce.com';
-      $target_path = '/submit.php';
+      //$target_host = 'usage.oscommerce.com';
+      //$target_path = '/submit.php';
 
       $encoded = base64_encode(serialize(tep_get_system_information()));
 
@@ -119,7 +119,10 @@
         <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
       </tr>
       <tr>
-          <td align="right" class="smallText"><?php echo tep_draw_button(IMAGE_SEND, 'arrowreturnthick-1-n', tep_href_link('server_info.php', 'action=submit'), 'primary') . tep_draw_button(IMAGE_SAVE, 'disk', tep_href_link('server_info.php', 'action=save'), 'primary');?>
+          <td align="right" class="smallText">
+          	<?php //echo tep_draw_button(IMAGE_SEND, 'arrowreturnthick-1-n', tep_href_link('server_info.php', 'action=submit'), 'primary') . tep_draw_button(IMAGE_SAVE, 'disk', tep_href_link('server_info.php', 'action=save'), 'primary');?>
+          	<?php echo tep_draw_button(IMAGE_SAVE, 'disk', tep_href_link('server_info.php', 'action=save'), 'primary');?>
+          </td>
       </tr>
   <?php
   } else {
@@ -197,10 +200,6 @@ hr {display: none;}
 
     $phpinfo = str_replace('border: 1px', '', $phpinfo);
     preg_match('/<body>(.*)<\/body>/is', $phpinfo, $regs);
-    echo '<table border="1" cellpadding="3" width="600" style="border: 0px; border-color: #000000;">' .
-         '  <tr><td><a href="http://www.oscommerce.com"><img border="0" src="images/oscommerce.png" title="osCommerce Online Merchant v' . tep_get_version() . '" /></a><h1 class="p">osCommerce Online Merchant v' . tep_get_version() . '</h1></td>' .
-         '  </tr>' .
-         '</table>';
     echo $regs[1];
   } else {
     phpinfo();
