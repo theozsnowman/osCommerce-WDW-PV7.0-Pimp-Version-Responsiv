@@ -19,10 +19,6 @@
 
   Don\'t forget all "filenames" and "some folder\'s" are hardcoded.<br />
   btw: I like it, don\'t waste time for include more files or content. <br /><br />
-
-  Master Update 10. Feb. 2017<br />
-  All new system settings and much more in the new /catalog/install/oscommerce.sql<br />
-  New path for product images, categories and manufactures, same like osCommerce 3.0<br /><br />
 	
 	PHP7 & MySql 5.7 Update<br />
 	Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files.<br />
