@@ -182,6 +182,7 @@
       $prod_list_contents .= '      <div class="row">';
      
       if (PRODUCT_LIST_PRICE > 0) {
+      	$wdw_vat = ( DISPLAY_PRICE_WITH_TAX == 'true' ) ? '<div class="wdw_vat_text">'.TEXT_INCL_VAT.'</div>' : '<div class="wdw_vat_text">'.TEXT_EXCL_VAT.'</div>';
         if (tep_not_null($listing['specials_new_products_price'])) {
         	// included by webmaster@webdesign-wedel.de (2017)
     			// BOM
@@ -189,11 +190,12 @@
     			$OldPrice = $currencies->display_raw($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id']));
     			$NewPrice = $currencies->display_raw($listing['specials_new_products_price'], tep_get_tax_rate($listing['products_tax_class_id']));
     			$Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100;
-    			$PercentRound = round($Percent, TAX_DECIMAL_PLACES);        	
-          $prod_list_contents .= '      <div class="col-xs-6" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="priceCurrency" content="' . tep_output_string($currency) . '" /><div class="btn-group" role="group"><button type="button" class="btn btn-default"><del>' .  $currencies->display_price($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '</del></span>&nbsp;&nbsp;<span class="productSpecialPrice" itemprop="price" content="' . $currencies->display_raw($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '">' . $currencies->display_price($listing['specials_new_products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '<br />' . $PercentRound . '%</span></button></div></div>';
+    			$PercentRound = round($Percent, TAX_DECIMAL_PLACES);
+    			
+          $prod_list_contents .= '      <div class="col-xs-6" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="priceCurrency" content="' . tep_output_string($currency) . '" /><div class="btn-group" role="group"><button type="button" class="btn btn-default"><del>' .  $currencies->display_price($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '</del></span>&nbsp;&nbsp;<span class="productSpecialPrice" itemprop="price" content="' . $currencies->display_raw($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '">' . $currencies->display_price($listing['specials_new_products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '<br />' . $PercentRound . '%<br />' . $wdw_vat . '</span></button></div></div>';
         	// EOM
         } else {
-        	$prod_list_contents .= '      <div class="col-xs-6" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="priceCurrency" content="' . tep_output_string($currency) . '" /><div class="btn-group" role="group"><button type="button" class="btn btn-default"><span itemprop="price" content="' . $currencies->display_raw($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '">' . $currencies->display_price($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '</span></button></div></div>';
+        	$prod_list_contents .= '      <div class="col-xs-6" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="priceCurrency" content="' . tep_output_string($currency) . '" /><div class="btn-group" role="group"><button type="button" class="btn btn-default"><span itemprop="price" content="' . $currencies->display_raw($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '">' . $currencies->display_price($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '<br />' . $wdw_vat . '</span></button></div></div>';
         }
       }
     

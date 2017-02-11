@@ -52,8 +52,10 @@
 
     $wrapper_slides .= '        <div class="price-height">';
     $wrapper_slides .= '          <p class="text-center" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="priceCurrency" content="' . tep_output_string($currency) . '" />';
+    
+    $wdw_vat = ( DISPLAY_PRICE_WITH_TAX == 'true' ) ? '<div class="wdw_vat_text wdw_align">'.TEXT_INCL_VAT.'</div>' : '<div class="wdw_vat_text wdw_align">'.TEXT_EXCL_VAT.'</div>';
+    
     if (tep_not_null($new_products['specials_new_products_price'])) {
-    	
     	// included by webmaster@webdesign-wedel.de (2017)
     	// BOM
     	//Formular --->>>> Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100
@@ -66,10 +68,10 @@
       if ($show_old_price) {
       	$wrapper_slides .= '        <del>' .  $currencies->display_price($new_products['products_price'], tep_get_tax_rate($new_products['products_tax_class_id'])) . '</del>&nbsp;&nbsp;';
       }
-      $wrapper_slides .= '          <span class="productSpecialPrice" itemprop="price" content="' . $currencies->display_raw($new_products['products_price'], tep_get_tax_rate($new_products['products_tax_class_id'])) . '">' . $currencies->display_price($new_products['specials_new_products_price'], tep_get_tax_rate($new_products['products_tax_class_id'])) . '<br />' . $PercentRound . '% </span>';
+      $wrapper_slides .= '          <span class="productSpecialPrice" itemprop="price" content="' . $currencies->display_raw($new_products['products_price'], tep_get_tax_rate($new_products['products_tax_class_id'])) . '">' . $currencies->display_price($new_products['specials_new_products_price'], tep_get_tax_rate($new_products['products_tax_class_id'])) . '<br />' . $PercentRound . '%<br />' . $wdw_vat . '</span>';
       // EOM
     } else {
-      $wrapper_slides .= '          <span itemprop="price" content="' . $currencies->display_raw($new_products['products_price'], tep_get_tax_rate($new_products['products_tax_class_id'])) . '">' . $currencies->display_price($new_products['products_price'], tep_get_tax_rate($new_products['products_tax_class_id'])) . '</span>';
+      $wrapper_slides .= '          <span itemprop="price" content="' . $currencies->display_raw($new_products['products_price'], tep_get_tax_rate($new_products['products_tax_class_id'])) . '">' . $currencies->display_price($new_products['products_price'], tep_get_tax_rate($new_products['products_tax_class_id'])) . '<br />' . $wdw_vat . '</span>';
     }
     $wrapper_slides .= '          </p>';
     $wrapper_slides .= '        </div>';

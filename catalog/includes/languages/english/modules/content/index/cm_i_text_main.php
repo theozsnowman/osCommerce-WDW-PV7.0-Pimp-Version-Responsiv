@@ -28,32 +28,6 @@
 	Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files.<br />
 	MySql querys for MySql 5.7 sql_mode<br /><br /> 
 	
-	Admin Side<br />
-	<ul class="contains-task-list">
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> MySql Query</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> classes</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> functions</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> other</li>
-	</ul>
-
-	Shop Side<br />
-
-	<ul class="contains-task-list">
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> MySql Query</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> classes</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> functions</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/action_recorder</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/boxes</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/content</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/header_tags</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/navbar_modules</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/order_total</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/payment</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/shipping</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> modules/social_bookmarks</li>
-		<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> other</li>
-	</ul>  
 	Already changed<br />
 	- Some new icons for the admin area<br />
   - all Class files now full PHP7+ suitable<br />
@@ -77,7 +51,8 @@ Webdesign Wedel (WDW) modified stuff<br />
 	- KCFinder >>> Image file uploder for cKEditor<br />
   - Overlay Images Discount (Turn on/off in the Admin)<br />
   - New images path. Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)<br />
-  - New presentation of the product images with elevateZoom and fancybox<br /><br />
+  - New presentation of the product images with elevateZoom and fancybox<br />
+  - Show the incl/excl Vat Text<br /><br />
  
 Extensions included<br />
   - Mailchimp Newsletter 2.02<br />

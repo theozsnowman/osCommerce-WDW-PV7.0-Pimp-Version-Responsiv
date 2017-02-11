@@ -16,28 +16,6 @@ PHP7 & MySql 5.7 Update
 Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files.
 MySql querys for MySql 5.7 sql_mode 
 
-Admin Side
-- [x] MySql Query
-- [x] classes
-- [x] functions
-- [x] modules
-- [x] other
-
-Shop Side
-- [x] MySql Query
-- [x] classes
-- [x] functions
-- [x] modules/action_recorder
-- [x] modules/boxes
-- [x] modules/content
-- [x] modules/header_tags
-- [x] modules/navbar_modules
-- [x] modules/order_total
-- [x] modules/payment
-- [x] modules/shipping
-- [x] modules/social_bookmarks
-- [x] other
-
 Already changed
 ===============
 - Some new icons for the admin area
@@ -64,6 +42,7 @@ WDW modified stuff
 - Overlay Images Discount (Turn on/off in the Admin)
 - New images path. Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)
 - New presentation of the product images with elevateZoom and fancybox
+- Show the incl/excl Vat Text
 
 Extensions included
 ===================

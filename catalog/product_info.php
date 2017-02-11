@@ -42,7 +42,8 @@
     $product_info = tep_db_fetch_array($product_info_query);
 
     tep_db_query("update " . TABLE_PRODUCTS_DESCRIPTION . " set products_viewed = products_viewed+1 where products_id = '" . (int)$_GET['products_id'] . "' and language_id = '" . (int)$languages_id . "'");
-
+    
+    $wdw_vat = ( DISPLAY_PRICE_WITH_TAX == 'true' ) ? '<div class="wdw_vat_text">'.TEXT_INCL_VAT.'</div>' : '<div class="wdw_vat_text">'.TEXT_EXCL_VAT.'</div>';
     if ($new_price = tep_get_products_special_price($product_info['products_id'])) {
     	// included by webmaster@webdesign-wedel.de (2017)
     	// BOM
@@ -51,10 +52,11 @@
     	$NewPrice = $currencies->display_raw($new_price, tep_get_tax_rate($product_info['products_tax_class_id']));
     	$Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100;
     	$PercentRound = round($Percent, TAX_DECIMAL_PLACES);
-      $products_price = '<del>' . $currencies->display_price($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '</del> <span class="productSpecialPrice" itemprop="price" content="' . $currencies->display_raw($new_price, tep_get_tax_rate($product_info['products_tax_class_id'])) . '">' . $currencies->display_price($new_price, tep_get_tax_rate($product_info['products_tax_class_id'])) . '<br />' . $PercentRound . '%</span>';
+      $products_price = '<del>' . $currencies->display_price($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '</del> <span class="productSpecialPrice" itemprop="price" content="' . $currencies->display_raw($new_price, tep_get_tax_rate($product_info['products_tax_class_id'])) . '">' . $currencies->display_price($new_price, tep_get_tax_rate($product_info['products_tax_class_id'])) . '<br />' . $PercentRound . '%<br />' . $wdw_vat . '</span>';
+      
     	// EOM
     } else {
-      $products_price = '<span itemprop="price" content="' . $currencies->display_raw($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '">' . $currencies->display_price($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '</span>';
+      $products_price = '<span itemprop="price" content="' . $currencies->display_raw($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '">' . $currencies->display_price($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '<br />' . $wdw_vat . '</span>';
     }
 
     if ($product_info['products_date_available'] > date('Y-m-d H:i:s')) {

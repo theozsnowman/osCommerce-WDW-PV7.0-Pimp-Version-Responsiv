@@ -103,12 +103,15 @@
           $products_name .= '<br /><small><i> - ' . $products[$i][$option]['products_options_name'] . ' ' . $products[$i][$option]['products_options_values_name'] . '</i></small>';
         }
       }
+      
+      $wdw_vat = ( DISPLAY_PRICE_WITH_TAX == 'true' ) ? '<div class="wdw_vat_text wdw_align_right">'.TEXT_INCL_VAT.'</div>' : '<div class="wdw_vat_text wdw_align_right">'.TEXT_EXCL_VAT.'</div>';
+      $wdw_vat_subtotal = ( DISPLAY_PRICE_WITH_TAX == 'true' ) ? '<div class="wdw_vat_text wdw_align_right_subtotal">'.TEXT_INCL_VAT.'</div>' : '<div class="wdw_vat_text wdw_align_right_subtotal">'.TEXT_EXCL_VAT.'</div>';
 
       $products_name .= '<br>' . tep_draw_input_field('cart_quantity[]', $products[$i]['quantity'], 'style="width: 65px;" min="0"', 'number') . tep_draw_hidden_field('products_id[]', $products[$i]['id']) . ' ' . tep_draw_button(CART_BUTTON_UPDATE, 'fa fa-refresh', NULL, NULL, NULL, 'btn-info btn-xs') . ' ' . tep_draw_button(CART_BUTTON_REMOVE, 'fa fa-remove', tep_href_link('shopping_cart.php', 'products_id=' . $products[$i]['id'] . '&action=remove_product'), NULL, NULL, 'btn-danger btn-xs');
 
       $products_name .= '</td>';
 
-      $products_name .= '  <td align="right" valign="top"><strong>' . $currencies->display_price($products[$i]['final_price'], tep_get_tax_rate($products[$i]['tax_class_id']), $products[$i]['quantity']) . '</strong></td>' .
+      $products_name .= '  <td align="right" valign="top"><strong>' . $currencies->display_price($products[$i]['final_price'], tep_get_tax_rate($products[$i]['tax_class_id']), $products[$i]['quantity']) . '</strong>' . $wdw_vat . '</td>' .
                         '</tr>';
     }
     echo $products_name;
@@ -117,7 +120,7 @@
       </tbody>
     </table>
 
-    <p class="text-right"><strong><?php echo SUB_TITLE_SUB_TOTAL; ?> <?php echo $currencies->format($cart->show_total()); ?></strong></p>
+    <p class="text-right"><strong><?php echo SUB_TITLE_SUB_TOTAL; ?> <?php echo $currencies->format($cart->show_total()) . '</strong>' . $wdw_vat_subtotal; ?></p>
 
 <?php
     if ($any_out_of_stock == 1) {

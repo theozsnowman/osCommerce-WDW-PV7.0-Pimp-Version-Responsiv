@@ -1,7 +1,9 @@
 <?php
 		$image = ''; 
 		$image_overlay_sales = '';
-
+    
+    $wdw_vat = ( DISPLAY_PRICE_WITH_TAX == 'true' ) ? '<div class="wdw_vat_text">'.TEXT_INCL_VAT.'</div>' : '<div class="wdw_vat_text">'.TEXT_EXCL_VAT.'</div>';
+    
 		if (tep_not_null($random_product['specials_new_products_price'])) {
 			if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
 				$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
@@ -26,6 +28,6 @@
     <?php echo '<a href="' . tep_href_link('specials.php') . '">' . MODULE_BOXES_SPECIALS_BOX_TITLE . '</a>'; ?>
   </div>
   <div class="panel-body text-center">
-    <?php echo '<span class="thumbnail"><a href="' . tep_href_link('product_info.php', 'products_id=' . $random_product['products_id']) . '">' . $image . '</a></span><a href="' . tep_href_link('product_info.php', 'products_id=' . $random_product['products_id']) . '">' . $random_product['products_name'] . '</a><br /><del>' . $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</del><br /><span class="productSpecialPrice">' . $currencies->display_price($random_product['specials_new_products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '<br />' . $PercentRound . '%</span>'; ?>
+    <?php echo '<span class="thumbnail"><a href="' . tep_href_link('product_info.php', 'products_id=' . $random_product['products_id']) . '">' . $image . '</a></span><a href="' . tep_href_link('product_info.php', 'products_id=' . $random_product['products_id']) . '">' . $random_product['products_name'] . '</a><br /><del>' . $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</del><br /><span class="productSpecialPrice">' . $currencies->display_price($random_product['specials_new_products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '<br />' . $PercentRound . '%<br />' . $wdw_vat . '</span>'; ?>
   </div>
 </div>

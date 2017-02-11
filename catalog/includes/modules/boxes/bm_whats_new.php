@@ -36,7 +36,9 @@
       if ($random_product = tep_random_select("select products_id, products_image, image_folder, image_display, products_tax_class_id, products_price from " . TABLE_PRODUCTS . " where products_status = '1' order by products_date_added desc limit " . MAX_RANDOM_SELECT_NEW)) {
         $random_product['products_name'] = tep_get_products_name($random_product['products_id']);
         $random_product['specials_new_products_price'] = tep_get_products_special_price($random_product['products_id']);
-
+        
+				$wdw_vat = ( DISPLAY_PRICE_WITH_TAX == 'true' ) ? '<div class="wdw_vat_text">'.TEXT_INCL_VAT.'</div>' : '<div class="wdw_vat_text">'.TEXT_EXCL_VAT.'</div>';
+    
         if (tep_not_null($random_product['specials_new_products_price'])) {
         	// included by webmaster@webdesign-wedel.de (2017)
     			// BOM
@@ -47,9 +49,9 @@
     			$PercentRound = round($Percent, TAX_DECIMAL_PLACES);
           $whats_new_price = '<del>' . $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</del><br />';
           // EOM
-          $whats_new_price .= '<span class="productSpecialPrice">' . $currencies->display_price($random_product['specials_new_products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '<br />' . $PercentRound . '% </span>';
+          $whats_new_price .= '<span class="productSpecialPrice">' . $currencies->display_price($random_product['specials_new_products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '<br />' . $PercentRound . '%<br />' . $wdw_vat .'</span>';
         } else {
-          $whats_new_price = $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id']));
+          $whats_new_price = $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '<br />' .$wdw_vat;
         }
                  
         ob_start();

@@ -234,5 +234,6 @@ define('TEXT_NO_PICTURE', 'No Picture Available');
 // Specials Image Overlay
 define( 'IMAGE_SALE', 'Sale!' );
 
-// New Image Overlay
-define( 'IMAGE_NEW', 'New!' );
+// Vat at the price
+define('TEXT_INCL_VAT', 'incl. Vat');
+define('TEXT_EXCL_VAT', 'excl. Vat');
