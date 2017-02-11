@@ -44,7 +44,7 @@
     tep_db_query("update " . TABLE_PRODUCTS_DESCRIPTION . " set products_viewed = products_viewed+1 where products_id = '" . (int)$_GET['products_id'] . "' and language_id = '" . (int)$languages_id . "'");
     
     $wdw_vat = ( DISPLAY_PRICE_WITH_TAX == 'true' ) ? '<div class="wdw_vat_text">'.TEXT_INCL_VAT.'</div>' : '<div class="wdw_vat_text">'.TEXT_EXCL_VAT.'</div>';
-    if ($new_price = tep_get_products_special_price($product_info['products_id'])) {
+   	if ($new_price = tep_get_products_special_price($product_info['products_id'])) {
     	// included by webmaster@webdesign-wedel.de (2017)
     	// BOM
     	//Formular --->>>> Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100
@@ -53,7 +53,6 @@
     	$Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100;
     	$PercentRound = round($Percent, TAX_DECIMAL_PLACES);
       $products_price = '<del>' . $currencies->display_price($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '</del> <span class="productSpecialPrice" itemprop="price" content="' . $currencies->display_raw($new_price, tep_get_tax_rate($product_info['products_tax_class_id'])) . '">' . $currencies->display_price($new_price, tep_get_tax_rate($product_info['products_tax_class_id'])) . '<br />' . $PercentRound . '%<br />' . $wdw_vat . '</span>';
-      
     	// EOM
     } else {
       $products_price = '<span itemprop="price" content="' . $currencies->display_raw($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '">' . $currencies->display_price($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '<br />' . $wdw_vat . '</span>';
@@ -72,7 +71,8 @@
     $products_name = '<a href="' . tep_href_link('product_info.php', 'products_id=' . $product_info['products_id']) . '" itemprop="url"><span itemprop="name">' . $product_info['products_name'] . '</span></a>';
 
     if (tep_not_null($product_info['products_model'])) {
-      $products_name .= '<br /><small>[<span itemprop="model">' . $product_info['products_model'] . '</span>]</small>';
+      $products_name .= '<br /><a href="' . tep_href_link( 'pdf_datasheet.php', 'products_id=' . ( int )$_GET['products_id'] . '&language=' . $language ) . '" alt="' . $product_info['products_name'].TEXT_PDF_DATASHEET . '" title="' . $product_info['products_name'].TEXT_PDF_DATASHEET . '">' . tep_image( 'images/icons/pdf.png', $product_info['products_name'].TEXT_PDF_DATASHEET, '40', '42', 'style="float: left; margin-right: 10px;"' ) . '</a>';
+      $products_name .= '<small>[<span itemprop="model">' . $product_info['products_model'] . '</span>]</small>';
     }
 ?>
 
@@ -108,11 +108,9 @@
 		
     if ($product_info['image_display'] == 1) { // use "No Picture Available" image
       echo '<div class="pull-left" style="padding: 0px 10px 0px 0px;">';
-      //echo tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5" style="float: right;"');
       echo '<span class="thumbnail">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</span>' . $image_overlay_sales;
       echo '</div>';
     } elseif (($product_info['image_display'] != 2) && (tep_not_null($product_info['products_image']))) { // show product images
-      //echo tep_image(DIR_WS_IMAGES_PROD . $product_info['image_folder'] . $product_info['products_image'], NULL, NULL, NULL, 'itemprop="image" style="display:none;"');
 
       $photoset_layout = (int)MODULE_HEADER_TAGS_PRODUCT_COLORBOX_LAYOUT;
 

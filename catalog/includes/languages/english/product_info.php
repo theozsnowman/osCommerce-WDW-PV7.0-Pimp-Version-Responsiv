@@ -18,4 +18,9 @@ define('TEXT_DATE_AVAILABLE', '<font color="#ff0000">This product will be in sto
 define('TEXT_ALSO_PURCHASED_PRODUCTS', 'Customers who bought this product also purchased');
 define('TEXT_PRODUCT_OPTIONS', 'Available Options:');
 define('TEXT_CLICK_TO_ENLARGE', 'Click to enlarge');
+
+// Start PDF Datasheet
+define( 'TEXT_PDF_DATASHEET', ' Datasheet' );
+define( 'TEXT_DOWNLOAD_PDF', 'Download this page as a PDF document.' );
+// End PDF Datasheet
 ?>

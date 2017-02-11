@@ -60,6 +60,8 @@ Extensions included<br />
   - Category New Products Carousel v1.4<br />
   - Category Popular Products Carousel v1.3<br />
   - Multiple Products Manager v2.7 (adapted by WDW for this version)<br /><br />
+  - TCPDF 6.2.13
+  - PDF Datasheet 1.2.3 Product Info as PDF file (adapted by WDW for this version)<br />
 	
 	Help to move the Project forward<br />
 	==========================<br />

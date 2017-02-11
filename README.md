@@ -50,13 +50,14 @@ Extensions included
 - Category New Products Carousel v1.4
 - Category Popular Products Carousel v1.3
 - Multiple Products Manager v2.7 (adapted by WDW for this version)
+- TCPDF 6.2.13
+- PDF Datasheet 1.2.3 Product Info as PDF file (adapted by WDW for this version)
 
 Planned Extensions
 ===================
 - New email Class RMail
 - Europe/German law suitable
 - All Europe languages
-- Product info (frontend) possibility of output as PDF-file
 - Order email with attachment Terms of Condition, Right of Cancellation, bill and delivery note as pdf
 - One page checkout
 - One click cancellation (frontend) for the customer
