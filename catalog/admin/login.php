@@ -134,7 +134,7 @@
   require('includes/template_top.php');
 ?>
 
-<table border="0" width="100%" cellspacing="2" cellpadding="2">
+<table border="0" cellspacing="2" cellpadding="2">
   <tr>
     <td><table border="0" width="100%" cellspacing="0" cellpadding="0" height="40">
       <tr>
@@ -143,19 +143,15 @@
 <?php
   if (sizeof($languages_array) > 1) {
 ?>
-
         <td class="pageHeading" align="right"><?php echo tep_draw_form('adminlanguage', 'index.php', '', 'get') . tep_draw_pull_down_menu('language', $languages_array, $languages_selected, 'onchange="this.form.submit();"') . tep_hide_session_id() . '</form>'; ?></td>
-
 <?php
   }
 ?>
-
       </tr>
     </table></td>
   </tr>
   <tr>
     <td>
-
 <?php
   $heading = array();
   $contents = array();
@@ -164,8 +160,8 @@
     $heading[] = array('text' => '<strong>' . HEADING_TITLE . '</strong>');
 
     $contents = array('form' => tep_draw_form('login', 'login.php', 'action=process'));
-    $contents[] = array('text' => TEXT_USERNAME . '<br />' . tep_draw_input_field('username'));
-    $contents[] = array('text' => '<br />' . TEXT_PASSWORD . '<br />' . tep_draw_password_field('password'));
+    $contents[] = array('align' => 'center', 'text' => TEXT_USERNAME . '<br />' . tep_draw_input_field('username'));
+    $contents[] = array('align' => 'center', 'text' => '<br />' . TEXT_PASSWORD . '<br />' . tep_draw_password_field('password'));
     $contents[] = array('align' => 'center', 'text' => '<br />' . tep_draw_button(BUTTON_LOGIN, 'key'));
   } else {
     $heading[] = array('text' => '<strong>' . HEADING_TITLE . '</strong>');
@@ -180,7 +176,6 @@
   $box = new box;
   echo $box->infoBox($heading, $contents);
 ?>
-
     </td>
   </tr>
 </table>
