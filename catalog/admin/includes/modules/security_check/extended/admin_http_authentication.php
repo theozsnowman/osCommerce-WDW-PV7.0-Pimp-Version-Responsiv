@@ -23,8 +23,15 @@
 
     function pass() {
       global $HTTP_SERVER_VARS;
-
-      return isset($HTTP_SERVER_VARS['PHP_AUTH_USER']) && isset($HTTP_SERVER_VARS['PHP_AUTH_PW']);
+      
+      if ( file_exists(DIR_FS_ADMIN.'.htpasswd_oscommerce') ) {
+      	if ( filesize(DIR_FS_ADMIN.'.htpasswd_oscommerce') > 0 ) {
+      		return true;
+      	}
+      }
+      // original code not working 
+      //return isset($HTTP_SERVER_VARS['PHP_AUTH_USER']) && isset($HTTP_SERVER_VARS['PHP_AUTH_PW']);
+      return false;
     }
 
     function getMessage() {
