@@ -20,8 +20,8 @@ define('TEXT_RELEASE_LINK', 'View Release Annoucement');
 
 define('TITLE_INSTALLED_VERSION', 'Installed Version:');
 
-define('VERSION_RUNNING_LATEST', 'You are running the latest version of osCommerce Online Merchant WDW-PV7.0.');
-define('VERSION_UPGRADES_AVAILABLE', 'A new version is available for download! (osCommerce Online Merchant WDW-PV7.0 v%s)');
+define('VERSION_RUNNING_LATEST', 'You are running the latest version of osCommerce WDW-PV7.0!');
+define('VERSION_UPGRADES_AVAILABLE', 'A new version is available for download! (osCommerce v%s)');
 
 define('ERROR_COULD_NOT_CONNECT', 'Could not connect to the osCommerce website to check for new versions.');
 ?>
