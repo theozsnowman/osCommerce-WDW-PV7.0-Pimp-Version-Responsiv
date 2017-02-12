@@ -26,19 +26,18 @@ Already changed
 - Backend: Online Catalog link now open in new page
 - Backend: Change the width of left column and the content
 
-WDW modified stuff
-===================
-- cKEditor >>> Product description editable with ckEditor
-- KCFinder >>> Image file uploder for cKEditor
-- cKEditor >>> Banner Manager editable with ckEditor
-- cKEditor >>> Newsletter editable with ckEditor
-- cKEditor >>> Send E-Mail to customer editable with ckEditor
+Modified by Webdesign Wedel (WDW)
+=================================
+- Product description editable with ckEditor
+- Image file uploder for cKEditor
+- Banner Manager editable with ckEditor
+- Newsletter editable with ckEditor
+- Send E-Mail to customer editable with ckEditor
 - Modular Category Page (Template modified to dropdown)
 - Modular Sub Category Page (Template modified to dropdown)
 - Modular Index Page (Template modified to dropdown)
 - Show value in % on a Special product on every content
 - Overlay Images Discount (Turn on/off in the Admin)
-- New images path. Based on Protected Images for osC 2.3.4 (adapted by WDW for this version)
 - New presentation of the product images with elevateZoom and fancybox
 - Show the incl/excl Vat Text
 
@@ -53,6 +52,7 @@ Extensions included
 - Category New Products Carousel v1.4
 - Category Popular Products Carousel v1.3
 - Multiple Products Manager v2.7 (adapted by WDW for this version)
+- Protected Images for osC 2.3.4 (adapted by WDW for this version)
 - Ultimate Seo Urls 5 for Responsive Oscommerce
 - PDF Datasheet 1.2.3 Product Info as PDF file (adapted by WDW for this version)
 
