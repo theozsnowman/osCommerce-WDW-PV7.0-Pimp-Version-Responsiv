@@ -122,4 +122,27 @@
   function tep_update_banner_click_count($banner_id) {
     tep_db_query("update " . TABLE_BANNERS_HISTORY . " set banners_clicked = banners_clicked + 1 where banners_id = '" . (int)$banner_id . "' and date_format(banners_history_date, '%Y%m%d') = date_format(now(), '%Y%m%d')");
   }
+  
+// Nivo Slider
+////
+// build banner groups
+  function tep_build_banners_group($selected_banners) {
+    $selected_banners = explode(':', $selected_banners);
+    $size = sizeof($selected_banners);
+    if ($size == 1) {
+      $new_banner_search = " banners_group = '" . $selected_banners[0] . "'";
+    } else {
+      for ($i=0, $n=$size; $i<$n; $i+=1) {
+        $new_banner_search .= " banners_group = '" . $selected_banners[$i] . "'";
+        if ($i+1 < $n) {
+          $new_banner_search .= ' or ';
+        }
+      }
+    }
+    if ($new_banner_search != '') {
+      $new_banner_search = ' and (' . $new_banner_search . ')';
+    }
+    return $new_banner_search;
+  }
+// Nivo Slider  
 ?>

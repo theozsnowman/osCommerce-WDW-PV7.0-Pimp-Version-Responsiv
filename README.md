@@ -44,13 +44,14 @@ WDW modified stuff
 
 Extensions included
 ===================
+- TCPDF 6.2.13
 - Mailchimp Newsletter 2.02
 - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)
 - Modular Category Page v1.1
 - Category New Products Carousel v1.4
 - Category Popular Products Carousel v1.3
 - Multiple Products Manager v2.7 (adapted by WDW for this version)
-- TCPDF 6.2.13
+- Ultimate Seo Urls 5 for Responsive Oscommerce
 - PDF Datasheet 1.2.3 Product Info as PDF file (adapted by WDW for this version)
 
 Planned Extensions

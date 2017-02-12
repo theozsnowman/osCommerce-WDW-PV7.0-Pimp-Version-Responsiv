@@ -54,13 +54,14 @@ Webdesign Wedel (WDW) modified stuff<br />
   - Show the incl/excl Vat Text<br /><br />
  
 Extensions included<br />
+  - TCPDF 6.2.13<br />
   - Mailchimp Newsletter 2.02<br />
   - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)<br />
   - Modular Category Page v1.1<br />
   - Category New Products Carousel v1.4<br />
   - Category Popular Products Carousel v1.3<br />
   - Multiple Products Manager v2.7 (adapted by WDW for this version)<br />
-  - TCPDF 6.2.13<br />
+  - Ultimate Seo Urls 5 for Responsive Oscommerce<br />
   - PDF Datasheet 1.2.3 Product Info as PDF file (adapted by WDW for this version)<br /><br />
 	
 	Help to move the Project forward<br />
