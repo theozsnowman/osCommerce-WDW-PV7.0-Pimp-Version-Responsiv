@@ -48,6 +48,8 @@ Extensions included
 - Mailchimp Newsletter 2.02
 - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)
 - Modular Category Page v1.1
+- Superfish Box 1.2.2
+- USU5 XML Site Maps
 - Category New Products Carousel v1.4
 - Category Popular Products Carousel v1.3
 - Multiple Products Manager v2.7 (adapted by WDW for this version)

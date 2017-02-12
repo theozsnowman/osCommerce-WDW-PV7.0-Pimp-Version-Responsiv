@@ -1,0 +1,37 @@
+/* user.css ----------------------------------------------------------------- */
+
+.wdw_overlay_sale_product_info {
+	position: relative;
+	width: 100%;
+	float: right;
+}
+
+.wdw_overlay_sale_position_relative {
+	position: relative;
+	margin-top: -80%;
+}
+
+.wdw_overlay_sale_position_absolute {
+	position: absolute;
+	margin-top: 0;
+}
+
+.wdw_vat_text, wdw_shipping_text {
+	font-size: 14px;
+	text-transform: none;
+}
+
+.wdw_align {
+	margin-top: -10px;
+	text-align: center;
+}
+
+.wdw_align_right {
+	margin-top: -6px;
+	text-align: right;
+}
+
+.wdw_align_right_subtotal {
+	margin-top: -16px;
+	text-align: right;
+}
