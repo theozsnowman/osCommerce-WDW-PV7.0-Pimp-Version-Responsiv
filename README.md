@@ -8,6 +8,23 @@ https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01
 
 Questions and Support at our forum: https://forum.webdesign-wedel.de
 
+Help to move the Project forward
+================================
+I need your help to move this Project forward. At the moment, this project is done on my own, as and when time can be given.  
+
+To allow me to give more time to this Project, I need your support:
+
+- give time for testing new code and/or getting involved in discussions
+- give code to the project - create a github account, fork and start coding
+
+If you cannot give time or code, please give a Pledgie.  Simply click on the Donate button below to donate...
+
+<a target="_blank" href='https://pledgie.com/campaigns/33267'><img alt='Click here to lend your support to: osCommerce-2.3.4-Responsiv and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/33267.png?skin_name=chrome' border='0' ></a>
+
+or this link:
+
+<a target="_blank" href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FLUDFVAR3BL4U'>Donate, we need your support.</a>
+
 PHP7 & MySql 5.7 Update
 ========================
 Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files.
@@ -89,24 +106,6 @@ Planned Extensions
 You can choose to download:
 
 https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv/archive/master.zip
-
-
-Help to move the Project forward
-================================
-I need your help to move this Project forward. At the moment, this project is done on my own, as and when time can be given.  
-
-To allow me to give more time to this Project, I need your support:
-
-- give time for testing new code and/or getting involved in discussions
-- give code to the project - create a github account, fork and start coding
-
-If you cannot give time or code, please give a Pledgie.  Simply click on the Donate button below to donate...
-
-<a target="_blank" href='https://pledgie.com/campaigns/33267'><img alt='Click here to lend your support to: osCommerce-2.3.4-Responsiv and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/33267.png?skin_name=chrome' border='0' ></a>
-
-or this link:
-
-<a target="_blank" href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FLUDFVAR3BL4U'>Donate, we need your support.</a>
 
 Minimum PHP Version
 ===================
