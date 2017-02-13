@@ -6,6 +6,8 @@ https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01
 - Don't forget all "filenames" and "folder's" are hardcoded.
 - btw: I like it, don't waste time for include more files.
 
+Questions and Support at our forum: https://forum.webdesign-wedel.de
+
 PHP7 & MySql 5.7 Update
 ========================
 Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files.
