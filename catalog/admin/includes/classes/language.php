@@ -80,6 +80,7 @@
       while ($languages = tep_db_fetch_array($languages_query)) {
         $this->catalog_languages[$languages['code']] = array('id' => $languages['languages_id'],
                                                              'name' => $languages['name'],
+                                                             'code' => $languages['code'],
                                                              'image' => $languages['image'],
                                                              'directory' => $languages['directory']);
       }

@@ -121,6 +121,7 @@
       $lng->set_language($_GET['language']);
     } else {
       $lng->get_browser_language();
+      $_SESSION['wdw_language'] = $lng->language['code'];
     }
 
     $language = $lng->language['directory'];
