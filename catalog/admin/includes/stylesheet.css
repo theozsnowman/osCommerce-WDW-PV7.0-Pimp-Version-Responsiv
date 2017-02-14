@@ -36,7 +36,7 @@ body { background-color: #ffffff; color: #000000; margin: 0px; }
 .headerBar { background-color: #B3BAC5; }
 .headerBarContent { color: #ffffff; font-weight: bold; padding: 2px; }
 .columnLeft { background-color: #F0F1F1; border-color: #999999; border-width: 1px; border-style: solid; padding: 2px; }
-.pageHeading { font-size: 1.5em; color: #727272; font-weight: bold; }
+.pageHeading { font-size: 1.5em; color: #727272; font-weight: bold; padding-right: 5px; }
 
 /* data table */
 .dataTableHeadingRow { background-color: #C9C9C9; }
