@@ -38,3 +38,8 @@
 # php_value register_globals 1
 
 Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
