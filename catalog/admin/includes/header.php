@@ -21,6 +21,6 @@
   </tr>
   <tr class="headerBar">
     <td class="headerBarContent">&nbsp;&nbsp;<?php echo '<a href="' . tep_href_link('index.php') . '" class="headerLink">' . HEADER_TITLE_ADMINISTRATION . '</a> &nbsp;|&nbsp; <a target="_blank" href="' . tep_catalog_href_link() . '" class="headerLink">' . HEADER_TITLE_ONLINE_CATALOG . '</a>'; ?></td>
-    <td class="headerBarContent" align="right"><?php echo (tep_session_is_registered('admin') ? 'Logged in as: ' . $admin['username']  . ' (<a href="' . tep_href_link('login.php', 'action=logoff') . '" class="headerLink">Logoff</a>)' : ''); ?>&nbsp;&nbsp;</td>
+    <td class="headerBarContent" align="right"><?php echo (tep_session_is_registered('admin') ? TEXT_LOG_IN_AS . $admin['username']  . ' (<a href="' . tep_href_link('login.php', 'action=logoff') . '" class="headerLink">' . TEXT_LOGOFF . '</a>)' : ''); ?>&nbsp;&nbsp;</td>
   </tr>
 </table>

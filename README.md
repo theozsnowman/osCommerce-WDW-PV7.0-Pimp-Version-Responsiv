@@ -27,8 +27,7 @@ or this link:
 
 PHP7 & MySql 5.7 Update
 ========================
-Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files.
-MySql querys for MySql 5.7 sql_mode 
+Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files. MySql querys for MySql 5.7 sql_mode 
 
 Already changed
 ===============

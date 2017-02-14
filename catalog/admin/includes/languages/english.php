@@ -329,3 +329,6 @@ define('TEXT_THUMBNAIL_SUCCESS', 'The thumbnail image was successfully created.'
 define('TEXT_THUMBNAIL_FAILURE', 'Error: The thumbnail image could not be created! ');
 define('TEXT_ORIGINAL_SUCCESS', 'The original image was successfully transferred to the original images folder.');
 define('TEXT_ORIGINAL_FAILURE', 'Error: The original image could not be transferred to the original images folder. ');
+
+define('TEXT_LOGOFF', 'Logout');
+define('TEXT_LOG_IN_AS', 'Logged in as: ');
