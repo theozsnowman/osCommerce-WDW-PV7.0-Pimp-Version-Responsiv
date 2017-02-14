@@ -14,7 +14,7 @@
     if ( $group['heading'] == BOX_HEADING_TOOLS ) {
       $group['apps'][] = array('code' => 'database_tables.php',
                                'title' => MODULES_ADMIN_MENU_TOOLS_DATABASE_TABLES,
-                               'link' => tep_href_link('database_tables.php'));
+                               'link' => tep_href_link('database_tables.php?language=' . $_SESSION["wdw_language"]));
 
       break;
     }

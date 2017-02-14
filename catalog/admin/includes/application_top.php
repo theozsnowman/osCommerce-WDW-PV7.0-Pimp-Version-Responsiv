@@ -108,6 +108,7 @@
 
 // set the language
   if (!tep_session_is_registered('language') || isset($HTTP_GET_VARS['language'])) {
+  	$_SESSION['wdw_language'] = $_GET['language'];
     if (!tep_session_is_registered('language')) {
       tep_session_register('language');
       tep_session_register('languages_id');
