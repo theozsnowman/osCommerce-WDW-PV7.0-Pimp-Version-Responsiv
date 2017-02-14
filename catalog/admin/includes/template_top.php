@@ -48,6 +48,54 @@ $.datepicker.setDefaults($.datepicker.regional['<?php echo JQUERY_DATEPICKER_I18
 
 <?php require('includes/header.php'); ?>
 
+<script language="javascript">	
+	<!--	
+	$( "#admin" ).button().click(function() { });
+	$( "#shop" ).button().click(function() { });
+	$( "#logout" ).button().click(function() { });
+	
+	$(function() {
+		$( "#workXML" ).dialog({
+			autoOpen: false,
+			resizable: false,
+			closeOnEscape: false,
+			draggable: false,
+			height: 'auto',
+    	width: 340,
+			modal: true,
+			open: function () {
+				$.ajax({
+					type: "POST",
+					url: "../usu5_sitemaps/work.php",
+					data: "language=<?php echo $language; ?>",
+					statusCode: {
+						404: function() {
+							alert( "page not found" );
+    				}
+  				}, 
+					success: function(html){					
+						$("#output").html(html);
+					}
+	  		});
+      },
+      buttons: {
+    			"OK": function() {
+    				$( this ).dialog( "close" );
+    			}
+			}
+		});
+
+		$( "#show" ).button().click(function() {
+			$( "#workXML" ).dialog( "open" );
+		});
+  });
+//-->
+</script>
+
+<div id="workXML" title="XML Sitemap">
+	<div id="output" style="padding-left: 20px;"></div>
+</div>
+
 <?php
   if (tep_session_is_registered('admin')) {
     include('includes/column_left.php');

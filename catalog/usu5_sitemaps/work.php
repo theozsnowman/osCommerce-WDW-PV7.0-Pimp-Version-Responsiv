@@ -12,10 +12,12 @@
  * @lastdev $Author:: Rob                                              $:  Author of last commit
  * @lastmod $Date:: 2011-03-17 09:11:09 +0000 (Thu, 17 Mar 2011)       $:  Date of last commit
  * @version $Rev:: 203                                                 $:  Revision of last commit
- * @Id $Id:: index.php 203 2011-03-17 09:11:09Z Rob                     $:  Full Details   
+ * @Id $Id:: work.php 203 2011-03-17 09:11:09Z Rob                     $:  Full Details   
  */
   chdir( '../' );
   include_once 'includes/application_top.php';
+  
+  require('includes/languages/' . $_POST["language"] . '/xml_sitemap.php');
   
   function usu5_xml_exists( $doc, $file ) {
     $filepath = realpath( dirname( __FILE__ ) . '/../' ) . '/' . $file;
@@ -136,9 +138,6 @@
   }
   
     function usu5_create_sitemap_set( $language_directory, $code, $languages_id ) {
-  // usu5_create_sitemap_set( $languages['directory'], $languages['code'] );
-//  function usu5_create_sitemap_set( $languages['directory'], $languages['code'], $languages['languages_id'] ) {
-
     $filename_suffix = ( $code == DEFAULT_LANGUAGE ) ? '.xml' : '_' . $language_directory . '.xml';
     /**
     * Now for the categories
@@ -149,7 +148,7 @@
     $categories = buildCategoriesCache();
     foreach ( $categories as $cid => $detail ) {
       if( preg_match( '@[0-9_]@', $detail['path'] ) ) {
-        $detail = array( 'url' => tep_href_link( 'index.php', 'cPath=' . $detail['path'], 'NONSSL', false ),
+        $detail = array( 'url' => tep_href_link( 'work.php', 'cPath=' . $detail['path'], 'NONSSL', false ),
                          'lastmod' => date( "Y-m-d", strtotime($detail['last_mod'] ) ),
                          'freq' => 'weekly',
                          'priority' => '0.5' );
@@ -164,7 +163,6 @@
     */
     $detail = array();
     usu5_xml_init( $doc, $root);
-//    $query = "SELECT p.products_id, p.products_date_added, p.products_last_modified FROM products_description pd INNER JOIN products p ON p.products_id = pd.products_id WHERE p.products_status = '1' ORDER BY p.products_last_modified DESC, p.products_date_added DESC";
     $query = "SELECT p.products_id, p.products_date_added, p.products_last_modified FROM products_description pd INNER JOIN products p ON p.products_id = pd.products_id WHERE p.products_status = '1' AND pd.language_id = " . $languages_id  . " ORDER BY p.products_last_modified DESC, p.products_date_added DESC";
     $result = tep_db_query( $query );
     $count = 1;
@@ -187,7 +185,7 @@
     $result = tep_db_query( $query );
     $count = 1;
     while ( $row = tep_db_fetch_array( $result ) ) {
-      $detail = array( 'url' => tep_href_link( 'index.php', 'manufacturers_id=' . (int)$row['manufacturers_id'], 'NONSSL', false ),
+      $detail = array( 'url' => tep_href_link( 'work.php', 'manufacturers_id=' . (int)$row['manufacturers_id'], 'NONSSL', false ),
                        'lastmod' => ( strtotime( $row['last_modified'] ) > strtotime( $row['date_added'] ) ) ?  date( "Y-m-d", strtotime( $row['last_modified'] ) ) : date( "Y-m-d", strtotime( $row['date_added'] ) ),
                        'freq' => 'weekly',
                        'priority' => '0.5' );
@@ -209,9 +207,7 @@
       Usu_Main::i()->initiate( array(), $languages_id, $language, true );
       usu5_create_sitemap_set( $languages['directory'], $languages['code'], $languages['languages_id'] );
       $languages_array[] = $languages;
-      echo '<p>Sitemap for language ' . $languages['name'] . ' generated';
-      echo '<br /><a href="javascript:history.back()"> <<<<<< </a>';
-
+      echo sprintf(SITEMAP_XML_GENERATED, $languages['name']) . '<br />';
     }
     usu5_xml_init( $doc, $root, true );
     foreach ( $languages_array as $index => $language_data ) {

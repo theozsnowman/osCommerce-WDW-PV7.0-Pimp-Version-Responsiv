@@ -302,4 +302,5 @@ define('PRODUCT_SUBSCRIBED', '%s wurde Ihrer Benachrichtigungsliste hinzugefügt
 define('PRODUCT_UNSUBSCRIBED', '%s wurde aus Ihrer Benachrichtigungsliste entfernt');
 define('PRODUCT_ADDED', '%s wurde in Ihren Warenkorb gelegt');
 define('PRODUCT_REMOVED', '%s wurde aus Ihrem Warenkorb entfernt');
+
 ?>

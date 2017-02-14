@@ -25,7 +25,6 @@
 
   require('includes/template_top.php');
 ?>
-
     <table border="0" width="100%" cellspacing="0" cellpadding="2">
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="2" height="40">

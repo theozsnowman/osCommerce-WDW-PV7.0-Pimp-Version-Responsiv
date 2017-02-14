@@ -113,7 +113,6 @@ define('BOX_TOOLS_CACHE', 'Cache Steuerung');
 define('BOX_TOOLS_DEFINE_LANGUAGE', 'Sprachen definieren');
 define('BOX_TOOLS_MAIL', 'eMail versenden');
 define('BOX_TOOLS_NEWSLETTER_MANAGER', 'Rundschreiben Manager');
-define('BOX_TOOLS_SITEMAP_XML', 'Erzeuge Sitemap XML');
 define('BOX_TOOLS_SEC_DIR_PERMISSIONS', 'Verzeichnis Sicherheit/Lesezugriffsrecht');
 define('BOX_TOOLS_SERVER_INFO', 'Server Info');
 define('BOX_TOOLS_VERSION_CHECK', 'Versions Checker');
@@ -329,4 +328,6 @@ define('TEXT_ORIGINAL_FAILURE', 'Error: The original image could not be transfer
 
 define('TEXT_LOGOFF', 'Abmelden');
 define('TEXT_LOG_IN_AS', 'Angemeldet als: ');
+
+define('BUTTON_SITEMAP_XML', 'Erzeuge Sitemap XML');
 ?>

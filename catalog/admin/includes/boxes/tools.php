@@ -47,12 +47,7 @@
         'code' => 'newsletters.php',
         'title' => BOX_TOOLS_NEWSLETTER_MANAGER,
         'link' => tep_href_link('newsletters.php?language=' . $_SESSION["wdw_language"])
-      ),
-      array(
-        'code' => '../usu5_sitemaps/index.php',
-        'title' => BOX_TOOLS_SITEMAP_XML,
-        'link' => tep_href_link('../usu5_sitemaps/index.php?language=' . $_SESSION["wdw_language"])
-      ),
+      ),      
       array(
         'code' => 'sec_dir_permissions.php',
         'title' => BOX_TOOLS_SEC_DIR_PERMISSIONS,

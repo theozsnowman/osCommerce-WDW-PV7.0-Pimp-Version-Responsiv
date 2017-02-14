@@ -73,7 +73,7 @@
   - New Equal Height Header Tag Module (inklusiv jQuery 3.1.0 fix)<br />
   - Modular Category Page v1.1<br />
   - Superfish Box 1.2.2<br />
-  - USU5 XML Site Maps<br />
+  - USU5 XML Site Maps (von WDW geändert, öffnet jetzt jQuery modular)<br />
   - Category New Products Carousel v1.4<br />
   - Category Popular Products Carousel v1.3<br />
   - Multiple Products Manager v2.7 (von WDW für diese Version angepasst)<br />
