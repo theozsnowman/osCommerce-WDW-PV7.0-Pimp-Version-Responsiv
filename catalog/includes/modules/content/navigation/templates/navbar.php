@@ -2,7 +2,7 @@
   <div class="<?php echo BOOTSTRAP_CONTAINER; ?>">
     <?php
     if ($oscTemplate->hasBlocks('navbar_modules_home')) {
-      echo '<div class="navbar-header">' . PHP_EOL;
+      echo '<div class="navbar-header" style="list-style: none;">' . PHP_EOL;
       echo $oscTemplate->getBlocks('navbar_modules_home');
       echo '</div>' . PHP_EOL;
     }

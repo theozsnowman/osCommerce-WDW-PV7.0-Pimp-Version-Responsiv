@@ -37,7 +37,7 @@ $.datepicker.setDefaults($.datepicker.regional['<?php echo JQUERY_DATEPICKER_I18
 <script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/flot/jquery.flot.time.min.js', '', 'SSL'); ?>"></script>
 <link rel="stylesheet" type="text/css" href="includes/stylesheet.css">
 <script type="text/javascript" src="includes/general.js"></script>
-<?php if (($current_page == FILENAME_CATEGORIES)) { ?>
+<?php if (($current_page == 'categories.php')) { ?>
 <script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/photoset-grid/jquery.photoset-grid.min.js', '', 'SSL'); ?>"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo tep_catalog_href_link('ext/colorbox/colorbox.css', '', 'SSL'); ?>" />
 <script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/colorbox/jquery.colorbox-min.js', '', 'SSL'); ?>"></script>

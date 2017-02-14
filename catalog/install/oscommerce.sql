@@ -131,27 +131,49 @@ create table categories_description (
 );
 
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('1', '1', 'Hardware', 'hardware test category description', '', '', '');
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('1', '2', 'Hardware', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('2', '1', 'Software', 'Software test category description', '', '', '');
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('2', '2', 'Software', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('3', '1', 'DVD Movies', 'DVD Movies test category description', '', '', '');
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('3', '2', 'DVD Movies', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('4', '1', 'Graphics Cards', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('4', '2', 'Graphics Cards', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('5', '1', 'Printers', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('5', '2', 'Printers', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('6', '1', 'Monitors', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('6', '2', 'Monitors', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('7', '1', 'Speakers', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('7', '2', 'Speakers', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('8', '1', 'Keyboards', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('8', '2', 'Keyboards', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('9', '1', 'Mice', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('9', '2', 'Mice', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('10', '1', 'Action', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('10', '2', 'Action', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('11', '1', 'Science Fiction', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('11', '2', 'Science Fiction', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('12', '1', 'Comedy', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('12', '2', 'Comedy', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('13', '1', 'Cartoons', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('13', '2', 'Cartoons', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('14', '1', 'Thriller', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('14', '2', 'Thriller', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('15', '1', 'Drama', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('15', '2', 'Drama', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('16', '1', 'Memory', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('16', '2', 'Memory', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('17', '1', 'CDROM Drives', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('17', '2', 'CDROM Drives', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('18', '1', 'Simulation', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('18', '2', 'Simulation', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('19', '1', 'Action', NULL, NULL, NULL, NULL);
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('19', '2', 'Action', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('20', '1', 'Strategy', 'Strategy Test Categorie description', '', '', '');
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('20', '2', 'Strategy', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('21', '1', 'Gadgets', 'Gadgets test category description', '', '', '');
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('21', '2', 'Gadgets', NULL, NULL, NULL, NULL);
 insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('23', '1', 'Tablets', 'Tablets test category description', '', '', '');
+insert into categories_description (categories_id, language_id, categories_name, categories_description, categories_seo_description, categories_seo_keywords, categories_seo_title) values ('23', '2', 'Tablets', NULL, NULL, NULL, NULL);
 drop table if exists configuration;
 create table configuration (
   configuration_id int(11) not null auto_increment,
@@ -227,16 +249,16 @@ insert into configuration (configuration_id, configuration_title, configuration_
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('57', 'Calculate Image Size', 'CONFIG_CALCULATE_IMAGE_SIZE', 'true', 'Calculate the size of images?', '4', '7', NULL, '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('58', 'Image Required', 'IMAGE_REQUIRED', 'true', 'Enable to display broken images. Good for development.', '4', '8', NULL, '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('59', 'Gender', 'ACCOUNT_GENDER', 'true', 'Display gender in the customers account', '5', '1', NULL, '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('60', 'Date of Birth', 'ACCOUNT_DOB', 'true', 'Display date of birth in the customers account', '5', '2', NULL, '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('60', 'Date of Birth', 'ACCOUNT_DOB', 'false', 'Display date of birth in the customers account', '5', '2', '2017-02-13 18:32:42', '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('61', 'Company', 'ACCOUNT_COMPANY', 'true', 'Display company in the customers account', '5', '3', NULL, '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('62', 'Suburb', 'ACCOUNT_SUBURB', 'true', 'Display suburb in the customers account', '5', '4', NULL, '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('63', 'State', 'ACCOUNT_STATE', 'true', 'Display state in the customers account', '5', '5', NULL, '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('62', 'Suburb', 'ACCOUNT_SUBURB', 'false', 'Display suburb in the customers account', '5', '4', '2017-02-13 18:33:13', '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('63', 'State', 'ACCOUNT_STATE', 'false', 'Display state in the customers account', '5', '5', '2017-02-13 18:33:19', '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('64', 'Installed Modules', 'MODULE_PAYMENT_INSTALLED', 'cod.php;paypal_express.php', 'List of payment module filenames separated by a semi-colon. This is automatically updated. No need to edit. (Example: cod.php;paypal_express.php)', '6', '0', NULL, '2017-01-24 11:09:54', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('65', 'Installed Modules', 'MODULE_ORDER_TOTAL_INSTALLED', 'ot_subtotal.php;ot_shipping.php;ot_tax.php;ot_total.php', 'List of order_total module filenames separated by a semi-colon. This is automatically updated. No need to edit. (Example: ot_subtotal.php;ot_tax.php;ot_shipping.php;ot_total.php)', '6', '0', '2017-02-10 08:41:38', '2017-01-24 11:09:54', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('66', 'Installed Modules', 'MODULE_SHIPPING_INSTALLED', 'flat.php', 'List of shipping module filenames separated by a semi-colon. This is automatically updated. No need to edit. (Example: ups.php;flat.php;item.php)', '6', '0', NULL, '2017-01-24 11:09:54', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('67', 'Installed Modules', 'MODULE_ACTION_RECORDER_INSTALLED', 'ar_admin_login.php;ar_contact_us.php;ar_reset_password.php;ar_tell_a_friend.php', 'List of action recorder module filenames separated by a semi-colon. This is automatically updated. No need to edit.', '6', '0', NULL, '2017-01-24 11:09:54', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('68', 'Installed Modules', 'MODULE_SOCIAL_BOOKMARKS_INSTALLED', 'sb_email.php;sb_google_plus_share.php;sb_facebook.php;sb_twitter.php;sb_pinterest.php', 'List of social bookmark module filenames separated by a semi-colon. This is automatically updated. No need to edit.', '6', '0', '2017-02-10 08:41:42', '2017-01-24 11:09:54', NULL, NULL);
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('69', 'Installed Modules', 'MODULE_CONTENT_NAVBAR_INSTALLED', 'nb_hamburger_button.php;nb_home.php;nb_new_products.php;nb_special_offers.php;nb_testimonials.php;nb_mailchimp_newsletter.php;nb_currencies.php;nb_account.php;nb_reviews.php;nb_shopping_cart.php', 'List of navbar module filenames separated by a semi-colon. This is automatically updated. No need to edit.', '6', '0', '2017-02-10 16:32:45', '2017-01-24 11:09:54', NULL, NULL);
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('69', 'Installed Modules', 'MODULE_CONTENT_NAVBAR_INSTALLED', 'nb_languages.php;nb_currencies.php;nb_hamburger_button.php;nb_home.php;nb_new_products.php;nb_special_offers.php;nb_mailchimp_newsletter.php;nb_reviews.php;nb_testimonials.php;nb_account.php;nb_shopping_cart.php', 'List of navbar module filenames separated by a semi-colon. This is automatically updated. No need to edit.', '6', '0', '2017-02-13 18:21:24', '2017-01-24 11:09:54', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('70', 'Enable Cash On Delivery Module', 'MODULE_PAYMENT_COD_STATUS', 'True', 'Do you want to accept Cash On Delevery payments?', '6', '1', NULL, '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('71', 'Payment Zone', 'MODULE_PAYMENT_COD_ZONE', '0', 'If a zone is selected, only enable this payment method for that zone.', '6', '2', NULL, '2017-01-24 11:09:54', 'tep_get_zone_class_title', 'tep_cfg_pull_down_zone_classes(');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('72', 'Sort order of display.', 'MODULE_PAYMENT_COD_SORT_ORDER', '0', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-01-24 11:09:54', NULL, NULL);
@@ -387,7 +409,7 @@ insert into configuration (configuration_id, configuration_title, configuration_
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('235', 'Sort Order', 'MODULE_ADMIN_DASHBOARD_REVIEWS_SORT_ORDER', '1000', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-01-24 11:09:54', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('236', 'Enable Partner News Module', 'MODULE_ADMIN_DASHBOARD_PARTNER_NEWS_STATUS', 'False', 'Do you want to show the latest osCommerce Partner News on the dashboard?', '6', '1', NULL, '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('237', 'Sort Order', 'MODULE_ADMIN_DASHBOARD_PARTNER_NEWS_SORT_ORDER', '820', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-01-24 11:09:54', NULL, NULL);
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('238', 'Installed Modules', 'MODULE_BOXES_INSTALLED', 'bm_categories_superfish.php;bm_whats_new.php;bm_specials.php;bm_manufacturers.php;bm_product_social_bookmarks.php;bm_best_sellers.php;bm_manufacturer_info.php;bm_card_acceptance.php;bm_order_history.php', 'List of box module filenames separated by a semi-colon. This is automatically updated. No need to edit.', '6', '0', '2017-02-12 10:23:03', '2017-01-24 11:09:54', NULL, NULL);
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('238', 'Installed Modules', 'MODULE_BOXES_INSTALLED', 'bm_categories_superfish.php;bm_whats_new.php;bm_specials.php;bm_manufacturers.php;bm_product_social_bookmarks.php;bm_best_sellers.php;bm_manufacturer_info.php;bm_card_acceptance.php;bm_order_history.php', 'List of box module filenames separated by a semi-colon. This is automatically updated. No need to edit.', '6', '0', '2017-02-13 16:58:16', '2017-01-24 11:09:54', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('239', 'Enable Best Sellers Module', 'MODULE_BOXES_BEST_SELLERS_STATUS', 'True', 'Do you want to add the module to your shop?', '6', '1', NULL, '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('240', 'Content Placement', 'MODULE_BOXES_BEST_SELLERS_CONTENT_PLACEMENT', 'Right Column', 'Should the module be loaded in the left or right column?', '6', '1', NULL, '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'Left Column\', \'Right Column\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('241', 'Sort Order', 'MODULE_BOXES_BEST_SELLERS_SORT_ORDER', '1035', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-01-24 11:09:54', NULL, NULL);
@@ -459,7 +481,7 @@ insert into configuration (configuration_id, configuration_title, configuration_
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('316', 'Enable Main Text Module', 'MODULE_CONTENT_TEXT_MAIN_STATUS', 'True', 'Do you want to enable this module?', '6', '1', NULL, '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('317', 'Content Width', 'MODULE_CONTENT_TEXT_MAIN_CONTENT_WIDTH', '12', 'What width container should the content be shown in? (12 = full width, 6 = half width).', '6', '1', NULL, '2017-01-24 11:09:54', NULL, 'tep_cfg_select_option(array(\'12\', \'11\', \'10\', \'9\', \'8\', \'7\', \'6\', \'5\', \'4\', \'3\', \'2\', \'1\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('318', 'Sort Order', 'MODULE_CONTENT_TEXT_MAIN_SORT_ORDER', '200', 'Sort order of display. Lowest is displayed first.', '6', '4', NULL, '2017-01-24 11:09:54', NULL, NULL);
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('342', 'Security Check Extended Last Run', 'MODULE_SECURITY_CHECK_EXTENDED_LAST_RUN_DATETIME', '1486743715', 'The date and time the last extended security check was performed.', '6', NULL, NULL, '2017-01-24 11:33:09', NULL, NULL);
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('342', 'Security Check Extended Last Run', 'MODULE_SECURITY_CHECK_EXTENDED_LAST_RUN_DATETIME', '1487009029', 'The date and time the last extended security check was performed.', '6', NULL, NULL, '2017-01-24 11:33:09', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('343', 'PayPal App Parameter', 'OSCOM_APP_PAYPAL_EC_STATUS', '0', 'A parameter for the PayPal Application.', '6', '0', NULL, '2017-01-24 11:42:17', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('344', 'PayPal App Parameter', 'OSCOM_APP_PAYPAL_LIVE_SELLER_EMAIL', '', 'A parameter for the PayPal Application.', '6', '0', NULL, '2017-01-24 11:42:17', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('345', 'PayPal App Parameter', 'OSCOM_APP_PAYPAL_EC_ACCOUNT_OPTIONAL', '0', 'A parameter for the PayPal Application.', '6', '0', NULL, '2017-01-24 11:42:17', NULL, NULL);
@@ -477,7 +499,7 @@ insert into configuration (configuration_id, configuration_title, configuration_
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('357', 'PayPal App Parameter', 'OSCOM_APP_PAYPAL_PS_STATUS', '', 'A parameter for the PayPal Application.', '6', '0', NULL, '2017-01-24 11:42:17', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('358', 'PayPal App Parameter', 'OSCOM_APP_PAYPAL_LOGIN_STATUS', '', 'A parameter for the PayPal Application.', '6', '0', NULL, '2017-01-24 11:42:17', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('359', 'Sort Order', 'MODULE_ADMIN_DASHBOARD_PAYPAL_APP_SORT_ORDER', '5000', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-01-24 11:42:17', NULL, NULL);
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('360', 'PayPal App Parameter', 'OSCOM_APP_PAYPAL_VERSION_CHECK', '12', 'A parameter for the PayPal Application.', '6', '0', NULL, '2017-01-24 11:42:18', NULL, NULL);
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('360', 'PayPal App Parameter', 'OSCOM_APP_PAYPAL_VERSION_CHECK', '14', 'A parameter for the PayPal Application.', '6', '0', NULL, '2017-01-24 11:42:18', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('361', 'Enable New Products Module', 'MODULE_NAVBAR_NEW_PRODUCTS_STATUS', 'True', 'Do you want to add the module to your Navbar?', '6', '1', NULL, '2017-01-24 11:43:11', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('362', 'Content Placement', 'MODULE_NAVBAR_NEW_PRODUCTS_CONTENT_PLACEMENT', 'Left', 'Should the module be loaded in the Left or Right or the Home area of the Navbar?', '6', '1', NULL, '2017-01-24 11:43:11', NULL, 'tep_cfg_select_option(array(\'Left\', \'Right\', \'Home\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('363', 'Sort Order', 'MODULE_NAVBAR_NEW_PRODUCTS_SORT_ORDER', '525', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-01-24 11:43:11', NULL, NULL);
@@ -520,10 +542,10 @@ insert into configuration (configuration_id, configuration_title, configuration_
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('473', 'Sort Order', 'MODULE_NAVBAR_HOME_SORT_ORDER', '520', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-01-26 07:55:25', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('474', 'Enable Testimonials Module', 'MODULE_NAVBAR_TESTIMONIALS_STATUS', 'True', 'Do you want to add the module to your Navbar?', '6', '1', NULL, '2017-01-26 07:56:40', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('475', 'Content Placement', 'MODULE_NAVBAR_TESTIMONIALS_CONTENT_PLACEMENT', 'Left', 'Should the module be loaded in the Left or Right or the Home area of the Navbar?', '6', '1', NULL, '2017-01-26 07:56:40', NULL, 'tep_cfg_select_option(array(\'Left\', \'Right\', \'Home\'), ');
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('476', 'Sort Order', 'MODULE_NAVBAR_TESTIMONIALS_SORT_ORDER', '534', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-01-26 07:56:40', NULL, NULL);
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('476', 'Sort Order', 'MODULE_NAVBAR_TESTIMONIALS_SORT_ORDER', '538', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-01-26 07:56:40', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('477', 'Enable Reviews Module', 'MODULE_NAVBAR_REVIEWS_STATUS', 'True', 'Do you want to add the module to your Navbar?', '6', '1', NULL, '2017-01-26 07:57:00', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('478', 'Content Placement', 'MODULE_NAVBAR_REVIEWS_CONTENT_PLACEMENT', 'Left', 'Should the module be loaded in the Left or Right or the Home area of the Navbar?', '6', '1', NULL, '2017-01-26 07:57:00', NULL, 'tep_cfg_select_option(array(\'Left\', \'Right\', \'Home\'), ');
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('479', 'Sort Order', 'MODULE_NAVBAR_REVIEWS_SORT_ORDER', '535', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-01-26 07:57:00', NULL, NULL);
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('479', 'Sort Order', 'MODULE_NAVBAR_REVIEWS_SORT_ORDER', '536', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-01-26 07:57:00', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('494', 'Owl Carousel Version', 'MODULE_HEADER_TAGS_OWL_CAROUSEL_JAVASCRIPT_VERSION', '1.3.3', 'The version of this jQuery Owl Carousel.', '6', '1', NULL, '2017-01-26 08:59:40', NULL, 'tep_cfg_disabled(');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('495', 'Enable jQuery Owl Carousel Module', 'MODULE_HEADER_TAGS_OWL_CAROUSEL_STATUS', 'True', 'Do you want to add jQuery Owl Carousel Javascript to your shop? (Required for modules that need owl carousel to function i.e. New Products Carousel.)', '6', '2', NULL, '2017-01-26 08:59:40', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('496', 'Pages', 'MODULE_HEADER_TAGS_OWL_CAROUSEL_VIEW_PAGES', 'index.php', 'The pages to add the script to.', '6', '3', NULL, '2017-01-26 08:59:40', 'ht_owl_carousel_show_pages', 'ht_owl_carousel_edit_pages(');
@@ -587,8 +609,8 @@ insert into configuration (configuration_id, configuration_title, configuration_
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('674', 'Content Placement', 'MODULE_BOXES_PRODUCT_SOCIAL_BOOKMARKS_CONTENT_PLACEMENT', 'Right Column', 'Should the module be loaded in the left or right column?', '6', '1', NULL, '2017-02-10 16:24:21', NULL, 'tep_cfg_select_option(array(\'Left Column\', \'Right Column\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('675', 'Sort Order', 'MODULE_BOXES_PRODUCT_SOCIAL_BOOKMARKS_SORT_ORDER', '1030', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-02-10 16:24:21', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('676', 'Enable Currencies Module', 'MODULE_NAVBAR_CURRENCIES_STATUS', 'True', 'Do you want to add the module to your Navbar?', '6', '1', NULL, '2017-02-10 16:26:39', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('677', 'Content Placement', 'MODULE_NAVBAR_CURRENCIES_CONTENT_PLACEMENT', 'Right', 'Should the module be loaded in the Left or Right or the Home area of the Navbar?', '6', '1', NULL, '2017-02-10 16:26:39', NULL, 'tep_cfg_select_option(array(\'Left\', \'Right\', \'Home\'), ');
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('678', 'Sort Order', 'MODULE_NAVBAR_CURRENCIES_SORT_ORDER', '538', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-02-10 16:26:39', NULL, NULL);
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('677', 'Content Placement', 'MODULE_NAVBAR_CURRENCIES_CONTENT_PLACEMENT', 'Home', 'Should the module be loaded in the Left or Right or the Home area of the Navbar?', '6', '1', NULL, '2017-02-10 16:26:39', NULL, 'tep_cfg_select_option(array(\'Left\', \'Right\', \'Home\'), ');
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('678', 'Sort Order', 'MODULE_NAVBAR_CURRENCIES_SORT_ORDER', '420', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-02-10 16:26:39', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('679', 'Installed Modules', 'MODULE_PDF_DATASHEET_INSTALLED', 'pd_initialize.php;pd_header.php;pd_fonts.php;pd_title.php;pd_description.php;pd_file_name.php', 'This is automatically updated. No need to edit.', '6', '0', '2017-02-11 14:24:14', '2017-02-11 10:46:17', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('680', 'Enable the Module', 'MODULE_PDF_DATASHEET_INITIALIZE_STATUS', 'True', 'Do you want to add the product link to the Google feed? (Note: Required field.)', '6', '1', NULL, '2017-02-11 11:03:01', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('681', 'Sort Order', 'MODULE_PDF_DATASHEET_INITIALIZE_SORT_ORDER', '9000', 'Sort order of display. Lowest is displayed first.', '6', '2', NULL, '2017-02-11 11:03:01', NULL, NULL);
@@ -638,7 +660,7 @@ insert into configuration (configuration_id, configuration_title, configuration_
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('729', 'English Text', 'MODULE_PDF_DATASHEET_FILE_NAME_TEXT_ENGLISH', '', 'Add text in english to the PDF file name', '6', '14', NULL, '2017-02-11 13:55:38', NULL, NULL);
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('730', 'Enable SEO URLs 5?', 'USU5_ENABLED', 'true', 'Turn Seo Urls 5 on', '17', '1', '2017-02-12 15:45:20', '2017-02-12 15:45:20', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('731', 'Enable the cache?', 'USU5_CACHE_ON', 'true', 'Turn the cache system on', '17', '2', '2017-02-12 15:45:20', '2017-02-12 15:45:20', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('732', 'Enable multi language support?', 'USU5_MULTI_LANGUAGE_SEO_SUPPORT', 'true', 'Enable the multi language functionality', '17', '3', '2017-02-12 15:45:20', '2017-02-12 15:45:20', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('732', 'Enable multi language support?', 'USU5_MULTI_LANGUAGE_SEO_SUPPORT', 'true', 'Enable the multi language functionality', '17', '3', '2017-02-13 19:25:34', '2017-02-12 15:45:20', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('733', 'Output W3C valid URLs?', 'USU5_USE_W3C_VALID', 'true', 'This setting will output W3C valid URLs.', '17', '4', '2017-02-12 15:45:20', '2017-02-12 15:45:20', NULL, 'tep_cfg_select_option(array(\'true\', \'false\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('734', 'Select your chosen cache system?', 'USU5_CACHE_SYSTEM', 'mysql', 'Choose from the 4 available caching strategies.', '17', '5', '2017-02-12 09:47:41', '2017-02-12 15:45:20', NULL, 'tep_cfg_select_option(array(\'mysql\', \'file\',\'sqlite - supported\',\'memcache - NOT supported on this system\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('735', 'Set the number of days to store the cache.', 'USU5_CACHE_DAYS', '7', 'Set the number of days you wish to retain cached data, after this the cache will auto reset.', '17', '6', '2017-02-12 15:45:20', '2017-02-12 15:45:20', NULL, NULL);
@@ -666,10 +688,14 @@ insert into configuration (configuration_id, configuration_title, configuration_
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('757', 'Enable Product Meta Module', 'MODULE_HEADER_TAGS_PRODUCT_META_STATUS', 'True', 'Do you want to allow product meta tags to be added to the page header?', '6', '1', NULL, '2017-02-12 09:48:58', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('758', 'Enable Product Meta Module - Keywords', 'MODULE_HEADER_TAGS_PRODUCT_META_KEYWORDS_STATUS', 'Search', 'Keywords can be used for META, for SEARCH, or for BOTH.  If you are into the Chinese Market select Both (for Baidu Search Engine) otherwise select Search.', '6', '1', NULL, '2017-02-12 09:48:58', NULL, 'tep_cfg_select_option(array(\'Meta\', \'Search\', \'Both\'), ');
 insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('759', 'Sort Order', 'MODULE_HEADER_TAGS_PRODUCT_META_SORT_ORDER', '130', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-02-12 09:48:58', NULL, NULL);
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('760', 'Sort Order', 'MODULE_BOXES_CATEGORIES_SUPERFISH_SORT_ORDER', '1002', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-02-12 10:23:02', NULL, NULL);
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('761', 'Enable Superfish Categories Box', 'MODULE_BOXES_CATEGORIES_SUPERFISH_STATUS', 'True', 'Do you want to show the Superfish Categories box?', '6', '1', NULL, '2017-02-12 10:23:02', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('762', 'Content Placement', 'MODULE_BOXES_CATEGORIES_SUPERFISH_CONTENT_PLACEMENT', 'Left Column', 'Where should the module be loaded?', '6', '2', NULL, '2017-02-12 10:23:02', NULL, 'tep_cfg_select_option(array(\'Left Column\', \'Right Column\'), ');
-insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('763', 'English Title', 'MODULE_BOXES_CATEGORIES_SUPERFISH_FRONT_TITLE_ENGLISH', '', 'Enter the title that you want in the header in english. Leave this blank for no header or title.', '6', '10', NULL, '2017-02-12 10:23:02', NULL, NULL);
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('764', 'Enable Languages Module', 'MODULE_NAVBAR_LANGUAGES_STATUS', 'True', 'Do you want to add the module to your Navbar?', '6', '1', NULL, '2017-02-13 15:36:53', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('765', 'Content Placement', 'MODULE_NAVBAR_LANGUAGES_CONTENT_PLACEMENT', 'Home', 'Should the module be loaded in the Left or Right or the Home area of the Navbar?', '6', '1', NULL, '2017-02-13 15:36:53', NULL, 'tep_cfg_select_option(array(\'Left\', \'Right\', \'Home\'), ');
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('766', 'Sort Order', 'MODULE_NAVBAR_LANGUAGES_SORT_ORDER', '410', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-02-13 15:36:53', NULL, NULL);
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('770', 'Sort Order', 'MODULE_BOXES_CATEGORIES_SUPERFISH_SORT_ORDER', '1000', 'Sort order of display. Lowest is displayed first.', '6', '0', NULL, '2017-02-13 16:57:06', NULL, NULL);
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('771', 'Enable Superfish Categories Box', 'MODULE_BOXES_CATEGORIES_SUPERFISH_STATUS', 'True', 'Do you want to show the Superfish Categories box?', '6', '1', NULL, '2017-02-13 16:57:06', NULL, 'tep_cfg_select_option(array(\'True\', \'False\'), ');
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('772', 'Content Placement', 'MODULE_BOXES_CATEGORIES_SUPERFISH_CONTENT_PLACEMENT', 'Left Column', 'Where should the module be loaded?', '6', '2', NULL, '2017-02-13 16:57:06', NULL, 'tep_cfg_select_option(array(\'Left Column\', \'Right Column\'), ');
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('773', 'English Title', 'MODULE_BOXES_CATEGORIES_SUPERFISH_FRONT_TITLE_ENGLISH', 'Categories', 'Enter the title that you want in the header in english. Leave this blank for no header or title.', '6', '10', NULL, '2017-02-13 16:57:06', NULL, NULL);
+insert into configuration (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('774', 'German Title', 'MODULE_BOXES_CATEGORIES_SUPERFISH_FRONT_TITLE_GERMAN', 'Kategorien', 'Enter the title that you want in the header in german. Leave this blank for no header or title.', '6', '10', NULL, '2017-02-13 16:57:06', NULL, NULL);
 drop table if exists configuration_group;
 create table configuration_group (
   configuration_group_id int(11) not null auto_increment,
@@ -1177,7 +1203,8 @@ create table languages (
   KEY IDX_LANGUAGES_NAME (name)
 );
 
-insert into languages (languages_id, name, code, image, directory, sort_order) values ('1', 'English', 'en', 'icon.gif', 'english', '1');
+insert into languages (languages_id, name, code, image, directory, sort_order) values ('1', 'English', 'en', 'icon.gif', 'english', '2');
+insert into languages (languages_id, name, code, image, directory, sort_order) values ('2', 'Deutsch', 'de', 'icon.gif', 'german', '4');
 drop table if exists manufacturers;
 create table manufacturers (
   manufacturers_id int(11) not null auto_increment,
@@ -1214,15 +1241,25 @@ create table manufacturers_info (
 );
 
 insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('1', '1', 'http://www.matrox.com', '0', NULL, NULL, NULL, NULL, NULL);
+insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('1', '2', 'http://www.matrox.com', '0', NULL, NULL, NULL, NULL, NULL);
 insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('2', '1', 'http://www.microsoft.com', '0', NULL, NULL, NULL, NULL, NULL);
+insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('2', '2', 'http://www.microsoft.com', '0', NULL, NULL, NULL, NULL, NULL);
 insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('3', '1', 'http://www.warner.com', '0', NULL, NULL, NULL, NULL, NULL);
+insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('3', '2', 'http://www.warner.com', '0', NULL, NULL, NULL, NULL, NULL);
 insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('4', '1', 'http://www.fox.com', '0', NULL, NULL, NULL, NULL, NULL);
+insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('4', '2', 'http://www.fox.com', '0', NULL, NULL, NULL, NULL, NULL);
 insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('5', '1', 'http://www.logitech.com', '0', NULL, NULL, NULL, NULL, NULL);
+insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('5', '2', 'http://www.logitech.com', '0', NULL, NULL, NULL, NULL, NULL);
 insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('6', '1', 'http://www.canon.com', '0', NULL, NULL, NULL, NULL, NULL);
+insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('6', '2', 'http://www.canon.com', '0', NULL, NULL, NULL, NULL, NULL);
 insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('7', '1', 'http://www.sierra.com', '1', '2017-02-03 10:06:26', NULL, NULL, NULL, NULL);
+insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('7', '2', 'http://www.sierra.com', '0', NULL, NULL, NULL, NULL, NULL);
 insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('8', '1', 'http://www.infogrames.com', '0', NULL, NULL, NULL, NULL, NULL);
+insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('8', '2', 'http://www.infogrames.com', '0', NULL, NULL, NULL, NULL, NULL);
 insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('9', '1', 'http://www.hewlettpackard.com', '0', NULL, NULL, NULL, NULL, NULL);
+insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('9', '2', 'http://www.hewlettpackard.com', '0', NULL, NULL, NULL, NULL, NULL);
 insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('10', '1', 'http://www.samsung.com', '1', '2017-02-02 06:02:49', NULL, NULL, NULL, NULL);
+insert into manufacturers_info (manufacturers_id, languages_id, manufacturers_url, url_clicked, date_last_click, manufacturers_description, manufacturers_seo_description, manufacturers_seo_keywords, manufacturers_seo_title) values ('10', '2', 'http://www.samsung.com', '0', NULL, NULL, NULL, NULL, NULL);
 drop table if exists newsletters;
 create table newsletters (
   newsletters_id int(11) not null auto_increment,
@@ -1313,8 +1350,6 @@ create table orders_products_attributes (
   KEY idx_orders_products_att_orders_id (orders_id)
 );
 
-insert into orders_products_attributes (orders_products_attributes_id, orders_id, orders_products_id, products_options, products_options_values, options_values_price, price_prefix) values ('1', '2', '2', 'Memory', '4 mb', '0.0000', '+');
-insert into orders_products_attributes (orders_products_attributes_id, orders_id, orders_products_id, products_options, products_options_values, options_values_price, price_prefix) values ('2', '2', '2', 'Model', 'Value', '0.0000', '+');
 drop table if exists orders_products_download;
 create table orders_products_download (
   orders_products_download_id int(11) not null auto_increment,
@@ -1339,10 +1374,15 @@ create table orders_status (
 );
 
 insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('1', '1', 'Pending', '1', '0');
-insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('2', '1', 'Processing', '1', '1');
-insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('3', '1', 'Delivered', '1', '1');
-insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('4', '1', 'PayPal [Transactions]', '0', '0');
-insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('5', '1', 'Authorize.net [Transactions]', '0', '0');
+insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('1', '2', 'ausstehend', '1', '0');
+insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('2', '1', 'Processing', '1', '0');
+insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('2', '2', 'In Bearbeitung', '1', '0');
+insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('3', '1', 'Delivered', '1', '0');
+insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('3', '2', 'geliefert', '1', '0');
+insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('4', '1', 'PayPal [Transactions]', '1', '0');
+insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('4', '2', 'PayPal [Transaktions]', '1', '0');
+insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('5', '1', 'Authorize.net [Transactions]', '1', '0');
+insert into orders_status (orders_status_id, language_id, orders_status_name, public_flag, downloads_flag) values ('5', '2', 'Authorize.net [Transaktions]', '1', '0');
 drop table if exists orders_status_history;
 create table orders_status_history (
   orders_status_history_id int(11) not null auto_increment,
@@ -1487,7 +1527,12 @@ insert into products_description (products_id, language_id, products_name, produ
 <br />
 With continuing demand for digital flat panels in the financial workplace, the Matrox G200 MMS is the ultimate in flexible solutions. The Matrox G200 MMS also supports the new digital video interface (DVI) created by the Digital Display Working Group (DDWG) designed to ease the adoption of digital flat panels. Other configurations include composite video capture ability and onboard TV tuner, making the Matrox G200 MMS the complete solution for business needs.<br />
 <br />
-Based on the award-winning MGA-G200 graphics chip, the Matrox G200 Multi-Monitor Series provides superior 2D/3D graphics acceleration to meet the demanding needs of business applications such as real-time stock quotes (Versus), live video feeds (Reuters &amp; Bloombergs), multiple windows applications, word processing, spreadsheets and CAD.', 'www.matrox.com/mga/products/g200_mms/home.cfm', '447', '', '', '');
+Based on the award-winning MGA-G200 graphics chip, the Matrox G200 Multi-Monitor Series provides superior 2D/3D graphics acceleration to meet the demanding needs of business applications such as real-time stock quotes (Versus), live video feeds (Reuters &amp; Bloombergs), multiple windows applications, word processing, spreadsheets and CAD.', 'www.matrox.com/mga/products/g200_mms/home.cfm', '451', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('1', '2', 'Matrox G200 MMS', 'Reinforcing its position as a multi-monitor trailblazer, Matrox Graphics Inc. has once again developed the most flexible and highly advanced solution in the industry. Introducing the new Matrox G200 Multi-Monitor Series; the first graphics card ever to support up to four DVI digital flat panel displays on a single 8&quot; PCI board.<br />
+<br />
+With continuing demand for digital flat panels in the financial workplace, the Matrox G200 MMS is the ultimate in flexible solutions. The Matrox G200 MMS also supports the new digital video interface (DVI) created by the Digital Display Working Group (DDWG) designed to ease the adoption of digital flat panels. Other configurations include composite video capture ability and onboard TV tuner, making the Matrox G200 MMS the complete solution for business needs.<br />
+<br />
+Based on the award-winning MGA-G200 graphics chip, the Matrox G200 Multi-Monitor Series provides superior 2D/3D graphics acceleration to meet the demanding needs of business applications such as real-time stock quotes (Versus), live video feeds (Reuters &amp; Bloombergs), multiple windows applications, word processing, spreadsheets and CAD.', 'www.matrox.com/mga/products/g200_mms/home.cfm', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('2', '1', 'Matrox G400 32MB', '<strong>Dramatically Different High Performance Graphics</strong><br />
 <br />
 Introducing the Millennium G400 Series - a dramatically different, high performance graphics experience. Armed with the industry&#39;s fastest graphics chip, the Millennium G400 Series takes explosive acceleration two steps further by adding unprecedented image quality, along with the most versatile display options for all your 3D, 2D and DVD applications. As the most powerful and innovative tools in your PC&#39;s arsenal, the Millennium G400 Series will not only change the way you see graphics, but will revolutionize the way you use your computer.<br />
@@ -1503,15 +1548,39 @@ Introducing the Millennium G400 Series - a dramatically different, high performa
 	<li>UltraSharp DAC of up to 360 MHz</li>
 	<li>3D Rendering Array Processor</li>
 	<li>Support for 16 or 32 MB of memory</li>
-</ul>', 'www.matrox.com/mga/products/mill_g400/home.htm', '243', '', '', '');
-insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('3', '1', 'Microsoft IntelliMouse Pro', 'Every element of IntelliMouse Pro - from its unique arched shape to the texture of the rubber grip around its base - is the product of extensive customer and ergonomic research. Microsoft&#39;s popular wheel control, which now allows zooming and universal scrolling functions, gives IntelliMouse Pro outstanding comfort and efficiency.', 'www.microsoft.com/hardware/mouse/intellimouse.asp', '103', '', '', '');
+</ul>', 'www.matrox.com/mga/products/mill_g400/home.htm', '247', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('2', '2', 'Matrox G400 32MB', '<strong>Dramatically Different High Performance Graphics</strong><br />
+<br />
+Introducing the Millennium G400 Series - a dramatically different, high performance graphics experience. Armed with the industry&#39;s fastest graphics chip, the Millennium G400 Series takes explosive acceleration two steps further by adding unprecedented image quality, along with the most versatile display options for all your 3D, 2D and DVD applications. As the most powerful and innovative tools in your PC&#39;s arsenal, the Millennium G400 Series will not only change the way you see graphics, but will revolutionize the way you use your computer.<br />
+<br />
+<strong>Key features:</strong>
+<ul>
+	<li>New Matrox G400 256-bit DualBus graphics chip</li>
+	<li>Explosive 3D, 2D and DVD performance</li>
+	<li>DualHead Display</li>
+	<li>Superior DVD and TV output</li>
+	<li>3D Environment-Mapped Bump Mapping</li>
+	<li>Vibrant Color Quality rendering</li>
+	<li>UltraSharp DAC of up to 360 MHz</li>
+	<li>3D Rendering Array Processor</li>
+	<li>Support for 16 or 32 MB of memory</li>
+</ul>', 'www.matrox.com/mga/products/mill_g400/home.htm', '1', NULL, NULL, NULL);
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('3', '1', 'Microsoft IntelliMouse Pro', 'Every element of IntelliMouse Pro - from its unique arched shape to the texture of the rubber grip around its base - is the product of extensive customer and ergonomic research. Microsoft&#39;s popular wheel control, which now allows zooming and universal scrolling functions, gives IntelliMouse Pro outstanding comfort and efficiency.', 'www.microsoft.com/hardware/mouse/intellimouse.asp', '105', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('3', '2', 'Microsoft IntelliMouse Pro', 'Every element of IntelliMouse Pro - from its unique arched shape to the texture of the rubber grip around its base - is the product of extensive customer and ergonomic research. Microsoft&#39;s popular wheel control, which now allows zooming and universal scrolling functions, gives IntelliMouse Pro outstanding comfort and efficiency.', 'www.microsoft.com/hardware/mouse/intellimouse.asp', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('4', '1', 'The Replacement Killers', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
 Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 80 minutes.<br />
-Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', 'www.replacement-killers.com', '29', '', '', '');
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', 'www.replacement-killers.com', '33', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('4', '2', 'The Replacement Killers', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 80 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', 'www.replacement-killers.com', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('5', '1', 'Blade Runner - Director\'s Cut', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
@@ -1519,34 +1588,69 @@ Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 112 minutes.<br />
 Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', 'www.bladerunner.com', '76', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('5', '2', 'Blade Runner - Director\'s Cut', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 112 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', 'www.bladerunner.com', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('6', '1', 'The Matrix', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch.<br />
 Audio: Dolby Surround.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 131 minutes.<br />
-Other: Interactive Menus, Chapter Selection, Making Of.', 'www.thematrix.com', '26', '', '', '');
+Other: Interactive Menus, Chapter Selection, Making Of.', 'www.thematrix.com', '35', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('6', '2', 'The Matrix', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch.<br />
+Audio: Dolby Surround.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 131 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Making Of.', 'www.thematrix.com', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('7', '1', 'You\'ve Got Mail', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch, Spanish.<br />
 Subtitles: English, Deutsch, Spanish, French, Nordic, Polish.<br />
 Audio: Dolby Digital 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 115 minutes.<br />
-Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', 'www.youvegotmail.com', '27', '', '', '');
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', 'www.youvegotmail.com', '35', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('7', '2', 'You\'ve Got Mail', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch, Spanish.<br />
+Subtitles: English, Deutsch, Spanish, French, Nordic, Polish.<br />
+Audio: Dolby Digital 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 115 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', 'www.youvegotmail.com', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('8', '1', 'A Bug\'s Life', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
 Audio: Dolby Digital 5.1 / Dobly Surround Stereo.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 91 minutes.<br />
-Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', 'www.abugslife.com', '90', '', '', '');
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', 'www.abugslife.com', '98', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('8', '2', 'A Bug\'s Life', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Digital 5.1 / Dobly Surround Stereo.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 91 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', 'www.abugslife.com', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('9', '1', 'Under Siege', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
 Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 98 minutes.<br />
-Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '47', '', '', '');
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '55', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('9', '2', 'Under Siege', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 98 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('10', '1', 'Under Siege 2 - Dark Territory', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
@@ -1554,41 +1658,83 @@ Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 98 minutes.<br />
 Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '25', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('10', '2', 'Under Siege 2 - Dark Territory', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 98 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('11', '1', 'Fire Down Below', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
 Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 100 minutes.<br />
-Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '24', '', '', '');
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '29', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('11', '2', 'Fire Down Below', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 100 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('12', '1', 'Die Hard With A Vengeance', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
 Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 122 minutes.<br />
-Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '34', '', '', '');
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '38', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('12', '2', 'Die Hard With A Vengeance', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 122 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('13', '1', 'Lethal Weapon', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
 Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 100 minutes.<br />
-Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '29', '', '', '');
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '37', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('13', '2', 'Lethal Weapon', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 100 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('14', '1', 'Red Corner', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
 Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 117 minutes.<br />
-Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '28', '', '', '');
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '36', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('14', '2', 'Red Corner', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 117 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '3', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('15', '1', 'Frantic', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
 Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 115 minutes.<br />
-Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '27', '', '', '');
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '36', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('15', '2', 'Frantic', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 115 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('16', '1', 'Courage Under Fire', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
@@ -1596,20 +1742,41 @@ Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 112 minutes.<br />
 Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '33', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('16', '2', 'Courage Under Fire', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 112 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('17', '1', 'Speed', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
 Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 112 minutes.<br />
-Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '26', '', '', '');
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '32', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('17', '2', 'Speed', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 112 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('18', '1', 'Speed 2: Cruise Control', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
 Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 120 minutes.<br />
-Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '22', '', '', '');
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '28', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('18', '2', 'Speed 2: Cruise Control', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 120 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('19', '1', 'There\'s Something About Mary', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
@@ -1617,37 +1784,75 @@ Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 114 minutes.<br />
 Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '29', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('19', '2', 'There\'s Something About Mary', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 114 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('20', '1', 'Beloved', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
 Languages: English, Deutsch.<br />
 Subtitles: English, Deutsch, Spanish.<br />
 Audio: Dolby Surround 5.1.<br />
 Picture Format: 16:9 Wide-Screen.<br />
 Length: (approx) 164 minutes.<br />
-Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '59', '', '', '');
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '66', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('20', '2', 'Beloved', 'Regional Code: 2 (Japan, Europe, Middle East, South Africa).<br />
+Languages: English, Deutsch.<br />
+Subtitles: English, Deutsch, Spanish.<br />
+Audio: Dolby Surround 5.1.<br />
+Picture Format: 16:9 Wide-Screen.<br />
+Length: (approx) 164 minutes.<br />
+Other: Interactive Menus, Chapter Selection, Subtitles (more languages).', '', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('21', '1', 'SWAT 3: Close Quarters Battle', '<strong>Windows 95/98</strong><br />
 <br />
 211 in progress with shots fired. Officer down. Armed suspects with hostages. Respond Code 3! Los Angles, 2005, In the next seven days, representatives from every nation around the world will converge on Las Angles to witness the signing of the United Nations Nuclear Abolishment Treaty. The protection of these dignitaries falls on the shoulders of one organization, LAPD SWAT. As part of this elite tactical organization, you and your team have the weapons and all the training necessary to protect, to serve, and &quot;When needed&quot; to use deadly force to keep the peace. It takes more than weapons to make it through each mission. Your arsenal includes C2 charges, flashbangs, tactical grenades. opti-Wand mini-video cameras, and other devices critical to meeting your objectives and keeping your men free of injury. Uncompromised Duty, Honor and Valor!', 'www.swat3.com', '34', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('21', '2', 'SWAT 3: Close Quarters Battle', '<strong>Windows 95/98</strong><br />
+<br />
+211 in progress with shots fired. Officer down. Armed suspects with hostages. Respond Code 3! Los Angles, 2005, In the next seven days, representatives from every nation around the world will converge on Las Angles to witness the signing of the United Nations Nuclear Abolishment Treaty. The protection of these dignitaries falls on the shoulders of one organization, LAPD SWAT. As part of this elite tactical organization, you and your team have the weapons and all the training necessary to protect, to serve, and &quot;When needed&quot; to use deadly force to keep the peace. It takes more than weapons to make it through each mission. Your arsenal includes C2 charges, flashbangs, tactical grenades. opti-Wand mini-video cameras, and other devices critical to meeting your objectives and keeping your men free of injury. Uncompromised Duty, Honor and Valor!', 'www.swat3.com', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('22', '1', 'Unreal Tournament', 'From the creators of the best-selling Unreal, comes Unreal Tournament. A new kind of single player experience. A ruthless multiplayer revolution.<br />
 <br />
 This stand-alone game showcases completely new team-based gameplay, groundbreaking multi-faceted single player action or dynamic multi-player mayhem. It&#39;s a fight to the finish for the title of Unreal Grand Master in the gladiatorial arena. A single player experience like no other! Guide your team of &#39;bots&#39; (virtual teamates) against the hardest criminals in the galaxy for the ultimate title - the Unreal Grand Master.', 'www.unrealtournament.net', '87', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('22', '2', 'Unreal Tournament', 'From the creators of the best-selling Unreal, comes Unreal Tournament. A new kind of single player experience. A ruthless multiplayer revolution.<br />
+<br />
+This stand-alone game showcases completely new team-based gameplay, groundbreaking multi-faceted single player action or dynamic multi-player mayhem. It&#39;s a fight to the finish for the title of Unreal Grand Master in the gladiatorial arena. A single player experience like no other! Guide your team of &#39;bots&#39; (virtual teamates) against the hardest criminals in the galaxy for the ultimate title - the Unreal Grand Master.', 'www.unrealtournament.net', '1', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('23', '1', 'The Wheel Of Time', 'The world in which The Wheel of Time takes place is lifted directly out of Jordan&#39;s pages; it&#39;s huge and consists of many different environments. How you navigate the world will depend largely on which game - single player or multipayer - you&#39;re playing. The single player experience, with a few exceptions, will see Elayna traversing the world mainly by foot (with a couple notable exceptions). In the multiplayer experience, your character will have more access to travel via Ter&#39;angreal, Portal Stones, and the Ways. However you move around, though, you&#39;ll quickly discover that means of locomotion can easily become the least of the your worries...<br />
 <br />
-During your travels, you quickly discover that four locations are crucial to your success in the game. Not surprisingly, these locations are the homes of The Wheel of Time&#39;s main characters. Some of these places are ripped directly from the pages of Jordan&#39;s books, made flesh with Legend&#39;s unparalleled pixel-pushing ways. Other places are specific to the game, conceived and executed with the intent of expanding this game world even further. Either way, they provide a backdrop for some of the most intense first person action and strategy you&#39;ll have this year.', 'www.wheeloftime.com', '41', '', '', '');
+During your travels, you quickly discover that four locations are crucial to your success in the game. Not surprisingly, these locations are the homes of The Wheel of Time&#39;s main characters. Some of these places are ripped directly from the pages of Jordan&#39;s books, made flesh with Legend&#39;s unparalleled pixel-pushing ways. Other places are specific to the game, conceived and executed with the intent of expanding this game world even further. Either way, they provide a backdrop for some of the most intense first person action and strategy you&#39;ll have this year.', 'www.wheeloftime.com', '44', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('23', '2', 'The Wheel Of Time', 'The world in which The Wheel of Time takes place is lifted directly out of Jordan&#39;s pages; it&#39;s huge and consists of many different environments. How you navigate the world will depend largely on which game - single player or multipayer - you&#39;re playing. The single player experience, with a few exceptions, will see Elayna traversing the world mainly by foot (with a couple notable exceptions). In the multiplayer experience, your character will have more access to travel via Ter&#39;angreal, Portal Stones, and the Ways. However you move around, though, you&#39;ll quickly discover that means of locomotion can easily become the least of the your worries...<br />
+<br />
+During your travels, you quickly discover that four locations are crucial to your success in the game. Not surprisingly, these locations are the homes of The Wheel of Time&#39;s main characters. Some of these places are ripped directly from the pages of Jordan&#39;s books, made flesh with Legend&#39;s unparalleled pixel-pushing ways. Other places are specific to the game, conceived and executed with the intent of expanding this game world even further. Either way, they provide a backdrop for some of the most intense first person action and strategy you&#39;ll have this year.', 'www.wheeloftime.com', '0', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('24', '1', 'Disciples: Sacred Lands', 'A new age is dawning...<br />
 <br />
 Enter the realm of the Sacred Lands, where the dawn of a New Age has set in motion the most momentous of wars. As the prophecies long foretold, four races now clash with swords and sorcery in a desperate bid to control the destiny of their gods. Take on the quest as a champion of the Empire, the Mountain Clans, the Legions of the Damned, or the Undead Hordes and test your faith in battles of brute force, spellbinding magic and acts of guile. Slay demons, vanquish giants and combat merciless forces of the dead and undead. But to ensure the salvation of your god, the hero within must evolve.<br />
 <br />
 The day of reckoning has come... and only the chosen will survive.', '', '51', '', '', '');
-insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('25', '1', 'Microsoft Internet Keyboard PS/2', 'The Internet Keyboard has 10 Hot Keys on a comfortable standard keyboard design that also includes a detachable palm rest. The Hot Keys allow you to browse the web, or check e-mail directly from your keyboard. The IntelliType Pro software also allows you to customize your hot keys - make the Internet Keyboard work the way you want it to!', '', '65', '', '', '');
-insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('26', '1', 'Microsoft IntelliMouse Explorer', 'Microsoft introduces its most advanced mouse, the IntelliMouse Explorer! IntelliMouse Explorer features a sleek design, an industrial-silver finish, a glowing red underside and taillight, creating a style and look unlike any other mouse. IntelliMouse Explorer combines the accuracy and reliability of Microsoft IntelliEye optical tracking technology, the convenience of two new customizable function buttons, the efficiency of the scrolling wheel and the comfort of expert ergonomic design. All these great features make this the best mouse for the PC!', 'www.microsoft.com/hardware/mouse/explorer.asp', '40', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('24', '2', 'Disciples: Sacred Lands', 'A new age is dawning...<br />
+<br />
+Enter the realm of the Sacred Lands, where the dawn of a New Age has set in motion the most momentous of wars. As the prophecies long foretold, four races now clash with swords and sorcery in a desperate bid to control the destiny of their gods. Take on the quest as a champion of the Empire, the Mountain Clans, the Legions of the Damned, or the Undead Hordes and test your faith in battles of brute force, spellbinding magic and acts of guile. Slay demons, vanquish giants and combat merciless forces of the dead and undead. But to ensure the salvation of your god, the hero within must evolve.<br />
+<br />
+The day of reckoning has come... and only the chosen will survive.', '', '0', NULL, NULL, NULL);
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('25', '1', 'Microsoft Internet Keyboard PS/2', 'The Internet Keyboard has 10 Hot Keys on a comfortable standard keyboard design that also includes a detachable palm rest. The Hot Keys allow you to browse the web, or check e-mail directly from your keyboard. The IntelliType Pro software also allows you to customize your hot keys - make the Internet Keyboard work the way you want it to!', '', '70', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('25', '2', 'Microsoft Internet Keyboard PS/2', 'The Internet Keyboard has 10 Hot Keys on a comfortable standard keyboard design that also includes a detachable palm rest. The Hot Keys allow you to browse the web, or check e-mail directly from your keyboard. The IntelliType Pro software also allows you to customize your hot keys - make the Internet Keyboard work the way you want it to!', '', '1', NULL, NULL, NULL);
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('26', '1', 'Microsoft IntelliMouse Explorer', 'Microsoft introduces its most advanced mouse, the IntelliMouse Explorer! IntelliMouse Explorer features a sleek design, an industrial-silver finish, a glowing red underside and taillight, creating a style and look unlike any other mouse. IntelliMouse Explorer combines the accuracy and reliability of Microsoft IntelliEye optical tracking technology, the convenience of two new customizable function buttons, the efficiency of the scrolling wheel and the comfort of expert ergonomic design. All these great features make this the best mouse for the PC!', 'www.microsoft.com/hardware/mouse/explorer.asp', '47', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('26', '2', 'Microsoft IntelliMouse Explorer', 'Microsoft introduces its most advanced mouse, the IntelliMouse Explorer! IntelliMouse Explorer features a sleek design, an industrial-silver finish, a glowing red underside and taillight, creating a style and look unlike any other mouse. IntelliMouse Explorer combines the accuracy and reliability of Microsoft IntelliEye optical tracking technology, the convenience of two new customizable function buttons, the efficiency of the scrolling wheel and the comfort of expert ergonomic design. All these great features make this the best mouse for the PC!', 'www.microsoft.com/hardware/mouse/explorer.asp', '2', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('27', '1', 'Hewlett Packard LaserJet 1100Xi', 'HP has always set the pace in laser printing technology. The new generation HP LaserJet 1100 series sets another impressive pace, delivering a stunning 8 pages per minute print speed. The 600 dpi print resolution with HP&#39;s Resolution Enhancement technology (REt) makes every document more professional.<br />
 <br />
 Enhanced print speed and laser quality results are just the beginning. With 2MB standard memory, HP LaserJet 1100xi users will be able to print increasingly complex pages. Memory can be increased to 18MB to tackle even more complex documents with ease. The HP LaserJet 1100xi supports key operating systems including Windows 3.1, 3.11, 95, 98, NT 4.0, OS/2 and DOS. Network compatibility available via the optional HP JetDirect External Print Servers.<br />
 <br />
-HP LaserJet 1100xi also features The Document Builder for the Web Era from Trellix Corp. (featuring software to create Web documents).', 'www.pandi.hp.com/pandi-db/prodinfo.main?product=laserjet1100', '48', '', '', '');
+HP LaserJet 1100xi also features The Document Builder for the Web Era from Trellix Corp. (featuring software to create Web documents).', 'www.pandi.hp.com/pandi-db/prodinfo.main?product=laserjet1100', '52', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('27', '2', 'Hewlett Packard LaserJet 1100Xi', 'HP has always set the pace in laser printing technology. The new generation HP LaserJet 1100 series sets another impressive pace, delivering a stunning 8 pages per minute print speed. The 600 dpi print resolution with HP&#39;s Resolution Enhancement technology (REt) makes every document more professional.<br />
+<br />
+Enhanced print speed and laser quality results are just the beginning. With 2MB standard memory, HP LaserJet 1100xi users will be able to print increasingly complex pages. Memory can be increased to 18MB to tackle even more complex documents with ease. The HP LaserJet 1100xi supports key operating systems including Windows 3.1, 3.11, 95, 98, NT 4.0, OS/2 and DOS. Network compatibility available via the optional HP JetDirect External Print Servers.<br />
+<br />
+HP LaserJet 1100xi also features The Document Builder for the Web Era from Trellix Corp. (featuring software to create Web documents).', 'www.pandi.hp.com/pandi-db/prodinfo.main?product=laserjet1100', '1', NULL, NULL, NULL);
 insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('28', '1', 'Samsung Galaxy Tab', '<p>Powered by a Cortex A8 1.0GHz application processor, the Samsung GALAXY Tab is designed to deliver high performance whenever and wherever you are. At the same time, HD video contents are supported by a wide range of multimedia formats (DivX, XviD, MPEG4, H.263, H.264 and more), which maximizes the joy of entertainment.</p>
 
 <p>With 3G HSPA connectivity, 802.11n Wi-Fi, and Bluetooth 3.0, the Samsung GALAXY Tab enhances users&#39; mobile communication on a whole new level. Video conferencing and push email on the large 7-inch display make communication more smooth and efficient. For voice telephony, the Samsung GALAXY Tab turns out to be a perfect speakerphone on the desk, or a mobile phone on the move via Bluetooth headset.</p>', 'http://galaxytab.samsungmobile.com', '89', '', '', '');
+insert into products_description (products_id, language_id, products_name, products_description, products_url, products_viewed, products_seo_description, products_seo_keywords, products_seo_title) values ('28', '2', 'Samsung Galaxy Tab', '<p>Powered by a Cortex A8 1.0GHz application processor, the Samsung GALAXY Tab is designed to deliver high performance whenever and wherever you are. At the same time, HD video contents are supported by a wide range of multimedia formats (DivX, XviD, MPEG4, H.263, H.264 and more), which maximizes the joy of entertainment.</p>
+
+<p>With 3G HSPA connectivity, 802.11n Wi-Fi, and Bluetooth 3.0, the Samsung GALAXY Tab enhances users&#39; mobile communication on a whole new level. Video conferencing and push email on the large 7-inch display make communication more smooth and efficient. For voice telephony, the Samsung GALAXY Tab turns out to be a perfect speakerphone on the desk, or a mobile phone on the move via Bluetooth headset.</p>', 'http://galaxytab.samsungmobile.com', '1', NULL, NULL, NULL);
 drop table if exists products_images;
 create table products_images (
   id int(11) not null auto_increment,
@@ -1708,10 +1913,15 @@ create table products_options (
 );
 
 insert into products_options (products_options_id, language_id, products_options_name) values ('1', '1', 'Color');
+insert into products_options (products_options_id, language_id, products_options_name) values ('1', '2', 'Color');
 insert into products_options (products_options_id, language_id, products_options_name) values ('2', '1', 'Size');
+insert into products_options (products_options_id, language_id, products_options_name) values ('2', '2', 'Size');
 insert into products_options (products_options_id, language_id, products_options_name) values ('3', '1', 'Model');
+insert into products_options (products_options_id, language_id, products_options_name) values ('3', '2', 'Model');
 insert into products_options (products_options_id, language_id, products_options_name) values ('4', '1', 'Memory');
+insert into products_options (products_options_id, language_id, products_options_name) values ('4', '2', 'Memory');
 insert into products_options (products_options_id, language_id, products_options_name) values ('5', '1', 'Version');
+insert into products_options (products_options_id, language_id, products_options_name) values ('5', '2', 'Version');
 drop table if exists products_options_values;
 create table products_options_values (
   products_options_values_id int(11) default '0' not null ,
@@ -1721,16 +1931,27 @@ create table products_options_values (
 );
 
 insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('1', '1', '4 mb');
+insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('1', '2', '4 mb');
 insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('2', '1', '8 mb');
+insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('2', '2', '8 mb');
 insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('3', '1', '16 mb');
+insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('3', '2', '16 mb');
 insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('4', '1', '32 mb');
+insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('4', '2', '32 mb');
 insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('5', '1', 'Value');
+insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('5', '2', 'Value');
 insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('6', '1', 'Premium');
+insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('6', '2', 'Premium');
 insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('7', '1', 'Deluxe');
+insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('7', '2', 'Deluxe');
 insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('8', '1', 'PS/2');
+insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('8', '2', 'PS/2');
 insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('9', '1', 'USB');
+insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('9', '2', 'USB');
 insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('10', '1', 'Download: Windows - English');
+insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('10', '2', 'Download: Windows - English');
 insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('13', '1', 'Box: Windows - English');
+insert into products_options_values (products_options_values_id, language_id, products_options_values_name) values ('13', '2', 'Box: Windows - English');
 drop table if exists products_options_values_to_products_options;
 create table products_options_values_to_products_options (
   products_options_values_to_products_options_id int(11) not null auto_increment,
@@ -1885,7 +2106,7 @@ create table tax_rates (
   PRIMARY KEY (tax_rates_id)
 );
 
-insert into tax_rates (tax_rates_id, tax_zone_id, tax_class_id, tax_priority, tax_rate, tax_description, last_modified, date_added) values ('1', '1', '1', '1', '7.0000', 'FL TAX 7.0%', '2017-01-24 11:09:54', '2017-01-24 11:09:54');
+insert into tax_rates (tax_rates_id, tax_zone_id, tax_class_id, tax_priority, tax_rate, tax_description, last_modified, date_added) values ('1', '1', '1', '1', '7.0000', '7.0%', '2017-02-13 18:45:01', '2017-01-24 11:09:54');
 drop table if exists testimonials;
 create table testimonials (
   testimonials_id int(11) not null auto_increment,

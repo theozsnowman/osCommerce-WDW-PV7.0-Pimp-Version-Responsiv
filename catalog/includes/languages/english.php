@@ -209,6 +209,7 @@ define('REVIEWS_TEXT_TITLE', 'What our customers say...');
 
 // grid/list
 define('TEXT_SORT_BY', 'Sort By ');
+
 // moved from index
 define('TABLE_HEADING_IMAGE', '');
 define('TABLE_HEADING_MODEL', 'Model');
@@ -232,7 +233,7 @@ define('MODULE_CONTENT_BOOTSTRAP_ROW_DESCRIPTION', '');
 define('TEXT_NO_PICTURE', 'No Picture Available');
 
 // Specials Image Overlay
-define( 'IMAGE_SALE', 'Sale!' );
+define( 'IMAGE_SALE', 'Discount!' );
 
 // Vat at the price
 define('TEXT_INCL_VAT', 'incl. Vat');

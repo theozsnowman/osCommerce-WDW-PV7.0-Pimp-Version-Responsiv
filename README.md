@@ -44,6 +44,7 @@ Already changed
 - Frontend: Add function to acivate the awesome fonts icons
 - Backend: Online Catalog link now open in new page
 - Backend: Change the width of left column and the content
+- German languages installed (95% translation some small fixes still have to do)
 
 Modified by Webdesign Wedel (WDW)
 =================================
@@ -79,7 +80,7 @@ Planned Extensions
 ===================
 - New email Class RMail
 - Europe/German law suitable
-- All Europe languages
+- All Europe languages (German already installed)
 - Order email with attachment Terms of Condition, Right of Cancellation, bill and delivery note as pdf
 - One page checkout
 - One click cancellation (frontend) for the customer

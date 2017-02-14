@@ -134,6 +134,7 @@
     usu5_node_create( $doc, $root, $detail, true );
 
   }
+  
     function usu5_create_sitemap_set( $language_directory, $code, $languages_id ) {
   // usu5_create_sitemap_set( $languages['directory'], $languages['code'] );
 //  function usu5_create_sitemap_set( $languages['directory'], $languages['code'], $languages['languages_id'] ) {
@@ -204,6 +205,7 @@
     while ( $languages = tep_db_fetch_array( $languages_query ) ) {
       $languages_id = $languages['languages_id'];
       $language = $languages['directory'];
+      $language_code = $languages['code'];
       Usu_Main::i()->initiate( array(), $languages_id, $language, true );
       usu5_create_sitemap_set( $languages['directory'], $languages['code'], $languages['languages_id'] );
       $languages_array[] = $languages;
@@ -221,7 +223,7 @@
     usu5_xml_init( $doc, $root, true );
     create_single_sitemap_index( $doc, $root );
     usu5_xml_exists( $doc, 'sitemapIndex.xml' );
-    usu5_create_sitemap_set( $language, DEFAULT_LANGUAGE );
+    usu5_create_sitemap_set( $language, $language_code, $languages_id );
   }
     
   include_once 'includes/application_bottom.php';

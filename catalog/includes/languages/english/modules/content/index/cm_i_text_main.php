@@ -17,12 +17,25 @@
   
   based on Version: <a target="_blank" href="https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01">https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01</a><br /><br />
 
-  Don\'t forget all "filenames" and "some folder\'s" are hardcoded.<br />
-  btw: I like it, don\'t waste time for include more files or content. <br /><br />
+  Don\'t forget all "filenames" and "some folder\'s" are hardcoded.<br /><br />
 	
+	Questions and Support at our forum: <a target="_blank" href="https://forum.webdesign-wedel.de/index.php">https://forum.webdesign-wedel.de</a><br /><br />
+	
+	Help to move the Project forward<br />
+	==========================<br />
+	I need your help to move this Project forward. At the moment, this project is done on my own,<br />
+	as and when time can be given.<br /><br />
+	
+	To allow me to give more time to this Project, I need your support:<br /><br />
+
+	- give time for testing new code and/or getting involved in discussions<br />
+	- give code to the project - create a github account, fork and start coding<br /><br />
+
+	If you cannot give time or code, please give a Donation...<br />
+	<a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FLUDFVAR3BL4U">Please Donate, we need your support.</a><br /><br />
+		
 	PHP7 & MySql 5.7 Update<br />
-	Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files.<br />
-	MySql querys for MySql 5.7 sql_mode<br /><br /> 
+	Methods with the same name as their class will not be constructors in a future version of PHP in module files and class files. MySql querys for MySql 5.7 sql_mode<br /><br /> 
 	
 	Already changed<br />
 	- Some new icons for the admin area<br />
@@ -36,14 +49,15 @@
   - Frontend: Change function to acivate the awesome fonts icons<br />
   - Frontend: Add function to acivate the awesome fonts icons<br />
   - Backend: Online Catalog link now open in new page<br />
-  - Backend: Change the width of left column and the content<br /><br />
+  - Backend: Change the width of left column and the content<br />
+  - German languages installed (95% translation some small fixes still have to do)<br /><br />
 
 Modified by Webdesign Wedel (WDW)<br />
 	- Product description editable with ckEditor<br />
 	- Image file uploder for cKEditor<br />
 	- Banner Manager editable with ckEditor<br />
 	- Newsletter editable with ckEditor<br />
-	- cKEditor >>> Send E-Mail to customer editable with ckEditor<br />
+	- Send E-Mail to customer editable with ckEditor<br />
   - Modular Category Page (Template modified to dropdown)<br />
   - Modular Sub Category Page (Template modified to dropdown)<br />
   - Modular Index Page (Template modified to dropdown)<br />
@@ -66,16 +80,4 @@ Extensions included<br />
   - Protected Images for osC 2.3.4 (adapted by WDW for this version)<br />
   - Ultimate Seo Urls 5 for Responsive Oscommerce<br />
   - PDF Datasheet 1.2.3 Product Info as PDF file (adapted by WDW for this version)<br /><br />
-	
-	Help to move the Project forward<br />
-	==========================<br />
-	I need your help to move this Project forward. At the moment, this project is done on my own,<br />
-	as and when time can be given.<br /><br />
-	To allow me to give more time to this Project, I need your support:<br /><br />
-
-		- give time for testing new code and/or getting involved in discussions<br />
-		- give code to the project - create a github account, fork and start coding<br /><br />
-
-		If you cannot give time or code, please give a Donation...<br />
-		<a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FLUDFVAR3BL4U">Please Donate, we need your support.</a><br /><br />
-	';
+  ';
