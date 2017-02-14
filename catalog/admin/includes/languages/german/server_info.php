@@ -23,7 +23,7 @@ define('TITLE_DATABASE_HOST', 'Datenbank Host:');
 define('TITLE_DATABASE', 'Datenbank:');
 define('TITLE_DATABASE_DATE', 'Datenbank Datum:');
 
-define('TEXT_EXPORT_INTRO', 'Die folgenden Informationen ist vorgesehen, um Gen osCommerce zu den Send-Button. Sie können auch die Daten in eine Datei, in dem Sie auf die Schaltfläche Speichern geben. Diese Information ist völlig anonym und können nicht verwendet werden, um ein individuelles System zu identifizieren. Es wird verwendet, um zu unterstützen und Entwicklungswecken.');
+define('TEXT_EXPORT_INTRO', 'Sie können die Informationen in einer Datei speichern, indem Sie auf Speichern klicken.');
 define('TEXT_EXPORT_INFO', 'Exportieren der Server Informationen');
 
 define('SUCCESS_INFO_SUBMIT', 'Ihre Informationen wurden übermittelt.');

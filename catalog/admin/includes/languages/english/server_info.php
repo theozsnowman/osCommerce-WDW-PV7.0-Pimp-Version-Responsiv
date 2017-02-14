@@ -23,8 +23,7 @@ define('TITLE_DATABASE_HOST', 'Database Host:');
 define('TITLE_DATABASE', 'Database:');
 define('TITLE_DATABASE_DATE', 'Database Date:');
 
-//define('TEXT_EXPORT_INTRO', 'The following information can be submitted to [under construction] by clicking on the Send button. You can also save the information to a file by clicking Save. This information is totally anonymous and cannot be used to identify an individual system. It will be used for support and development purposes only.');
-define('TEXT_EXPORT_INTRO', 'You can save the information to a file by clicking Save. This information is totally anonymous and cannot be used to identify an individual system. It will be used for support and development purposes only.');
+define('TEXT_EXPORT_INTRO', 'You can save the information to a file by clicking Save.');
 define('TEXT_EXPORT_INFO', 'Export Server Information');
 
 define('SUCCESS_INFO_SUBMIT', 'Your information has been submitted sucessfully.');
