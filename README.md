@@ -109,10 +109,10 @@ https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv/archiv
 
 Minimum PHP Version
 ===================
-PHP7+ If you are on an older PHP version, you may find errors.  Update your PHP version.
+PHP7.0 If you are on an older PHP version, you may find errors.  Update your PHP version.
 
-Demo Site
-=========
+Demo Site runs with PHP7.1.1 and MySQL 5.7
+==========================================
 Check out the demo site at https://osc.webdesign-wedel.de
 More or less, this is how Responsive osCommerce looks after the WDW-PV7.0!
 
