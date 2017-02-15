@@ -62,13 +62,7 @@
 					$image_overlay_sales = '';
     
     			$wdw_vat = ( DISPLAY_PRICE_WITH_TAX == 'true' ) ? '<span class="wdw_vat_text">'.TEXT_INCL_VAT.'</span>' : '<span class="wdw_vat_text">'.TEXT_EXCL_VAT.'</span>';
-    
-    			if ($new_product['image_display'] == 1) {
-    				$image = '<span class="thumbnail">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</span>' . $image_overlay_sales;
-    			} elseif (($new_product['image_display'] != 2) && tep_not_null($new_product['products_image'])) {
-    				$image = tep_image(DIR_WS_IMAGES_THUMBS . $new_product['image_folder'] . $new_product['products_image'], $new_product['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sales;
-    			}
-       			
+           			
     			if (tep_not_null($new_product['specials_new_products_price'])) {
     				if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
 							$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
@@ -84,6 +78,12 @@
     				$whats_new_price .= '<span class="productSpecialPrice">' . $currencies->display_price($new_product['specials_new_products_price'], tep_get_tax_rate($new_product['products_tax_class_id'])) . '</span><br />' . $PercentRound . '%<br />' . $wdw_vat;
     			} else {
     				$whats_new_price = $currencies->display_price($new_product['products_price'], tep_get_tax_rate($new_product['products_tax_class_id'])). '<br />' . $wdw_vat;
+    			}
+
+					if ($new_product['image_display'] == 1) {
+    				$image = '<span class="thumbnail">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</span>' . $image_overlay_sales;
+    			} elseif (($new_product['image_display'] != 2) && tep_not_null($new_product['products_image'])) {
+    				$image = tep_image(DIR_WS_IMAGES_THUMBS . $new_product['image_folder'] . $new_product['products_image'], $new_product['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sales;
     			}
 
           $np .= '<div class="' . ($i == 0 ? 'active ' : '') . 'item">';

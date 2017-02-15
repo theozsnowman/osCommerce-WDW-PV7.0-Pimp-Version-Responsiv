@@ -83,6 +83,5 @@
   - Protected Images for osC 2.3.4 (von WDW für diese Version angepasst)<br />
   - Scroll Boxes V1.7 (von WDW für diese Version angepasst)<br />
   - Ultimate Seo Urls 5 for Responsive Oscommerce<br />
-
   - PDF Datasheet 1.2.3 Produkt Info als PDF Datei (von WDW für diese Version angepasst)<br /><br />
   ';

@@ -36,6 +36,18 @@
 	text-align: right;
 }
 
+#bodyContent {
+	top: -20px;
+}
+
+#catMenu {
+	margin-top: -15px;
+}
+
+#dl-menu {
+	margin-top: 5px;
+}
+
 /******* start "specials/what's new" scroller css********/
 #spCarousel.carousel-fade .carousel-inner .item,
 #npCarousel.carousel-fade .carousel-inner .item {
