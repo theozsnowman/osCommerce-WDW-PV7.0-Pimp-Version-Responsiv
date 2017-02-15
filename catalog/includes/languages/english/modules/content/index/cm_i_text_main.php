@@ -80,6 +80,7 @@ Extensions included<br />
   - Category New Products Carousel v1.4<br />
   - Category Popular Products Carousel v1.3<br />
   - Multiple Products Manager v2.7 (adapted by WDW for this version)<br />
+  - Specials Image Overlay 1.0.1 (adapted by WDW for this version)<br />
   - Protected Images for osC 2.3.4 (adapted by WDW for this version)<br />
   - Scroll Boxes V1.7 (adapted by WDW for this version)<br />
   - Ultimate Seo Urls 5 for Responsive Oscommerce<br />
