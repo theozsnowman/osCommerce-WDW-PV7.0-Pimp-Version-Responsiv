@@ -61,11 +61,10 @@
     
     			$wdw_vat = ( DISPLAY_PRICE_WITH_TAX == 'true' ) ? '<span class="wdw_vat_text">'.TEXT_INCL_VAT.'</span>' : '<span class="wdw_vat_text">'.TEXT_EXCL_VAT.'</span>';
     
-					//if (tep_not_null($specials_product['specials_new_products_price'])) {
-						if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
+					if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
 						$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
-						}
-					//}
+					}
+
     			if ($specials_product['image_display'] == 1) {
     				$image = '<span class="thumbnail">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</span>' . $image_overlay_sales;
     			} elseif (($specials_product['image_display'] != 2) && tep_not_null($specials_product['products_image'])) {
@@ -82,14 +81,14 @@
 
           $sp .= '<div class="' . ($i == 0 ? 'active ' : '') . 'item">';
           $sp .= '<div class="content_vAlign">';
-          $sp .= '<div onclick="document.location.href=\'' . tep_href_link('product_info.php', 'products_id=' . $specials_product['products_id']) . '\'; return false;" onmouseover="this.style.cursor=\'pointer\'">';
+          //$sp .= '<div onclick="document.location.href=\'' . tep_href_link('product_info.php', 'products_id=' . $specials_product['products_id']) . '\'; return false;" onmouseover="this.style.cursor=\'pointer\'">';
 
           $sp .= (tep_not_null($specials_product['products_image']) ? '<p class="text-center"><a href="' . tep_href_link('product_info.php', 'products_id=' . $specials_product['products_id']) . '">' . $image . '</a></p>' : '');
           $sp .= '<p class="text-center"><a href="' . tep_href_link('product_info.php', 'products_id=' . $specials_product['products_id']) . '">' . $specials_product['products_name'] . '</a></p>';
           $sp .= (MODULE_BOXES_SPECIALS_SCROLLER_SHORT_DESCRIPTION > 0 && tep_not_null($specials_product['products_description']) ? '<p class="text-center">' .  tep_break_string(substr(strip_tags($specials_product['products_description']), 0, MODULE_BOXES_SPECIALS_SCROLLER_SHORT_DESCRIPTION), 15, '-<br />') . '...<br /></p>' : '');
-          $sp .= '<p class="text-center"><del>' . $currencies->display_price($specials_product['products_price'], tep_get_tax_rate($specials_product['products_tax_class_id'])) . '</del><br /><span class="productSpecialPrice">' . $currencies->display_price($specials_product['specials_new_products_price'], tep_get_tax_rate($specials_product['products_tax_class_id'])) . '<br />' . $PercentRound . '%<br />' . $wdw_vat . '</span></p>';
+          $sp .= '<p class="text-center"><del>' . $currencies->display_price($specials_product['products_price'], tep_get_tax_rate($specials_product['products_tax_class_id'])) . '</del><br /><span class="productSpecialPrice">' . $currencies->display_price($specials_product['specials_new_products_price'], tep_get_tax_rate($specials_product['products_tax_class_id'])) . '</span><br />' . $PercentRound . '%<br />' . $wdw_vat . '</p>';
 
-          $sp .= '</div>';
+          //$sp .= '</div>';
 
           if (MODULE_BOXES_SPECIALS_SCROLLER_VIEW_BUTTON == 'True') {
           	$sp .= '<p class="text-center"><a href="' . tep_href_link('product_info.php', 'products_id=' . $specials_product['products_id']) . '" class="btn btn-success" role="button">' . SMALL_IMAGE_BUTTON_VIEW . '</a></p>';

@@ -63,42 +63,39 @@
     
     			$wdw_vat = ( DISPLAY_PRICE_WITH_TAX == 'true' ) ? '<span class="wdw_vat_text">'.TEXT_INCL_VAT.'</span>' : '<span class="wdw_vat_text">'.TEXT_EXCL_VAT.'</span>';
     
-					if (tep_not_null($new_product['specials_new_products_price'])) {
-						if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
-							$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
-						}
-					}
     			if ($new_product['image_display'] == 1) {
     				$image = '<span class="thumbnail">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</span>' . $image_overlay_sales;
     			} elseif (($new_product['image_display'] != 2) && tep_not_null($new_product['products_image'])) {
     				$image = tep_image(DIR_WS_IMAGES_THUMBS . $new_product['image_folder'] . $new_product['products_image'], $new_product['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sales;
     			}
-    
-    			// included by webmaster@webdesign-wedel.de (2017)
-    			// BOM
-    			//Formular --->>>> Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100
-    			$OldPrice = $currencies->display_raw($new_product['products_price'], tep_get_tax_rate($new_product['products_tax_class_id']));
-    			$NewPrice = $currencies->display_raw($new_product['specials_new_products_price'], tep_get_tax_rate($new_product['products_tax_class_id']));
-    			$Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100;
-    			$PercentRound = round($Percent, TAX_DECIMAL_PLACES);
-    			
+       			
     			if (tep_not_null($new_product['specials_new_products_price'])) {
+    				if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
+							$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
+						}
+    				// included by webmaster@webdesign-wedel.de (2017)
+    				//Formular --->>>> Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100
+    				$OldPrice = $currencies->display_raw($new_product['products_price'], tep_get_tax_rate($new_product['products_tax_class_id']));
+    				$NewPrice = $currencies->display_raw($new_product['specials_new_products_price'], tep_get_tax_rate($new_product['products_tax_class_id']));
+    				$Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100;
+    				$PercentRound = round($Percent, TAX_DECIMAL_PLACES);
+
     				$whats_new_price = '<del>' . $currencies->display_price($new_product['products_price'], tep_get_tax_rate($new_product['products_tax_class_id'])) . '</del><br />';
-    				$whats_new_price .= '<span class="productSpecialPrice">' . $currencies->display_price($new_product['specials_new_products_price'], tep_get_tax_rate($new_product['products_tax_class_id'])) . '<br />' . $PercentRound . '%<br />' . $wdw_vat . '</span>';
+    				$whats_new_price .= '<span class="productSpecialPrice">' . $currencies->display_price($new_product['specials_new_products_price'], tep_get_tax_rate($new_product['products_tax_class_id'])) . '</span><br />' . $PercentRound . '%<br />' . $wdw_vat;
     			} else {
     				$whats_new_price = $currencies->display_price($new_product['products_price'], tep_get_tax_rate($new_product['products_tax_class_id'])). '<br />' . $wdw_vat;
     			}
 
           $np .= '<div class="' . ($i == 0 ? 'active ' : '') . 'item">';
           $np .= '<div class="content_vAlign">';
-          $np .= '<div onclick="document.location.href=\'' . tep_href_link('product_info.php', 'products_id=' . $new_product['products_id']) . '\'; return false;" onmouseover="this.style.cursor=\'pointer\'">';
+          //$np .= '<div onclick="document.location.href=\'' . tep_href_link('product_info.php', 'products_id=' . $new_product['products_id']) . '\'; return false;" onmouseover="this.style.cursor=\'pointer\'">';
 
           $np .= (tep_not_null($new_product['products_image']) ? '<p class="text-center"><a href="' . tep_href_link('product_info.php', 'products_id=' . $new_product['products_id']) . '">' . $image . '</a></p>' : '');
           $np .= '<p class="text-center"><a href="' . tep_href_link('product_info.php', 'products_id=' . $new_product['products_id']) . '">' . $new_product['products_name'] . '</a></p>';
           $np .= (MODULE_BOXES_WHATS_NEW_SCROLLER_SHORT_DESCRIPTION > 0 && tep_not_null($new_product['products_description']) ? '<p class="text-center">' .  tep_break_string(substr(strip_tags($new_product['products_description']), 0, MODULE_BOXES_WHATS_NEW_SCROLLER_SHORT_DESCRIPTION), 15, '-<br />') . '...<br /></p>' : '');
           $np .= '<p class="text-center">' . $whats_new_price . '</p>';
 
-          $np .= '</div>';
+          //$np .= '</div>';
 
           if (MODULE_BOXES_WHATS_NEW_SCROLLER_VIEW_BUTTON == 'True') {
           	$np .= '<p class="text-center"><a href="' . tep_href_link('product_info.php', 'products_id=' . $new_product['products_id']) . '" class="btn btn-success" role="button">' . SMALL_IMAGE_BUTTON_VIEW . '</a></p>';
