@@ -73,7 +73,7 @@ Extensions included<br />
   - Mailchimp Newsletter 2.02<br />
   - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)<br />
   - Modular Category Page v1.1<br />
-  - Corrected Version2.3.4 - German-UTF8<br />
+  - Corrected Version 2.3.4 German utf8<br />
   - Superfish Box 1.2.2<br />
   - Categories Menu XS v1.2<br />
   - Horizontal Categories Menu BS v1.3.1 (adapted by WDW for this version)<br />
