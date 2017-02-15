@@ -92,7 +92,7 @@
           $sp .= '</div>';
 
           if (MODULE_BOXES_SPECIALS_SCROLLER_VIEW_BUTTON == 'True') {
-            $sp .= '<p class="text-center">' .tep_draw_button(SMALL_IMAGE_BUTTON_VIEW, '', tep_href_link('product_info.php', 'products_id=' . $specials_product["products_id"]), '', '', 'btn-success btn-sm') . '</p>';
+          	$sp .= '<p class="text-center"><a href="' . tep_href_link('product_info.php', 'products_id=' . $specials_product['products_id']) . '" class="btn btn-success" role="button">' . SMALL_IMAGE_BUTTON_VIEW . '</a></p>';
           }
 
           $sp .= '</div>';

@@ -57,7 +57,7 @@
         while ($new_product = tep_db_fetch_array($np_query)) {
           
           $new_product['specials_new_products_price'] = tep_get_products_special_price($new_product['products_id']);
-          
+
 					$image = ''; 
 					$image_overlay_sales = '';
     
@@ -65,7 +65,7 @@
     
 					if (tep_not_null($new_product['specials_new_products_price'])) {
 						if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
-						$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -74%;"');
+							$image_overlay_sales = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; margin-top: -75%;"');
 						}
 					}
     			if ($new_product['image_display'] == 1) {
@@ -81,13 +81,13 @@
     			$NewPrice = $currencies->display_raw($new_product['specials_new_products_price'], tep_get_tax_rate($new_product['products_tax_class_id']));
     			$Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100;
     			$PercentRound = round($Percent, TAX_DECIMAL_PLACES);
-
-          if (tep_not_null($new_product['specials_new_products_price'])) {
-            $whats_new_price = '<del>' . $currencies->display_price($new_product['products_price'], tep_get_tax_rate($new_product['products_tax_class_id'])) . '</del><br />';
-            $whats_new_price .= '<span class="productSpecialPrice">' . $currencies->display_price($new_product['specials_new_products_price'], tep_get_tax_rate($new_product['products_tax_class_id'])) . '<br />' . $PercentRound . '%<br />' . $wdw_vat . '</span>';
-          } else {
-            $whats_new_price = $currencies->display_price($new_product['products_price'], tep_get_tax_rate($new_product['products_tax_class_id'])). '<br />' . $wdw_vat;
-          }
+    			
+    			if (tep_not_null($new_product['specials_new_products_price'])) {
+    				$whats_new_price = '<del>' . $currencies->display_price($new_product['products_price'], tep_get_tax_rate($new_product['products_tax_class_id'])) . '</del><br />';
+    				$whats_new_price .= '<span class="productSpecialPrice">' . $currencies->display_price($new_product['specials_new_products_price'], tep_get_tax_rate($new_product['products_tax_class_id'])) . '<br />' . $PercentRound . '%<br />' . $wdw_vat . '</span>';
+    			} else {
+    				$whats_new_price = $currencies->display_price($new_product['products_price'], tep_get_tax_rate($new_product['products_tax_class_id'])). '<br />' . $wdw_vat;
+    			}
 
           $np .= '<div class="' . ($i == 0 ? 'active ' : '') . 'item">';
           $np .= '<div class="content_vAlign">';
@@ -101,14 +101,14 @@
           $np .= '</div>';
 
           if (MODULE_BOXES_WHATS_NEW_SCROLLER_VIEW_BUTTON == 'True') {
-            $np .= '<p class="text-center">' .tep_draw_button(SMALL_IMAGE_BUTTON_VIEW, '', tep_href_link('product_info.php', 'products_id=' . $new_product["products_id"]), '', '', 'btn-success btn-sm') . '</p>';
+          	$np .= '<p class="text-center"><a href="' . tep_href_link('product_info.php', 'products_id=' . $new_product['products_id']) . '" class="btn btn-success" role="button">' . SMALL_IMAGE_BUTTON_VIEW . '</a></p>';
           }
 
           $np .= '</div>';
           $np .= '</div>';
-
+          
           $i++;
-
+          
           if ( (MODULE_BOXES_WHATS_NEW_SCROLLER_MODE != 'Scrolling') ||
                  (MODULE_BOXES_WHATS_NEW_SCROLLER_NO_AUTO_SCROLL == 'True' && MODULE_BOXES_WHATS_NEW_SCROLLER_NO_SWIPING == 'True' &&
                   MODULE_BOXES_WHATS_NEW_SCROLLER_NAV_BUTTONS == 'False' && MODULE_BOXES_WHATS_NEW_SCROLLER_SWIPE_ARROWS == 'False') ) break;
