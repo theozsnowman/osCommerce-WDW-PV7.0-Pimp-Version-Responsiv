@@ -35,3 +35,49 @@
 	margin-top: -16px;
 	text-align: right;
 }
+
+/******* start "specials/what's new" scroller css********/
+#spCarousel.carousel-fade .carousel-inner .item,
+#npCarousel.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+#spCarousel.carousel-fade .carousel-inner .active,
+#npCarousel.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+#spCarousel.carousel-fade .carousel-inner .active.left,
+#spCarousel.carousel-fade .carousel-inner .active.right,
+#npCarousel.carousel-fade .carousel-inner .active.left,
+#npCarousel.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+#spCarousel.carousel-fade .carousel-inner .next.left,
+#spCarousel.carousel-fade .carousel-inner .prev.right,
+#npCarousel.carousel-fade .carousel-inner .next.left,
+#npCarousel.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+
+#spCarousel.carousel a.btn-primary, #npCarousel.carousel a.btn-primary {
+  text-decoration: none;
+  outline: 0;
+  opacity: 0.5;
+}
+#spCarousel.carousel a.btn-primary:hover, #npCarousel.carousel a.btn-primary:hover {
+  opacity: 1;
+}
+#spCarousel .content_vAlign, #npCarousel .content_vAlign {
+  position: relative;
+  top: 48%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/******** end "specials/what's new" scroller css********/
+

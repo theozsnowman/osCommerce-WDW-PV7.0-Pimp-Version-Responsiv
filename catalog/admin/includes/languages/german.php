@@ -330,4 +330,7 @@ define('TEXT_LOGOFF', 'Abmelden');
 define('TEXT_LOG_IN_AS', 'Angemeldet als: ');
 
 define('BUTTON_SITEMAP_XML', 'Erzeuge Sitemap XML');
+
+// seo helper
+define('PLACEHOLDER_COMMA_SEPARATION', 'Getrennt, Mit, Komma');
 ?>

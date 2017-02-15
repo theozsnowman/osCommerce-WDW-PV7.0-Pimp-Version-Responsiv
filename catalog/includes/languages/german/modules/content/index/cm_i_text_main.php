@@ -13,7 +13,7 @@
   const MODULE_CONTENT_TEXT_MAIN_TITLE       = 'Bitte lesen';
   const MODULE_CONTENT_TEXT_MAIN_DESCRIPTION = 'Shows the "Text" module on your Index page.';
   
-  const MODULE_CONTENT_TEXT_MAIN_TEXT        = 'Hier läuft: <a target="_blank" href="https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv">https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv</a><br />
+  const MODULE_CONTENT_TEXT_MAIN_TEXT        = 'Hier läuft (mit PHP7.1.1 und MySQL 5.7): <a target="_blank" href="https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv">https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv</a><br />
   
   Basierend auf der Version: <a target="_blank" href="https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01">https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01</a><br /><br />
 
@@ -78,6 +78,7 @@
   - Category Popular Products Carousel v1.3<br />
   - Multiple Products Manager v2.7 (von WDW für diese Version angepasst)<br />
   - Protected Images for osC 2.3.4 (von WDW für diese Version angepasst)<br />
+  - Scroll Boxes V1.7 (von WDW für diese Version angepasst)<br />
   - Ultimate Seo Urls 5 for Responsive Oscommerce<br />
   - PDF Datasheet 1.2.3 Produkt Info als PDF Datei (von WDW für diese Version angepasst)<br /><br />
   ';
