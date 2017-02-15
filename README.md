@@ -1,6 +1,6 @@
-osCommerce WDW-PV7.0 Pimp Version Responsiv
-===========================================
-Based on osCommerce 2.3.4-Bootstrap-Responsiv
+osCommerce WDW-PV7.0 Pimp Version Responsive
+============================================
+Based on osCommerce 2.3.4-Bootstrap-Responsive
 
 - Don't forget all "filenames" and "folder's" are hardcoded.
 - btw: I like it, don't waste time for include more files.
