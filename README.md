@@ -43,7 +43,7 @@ Already changed
 - Frontend: Add function to acivate the awesome fonts icons
 - Backend: Online Catalog link now open in new page
 - Backend: Change the width of left column and the content
-- German languages installed (95% translation some small fixes still have to do)
+- German languages installed (97% translation some small fixes still have to do)
 
 Modified by Webdesign Wedel (WDW)
 =================================
@@ -66,6 +66,7 @@ Extensions included
 - Mailchimp Newsletter 2.02
 - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)
 - Modular Category Page v1.1
+- Corrected Version2.3.4 - German-UTF8<br />
 - Superfish Box 1.2.2
 - Categories Menu XS v1.2
 - Horizontal Categories Menu BS v1.3.1 (adapted by WDW for this version)

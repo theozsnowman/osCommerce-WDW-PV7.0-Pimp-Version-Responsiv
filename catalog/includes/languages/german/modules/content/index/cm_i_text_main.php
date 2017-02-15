@@ -51,7 +51,7 @@
 	- Frontend: Funktion add geändert um die awesome fonts icons anzuzeigen<br />
 	- Backend: Online Katalog Link wird jetzt in neuer Seite geöffnet<br />
 	- Backend: Die Breite der linken Spalte und des Inhalts geändert<br />
-	- Deutsche Sprache installiert (95% übersetzt)<br /><br />
+	- Deutsche Sprache installiert (97% übersetzt)<br /><br />
 
 	Geändert von Webdesign Wedel (WDW)<br />
 	- Produktbeschreibung bearbeitbar mit ckEditor<br />
@@ -73,6 +73,7 @@
   - Mailchimp Newsletter 2.02<br />
   - New Equal Height Header Tag Module (inklusiv jQuery 3.1.0 fix)<br />
   - Modular Category Page v1.1<br />
+  - Korrigierte Version2.3.4 - German-UTF8<br />
   - Superfish Box 1.2.2<br />
   - Categories Menu XS v1.2<br />
   - Horizontal Categories Menu BS v1.3.1 (adapted by WDW for this version)<br />

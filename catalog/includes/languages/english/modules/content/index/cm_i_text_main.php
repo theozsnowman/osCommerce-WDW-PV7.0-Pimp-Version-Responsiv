@@ -51,7 +51,7 @@
   - Frontend: Add function to acivate the awesome fonts icons<br />
   - Backend: Online Catalog link now open in new page<br />
   - Backend: Change the width of left column and the content<br />
-  - German languages installed (95% translation some small fixes still have to do)<br /><br />
+  - German languages installed (97% translation some small fixes still have to do)<br /><br />
 
 Modified by Webdesign Wedel (WDW)<br />
 	- Product description editable with ckEditor<br />
@@ -73,6 +73,7 @@ Extensions included<br />
   - Mailchimp Newsletter 2.02<br />
   - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)<br />
   - Modular Category Page v1.1<br />
+  - Corrected Version2.3.4 - German-UTF8<br />
   - Superfish Box 1.2.2<br />
   - Categories Menu XS v1.2<br />
   - Horizontal Categories Menu BS v1.3.1 (adapted by WDW for this version)<br />
