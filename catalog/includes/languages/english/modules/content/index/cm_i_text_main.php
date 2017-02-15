@@ -13,11 +13,12 @@
   const MODULE_CONTENT_TEXT_MAIN_TITLE       = 'Please Read';
   const MODULE_CONTENT_TEXT_MAIN_DESCRIPTION = 'Shows the "Text" module on your Index page.';
   
-  const MODULE_CONTENT_TEXT_MAIN_TEXT        = 'Here runs (with PHP7.1.1 and MySQL 5.7): <a target="_blank" href="https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv">https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv</a><br />
+  const MODULE_CONTENT_TEXT_MAIN_TEXT        = 'Here runs (with PHP7.1.1 and MySQL 5.7):<br />
+  <a target="_blank" href="https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv">https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv</a><br />
   
-  based on Version: <a target="_blank" href="https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01">https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01</a><br /><br />
-
   Don\'t forget all "filenames" and "some folder\'s" are hardcoded.<br /><br />
+	
+	Download this shop version <a href="https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv/archive/master.zip">here</a><br /><br />
 	
 	Questions and Support at our forum: <a target="_blank" href="https://forum.webdesign-wedel.de/index.php">https://forum.webdesign-wedel.de</a><br /><br />
 	
@@ -73,6 +74,8 @@ Extensions included<br />
   - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)<br />
   - Modular Category Page v1.1<br />
   - Superfish Box 1.2.2<br />
+  - Categories Menu XS v1.2<br />
+  - Horizontal Categories Menu BS v1.3.1 (adapted by WDW for this version)<br />
   - USU5 XML Site Maps (changed by WDW now jQuery modular)<br />
   - Category New Products Carousel v1.4<br />
   - Category Popular Products Carousel v1.3<br />

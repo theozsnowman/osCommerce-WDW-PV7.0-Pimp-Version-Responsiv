@@ -57,7 +57,7 @@
 		  
           $result .= str_repeat($this->spacer_string, $this->spacer_multiplier * $level);
   		  if (MODULE_CONTENT_HEADER_CATMENU_IMAGE == 'True') {
-			$result .=  tep_image('images/' . $category['image'], $category['name'], SMALL_IMAGE_WIDTH*0.5, SMALL_IMAGE_HEIGHT*0.5, 'style="display:inline-block;"') . '&nbsp;' . $link_title . (($caret != false) ? $caret : null) . '</a>';
+			$result .=  tep_image(DIR_WS_IMAGES_CAT . $category['image'], $category['name'], '30%', 'auto', 'style="display:inline-block;"') . '&nbsp;' . $link_title . (($caret != false) ? $caret : null) . '</a>';
 		  } else {
 			$result .= $link_title . (($caret != false) ? $caret : null) . '</a>';  
 		  }
@@ -65,7 +65,7 @@
             // show parent category link //
 		    if (MODULE_CONTENT_HEADER_CATMENU_PARENT_LINK == 'True') {
 				if (MODULE_CONTENT_HEADER_CATMENU_IMAGE == 'True') {
-					$root_link_title = tep_image('images/' . $category['image'], $category['name'], SMALL_IMAGE_WIDTH*0.5, SMALL_IMAGE_HEIGHT*0.5, 'style="display:inline-block;"') . '&nbsp;' . $link_title;
+					$root_link_title = tep_image(DIR_WS_IMAGES_CAT . $category['image'], $category['name'], '30%', 'auto', 'style="display:inline-block;"') . '&nbsp;' . $link_title;
 				} else {
 					$root_link_title =  '<span><span class="fa fa-list"></span>&nbsp;' . $link_title . '</span>';
 				}

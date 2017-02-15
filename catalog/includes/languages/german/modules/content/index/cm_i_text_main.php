@@ -13,13 +13,14 @@
   const MODULE_CONTENT_TEXT_MAIN_TITLE       = 'Bitte lesen';
   const MODULE_CONTENT_TEXT_MAIN_DESCRIPTION = 'Shows the "Text" module on your Index page.';
   
-  const MODULE_CONTENT_TEXT_MAIN_TEXT        = 'Hier läuft (mit PHP7.1.1 und MySQL 5.7): <a target="_blank" href="https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv">https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv</a><br />
+  const MODULE_CONTENT_TEXT_MAIN_TEXT        = 'Hier läuft (mit PHP7.1.1 und MySQL 5.7):<br />
+  <a target="_blank" href="https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv">https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv</a><br />
   
-  Basierend auf der Version: <a target="_blank" href="https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01">https://github.com/BrockleyJohn/Responsive-osCommerce/tree/php7_compatibility_01</a><br /><br />
-
   Vergessen Sie nicht, alle "Dateinamen" und "einige Inhaltverzeichnisse" sind hartcodiert.<br /><br />
 	
-	Fragen und Support in unserem Forum (nur in Englisch): <a target="_blank" href="https://forum.webdesign-wedel.de/index.php">https://forum.webdesign-wedel.de</a><br /><br />
+	Download dieser Shop Version <a href="https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv/archive/master.zip">hier</a><br /><br />
+
+	Fragen und Support in unserem Forum (im Moment nur in Englisch): <a target="_blank" href="https://forum.webdesign-wedel.de/index.php">https://forum.webdesign-wedel.de</a><br /><br />
 	
 	Helfen Sie, das Projekt weiter voranzubringen<br />
 	====================================<br />
@@ -73,6 +74,8 @@
   - New Equal Height Header Tag Module (inklusiv jQuery 3.1.0 fix)<br />
   - Modular Category Page v1.1<br />
   - Superfish Box 1.2.2<br />
+  - Categories Menu XS v1.2<br />
+  - Horizontal Categories Menu BS v1.3.1 (adapted by WDW for this version)<br />
   - USU5 XML Site Maps (von WDW geändert, öffnet jetzt jQuery modular)<br />
   - Category New Products Carousel v1.4<br />
   - Category Popular Products Carousel v1.3<br />
@@ -80,5 +83,6 @@
   - Protected Images for osC 2.3.4 (von WDW für diese Version angepasst)<br />
   - Scroll Boxes V1.7 (von WDW für diese Version angepasst)<br />
   - Ultimate Seo Urls 5 for Responsive Oscommerce<br />
+
   - PDF Datasheet 1.2.3 Produkt Info als PDF Datei (von WDW für diese Version angepasst)<br /><br />
   ';

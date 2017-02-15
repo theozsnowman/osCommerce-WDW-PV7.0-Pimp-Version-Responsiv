@@ -67,6 +67,8 @@ Extensions included
 - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)
 - Modular Category Page v1.1
 - Superfish Box 1.2.2
+- Categories Menu XS v1.2
+- Horizontal Categories Menu BS v1.3.1 (adapted by WDW for this version)
 - USU5 XML Site Maps (changed by WDW now jQuery modular)
 - Category New Products Carousel v1.4
 - Category Popular Products Carousel v1.3
