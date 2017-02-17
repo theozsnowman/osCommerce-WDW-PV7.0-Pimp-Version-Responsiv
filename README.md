@@ -42,7 +42,7 @@ Already changed
 - Frontend: Add function to acivate the awesome fonts icons
 - Backend: Online Catalog link now open in new page
 - Backend: Change the width of left column and the content
-- German languages installed (97% translation some small fixes still have to do)
+- German languages installed (98% translation)
 
 Modified by Webdesign Wedel (WDW)
 =================================
@@ -51,13 +51,15 @@ Modified by Webdesign Wedel (WDW)
 - Banner Manager editable with ckEditor
 - Newsletter editable with ckEditor
 - Send E-Mail to customer editable with ckEditor
+- Shop corresponds to Europe/German law
 - Modular Category Page (Template modified to dropdown)
 - Modular Sub Category Page (Template modified to dropdown)
 - Modular Index Page (Template modified to dropdown)
-- Show value in % on a Special product on every content
 - Overlay Images Discount (Turn on/off in the Admin)
 - New presentation of the product images with elevateZoom and fancybox
-- Show the incl/excl Vat Text
+- Show the incl/excl Vat Text at every price (turn on/off in Admin Configuration -> My Store)
+- Show shipping info (turn on/off in Admin Configuration -> My Store)
+- Show discount value in % on a special product (turn on/off in Admin Configuration -> My Store)
 
 Extensions included
 ===================
@@ -65,7 +67,7 @@ Extensions included
 - Mailchimp Newsletter 2.02
 - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)
 - Modular Category Page v1.1
-- Corrected Version2.3.4 - German-UTF8<br />
+- Corrected Version 2.3.4 - German-UTF8 (changes by WDW for this version)
 - Superfish Box 1.2.2
 - Categories Menu XS v1.2
 - Horizontal Categories Menu BS v1.3.1 (adapted by WDW for this version)
