@@ -1,6 +1,6 @@
 osCommerce WDW-PV7.0 Pimp Version Responsive
 ============================================
-Based on osCommerce 2.3.4-Bootstarp-Responsive
+Based on osCommerce 2.3.4-Bootstrap-Responsive
 
 - Don't forget all "filenames" and "folder's" are hardcoded.
 - btw: I like it, don't waste time for include more files.
@@ -43,7 +43,7 @@ Already changed
 - Frontend: German languages installed (99% translation)
 - Backend: Online Catalog link now open in new page
 - Backend: Change the width of left column and the content
-- Backend: Deutsche Sprache installiert (20% übersetzt)
+- Backend: Deutsche Sprache installiert (20% Ã¼bersetzt)
 
 Modified by Webdesign Wedel (WDW)
 =================================
