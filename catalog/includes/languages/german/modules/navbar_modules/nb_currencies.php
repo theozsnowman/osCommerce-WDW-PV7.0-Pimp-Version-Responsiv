@@ -13,4 +13,4 @@
   define('MODULE_NAVBAR_CURRENCIES_TITLE', 'Währungen');
   define('MODULE_NAVBAR_CURRENCIES_DESCRIPTION', 'Show Currencies in Navbar. <div class="secWarning">If you have just one Currency in your shop, there is no point installing this module.</div>');
   
-  define('MODULE_NAVBAR_CURRENCIES_SELECTED_CURRENCY', '<abbr title="Ausgewählte Währung">W:</abbr> %s <span class="caret"></span>');
+  define('MODULE_NAVBAR_CURRENCIES_SELECTED_CURRENCY', '<span class="fa fa-fw fa-money"></span> %s <span class="caret"></span>');
