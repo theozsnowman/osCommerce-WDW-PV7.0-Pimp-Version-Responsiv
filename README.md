@@ -40,9 +40,10 @@ Already changed
 - Frontend: Add margin-bottom: 20px; to the #bodyContent >>> better margin after the content
 - Frontend: Change function to acivate the awesome fonts icons
 - Frontend: Add function to acivate the awesome fonts icons
+- Frontend: German languages installed (99% translation)
 - Backend: Online Catalog link now open in new page
 - Backend: Change the width of left column and the content
-- German languages installed (98% translation)
+- Backend: Deutsche Sprache installiert (20% übersetzt)
 
 Modified by Webdesign Wedel (WDW)
 =================================
