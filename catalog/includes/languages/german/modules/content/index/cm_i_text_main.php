@@ -67,6 +67,7 @@
 	- Overlay Bild Rabatt (Ein-/Ausschalten im Admin)<br />
 	- Produkt Bilder im Warenkorb<br />
 	- Produkt Bilder auf der "Kostenpflichtig Bestellen" Seite<br />
+	- Neue Präsentation der Produktbilder mit elevateZoom und fancybox<br />
 	- Neuer Bilderpfad basierend auf Protected Images für osC 2.3.4 (von WDW für diese Version angepasst)<br />
 	- Zeig inkl/exkl MwSt Text (ein-/ausschalten im Admin Configuration -> My Store)<br />
 	- Zeige Versand Info (ein-/ausschalten im Admin Configuration -> My Store)<br />
