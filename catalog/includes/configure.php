@@ -49,6 +49,7 @@
   define('FILENAME_CREATE_ACCOUNT', 'create_account.php');
   define('FILENAME_SHOPPING_CART', 'shopping_cart.php');
   define('FILENAME_CHECKOUT_PAYMENT', 'checkout_payment.php');
+  define('FILENAME_CHECKOUT_SUCCESS', 'checkout_success.php');
   define('FILENAME_CHECKOUT_PROCESS', 'checkout_process.php');
   define('FILENAME_CHECKOUT_CONFIRMATION', 'checkout_confirmation.php');
   

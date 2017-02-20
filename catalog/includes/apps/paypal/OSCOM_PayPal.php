@@ -14,33 +14,9 @@
     var $_code = 'paypal';
     var $_title = 'PayPal App';
     var $_version;
-    var $_api_version = '112';
+    var $_api_version = '204';
+    var $_identifier = 'osCommerce_PPapp_v5';
     var $_definitions = array();
-
-    function isReqApiCountrySupported($country_id) {
-      $country_query = tep_db_query("select countries_iso_code_2 from countries where countries_id = '" . (int)$country_id . "'");
-      $country = tep_db_fetch_array($country_query);
-
-      return in_array($country['countries_iso_code_2'], $this->getReqApiCountries());
-    }
-
-    function getReqApiCountries() {
-      static $countries;
-
-      if ( !isset($countries) ) {
-        $countries = array();
-
-        foreach ( file(DIR_FS_CATALOG . 'includes/apps/paypal/req_api_countries.txt') as $c ) {
-          $c = trim($c);
-
-          if ( !empty($c) ) {
-            $countries[]= $c;
-          }
-        }
-      }
-
-      return $countries;
-    }
 
     function log($module, $action, $result, $request, $response, $server, $is_ipn = false) {
       global $customer_id;
@@ -281,11 +257,11 @@
     }
 
     function getApiCredentials($server, $type) {
-      if ( $server == 'live' ) {
+      if ( ($server == 'live') && defined('OSCOM_APP_PAYPAL_LIVE_API_' . strtoupper($type)) ) {
         return constant('OSCOM_APP_PAYPAL_LIVE_API_' . strtoupper($type));
+      } elseif ( defined('OSCOM_APP_PAYPAL_SANDBOX_API_' . strtoupper($type)) ) {
+        return constant('OSCOM_APP_PAYPAL_SANDBOX_API_' . strtoupper($type));
       }
-
-      return constant('OSCOM_APP_PAYPAL_SANDBOX_API_' . strtoupper($type));
     }
 
     function getParameters($module) {
@@ -347,7 +323,7 @@
         $cfg = new $cfg_class();
 
         if ( !defined($key) ) {
-          $this->saveParameter($key, $cfg->default);
+          $this->saveParameter($key, $cfg->default, isset($cfg->title) ? $cfg->title : null, isset($cfg->description) ? $cfg->description : null, isset($cfg->set_func) ? $cfg->set_func : null);
         }
 
         if ( !isset($cfg->app_configured) || ($cfg->app_configured !== false) ) {
@@ -593,20 +569,20 @@
           $description = 'A parameter for the PayPal Application.';
         }
 
-        tep_db_query("insert into configuration (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('" . tep_db_input($title) . "', '" . tep_db_input($key) . "', '" . tep_db_input($value) . "', '" . tep_db_input($description) . "', '6', '0', now())");
+        tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('" . tep_db_input($title) . "', '" . tep_db_input($key) . "', '" . tep_db_input($value) . "', '" . tep_db_input($description) . "', '6', '0', now())");
 
         if ( isset($set_func) ) {
-          tep_db_query("update configuration set set_function = '" . tep_db_input($set_func) . "' where configuration_key = '" . tep_db_input($key) . "'");
+          tep_db_query("update " . TABLE_CONFIGURATION . " set set_function = '" . tep_db_input($set_func) . "' where configuration_key = '" . tep_db_input($key) . "'");
         }
 
         define($key, $value);
       } else {
-        tep_db_query("update configuration set configuration_value = '" . tep_db_input($value) . "' where configuration_key = '" . tep_db_input($key) . "'");
+        tep_db_query("update " . TABLE_CONFIGURATION . " set configuration_value = '" . tep_db_input($value) . "' where configuration_key = '" . tep_db_input($key) . "'");
       }
     }
 
     function deleteParameter($key) {
-      tep_db_query("delete from configuration where configuration_key = '" . tep_db_input($key) . "'");
+      tep_db_query("delete from " . TABLE_CONFIGURATION . " where configuration_key = '" . tep_db_input($key) . "'");
     }
 
     function formatCurrencyRaw($total, $currency_code = null, $currency_value = null) {
@@ -647,6 +623,10 @@
 
     function getApiVersion() {
       return $this->_api_version;
+    }
+
+    function getIdentifier() {
+      return $this->_identifier;
     }
 
     function hasAlert() {
@@ -733,7 +713,7 @@
     }
 
     function uninstall($module) {
-      tep_db_query("delete from configuration where configuration_key like 'OSCOM_APP_PAYPAL_" . tep_db_input($module) . "_%'");
+      tep_db_query("delete from " . TABLE_CONFIGURATION . " where configuration_key like 'OSCOM_APP_PAYPAL_" . tep_db_input($module) . "_%'");
 
       $m_class = 'OSCOM_PayPal_' . $module;
 
