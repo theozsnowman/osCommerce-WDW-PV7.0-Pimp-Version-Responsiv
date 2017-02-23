@@ -13,7 +13,7 @@
   const MODULE_CONTENT_TEXT_MAIN_TITLE       = 'Bitte lesen';
   const MODULE_CONTENT_TEXT_MAIN_DESCRIPTION = 'Shows the "Text" module on your Index page.';
   
-  const MODULE_CONTENT_TEXT_MAIN_TEXT        = 'Hier läuft (mit PHP7.1.1 und MySQL 5.7):<br />
+  const MODULE_CONTENT_TEXT_MAIN_TEXT        = 'Hier läuft:<br />
   <a target="_blank" href="https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv">https://github.com/mcmannehan/osCommerce-WDW-PV7.0-Pimp-Version-Responsiv</a><br />
   
   Vergessen Sie nicht, alle "Dateinamen" und "einige Inhaltverzeichnisse" sind hartcodiert.<br /><br />

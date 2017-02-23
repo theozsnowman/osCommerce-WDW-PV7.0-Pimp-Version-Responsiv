@@ -120,8 +120,8 @@
       	$manufacturer_query = tep_db_query("select manufacturers_name from " . TABLE_MANUFACTURERS . " where manufacturers_id = '" . (int)$product_info['manufacturers_id'] . "'");
       	if (tep_db_num_rows($manufacturer_query)) {
         	$manufacturer = tep_db_fetch_array($manufacturer_query);
-        	$wdw_manufacturer = MODULE_HEADER_TAGS_WDW_EASYTABS_PRODUCT_MANUFACTURER . ': <span itemprop="manufacturer" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="' . tep_output_string($manufacturer['manufacturers_name']) . '" />' . tep_output_string($manufacturer['manufacturers_name']) . '</span>';
-        	$wdw_manufacturer_name = tep_output_string($manufacturer['manufacturers_name']);
+        	$wdw_manufacturer = MODULE_HEADER_TAGS_WDW_EASYTABS_PRODUCT_MANUFACTURER . ': <span itemprop="manufacturer" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="' . tep_output_string($manufacturer['manufacturers_name']) . '" />' . '<a href="' . tep_href_link('index.php', 'manufacturers_id=' . (int)$product_info['manufacturers_id']) . '">' . $manufacturer['manufacturers_name'] . '</a></span>';
+        	$wdw_manufacturer_name = '<a href="' . tep_href_link('index.php', 'manufacturers_id=' . (int)$product_info['manufacturers_id']) . '">' . $manufacturer['manufacturers_name'] . '</a>';
       	}
     	}
 			

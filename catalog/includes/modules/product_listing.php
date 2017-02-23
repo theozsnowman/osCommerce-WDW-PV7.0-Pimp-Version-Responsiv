@@ -108,33 +108,13 @@
   while ($listing = tep_db_fetch_array($listing_query)) {
     $prod_list_contents .= '<div class="item list-group-item col-sm-4" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product">';
 	  $prod_list_contents .= '  <div class="productHolder equal-height">';
-
+    
     if (PRODUCT_LIST_IMAGE > 0) {
-    	$image = ''; 
-    	$image_overlay_sales = '';
-      
-      if ($listing['image_display'] == 1) {
-      	if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
-       		if (tep_not_null($listing['specials_new_products_price'])) {
-       			$image_overlay_sales = '<div class="wdw_div wdw_overlay_sale_position_absolute">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; padding-bottom: 11px;"') . '</div>';
-      		}
-      	}
-       	$image = tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . $image_overlay_sales;
-      } elseif (($listing['image_display'] != 2) && tep_not_null($listing['products_image'])) {     	
-      	if ( DISPLAY_OVERLAY_IMAGES_SALES == 'true') {
-      		if (tep_not_null($listing['specials_new_products_price'])) {
-        		$image_overlay_sales = '<div class="wdw_div wdw_overlay_sale_position_absolute">' . tep_image('includes/languages/' . $_SESSION['language'] . '/images/' . 'overlay-sale.png', IMAGE_SALE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0px; padding-bottom: 11px;"') . '</div>';
-      		}
-      	}
-      	$image = tep_image(DIR_WS_IMAGES_THUMBS . $listing['image_folder'] . $listing['products_image'], $listing['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"', NULL, 'img-responsive thumbnail group list-group-image') . $image_overlay_sales;
-      }
-      
       if (isset($_GET['manufacturers_id'])  && tep_not_null($_GET['manufacturers_id'])) {
-        $prod_list_contents .= '    <a href="' . tep_href_link('product_info.php', 'manufacturers_id=' . $_GET['manufacturers_id'] . '&products_id=' . $listing['products_id']) . '">' . $image . '</a>';
+        $prod_list_contents .= '    <a href="' . tep_href_link('product_info.php', 'manufacturers_id=' . $_GET['manufacturers_id'] . '&products_id=' . $listing['products_id']) . '">' . tep_image('images/' . $listing['products_image'], $listing['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"', NULL, 'img-responsive thumbnail group list-group-image') . '</a>';
       } else {
-        $prod_list_contents .= '    <a href="' . tep_href_link('product_info.php', (isset($sort) ? 'sort=' . $sort . '&' : '') . ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $listing['products_id']) . '">' . $image . '</a>';
+        $prod_list_contents .= '    <a href="' . tep_href_link('product_info.php', (isset($sort) ? 'sort=' . $sort . '&' : '') . ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $listing['products_id']) . '">' . tep_image('images/' . $listing['products_image'], $listing['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'itemprop="image"', NULL, 'img-responsive thumbnail group list-group-image') . '</a>';
       }
-      // EOM
     }
     
     $prod_list_contents .= '    <div class="caption">';
@@ -177,29 +157,17 @@
 
 	  if ( (PRODUCT_LIST_PRICE > 0) || (PRODUCT_LIST_BUY_NOW > 0) ) {
       $prod_list_contents .= '      <div class="row">';
-     
+    
       if (PRODUCT_LIST_PRICE > 0) {
-      	
-      	$wdw_vat = ( DISPLAY_TAX_INFO == 'true' ) ? ( DISPLAY_PRICE_WITH_TAX == 'true' ) ? '<br /><div class="wdw_vat_text">'. sprintf(TEXT_INCL_VAT, tep_get_tax_rate($listing['products_tax_class_id']).'%') . '</div>' : '<br /><div class="wdw_vat_text">' . TEXT_EXCL_VAT . '</div>' : '';
-   			$wdw_shipping = ( DISPLAY_SHIPPING_INFO == 'true' ) ?  '<div class="wdw_shipping_text">' . TEXT_SHIPPING . '</div>' : '';
-        
         if (tep_not_null($listing['specials_new_products_price'])) {
-        	if ( DISPLAY_DISCOUNT_INFO == 'true' ) {
-    				//Formular --->>>> Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100
-    				$OldPrice = $currencies->display_raw($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id']));
-    				$NewPrice = $currencies->display_raw($listing['specials_new_products_price'], tep_get_tax_rate($listing['products_tax_class_id']));
-    				$Percent = (($NewPrice - $OldPrice) / $OldPrice) * 100;
-    				$PercentRound = '<br />' . round($Percent, TAX_DECIMAL_PLACES) . '%';
-    			}
-    			
-          $prod_list_contents .= '      <div class="col-xs-6" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="priceCurrency" content="' . tep_output_string($currency) . '" /><div class="btn-group" role="group"><button type="button" class="btn btn-default"><del>' .  $currencies->display_price($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '</del></span>&nbsp;&nbsp;<span class="productSpecialPrice" itemprop="price" content="' . $currencies->display_raw($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '">' . $currencies->display_price($listing['specials_new_products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . $PercentRound . $wdw_vat . $wdw_shipping . '</span></button></div></div>';
+          $prod_list_contents .= '      <div class="col-xs-6" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="priceCurrency" content="' . tep_output_string($currency) . '" /><div class="btn-group" role="group"><button type="button" class="btn btn-default"><del>' .  $currencies->display_price($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '</del></span>&nbsp;&nbsp;<span class="productSpecialPrice" itemprop="price" content="' . $currencies->display_raw($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '">' . $currencies->display_price($listing['specials_new_products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '</span></button></div></div>';
         } else {
-        	$prod_list_contents .= '      <div class="col-xs-6" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="priceCurrency" content="' . tep_output_string($currency) . '" /><div class="btn-group" role="group"><button type="button" class="btn btn-default"><span itemprop="price" content="' . $currencies->display_raw($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '">' . $currencies->display_price($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . $wdw_vat . $wdw_shipping . '</span></button></div></div>';
+          $prod_list_contents .= '      <div class="col-xs-6" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="priceCurrency" content="' . tep_output_string($currency) . '" /><div class="btn-group" role="group"><button type="button" class="btn btn-default"><span itemprop="price" content="' . $currencies->display_raw($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '">' . $currencies->display_price($listing['products_price'], tep_get_tax_rate($listing['products_tax_class_id'])) . '</span></button></div></div>';
         }
       }
     
       if (PRODUCT_LIST_BUY_NOW > 0) {
-        $prod_list_contents .= '       <div class="col-xs-6 text-right">' . tep_draw_button(wordwrap(IMAGE_BUTTON_BUY_NOW, 8, "<br />" ), 'fa fa-shopping-cart', tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action', 'products_id')) . 'action=buy_now&products_id=' . $listing['products_id']), NULL, NULL, 'btn-success btn-sm') . '</div>';
+        $prod_list_contents .= '       <div class="col-xs-6 text-right">' . tep_draw_button(IMAGE_BUTTON_BUY_NOW, 'fa fa-shopping-cart', tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')) . 'action=buy_now&products_id=' . $listing['products_id']), NULL, NULL, 'btn-success btn-sm btn-product-listing btn-buy') . '</div>';
       }
       $prod_list_contents .= '      </div>';
     }
