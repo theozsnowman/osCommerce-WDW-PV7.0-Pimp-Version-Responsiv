@@ -74,7 +74,7 @@
 	- Zeige Rabtt in % bei jedem Produkt Angebot (ein-/ausschalten im Admin Configuration -> My Store)<br /><br />
  
 	Enthaltene Erweiterungen<br />
-	- WDW EasyTabs 1.0.0<br />
+	- WDW EasyTabs 1.0.1<br />
   - TCPDF 6.2.13<br />
   - Mailchimp Newsletter 2.02<br />
   - New Equal Height Header Tag Module (inklusiv jQuery 3.1.0 fix)<br />

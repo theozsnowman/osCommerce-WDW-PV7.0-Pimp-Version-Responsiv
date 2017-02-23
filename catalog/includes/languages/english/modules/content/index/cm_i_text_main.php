@@ -74,7 +74,7 @@ Modified by Webdesign Wedel (WDW)<br />
 	- Show discount value in % on a special product (turn on/off in Admin Configuration -> My Store)<br /><br />
  
 Extensions included<br />
-	- WDW EasyTabs 1.0.0<br />
+	- WDW EasyTabs 1.0.1<br />
   - TCPDF 6.2.13<br />
   - Mailchimp Newsletter 2.02<br />
   - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)<br />
