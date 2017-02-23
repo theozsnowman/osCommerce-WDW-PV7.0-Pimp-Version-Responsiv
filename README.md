@@ -114,7 +114,7 @@ Minimum PHP Version
 ===================
 PHP7.0 If you are on an older PHP version, you may find errors.  Update your PHP version.
 
-Demo Site runs with PHP7.1.1 and MySQL 5.7
+Demo Site runs with PHP7.1.2 and MySQL 5.7
 ==========================================
 Check out the demo site at https://osc.webdesign-wedel.de
 More or less, this is how Responsive osCommerce looks after the WDW-PV7.0!
