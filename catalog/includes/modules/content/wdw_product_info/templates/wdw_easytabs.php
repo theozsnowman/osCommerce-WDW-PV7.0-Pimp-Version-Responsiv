@@ -22,7 +22,7 @@
   <div id="tabs2" class="easy-tabs">
     <?php
     	echo MODULE_HEADER_TAGS_WDW_EASYTABS_PRODUCT_MODEL . ': ' . $product_info['products_model'] . '<br />';
-    	echo $wdw_manufacturer. '<br />';
+    	echo $wdw_manufacturer;
     	echo MODULE_HEADER_TAGS_WDW_EASYTABS_PRODUCT_QUANTITY . ': ' . $product_info['products_quantity'] . '<br />';
     	echo MODULE_HEADER_TAGS_WDW_EASYTABS_PRODUCT_WEIGHT_TEXT . ': ' . $product_info['products_weight'] . ' ' .MODULE_HEADER_TAGS_WDW_EASYTABS_PRODUCT_WEIGHT_VALUE . '<br />';
     	echo MODULE_HEADER_TAGS_WDW_EASYTABS_PRODUCT_DATE_ADDED . ': ' . tep_date_long($product_info['products_date_added']) . '<br />';

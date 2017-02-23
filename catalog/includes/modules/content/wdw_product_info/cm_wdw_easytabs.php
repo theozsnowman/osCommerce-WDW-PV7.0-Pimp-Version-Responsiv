@@ -117,10 +117,18 @@
 			}
 
 			if ($product_info['manufacturers_id'] > 0) {
-      	$manufacturer_query = tep_db_query("select manufacturers_name from " . TABLE_MANUFACTURERS . " where manufacturers_id = '" . (int)$product_info['manufacturers_id'] . "'");
+      	$manufacturer_query = tep_db_query("select manufacturers_name, manufacturers_image from " . TABLE_MANUFACTURERS . " where manufacturers_id = '" . (int)$product_info['manufacturers_id'] . "'");
       	if (tep_db_num_rows($manufacturer_query)) {
         	$manufacturer = tep_db_fetch_array($manufacturer_query);
-        	$wdw_manufacturer = MODULE_HEADER_TAGS_WDW_EASYTABS_PRODUCT_MANUFACTURER . ': <span itemprop="manufacturer" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="' . tep_output_string($manufacturer['manufacturers_name']) . '" />' . '<a href="' . tep_href_link('index.php', 'manufacturers_id=' . (int)$product_info['manufacturers_id']) . '">' . $manufacturer['manufacturers_name'] . '</a></span>';
+        	
+        	$image = '';
+    			if (tep_not_null($manufacturer['manufacturers_image'])) {
+    				$image = tep_image(DIR_WS_IMAGES_MFG . $manufacturer['manufacturers_image'], $manufacturer['manufacturers_name'], '', '', 'style="margin-left: 0;"');
+    			} else {
+    				$image = tep_image('includes/languages/' . $language . '/images/' . 'no_picture.gif', TEXT_NO_PICTURE, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'style="margin-left: 0;"');
+    			}
+        	
+        	$wdw_manufacturer = MODULE_HEADER_TAGS_WDW_EASYTABS_PRODUCT_MANUFACTURER . ': <span itemprop="manufacturer" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="' . tep_output_string($manufacturer['manufacturers_name']) . '" />' . '<a href="' . tep_href_link('index.php', 'manufacturers_id=' . (int)$product_info['manufacturers_id']) . '">' . $manufacturer['manufacturers_name'] . $image . '</a></span>';
         	$wdw_manufacturer_name = '<a href="' . tep_href_link('index.php', 'manufacturers_id=' . (int)$product_info['manufacturers_id']) . '">' . $manufacturer['manufacturers_name'] . '</a>';
       	}
     	}
