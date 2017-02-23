@@ -60,6 +60,7 @@ Modified by Webdesign Wedel (WDW)
 
 Extensions included
 ===================
+- WDW EasyTabs 1.0.0.zip
 - TCPDF 6.2.13
 - Mailchimp Newsletter 2.02
 - New Equal Height Header Tag Module (includes jQuery 3.1.0 fix)
