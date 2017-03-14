@@ -1,6 +1,6 @@
 osCommerce WDW-PV7.0 Pimp Version Responsive
 ============================================
-BrockleyJohn/Responsive-osCommerce forked from gburton/Responsive-osCommerce
+Based: BrockleyJohn/Responsive-osCommerce forked from gburton/Responsive-osCommerce
 
 - Don't forget all "filenames" and "folder's" are hardcoded.
 
